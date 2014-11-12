@@ -4,18 +4,18 @@
 -->
 <HTML>
 <HEAD>
-    <TITLE>Overview of Fortress Demo # 2</TITLE>
+    <TITLE>Apache Fortress Web Security Demo</TITLE>
 </HEAD>
 <BODY>
 <p>
-    <h3>Overview of Fortress Demo # 2 End-to-End Web Security</h3>
+    <h3>Demo Overview</h3>
     The tutorial provides a how-to guide for applying end-to-end security enforcement across a  sample Java Web environment.
     Security concerns covered are authentication, authorization, confidentiality and audit trail.
     Both declarative and programmatic enforcement controls will be used.
     <br><br>
     More info here: <a href="./doc-files/AnatomyOfSecureWebApp.pdf">The Anatomy of a Secure Web App</a>
 <hr>
-<h4>Fortress Demo # 2 Installation Instructions</h4>
+<h4>Demo Installation Instructions</h4>
 Tutorial installation requires completion of these sections:
 <ol type="I">
     <li><a href="./doc-files/I-opensslheartbleed.html">Heartbleed Bug</a></li>
@@ -29,7 +29,7 @@ Tutorial installation requires completion of these sections:
 </ol>
 </p>
 <hr>
-<h4>Fortress Demo # 2 Web Security System Overview</h4>
+<h4>Demo Security Architecture Overview</h4>
 The following block diagram illustrates the layered approach used to enforce security in this tutorial:
 <br><br>
 <img src="./doc-files/Demo2-Block-Diagram.png" height="400" width="600">
@@ -44,7 +44,7 @@ The following block diagram illustrates the layered approach used to enforce sec
     <li><a href="https://www.mozilla.org/en-GB/firefox/new/">Firefox Web Browser</a></li>
 </ol>
 <hr>
-<h4>Getting Started - How to generate the tutorial's how-to guide</h4>
+<h4>Getting Started - Generating the tutorial's how-to guide</h4>
 This tutorial uses javadoc that is contained within the apache-fortress-demo web application.  To generate, follow these instructions:
 <ol type="1">
     <li>Download the <a href="https://github.com/shawnmckinney/apache-fortress-demo/archive/master.zip">apache-fortress-demo source bundle</a>  from GitHub</li>
@@ -59,13 +59,13 @@ $ $M2_HOME/bin/mvn javadoc:javadoc
                 </pre>
     </li>
     <li>Open the help document: /*package home*/target/site/apidocs/overview-summary.html</li>
-    <li>Complete the sections under <b>Fortress Demo # 2 Installation Instructions</b></li>
+    <li>Complete the sections under <b>Demo Installation Instructions</b> section</li>
 </ol>
 <hr>
 <h4>Infrastructure Installed</h4>
 <ol type="1">
-    <li><a href="http://www.openldap.org/">OpenLDAP Directory Server</a></li>
-    <li><a href="http://www.openldap.org/fortress/">OpenLDAP Fortress RBAC SDK</a></li>
+    <li><a href="http://directory.apache.org/apacheds/">Apache Directory Server</a></li>
+    <li><a href="http://directory.apache.org/fortress/">Apache Fortress RBAC SDK</a></li>
     <li><a href="http://www.mysql.com/">MySQL Database Manager</a></li>
     <li><a href="http://tomcat.apache.org/">Apache Tomcat Servlet Container</a></li>
 </ol>
@@ -86,6 +86,6 @@ This sample Web application shows how-to do the following:
 </ol>
 <hr>
 These concepts apply to other Web application infrastructure configurations.
-If you find security flaws, or have questions about Fortress, submit to <a href="http://www.openldap.org/lists/mm/listinfo/openldap-fortress">OpenLDAP Fortress Discussion list</a>.
+If you find security flaws, or have questions about Apache Fortress, submit to <a href="http://mail-archives.apache.org/mod_mbox/directory-fortress/">Apache Fortress Discussion list</a>.
 </BODY>
 </HTML>

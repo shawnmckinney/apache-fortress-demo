@@ -24,7 +24,7 @@
    </head>
    <body>
       <p>
-      <h3>Section IV - Install Apache Fortress</h3>
+      <h3>Section IV - Install Fortress Core</h3>
       <img src="fortress100.gif">
       <br><br>This section provides instructions to install and configure Fortress & OpenLDAP and enable SSL traffic between them.
       <h4>Steps to install the Fortress security system</h4>
@@ -52,7 +52,7 @@
               Set M2_HOME:
             <pre>
                 <p style="font: monospace; color: black; background-color: lightgrey; font-size: 10pt">
-                    # export M2_HOME=../builder/apache-maven/
+# export M2_HOME=../builder/apache-maven/
                 </p>
             </pre>
           </li>
@@ -61,7 +61,7 @@
               Build fortress core with maven and install to local repo (needed by demo app later on):
                 <pre>
                     <p style="font: monospace; color: black; background-color: lightgrey; font-size: 10pt">
-                        # $M2_HOME/bin/mvn clean install -DskipTests=true
+# $M2_HOME/bin/mvn clean install -DskipTests=true
                     </p>
                 </pre>
           </li>
