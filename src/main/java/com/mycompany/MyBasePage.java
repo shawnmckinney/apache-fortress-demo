@@ -33,7 +33,7 @@ import java.security.Principal;
 import java.util.List;
 
 /**
- * Base class for fortressdemo2 Wicket sample project.  It contains security control functions to demonstrate ANSI
+ * Base class for apache-fortress-demo Wicket sample project.  It contains security control functions to demonstrate ANSI
  * RBAC security concepts.
  *
  * @author Shawn McKinney

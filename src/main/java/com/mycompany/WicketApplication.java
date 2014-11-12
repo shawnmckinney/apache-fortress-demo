@@ -16,7 +16,7 @@ import org.apache.wicket.request.cycle.RequestCycle;
 import org.apache.wicket.spring.injection.annot.SpringComponentInjector;
 
 /**
- * fortressdemo2 Wicket home.
+ * apache-fortress-demo Wicket home.
  *
  * @author Shawn McKinney
  * @version $Rev$

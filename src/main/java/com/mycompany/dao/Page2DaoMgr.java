@@ -15,7 +15,7 @@ import java.io.Serializable;
 import java.util.List;
 
 /**
- * Example Page DAO Impl for fortressdemo2 Wicket sample project.  It is used to demonstrate data level security capabilities.
+ * Example Page DAO Impl for apache-fortress-demo Wicket sample project.  It is used to demonstrate data level security capabilities.
  *
  * @author Shawn McKinney
  * @version $Rev$

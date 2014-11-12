@@ -6,7 +6,7 @@
          xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
          version="2.5">
 
-    <display-name>FortressDemo2 in Cloud Foundry</display-name>
+    <display-name>Apache Fortress Demo</display-name>
 
     <!-- SPRING config: -->
     <context-param>
@@ -92,6 +92,10 @@
             <form-error-page>/login/error.html</form-error-page>
         </form-login-config>
     </login-config>
+    <!-- This role is required for all -->
+    <security-role>
+        <role-name>DEMO2_USER</role-name>
+    </security-role>
     <!-- These security roles are declared in order to be used by Spring Security's FilterSecurityInterceptor - see applicationContext.xml -->
     <security-role>
         <role-name>ROLE_DEMO2_SUPER_USER</role-name>

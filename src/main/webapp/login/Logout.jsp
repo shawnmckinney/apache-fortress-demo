@@ -4,7 +4,7 @@
   <%session.invalidate();%>
   <%
   HttpServletResponse res = (HttpServletResponse) response;
-  res.sendRedirect("/fortressdemo2");
+  res.sendRedirect("/apache-fortress-demo");
   %>
 </body>
 </html>

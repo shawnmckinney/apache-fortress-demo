@@ -3,7 +3,7 @@
   -->
 <html>
    <head>
-      <title>Package Documentation for com.mycompany web app demo</title>
+       <title>Apache Fortress End-to-End Web App Security Tutorial</title>
        <hr>
        <fieldset>
            <legend><b>Navigation Links</b></legend>
@@ -22,13 +22,13 @@
        <hr>
    </head>
    <body>
-      <h3>Section VIII - Install Fortress Demo #2</h3>
+      <h3>Section VIII - Install Fortress Sample Web Demo Application</h3>
       <img src="./Demo2-Block-Diagram.png" height="400" width="600">
       <h4>This section describes the installation and usage of the Fortress Demo #2 Web application</h4>
 
       <ol>
           <li>
-                  Download the <a href="https://github.com/shawnmckinney/fortressdemo2/archive/master.zip">Fortress Demo #2 source bundle</a>.
+                  Download the <a href="https://github.com/shawnmckinney/apache-fortress-demo/archive/master.zip">Fortress Demo #2 source bundle</a>.
           </li>
 
           <br>
@@ -47,7 +47,7 @@
             Extract:
             <pre>
                 <p style="font: monospace; color: black; background-color: lightgrey; font-size: 10pt">
-# $JAVA_HOME/bin/jar -xf fortressdemo2-master.zip
+# $JAVA_HOME/bin/jar -xf apache-fortress-demo-master.zip
                 </p>
             </pre>
           </li>
@@ -56,7 +56,7 @@
               Change directory:
             <pre>
                 <p style="font: monospace; color: black; background-color: lightgrey; font-size: 10pt">
-# cd fortressdemo2-master/
+# cd apache-fortress-demo-master/
                 </p>
             </pre>
           </li>
@@ -144,15 +144,15 @@ trust.store.set.prop=true
               <ol type="a">
                   <li>
                       non-SSL -
-                      local: <a href="http://localhost:8080/fortressdemo2">http://localhost:8080/fortressdemo2</a>,
-                      remote: <a href="http://fortressdemo2.com:8080/fortressdemo2">http://fortressdemo2.com:8080/fortressdemo2</a>
+                      local: <a href="http://localhost:8080/apache-fortress-demo">http://localhost:8080/apache-fortress-demo</a>,
+                      remote: <a href="http://fortressdemo2.com:8080/apache-fortress-demo">http://fortressdemo2.com:8080/apache-fortress-demo</a>
                       <br>
                   </li>
                   <br>
                   <li>
                       SSL -
-                      local: <a href="https://localhost:8443/fortressdemo2">https://localhost:8443/fortressdemo2</a>,
-                      remote: <a href="https://fortressdemo2.com:8443/fortressdemo2">https://fortressdemo2.com:8443/fortressdemo2</a>
+                      local: <a href="https://localhost:8443/apache-fortress-demo">https://localhost:8443/apache-fortress-demo</a>,
+                      remote: <a href="https://fortressdemo2.com:8443/apache-fortress-demo">https://fortressdemo2.com:8443/apache-fortress-demo</a>
                   </li>
                   <br>
                   Accept the self-signed certificate when the warning dialog appears.
@@ -172,7 +172,7 @@ trust.store.set.prop=true
           </li>
 
           <li>
-              Try the various user accounts.  The RBAC policy is automatically loaded into LDAP using <b>fortressdemo2-load-policy.xml</b> during web deployment step.
+              Try the various user accounts.  The RBAC policy is automatically loaded into LDAP using <b>apache-fortress-demo-load-policy.xml</b> during web deployment step.
               View audit trail changes using Commander.
               <ol type="a">
                   <br>

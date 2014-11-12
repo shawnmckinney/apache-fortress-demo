@@ -18,13 +18,13 @@ import org.openqa.selenium.firefox.FirefoxProfile;
 /**
  * This class uses apache selenium firefox driver to drive commander web ui
  */
-public class FortressDemo2SeleniumITCase
+public class ApacheFortressDemoSeleniumITCase
 {
     private WebDriver driver;
     private String baseUrl;
     private boolean acceptNextAlert = true;
     private StringBuffer verificationErrors = new StringBuffer();
-    private static final Logger LOG = Logger.getLogger( FortressDemo2SeleniumITCase.class.getName() );
+    private static final Logger LOG = Logger.getLogger( ApacheFortressDemoSeleniumITCase.class.getName() );
 
     @Before
     public void setUp() throws Exception
@@ -36,9 +36,9 @@ public class FortressDemo2SeleniumITCase
 
         // Use test local default:
         baseUrl = "http://localhost:8080";
-        //baseUrl = "http://fortressdemo2.com:8080";
+        //baseUrl = "http://apache-fortress-demo.com:8080";
         //baseUrl = "https://fortressdemo2.com:8443";
-        baseUrl += "/fortressdemo2";
+        baseUrl += "/apache-fortress-demo";
         driver.manage().timeouts().implicitlyWait( 2500, TimeUnit.MILLISECONDS );
     }
 

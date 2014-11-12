@@ -15,7 +15,7 @@ _____________________________________________________________________________
 #############################################################################
 # Instructions for downloading app and generating the install doc:
 #############################################################################
-1. Download package: https://github.com/shawnmckinney/fortressdemo2/archive/master.zip
+1. Download package: https://github.com/shawnmckinney/apache-fortress-demo/archive/master.zip
 2. Extract
 3. Set JAVA_HOME
 4. Set M2_HOME
