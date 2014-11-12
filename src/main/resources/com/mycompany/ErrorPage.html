@@ -1,0 +1,27 @@
+<!--
+  ~ This is free and unencumbered software released into the public domain.
+  -->
+<html xmlns:wicket="http://www.w3.org/1999/XSL/Transform">
+<head></head>
+<body>
+<wicket:extend>
+    <h3> Fortress Demo Error Page </h3>
+
+    <div class="ui-widget">
+        <div style="padding: 0pt 0.7em;" class="ui-state-error ui-corner-all">
+            <p><span style="float: left; margin-right: 0.3em;"
+                     class="ui-icon ui-icon-alert"></span>
+                <strong><span wicket:id="title"/></strong>
+
+            <div><span wicket:id="message"/></div>
+            <p>
+                <a href="" wicket:id="homePage">
+                    <wicket:message key="home"/>
+                </a>
+            </p>
+            </p>
+        </div>
+    </div>
+</wicket:extend>
+</body>
+</html>

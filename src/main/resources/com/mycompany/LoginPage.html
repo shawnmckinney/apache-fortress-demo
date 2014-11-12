@@ -1,0 +1,14 @@
+<!--
+  ~ This is free and unencumbered software released into the public domain.
+  ~ Since the Java EE container performs authentication, this wicket page simply sets the response page to wicket
+  ~ application home page.  If Java EE security session has timed out, the container will direct request to its configured login form: /login/login.html.
+  ~ See web.xml for container security configuration settings.
+  -->
+<html>
+<head></head>
+<body>
+<wicket:extend>
+    <h3> Dummy Login Form </h3>
+</wicket:extend>
+</body>
+</html>

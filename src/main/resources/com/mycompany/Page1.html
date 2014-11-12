@@ -1,0 +1,110 @@
+<!--
+  ~ This is free and unencumbered software released into the public domain.
+  -->
+<html>
+<head>
+</head>
+<body>
+<wicket:extend>
+    <h1>Page1</h1>
+
+    <form wicket:id="pageForm">
+        <span wicket:id="label1"></span>
+        <br>
+        <br>
+        <fieldset>
+            <legend><b>Page 1 Entry Fields</b></legend>
+            <table id="inputFormDetailTable">
+                <tr>
+                    <td>
+                        <label for="id">ID</label>
+                    </td>
+                    <td>
+                        <span wicket:id="id"></span>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label for="customer">Customer Number</label>
+                    </td>
+                    <td>
+                        <input type="text" wicket:id="customer" id="customer" class="formLarge" style="width: 250px"/>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label for="attr_a">Attribute A</label>
+                    </td>
+                    <td>
+                        <input type="text" wicket:id="attr_a" id="attr_a" class="formLarge" style="width: 250px"/>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label for="attr_b">Attribute B</label>
+                    </td>
+                    <td>
+                        <input type="text" wicket:id="attr_b" id="attr_b" class="formLarge" style="width: 250px"/>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label for="attr_c">Attribute C</label>
+                    </td>
+                    <td>
+                        <input type="text" wicket:id="attr_c" id="attr_c" class="formLarge" style="width: 250px"/>
+                    </td>
+                </tr>
+            </table>
+        </fieldset>
+        <br>
+        <br>
+        <fieldset>
+            <legend><b>Page 1 Buttons</b></legend>
+
+            <table id="inputFormTable">
+                <tr>
+                    <td>
+                        Obj: Page1, Op: Add
+                    </td>
+                    <td>
+                        <input type="button"
+                               class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only"
+                               wicket:id="page1.add" value="Add" name="page1.add"/>
+                    </td>
+                    <td>
+                        Obj: Page1, Op: Update
+                    </td>
+                    <td>
+                        <input type="button"
+                               class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only"
+                               wicket:id="page1.update" value="Update" name="page1.update"/>
+                    </td>
+                    <td>
+                        Obj: Page1, Op: Delete
+                    </td>
+                    <td>
+                        <input type="button"
+                               class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only"
+                               wicket:id="page1.delete" value="Delete" name="page1.delete"/>
+                    </td>
+                    <td>
+                        Obj: Page1, Op: Search
+                    </td>
+                    <td>
+                        <input type="button"
+                               class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only"
+                               wicket:id="page1.search" value="Search" name="page1.search"/>
+                    </td>
+                </tr>
+            </table>
+        </fieldset>
+    </form>
+    <br>
+    <fieldset>
+        <legend><b>Page 1 Tree Grid</b></legend>
+        <div wicket:id="page1treegrid" id="page1treegrid"></div>
+    </fieldset>
+</wicket:extend>
+</body>
+</html>

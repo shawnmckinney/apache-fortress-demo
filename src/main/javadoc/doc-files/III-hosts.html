@@ -1,0 +1,107 @@
+<!--
+  ~ This is free and unencumbered software released into the public domain.
+  -->
+<html>
+<head>
+    <title>Package Documentation for com.mycompany web app demo</title>
+    <hr>
+    <fieldset>
+        <legend><b>Navigation Links</b></legend>
+        <ul>
+            <li><a href="./I-opensslheartbleed.html">Section I - Heartbleed Bug</a></li>
+            <li><a href="./II-keys.html">Section II - Managing PKI Keys</a></li>
+            <li><a href="./III-hosts.html">Section III - Set Hostname Entry</a></li>
+            <li><a href="./IV-fortress.html">Section IV - Install Fortress</a></li>
+            <li><a href="./V-mysql.html">Section V - Install MySQL</a></li>
+            <li><a href="./VI-tomcat.html">Section VI - Install Tomcat</a></li>
+            <li><a href="./VII-commander.html">Section VII - Install Commander</a></li>
+            <li><a href="./VIII-demo.html">Section VIII - Install Fortress Demo #2</a></li>
+        </ul>
+        <a href="../overview-summary.html">Back to top</a>
+    </fieldset>
+    <hr>
+</head>
+<body>
+<p>
+<h3>Section III - Set Hostname Entry</h3>
+
+Keep in mind we are trying to imitate a real-world scenario to demonstrate fundamental security concepts.  In a production environment we'd be using DNS.
+
+<h4>Instructions to add hostname to /etc/hosts on target machine</h4>
+
+If SSL connectivity is to occur between a client and server residing on separate machines, the public key's common name must match the hostname set here.
+
+<ol>
+    <li>
+        Determine IP address of target machine:
+        <br>
+        <pre>
+            <p style="font: monospace; color: black; background-color: lightgrey; font-size: 10pt">
+# /sbin/ifconfig
+            </p>
+        </pre>
+         Example output contains 192.168.1.101:
+        <pre>
+            <p style="font: monospace; color: black; background-color: lightgrey; font-size: 8pt">
+eth0      Link encap:Ethernet  HWaddr 00:0c:29:43:94:0c
+inet addr:192.168.1.101  Bcast:192.168.1.255  Mask:255.255.255.0
+inet6 addr: fe80::20c:29ff:fe43:940c/64 Scope:Link
+UP BROADCAST RUNNING MULTICAST  MTU:1500  Metric:1
+RX packets:408641 errors:0 dropped:0 overruns:0 frame:0
+TX packets:134769 errors:0 dropped:0 overruns:0 carrier:0
+collisions:0 txqueuelen:1000
+RX bytes:458268505 (458.2 MB)  TX bytes:28361917 (28.3 MB)
+            </p>
+        </pre>
+    </li>
+    <li>
+        Add new hostname entry using current IP address:
+        <br>
+        <ol type="a">
+            <br>
+            <li>
+                Edit the hosts file
+                <br>
+        <pre>
+            <p style="font: monospace; color: black; background-color: lightgrey; font-size: 10pt">
+# sudo vi /etc/hosts
+            </p>
+        </pre>
+            </li>
+            <li>
+                Use your IP address for new host entry:
+                <br>
+        <pre>
+            <p style="font: monospace; color: black; background-color: lightgrey; font-size: 10pt">
+192.168.1.101     fortressdemo2.com
+            </p>
+        </pre>
+            </li>
+            <li>
+                Save and exit
+            </li>
+        </ol>
+    </li>
+    <br>
+    <li>
+        Ping hostname:
+        <pre>
+            <p style="font: monospace; color: black; background-color: lightgrey; font-size: 10pt">
+# ping fortressdemo2.com
+            </p>
+        </pre>
+        Verify results:
+        <pre>
+            <p style="font: monospace; color: black; background-color: lightgrey; font-size: 8pt">
+PING fortressdemo2.com (192.168.1.101) 56(84) bytes of data.
+64 bytes from fortressdemo2.com (192.168.1.101): icmp_req=1 ttl=64 time=0.106 ms
+64 bytes from fortressdemo2.com (192.168.1.101): icmp_req=2 ttl=64 time=0.052 ms
+64 bytes from fortressdemo2.com (192.168.1.101): icmp_req=3 ttl=64 time=0.055 ms
+64 bytes from fortressdemo2.com (192.168.1.101): icmp_req=4 ttl=64 time=0.068 ms
+            </p>
+        </pre>
+    </li>
+</ol>
+</body>
+<p style="font: monospace; color: black; font-size: 6pt">This is free and unencumbered software released into the public domain.</p>
+</html>

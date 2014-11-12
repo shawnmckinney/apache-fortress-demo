@@ -1,0 +1,44 @@
+<!--
+  ~ This is free and unencumbered software released into the public domain.
+  -->
+<!DOCTYPE HTML PUBLIC "-//W3C/DTD HTML 4.0 Transitional//EN">
+<html>
+<head>
+    <META charset="utf-8" />
+    <META HTTP-EQUIV="Pragma" CONTENT="no-cache">
+    <style>body, td, th , tr{color: #000000;font-size: small;font-family: verdana, sans-serif;}body{background-color: #808471;margin: 0px;padding: 12px 45px 4px 45px;}input, textarea, button{color: #000000;font-family: verdana, sans-serif;}input, button{font-size: 90%;}textarea{font-size: 100%;color: #000000;font-family: verdana, sans-serif;}.smalltext{font-size: x-small;font-family: verdana, sans-serif;}.middletext{font-size: 90%;}.normaltext{font-size: small;}.largetext{font-size: large;}</style>
+    <title>Wicket Project Sample for RBAC</title>
+</head>
+<body>
+<FORM METHOD=POST ACTION="j_security_check" autocomplete="off">
+    <fieldset class="center">
+        <legend>Login</legend>
+        <table id="inputFormTable">
+            <tr>
+                <td>
+                    <label for="userId">UserID</label>
+                </td>
+                <td>
+                    <input name="j_username" id="userId" type="text" class="formLarge"
+                           style="width: 250px"/>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label for="pswdField">Password</label>
+                </td>
+                <td>
+                    <input id="pswdField" name="j_password" type="password" style="width:250px"/>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <input type="submit" name="login" value="Login">
+                </td>
+            </tr>
+        </table>
+    </fieldset>
+</form>
+This is free and unencumbered software released into the public domain.
+</body>
+</html>

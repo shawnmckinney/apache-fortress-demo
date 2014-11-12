@@ -1,0 +1,93 @@
+<!--
+  ~ This is free and unencumbered software released into the public domain.
+  -->
+<html>
+<head>
+    <title>Package Documentation for com.mycompany web app demo</title>
+    <hr>
+    <fieldset>
+        <legend><b>Navigation Links</b></legend>
+        <ul>
+            <li><a href="./I-opensslheartbleed.html">Section I - Heartbleed Bug</a></li>
+            <li><a href="./II-keys.html">Section II - Managing PKI Keys</a></li>
+            <li><a href="./III-hosts.html">Section III - Set Hostname Entry</a></li>
+            <li><a href="./IV-fortress.html">Section IV - Install Fortress</a></li>
+            <li><a href="./V-mysql.html">Section V - Install MySQL</a></li>
+            <li><a href="./VI-tomcat.html">Section VI - Install Tomcat</a></li>
+            <li><a href="./VII-commander.html">Section VII - Install Commander</a></li>
+            <li><a href="./VIII-demo.html">Section VIII - Install Fortress Demo #2</a></li>
+        </ul>
+        <a href="../overview-summary.html">Back to top</a>
+    </fieldset>
+    <hr>
+</head>
+<body>
+<p>
+<h3>Section I - Heartbleed Bug</h3>
+<img src="heartbleed.png" width="120" height="120">
+<br><br>
+This section provides instructions to fix the OpenSSL Heartbleed bug.  Follow these steps if OpenSSL installed to
+target machine is version <b>1.0.1</b> through <b>1.0.1f</b>.  OpenSSL is used by OpenLDAP & MySQL for encryption of network traffic.
+<hr>
+<br>To determine if upgrade is needed, enter the following at the command prompt:
+<pre>
+    <p style="font: monospace; color: black; background-color: lightgrey; font-size: 10pt">
+# openssl version -b
+    </p>
+</pre>
+
+If the date is less than <b>Mon Apr 7 2014</b>, and the version equals  <b>1.0.1</b>, then the machine is running an OpenSSL version that is <em>vulnerable to the Heart Bleed bug</em>
+and must be upgraded.
+<hr>
+<h4>Steps to upgrade OpenSSL</h4>
+<ol>
+    <li>
+        If Debian, you may need to update package lists in repo to latest:
+        <pre>
+            <p style="font: monospace; color: black; background-color: lightgrey; font-size: 10pt; font-size: 10pt">
+# sudo apt-get update
+            </p>
+        </pre>
+
+        If Redhat, to do similar:
+        <pre>
+            <p style="font: monospace; color: black; background-color: lightgrey; font-size: 10pt; font-size: 10pt">
+# yum clean headers && yum clean metadata && yum makecache
+            </p>
+        </pre>
+
+    </li>
+
+    <li>
+        To update openssl package to latest:
+
+        <pre>
+            <p style="font: monospace; color: black; background-color: lightgrey; font-size: 10pt; font-size: 10pt">
+# sudo apt-get upgrade openssl
+            </p>
+        </pre>
+
+        If Redhat:
+
+        <pre>
+            <p style="font: monospace; color: black; background-color: lightgrey; font-size: 10pt; font-size: 10pt">
+# yum upgrade openssl
+            </p>
+        </pre>
+
+    </li>
+
+    <li>
+        Verify that it worked (date will vary by linux distro):
+        <pre>
+            <p style="font: monospace; color: black; background-color: lightgrey; font-size: 10pt; font-size: 10pt">
+# openssl version -b
+built on: Fri Jun 20 18:54:15 UTC 2014
+            </p>
+        </pre>
+
+    </li>
+</ol>
+</body>
+<p style="font: monospace; color: black; font-size: 6pt">This is free and unencumbered software released into the public domain.</p>
+</html>

@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?><!--
+  ~ This is free and unencumbered software released into the public domain.
+  -->
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+    <mapper namespace="com.mycompany.dao.Page1Dao">
+
+    <resultMap id="page1ResultMap" type="com.mycompany.dao.Page1EO">
+        <result property="id" column="ID"/>
+        <result property="customer" column="CUSTOMER"/>
+        <result property="attr_a" column="ATTR_A"/>
+        <result property="attr_b" column="ATTR_B"/>
+        <result property="attr_c" column="ATTR_C"/>
+    </resultMap>
+
+    <select id="getMaxId" resultType="java.lang.Integer">
+        SELECT MAX(id) FROM page1
+    </select>
+
+    <select id="getPage1ById" parameterType="java.lang.Integer" resultMap="page1ResultMap">
+        SELECT * FROM page1 WHERE id = #{value}
+    </select>
+
+    <delete id="deletePage1ById" parameterType="java.lang.Integer">
+        DELETE FROM page1 WHERE id = #{value}
+    </delete>
+
+    <insert id="addPage1" parameterType="com.mycompany.dao.Page1EO">
+        INSERT INTO page1 (id,customer,attr_a,attr_b,attr_c)
+        VALUES(#{id},#{customer},#{attr_a},#{attr_b},#{attr_c});
+    </insert>
+
+    <update id="updatePage1" parameterType="com.mycompany.dao.Page1EO">
+        update page1 set
+        customer = #{customer},
+        attr_a = #{attr_a},
+        attr_b = #{attr_b},
+        attr_c = #{attr_c}
+        where id = #{id}
+    </update>
+
+    <select id="getPages1ByAttrA" parameterType="java.lang.String" resultType="com.mycompany.dao.Page1EO">
+        select * from page1 WHERE lower(attr_a) like lower(#{value}) order by customer, attr_b, attr_c
+    </select>
+
+    <select id="getPages1ByCustomer" parameterType="java.lang.String" resultType="com.mycompany.dao.Page1EO">
+        select * from page1 WHERE lower(customer) like lower(#{value}) order by attr_a, attr_b, attr_c
+    </select>
+
+</mapper>

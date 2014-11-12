@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!--
+  ~ This is free and unencumbered software released into the public domain.
+  -->
+
+<!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN" "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration> 
+ 	<mappers>
+        <mapper resource="page1.xml"/>
+        <mapper resource="page2.xml"/>
+        <mapper resource="page3.xml"/>
+    </mappers>
+</configuration>

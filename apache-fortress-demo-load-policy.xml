@@ -1,0 +1,446 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  ~ This is free and unencumbered software released into the public domain.
+  -->
+<project basedir="." default="all" name="Fortress Demo2 RBAC Policy">
+
+    <taskdef classname="org.apache.directory.fortress.core.ant.FortressAntTask" name="FortressAdmin" >
+        <classpath path="${java.class.path}"/>
+    </taskdef>
+
+    <target name="all">
+        <FortressAdmin>
+
+            <deluser>
+                <user userId="superuser"/>
+                <user userId="poweruser"/>
+                <user userId="user1"/>
+                <user userId="user1_123"/>
+                <user userId="user1_456"/>
+                <user userId="user1_789"/>
+                <user userId="user2"/>
+                <user userId="user2_123"/>
+                <user userId="user2_456"/>
+                <user userId="user2_789"/>
+                <user userId="user3"/>
+                <user userId="user3_123"/>
+                <user userId="user3_456"/>
+                <user userId="user3_789"/>
+                <user userId="user123"/>
+                <user userId="user456"/>
+                <user userId="user789"/>
+            </deluser>
+
+            <adduser>
+                <user userId="superuser" password="password" description="Fortress Demo2 SuperUser" ou="Demo2Users" cn="test2" sn="superuser"  pwPolicy="Test1" beginTime="0000" endTime="0000" beginDate="20090101" endDate="20990101" beginLockDate="none" endLockDate="none" dayMask="1234567" timeout="0" photo="p27.jpeg" />
+                <user userId="poweruser" password="password" description="Fortress Demo2 PowerUser" ou="Demo2Users" cn="test2" sn="poweruser"  pwPolicy="Test1" beginTime="0000" endTime="0000" beginDate="20090101" endDate="20990101" beginLockDate="none" endLockDate="none" dayMask="1234567" timeout="0" photo="p27.jpeg" />
+                <user userId="user1" password="password" description="Fortress Demo2 User1" ou="Demo2Users" cn="test2" sn="user1"  pwPolicy="Test1" beginTime="0000" endTime="0000" beginDate="20090101" endDate="20990101" beginLockDate="none" endLockDate="none" dayMask="1234567" timeout="0" photo="p27.jpeg" />
+                <user userId="user1_123" password="password" description="Fortress Demo2 User1 Customer 123" ou="Demo2Users" cn="test2" sn="user1_123"  pwPolicy="Test1" beginTime="0000" endTime="0000" beginDate="20090101" endDate="20990101" beginLockDate="none" endLockDate="none" dayMask="1234567" timeout="0" photo="p27.jpeg" />
+                <user userId="user1_456" password="password" description="Fortress Demo2 User1 Customer 456" ou="Demo2Users" cn="test2" sn="user1_456"  pwPolicy="Test1" beginTime="0000" endTime="0000" beginDate="20090101" endDate="20990101" beginLockDate="none" endLockDate="none" dayMask="1234567" timeout="0" photo="p27.jpeg" />
+                <user userId="user1_789" password="password" description="Fortress Demo2 User1 Customer 123" ou="Demo2Users" cn="test2" sn="user1_789"  pwPolicy="Test1" beginTime="0000" endTime="0000" beginDate="20090101" endDate="20990101" beginLockDate="none" endLockDate="none" dayMask="1234567" timeout="0" photo="p27.jpeg" />
+                <user userId="user2" password="password" description="Fortress Demo2 User2" ou="Demo2Users" cn="test2" sn="user2"  pwPolicy="Test1" beginTime="0000" endTime="0000" beginDate="20090101" endDate="20990101" beginLockDate="none" endLockDate="none" dayMask="1234567" timeout="0" photo="p27.jpeg" />
+                <user userId="user2_123" password="password" description="Fortress Demo2 User2 Customer 123" ou="Demo2Users" cn="test2" sn="user2_123"  pwPolicy="Test1" beginTime="0000" endTime="0000" beginDate="20090101" endDate="20990101" beginLockDate="none" endLockDate="none" dayMask="1234567" timeout="0" photo="p27.jpeg" />
+                <user userId="user2_456" password="password" description="Fortress Demo2 User2 Customer 456" ou="Demo2Users" cn="test2" sn="user2_456"  pwPolicy="Test1" beginTime="0000" endTime="0000" beginDate="20090101" endDate="20990101" beginLockDate="none" endLockDate="none" dayMask="1234567" timeout="0" photo="p27.jpeg" />
+                <user userId="user2_789" password="password" description="Fortress Demo2 User2 Customer 789" ou="Demo2Users" cn="test2" sn="user2_789"  pwPolicy="Test1" beginTime="0000" endTime="0000" beginDate="20090101" endDate="20990101" beginLockDate="none" endLockDate="none" dayMask="1234567" timeout="0" photo="p27.jpeg" />
+                <user userId="user3" password="password" description="Fortress Demo2 User3" ou="Demo2Users" cn="test2" sn="user3"  pwPolicy="Test1" beginTime="0000" endTime="0000" beginDate="20090101" endDate="20990101" beginLockDate="none" endLockDate="none" dayMask="1234567" timeout="0" photo="p27.jpeg" />
+                <user userId="user3_123" password="password" description="Fortress Demo2 User3 Customer 123" ou="Demo2Users" cn="test2" sn="user3_123"  pwPolicy="Test1" beginTime="0000" endTime="0000" beginDate="20090101" endDate="20990101" beginLockDate="none" endLockDate="none" dayMask="1234567" timeout="0" photo="p27.jpeg" />
+                <user userId="user3_456" password="password" description="Fortress Demo2 User3 Customer 456" ou="Demo2Users" cn="test2" sn="user3_456"  pwPolicy="Test1" beginTime="0000" endTime="0000" beginDate="20090101" endDate="20990101" beginLockDate="none" endLockDate="none" dayMask="1234567" timeout="0" photo="p27.jpeg" />
+                <user userId="user3_789" password="password" description="Fortress Demo2 User3 Customer 789" ou="Demo2Users" cn="test2" sn="user3_789"  pwPolicy="Test1" beginTime="0000" endTime="0000" beginDate="20090101" endDate="20990101" beginLockDate="none" endLockDate="none" dayMask="1234567" timeout="0" photo="p27.jpeg" />
+                <user userId="user123" password="password" description="Fortress Demo2 User123 Access all Pages for Customer 123" ou="Demo2Users" cn="test2" sn="user123"  pwPolicy="Test1" beginTime="0000" endTime="0000" beginDate="20090101" endDate="20990101" beginLockDate="none" endLockDate="none" dayMask="1234567" timeout="0" photo="p27.jpeg" />
+                <user userId="user456" password="password" description="Fortress Demo2 User456 Access all Pages for Customer 456" ou="Demo2Users" cn="test2" sn="user456"  pwPolicy="Test1" beginTime="0000" endTime="0000" beginDate="20090101" endDate="20990101" beginLockDate="none" endLockDate="none" dayMask="1234567" timeout="0" photo="p27.jpeg" />
+                <user userId="user789" password="password" description="Fortress Demo2 User789 Access all Pages for Customer 789" ou="Demo2Users" cn="test2" sn="user789"  pwPolicy="Test1" beginTime="0000" endTime="0000" beginDate="20090101" endDate="20990101" beginLockDate="none" endLockDate="none" dayMask="1234567" timeout="0" photo="p27.jpeg" />
+            </adduser>
+
+            <adduserrole>
+                <!-- Superuser access to all pages, all data, no DSD constraints -->
+                <userrole userId="superuser" name="ROLE_DEMO2_SUPER_USER" beginTime="0000" endTime="0000" beginDate="none" endDate="none" beginLockDate="none" endLockDate="none" dayMask="all" timeout="0"/>
+
+                <!-- Poweruser access to all pages, all date, with DSD constraints -->
+                <userrole userId="poweruser" name="DEMO2_ALL_PAGES" beginTime="0000" endTime="0000" beginDate="none" endDate="none" beginLockDate="none" endLockDate="none" dayMask="all" timeout="0"/>
+                <userrole userId="poweruser" name="PAGE1_123" beginTime="0000" endTime="0000" beginDate="none" endDate="none" beginLockDate="none" endLockDate="none" dayMask="all" timeout="0"/>
+                <userrole userId="poweruser" name="PAGE1_456" beginTime="0000" endTime="0000" beginDate="none" endDate="none" beginLockDate="none" endLockDate="none" dayMask="all" timeout="0"/>
+                <userrole userId="poweruser" name="PAGE1_789" beginTime="0000" endTime="0000" beginDate="none" endDate="none" beginLockDate="none" endLockDate="none" dayMask="all" timeout="0"/>
+                <userrole userId="poweruser" name="PAGE2_123" beginTime="0000" endTime="0000" beginDate="none" endDate="none" beginLockDate="none" endLockDate="none" dayMask="all" timeout="0"/>
+                <userrole userId="poweruser" name="PAGE2_456" beginTime="0000" endTime="0000" beginDate="none" endDate="none" beginLockDate="none" endLockDate="none" dayMask="all" timeout="0"/>
+                <userrole userId="poweruser" name="PAGE2_789" beginTime="0000" endTime="0000" beginDate="none" endDate="none" beginLockDate="none" endLockDate="none" dayMask="all" timeout="0"/>
+                <userrole userId="poweruser" name="PAGE3_123" beginTime="0000" endTime="0000" beginDate="none" endDate="none" beginLockDate="none" endLockDate="none" dayMask="all" timeout="0"/>
+                <userrole userId="poweruser" name="PAGE3_456" beginTime="0000" endTime="0000" beginDate="none" endDate="none" beginLockDate="none" endLockDate="none" dayMask="all" timeout="0"/>
+                <userrole userId="poweruser" name="PAGE3_789" beginTime="0000" endTime="0000" beginDate="none" endDate="none" beginLockDate="none" endLockDate="none" dayMask="all" timeout="0"/>
+
+                <!-- User1 Access to all Customers Page1 only, with DSD constraints -->
+                <userrole userId="user1" name="ROLE_PAGE1" beginTime="0000" endTime="0000" beginDate="none" endDate="none" beginLockDate="none" endLockDate="none" dayMask="all" timeout="0"/>
+                <userrole userId="user1" name="PAGE1_123" beginTime="0000" endTime="0000" beginDate="none" endDate="none" beginLockDate="none" endLockDate="none" dayMask="all" timeout="0"/>
+                <userrole userId="user1" name="PAGE1_456" beginTime="0000" endTime="0000" beginDate="none" endDate="none" beginLockDate="none" endLockDate="none" dayMask="all" timeout="0"/>
+                <userrole userId="user1" name="PAGE1_789" beginTime="0000" endTime="0000" beginDate="none" endDate="none" beginLockDate="none" endLockDate="none" dayMask="all" timeout="0"/>
+
+                <!-- User1_123 Access to Page 1, Customer 123 only -->
+                <userrole userId="user1_123" name="ROLE_PAGE1" beginTime="0000" endTime="0000" beginDate="none" endDate="none" beginLockDate="none" endLockDate="none" dayMask="all" timeout="0"/>
+                <userrole userId="user1_123" name="PAGE1_123" beginTime="0000" endTime="0000" beginDate="none" endDate="none" beginLockDate="none" endLockDate="none" dayMask="all" timeout="0"/>
+
+                <!-- User1_456 Access to Page 1, Customer 456 only -->
+                <userrole userId="user1_456" name="ROLE_PAGE1" beginTime="0000" endTime="0000" beginDate="none" endDate="none" beginLockDate="none" endLockDate="none" dayMask="all" timeout="0"/>
+                <userrole userId="user1_456" name="PAGE1_456" beginTime="0000" endTime="0000" beginDate="none" endDate="none" beginLockDate="none" endLockDate="none" dayMask="all" timeout="0"/>
+
+                <!-- User1_789 Access to Page 1, Customer 789 only -->
+                <userrole userId="user1_789" name="ROLE_PAGE1" beginTime="0000" endTime="0000" beginDate="none" endDate="none" beginLockDate="none" endLockDate="none" dayMask="all" timeout="0"/>
+                <userrole userId="user1_789" name="PAGE1_789" beginTime="0000" endTime="0000" beginDate="none" endDate="none" beginLockDate="none" endLockDate="none" dayMask="all" timeout="0"/>
+
+                <!-- User2 Access to all Customers Page2 only, with DSD constraints -->
+                <userrole userId="user2" name="ROLE_PAGE2" beginTime="0000" endTime="0000" beginDate="none" endDate="none" beginLockDate="none" endLockDate="none" dayMask="all" timeout="0"/>
+                <userrole userId="user2" name="PAGE2_123" beginTime="0000" endTime="0000" beginDate="none" endDate="none" beginLockDate="none" endLockDate="none" dayMask="all" timeout="0"/>
+                <userrole userId="user2" name="PAGE2_456" beginTime="0000" endTime="0000" beginDate="none" endDate="none" beginLockDate="none" endLockDate="none" dayMask="all" timeout="0"/>
+                <userrole userId="user2" name="PAGE2_789" beginTime="0000" endTime="0000" beginDate="none" endDate="none" beginLockDate="none" endLockDate="none" dayMask="all" timeout="0"/>
+
+                <!-- User2_123 Access to Page 2, Customer 123 only -->
+                <userrole userId="user2_123" name="ROLE_PAGE2" beginTime="0000" endTime="0000" beginDate="none" endDate="none" beginLockDate="none" endLockDate="none" dayMask="all" timeout="0"/>
+                <userrole userId="user2_123" name="PAGE2_123" beginTime="0000" endTime="0000" beginDate="none" endDate="none" beginLockDate="none" endLockDate="none" dayMask="all" timeout="0"/>
+
+                <!-- User2_456 Access to Page 2, Customer 456 only -->
+                <userrole userId="user2_456" name="ROLE_PAGE2" beginTime="0000" endTime="0000" beginDate="none" endDate="none" beginLockDate="none" endLockDate="none" dayMask="all" timeout="0"/>
+                <userrole userId="user2_456" name="PAGE2_456" beginTime="0000" endTime="0000" beginDate="none" endDate="none" beginLockDate="none" endLockDate="none" dayMask="all" timeout="0"/>
+
+                <!-- User2_789 Access to Page 2, Customer 789 only -->
+                <userrole userId="user2_789" name="ROLE_PAGE2" beginTime="0000" endTime="0000" beginDate="none" endDate="none" beginLockDate="none" endLockDate="none" dayMask="all" timeout="0"/>
+                <userrole userId="user2_789" name="PAGE2_789" beginTime="0000" endTime="0000" beginDate="none" endDate="none" beginLockDate="none" endLockDate="none" dayMask="all" timeout="0"/>
+
+                <!-- User3 Access to all Customers Page3 only, with DSD constraints -->
+                <userrole userId="user3" name="ROLE_PAGE3" beginTime="0000" endTime="0000" beginDate="none" endDate="none" beginLockDate="none" endLockDate="none" dayMask="all" timeout="0"/>
+                <userrole userId="user3" name="PAGE3_123" beginTime="0000" endTime="0000" beginDate="none" endDate="none" beginLockDate="none" endLockDate="none" dayMask="all" timeout="0"/>
+                <userrole userId="user3" name="PAGE3_456" beginTime="0000" endTime="0000" beginDate="none" endDate="none" beginLockDate="none" endLockDate="none" dayMask="all" timeout="0"/>
+                <userrole userId="user3" name="PAGE3_789" beginTime="0000" endTime="0000" beginDate="none" endDate="none" beginLockDate="none" endLockDate="none" dayMask="all" timeout="0"/>
+
+                <!-- User3_123 Access to Page 3, Customer 123 only -->
+                <userrole userId="user3_123" name="ROLE_PAGE3" beginTime="0000" endTime="0000" beginDate="none" endDate="none" beginLockDate="none" endLockDate="none" dayMask="all" timeout="0"/>
+                <userrole userId="user3_123" name="PAGE3_123" beginTime="0000" endTime="0000" beginDate="none" endDate="none" beginLockDate="none" endLockDate="none" dayMask="all" timeout="0"/>
+
+                <!-- User3_456 Access to Page 3, Customer 456 only -->
+                <userrole userId="user3_456" name="ROLE_PAGE3" beginTime="0000" endTime="0000" beginDate="none" endDate="none" beginLockDate="none" endLockDate="none" dayMask="all" timeout="0"/>
+                <userrole userId="user3_456" name="PAGE3_456" beginTime="0000" endTime="0000" beginDate="none" endDate="none" beginLockDate="none" endLockDate="none" dayMask="all" timeout="0"/>
+
+                <!-- User3_789 Access to Page 3, Customer 789 only -->
+                <userrole userId="user3_789" name="ROLE_PAGE3" beginTime="0000" endTime="0000" beginDate="none" endDate="none" beginLockDate="none" endLockDate="none" dayMask="all" timeout="0"/>
+                <userrole userId="user3_789" name="PAGE3_789" beginTime="0000" endTime="0000" beginDate="none" endDate="none" beginLockDate="none" endLockDate="none" dayMask="all" timeout="0"/>
+
+                <!-- User123 Access to all pages, Customer 123 only, with DSD constraints -->
+                <userrole userId="user123" name="ROLE_PAGE1" beginTime="0000" endTime="0000" beginDate="none" endDate="none" beginLockDate="none" endLockDate="none" dayMask="all" timeout="0"/>
+                <userrole userId="user123" name="ROLE_PAGE2" beginTime="0000" endTime="0000" beginDate="none" endDate="none" beginLockDate="none" endLockDate="none" dayMask="all" timeout="0"/>
+                <userrole userId="user123" name="ROLE_PAGE3" beginTime="0000" endTime="0000" beginDate="none" endDate="none" beginLockDate="none" endLockDate="none" dayMask="all" timeout="0"/>
+                <userrole userId="user123" name="PAGE1_123" beginTime="0000" endTime="0000" beginDate="none" endDate="none" beginLockDate="none" endLockDate="none" dayMask="all" timeout="0"/>
+                <userrole userId="user123" name="PAGE2_123" beginTime="0000" endTime="0000" beginDate="none" endDate="none" beginLockDate="none" endLockDate="none" dayMask="all" timeout="0"/>
+                <userrole userId="user123" name="PAGE3_123" beginTime="0000" endTime="0000" beginDate="none" endDate="none" beginLockDate="none" endLockDate="none" dayMask="all" timeout="0"/>
+
+                <!-- User456 Access to all pages, Customer 456 only, with DSD constraints -->
+                <userrole userId="user456" name="ROLE_PAGE1" beginTime="0000" endTime="0000" beginDate="none" endDate="none" beginLockDate="none" endLockDate="none" dayMask="all" timeout="0"/>
+                <userrole userId="user456" name="ROLE_PAGE2" beginTime="0000" endTime="0000" beginDate="none" endDate="none" beginLockDate="none" endLockDate="none" dayMask="all" timeout="0"/>
+                <userrole userId="user456" name="ROLE_PAGE3" beginTime="0000" endTime="0000" beginDate="none" endDate="none" beginLockDate="none" endLockDate="none" dayMask="all" timeout="0"/>
+                <userrole userId="user456" name="PAGE1_456" beginTime="0000" endTime="0000" beginDate="none" endDate="none" beginLockDate="none" endLockDate="none" dayMask="all" timeout="0"/>
+                <userrole userId="user456" name="PAGE2_456" beginTime="0000" endTime="0000" beginDate="none" endDate="none" beginLockDate="none" endLockDate="none" dayMask="all" timeout="0"/>
+                <userrole userId="user456" name="PAGE3_456" beginTime="0000" endTime="0000" beginDate="none" endDate="none" beginLockDate="none" endLockDate="none" dayMask="all" timeout="0"/>
+
+                <!-- User789 Access to all pages, Customer 789 only, with DSD constraints -->
+                <userrole userId="user789" name="ROLE_PAGE1" beginTime="0000" endTime="0000" beginDate="none" endDate="none" beginLockDate="none" endLockDate="none" dayMask="all" timeout="0"/>
+                <userrole userId="user789" name="ROLE_PAGE2" beginTime="0000" endTime="0000" beginDate="none" endDate="none" beginLockDate="none" endLockDate="none" dayMask="all" timeout="0"/>
+                <userrole userId="user789" name="ROLE_PAGE3" beginTime="0000" endTime="0000" beginDate="none" endDate="none" beginLockDate="none" endLockDate="none" dayMask="all" timeout="0"/>
+                <userrole userId="user789" name="PAGE1_789" beginTime="0000" endTime="0000" beginDate="none" endDate="none" beginLockDate="none" endLockDate="none" dayMask="all" timeout="0"/>
+                <userrole userId="user789" name="PAGE2_789" beginTime="0000" endTime="0000" beginDate="none" endDate="none" beginLockDate="none" endLockDate="none" dayMask="all" timeout="0"/>
+                <userrole userId="user789" name="PAGE3_789" beginTime="0000" endTime="0000" beginDate="none" endDate="none" beginLockDate="none" endLockDate="none" dayMask="all" timeout="0"/>
+            </adduserrole>
+
+            <delrole>
+                <role name="DEMO2_USER"/>
+                <role name="ROLE_DEMO2_SUPER_USER"/>
+                <role name="DEMO2_ALL_PAGES"/>
+
+                <role name="ROLE_PAGE1"/>
+                <role name="PAGE1_123"/>
+                <role name="PAGE1_456"/>
+                <role name="PAGE1_789"/>
+
+                <role name="ROLE_PAGE2"/>
+                <role name="PAGE2_123"/>
+                <role name="PAGE2_456"/>
+                <role name="PAGE2_789"/>
+
+                <role name="ROLE_PAGE3"/>
+                <role name="PAGE3_123"/>
+                <role name="PAGE3_456"/>
+                <role name="PAGE3_789"/>
+            </delrole>
+
+            <addrole>
+                <role name="DEMO2_USER" description="Grants User login access to this Web application"/>
+                <role name="ROLE_DEMO2_SUPER_USER" description="Grants User access to all three Pages"/>
+                <role name="DEMO2_ALL_PAGES" description="Grants User ability to switch between Pages"/>
+
+                <role name="ROLE_PAGE1" description="Grants User Access to Page 1 and its Buttons"/>
+                <role name="PAGE1_123" description="Grants User Access to Page 1 and its Buttons for Customer 123"/>
+                <role name="PAGE1_456" description="Grants User Access to Page 1 and its Buttons for Customer 456"/>
+                <role name="PAGE1_789" description="Grants User Access to Page 1 and its Buttons for Customer 789"/>
+
+                <role name="ROLE_PAGE2" description="Grants User Access to Page 2 and its Buttons"/>
+                <role name="PAGE2_123" description="Grants User Access to Page 2 and its Buttons for Customer 123"/>
+                <role name="PAGE2_456" description="Grants User Access to Page 2 and its Buttons for Customer 456"/>
+                <role name="PAGE2_789" description="Grants User Access to Page 2 and its Buttons for Customer 789"/>
+
+                <role name="ROLE_PAGE3" description="Grants User Access to Page 1 and its Buttons"/>
+                <role name="PAGE3_123" description="Grants User Access to Page 3 and its Buttons for Customer 123"/>
+                <role name="PAGE3_456" description="Grants User Access to Page 3 and its Buttons for Customer 456"/>
+                <role name="PAGE3_789" description="Grants User Access to Page 3 and its Buttons for Customer 789"/>
+            </addrole>
+
+            <addroleinheritance>
+                <relationship child="ROLE_DEMO2_SUPER_USER" parent="DEMO2_USER"/>
+                <relationship child="ROLE_PAGE1" parent="DEMO2_USER"/>
+                <relationship child="ROLE_PAGE2" parent="DEMO2_USER"/>
+                <relationship child="ROLE_PAGE3" parent="DEMO2_USER"/>
+
+                <relationship child="ROLE_DEMO2_SUPER_USER" parent="ROLE_PAGE1"/>
+                <relationship child="ROLE_DEMO2_SUPER_USER" parent="PAGE1_123"/>
+                <relationship child="ROLE_DEMO2_SUPER_USER" parent="PAGE1_456"/>
+                <relationship child="ROLE_DEMO2_SUPER_USER" parent="PAGE1_789"/>
+
+                <relationship child="ROLE_DEMO2_SUPER_USER" parent="ROLE_PAGE2"/>
+                <relationship child="ROLE_DEMO2_SUPER_USER" parent="PAGE2_123"/>
+                <relationship child="ROLE_DEMO2_SUPER_USER" parent="PAGE2_456"/>
+                <relationship child="ROLE_DEMO2_SUPER_USER" parent="PAGE2_789"/>
+
+                <relationship child="ROLE_DEMO2_SUPER_USER" parent="ROLE_PAGE3"/>
+                <relationship child="ROLE_DEMO2_SUPER_USER" parent="PAGE3_123"/>
+                <relationship child="ROLE_DEMO2_SUPER_USER" parent="PAGE3_456"/>
+                <relationship child="ROLE_DEMO2_SUPER_USER" parent="PAGE3_789"/>
+
+                <relationship child="DEMO2_ALL_PAGES" parent="ROLE_PAGE1"/>
+                <relationship child="DEMO2_ALL_PAGES" parent="ROLE_PAGE2"/>
+                <relationship child="DEMO2_ALL_PAGES" parent="ROLE_PAGE3"/>
+            </addroleinheritance>
+
+            <addpermgrant>
+                <permgrant objName="com.mycompany.MyBasePage" opName="addActiveRole" roleNm="DEMO2_ALL_PAGES"/>
+                <permgrant objName="com.mycompany.MyBasePage" opName="dropActiveRole" roleNm="DEMO2_ALL_PAGES"/>
+                <permgrant objName="com.mycompany.MyBasePage" opName="addActiveRole" roleNm="DEMO2_ALL_PAGES"/>
+                <permgrant objName="com.mycompany.MyBasePage" opName="dropActiveRole" roleNm="DEMO2_ALL_PAGES"/>
+                <permgrant objName="com.mycompany.MyBasePage" opName="addActiveRole" roleNm="DEMO2_ALL_PAGES"/>
+                <permgrant objName="com.mycompany.MyBasePage" opName="dropActiveRole" roleNm="DEMO2_ALL_PAGES"/>
+
+                <permgrant objName="ROLE_PAGE1" opName="addActiveRole" roleNm="DEMO2_ALL_PAGES"/>
+                <permgrant objName="ROLE_PAGE1" opName="dropActiveRole" roleNm="DEMO2_ALL_PAGES"/>
+                <permgrant objName="ROLE_PAGE2" opName="addActiveRole" roleNm="DEMO2_ALL_PAGES"/>
+                <permgrant objName="ROLE_PAGE2" opName="dropActiveRole" roleNm="DEMO2_ALL_PAGES"/>
+                <permgrant objName="ROLE_PAGE3" opName="addActiveRole" roleNm="DEMO2_ALL_PAGES"/>
+                <permgrant objName="ROLE_PAGE3" opName="dropActiveRole" roleNm="DEMO2_ALL_PAGES"/>
+
+                <permgrant objName="com.mycompany.MyBasePage" opName="addActiveRole" roleNm="ROLE_PAGE1"/>
+                <permgrant objName="com.mycompany.MyBasePage" opName="dropActiveRole" roleNm="ROLE_PAGE1"/>
+                <permgrant objName="com.mycompany.MyBasePage" opName="addActiveRole" roleNm="ROLE_PAGE2"/>
+                <permgrant objName="com.mycompany.MyBasePage" opName="dropActiveRole" roleNm="ROLE_PAGE2"/>
+                <permgrant objName="com.mycompany.MyBasePage" opName="addActiveRole" roleNm="ROLE_PAGE3"/>
+                <permgrant objName="com.mycompany.MyBasePage" opName="dropActiveRole" roleNm="ROLE_PAGE3"/>
+
+                <permgrant objName="com.mycompany.Page1" opName="Add" objId="123" roleNm="PAGE1_123"/>
+                <permgrant objName="com.mycompany.Page1" opName="Add" objId="456" roleNm="PAGE1_456"/>
+                <permgrant objName="com.mycompany.Page1" opName="Add" objId="789" roleNm="PAGE1_789"/>
+                <permgrant objName="com.mycompany.Page1" opName="Update" objId="123" roleNm="PAGE1_123"/>
+                <permgrant objName="com.mycompany.Page1" opName="Update" objId="456" roleNm="PAGE1_456"/>
+                <permgrant objName="com.mycompany.Page1" opName="Update" objId="789" roleNm="PAGE1_789"/>
+                <permgrant objName="com.mycompany.Page1" opName="Delete" objId="123" roleNm="PAGE1_123"/>
+                <permgrant objName="com.mycompany.Page1" opName="Delete" objId="456" roleNm="PAGE1_456"/>
+                <permgrant objName="com.mycompany.Page1" opName="Delete" objId="789" roleNm="PAGE1_789"/>
+                <permgrant objName="com.mycompany.Page1" opName="Search" objId="123" roleNm="PAGE1_123"/>
+                <permgrant objName="com.mycompany.Page1" opName="Search" objId="456" roleNm="PAGE1_456"/>
+                <permgrant objName="com.mycompany.Page1" opName="Search" objId="789" roleNm="PAGE1_789"/>
+                <permgrant objName="com.mycompany.Page1" opName="Read" objId="123" roleNm="PAGE1_123"/>
+                <permgrant objName="com.mycompany.Page1" opName="Read" objId="456" roleNm="PAGE1_456"/>
+                <permgrant objName="com.mycompany.Page1" opName="Read" objId="789" roleNm="PAGE1_789"/>
+                <permgrant objName="PAGE1_123" opName="addActiveRole" roleNm="ROLE_PAGE1"/>
+                <permgrant objName="PAGE1_456" opName="addActiveRole" roleNm="ROLE_PAGE1"/>
+                <permgrant objName="PAGE1_789" opName="addActiveRole" roleNm="ROLE_PAGE1"/>
+                <permgrant objName="PAGE1_123" opName="dropActiveRole" roleNm="ROLE_PAGE1"/>
+                <permgrant objName="PAGE1_456" opName="dropActiveRole" roleNm="ROLE_PAGE1"/>
+                <permgrant objName="PAGE1_789" opName="dropActiveRole" roleNm="ROLE_PAGE1"/>
+
+                <permgrant objName="com.mycompany.Page2" opName="Add" objId="123" roleNm="PAGE2_123"/>
+                <permgrant objName="com.mycompany.Page2" opName="Add" objId="456" roleNm="PAGE2_456"/>
+                <permgrant objName="com.mycompany.Page2" opName="Add" objId="789" roleNm="PAGE2_789"/>
+                <permgrant objName="com.mycompany.Page2" opName="Update" objId="123" roleNm="PAGE2_123"/>
+                <permgrant objName="com.mycompany.Page2" opName="Update" objId="456" roleNm="PAGE2_456"/>
+                <permgrant objName="com.mycompany.Page2" opName="Update" objId="789" roleNm="PAGE2_789"/>
+                <permgrant objName="com.mycompany.Page2" opName="Delete" objId="123" roleNm="PAGE2_123"/>
+                <permgrant objName="com.mycompany.Page2" opName="Delete" objId="456" roleNm="PAGE2_456"/>
+                <permgrant objName="com.mycompany.Page2" opName="Delete" objId="789" roleNm="PAGE2_789"/>
+                <permgrant objName="com.mycompany.Page2" opName="Search" objId="123" roleNm="PAGE2_123"/>
+                <permgrant objName="com.mycompany.Page2" opName="Search" objId="456" roleNm="PAGE2_456"/>
+                <permgrant objName="com.mycompany.Page2" opName="Search" objId="789" roleNm="PAGE2_789"/>
+                <permgrant objName="com.mycompany.Page2" opName="Read" objId="123" roleNm="PAGE2_123"/>
+                <permgrant objName="com.mycompany.Page2" opName="Read" objId="456" roleNm="PAGE2_456"/>
+                <permgrant objName="com.mycompany.Page2" opName="Read" objId="789" roleNm="PAGE2_789"/>
+                <permgrant objName="PAGE2_123" opName="addActiveRole" roleNm="ROLE_PAGE2"/>
+                <permgrant objName="PAGE2_456" opName="addActiveRole" roleNm="ROLE_PAGE2"/>
+                <permgrant objName="PAGE2_789" opName="addActiveRole" roleNm="ROLE_PAGE2"/>
+                <permgrant objName="PAGE2_123" opName="dropActiveRole" roleNm="ROLE_PAGE2"/>
+                <permgrant objName="PAGE2_456" opName="dropActiveRole" roleNm="ROLE_PAGE2"/>
+                <permgrant objName="PAGE2_789" opName="dropActiveRole" roleNm="ROLE_PAGE2"/>
+
+                <permgrant objName="com.mycompany.Page3" opName="Add" objId="123" roleNm="PAGE3_123"/>
+                <permgrant objName="com.mycompany.Page3" opName="Add" objId="456" roleNm="PAGE3_456"/>
+                <permgrant objName="com.mycompany.Page3" opName="Add" objId="789" roleNm="PAGE3_789"/>
+                <permgrant objName="com.mycompany.Page3" opName="Update" objId="123" roleNm="PAGE3_123"/>
+                <permgrant objName="com.mycompany.Page3" opName="Update" objId="456" roleNm="PAGE3_456"/>
+                <permgrant objName="com.mycompany.Page3" opName="Update" objId="789" roleNm="PAGE3_789"/>
+                <permgrant objName="com.mycompany.Page3" opName="Delete" objId="123" roleNm="PAGE3_123"/>
+                <permgrant objName="com.mycompany.Page3" opName="Delete" objId="456" roleNm="PAGE3_456"/>
+                <permgrant objName="com.mycompany.Page3" opName="Delete" objId="789" roleNm="PAGE3_789"/>
+                <permgrant objName="com.mycompany.Page3" opName="Search" objId="123" roleNm="PAGE3_123"/>
+                <permgrant objName="com.mycompany.Page3" opName="Search" objId="456" roleNm="PAGE3_456"/>
+                <permgrant objName="com.mycompany.Page3" opName="Search" objId="789" roleNm="PAGE3_789"/>
+                <permgrant objName="com.mycompany.Page3" opName="Read" objId="123" roleNm="PAGE3_123"/>
+                <permgrant objName="com.mycompany.Page3" opName="Read" objId="456" roleNm="PAGE3_456"/>
+                <permgrant objName="com.mycompany.Page3" opName="Read" objId="789" roleNm="PAGE3_789"/>
+                <permgrant objName="PAGE3_123" opName="addActiveRole" roleNm="ROLE_PAGE3"/>
+                <permgrant objName="PAGE3_456" opName="addActiveRole" roleNm="ROLE_PAGE3"/>
+                <permgrant objName="PAGE3_789" opName="addActiveRole" roleNm="ROLE_PAGE3"/>
+                <permgrant objName="PAGE3_123" opName="dropActiveRole" roleNm="ROLE_PAGE3"/>
+                <permgrant objName="PAGE3_456" opName="dropActiveRole" roleNm="ROLE_PAGE3"/>
+                <permgrant objName="PAGE3_789" opName="dropActiveRole" roleNm="ROLE_PAGE3"/>
+            </addpermgrant>
+
+            <delpermobj>
+                <permobj objName="com.mycompany.MyBasePage"/>
+                <permobj objName="com.mycompany.Page1"/>
+                <permobj objName="com.mycompany.Page2"/>
+                <permobj objName="com.mycompany.Page3"/>
+                <permobj objName="org.apache.directory.fortress.core.rbac.AccessMgrImpl"/>
+                <permobj objName="ROLE_PAGE1" />
+                <permobj objName="PAGE1_123" />
+                <permobj objName="PAGE1_456" />
+                <permobj objName="PAGE1_789" />
+                <permobj objName="ROLE_PAGE2"/>
+                <permobj objName="PAGE2_123"/>
+                <permobj objName="PAGE2_456"/>
+                <permobj objName="PAGE2_789"/>
+                <permobj objName="ROLE_PAGE3"/>
+                <permobj objName="PAGE3_123"/>
+                <permobj objName="PAGE3_456"/>
+                <permobj objName="PAGE3_789"/>
+            </delpermobj>
+
+            <addpermobj>
+                <permobj objName="com.mycompany.MyBasePage" description="Fortress Demo2 BasePage" ou="Demo2Perms" type="Page"/>
+                <permobj objName="com.mycompany.Page1" description="Fortress Demo2 Page 1" ou="Demo2Perms" type="Page"/>
+                <permobj objName="com.mycompany.Page2" description="Fortress Demo2 Page 2" ou="Demo2Perms" type="Page"/>
+                <permobj objName="com.mycompany.Page3" description="Fortress Demo2 Page 3" ou="Demo2Perms" type="Page"/>
+                <permobj objName="org.apache.directory.fortress.core.rbac.AccessMgrImpl" description="Used to perform role activation functions" ou="Demo2Perms" type="Page"/>
+                <permobj objName="ROLE_PAGE1" description="Used to perform ROLE_PAGE1 role activation functions" ou="Demo2Perms" type="Button"/>
+                <permobj objName="PAGE1_123" description="Used to perform PAGE1_123 role activation functions" ou="Demo2Perms" type="Button"/>
+                <permobj objName="PAGE1_456" description="Used to perform PAGE1_456 role activation functions" ou="Demo2Perms" type="Button"/>
+                <permobj objName="PAGE1_789" description="Used to perform PAGE1_789 role activation functions" ou="Demo2Perms" type="Button"/>
+                <permobj objName="ROLE_PAGE2" description="Used to perform ROLE_PAGE12 role activation functions" ou="Demo2Perms" type="Button"/>
+                <permobj objName="PAGE2_123" description="Used to perform PAGE2_123 role activation functions" ou="Demo2Perms" type="Button"/>
+                <permobj objName="PAGE2_456" description="Used to perform PAGE2_456 role activation functions" ou="Demo2Perms" type="Button"/>
+                <permobj objName="PAGE2_789" description="Used to perform PAGE2_789 role activation functions" ou="Demo2Perms" type="Button"/>
+                <permobj objName="ROLE_PAGE3" description="Used to perform ROLE_PAGE3 role activation functions" ou="Demo2Perms" type="Button"/>
+                <permobj objName="PAGE3_123" description="Used to perform PAGE3_123 role activation functions" ou="Demo2Perms" type="Button"/>
+                <permobj objName="PAGE3_456" description="Used to perform PAGE3_456 role activation functions" ou="Demo2Perms" type="Button"/>
+                <permobj objName="PAGE3_789" description="Used to perform PAGE3_789 role activation functions" ou="Demo2Perms" type="Button"/>
+            </addpermobj>
+
+            <addpermop>
+                <permop objName="com.mycompany.MyBasePage" opName="addActiveRole" type="Button" description="Permission for com.mycompany.MyBasePage.addActiveRole"/>
+                <permop objName="com.mycompany.MyBasePage" opName="dropActiveRole" type="Button" description="Permission for com.mycompany.MyBasePage.dropActiveRole"/>
+
+                <permop objName="ROLE_PAGE1" opName="addActiveRole" type="Button" description="Permission for ROLE_PAGE1.addActiveRole"/>
+                <permop objName="ROLE_PAGE1" opName="dropActiveRole" type="Button" description="Permission for ROLE_PAGE1.dropActiveRole"/>
+                <permop objName="ROLE_PAGE2" opName="addActiveRole" type="Button" description="Permission for ROLE_PAGE2.addActiveRole"/>
+                <permop objName="ROLE_PAGE2" opName="dropActiveRole" type="Button" description="Permission for ROLE_PAGE2.dropActiveRole"/>
+                <permop objName="ROLE_PAGE3" opName="addActiveRole" type="Button" description="Permission for ROLE_PAGE3.addActiveRole"/>
+                <permop objName="ROLE_PAGE3" opName="dropActiveRole" type="Button" description="Permission for ROLE_PAGE3.dropActiveRole"/>
+                <permop objName="org.apache.directory.fortress.core.rbac.AccessMgrImpl" opName="addActiveRole" type="Button" description="Permission for AccessMgrImpl.addActiveRole"/>
+                <permop objName="org.apache.directory.fortress.core.rbac.AccessMgrImpl" opName="dropActiveRole" type="Button" description="Permission for AccessMgrImpl.dropActiveRole"/>
+
+                <permop objName="com.mycompany.Page1" opName="Add" objId="123" description="Permission for page1.add on Customer record 123"/>
+                <permop objName="com.mycompany.Page1" opName="Add" objId="456" description="Permission for page1.add on Customer record 456"/>
+                <permop objName="com.mycompany.Page1" opName="Add" objId="789" description="Permission for page1.add on Customer record 789"/>
+                <permop objName="com.mycompany.Page1" opName="Update" objId="123" description="Permission for page1.update on Customer record 123"/>
+                <permop objName="com.mycompany.Page1" opName="Update" objId="456" description="Permission for page1.update on Customer record 456"/>
+                <permop objName="com.mycompany.Page1" opName="Update" objId="789" description="Permission for page1.update on Customer record 789"/>
+                <permop objName="com.mycompany.Page1" opName="Delete" objId="123" description="Permission for page1.delete on Customer record 123"/>
+                <permop objName="com.mycompany.Page1" opName="Delete" objId="456" description="Permission for page1.delete on Customer record 456"/>
+                <permop objName="com.mycompany.Page1" opName="Delete" objId="789" description="Permission for page1.delete on Customer record 789"/>
+                <permop objName="com.mycompany.Page1" opName="Search" objId="123" description="Permission for page1.search on Customer record 123"/>
+                <permop objName="com.mycompany.Page1" opName="Search" objId="456" description="Permission for page1.search on Customer record 456"/>
+                <permop objName="com.mycompany.Page1" opName="Search" objId="789" description="Permission for page1.search on Customer record 789"/>
+                <permop objName="com.mycompany.Page1" opName="Read" objId="123" description="Permission for page1.read on Customer record 123"/>
+                <permop objName="com.mycompany.Page1" opName="Read" objId="456" description="Permission for page1.read on Customer record 456"/>
+                <permop objName="com.mycompany.Page1" opName="Read" objId="789" description="Permission for page1.read on Customer record 789"/>
+                <permop objName="PAGE1_123" opName="addActiveRole" type="Button" description="Permission for PAGE1_123.addActiveRole"/>
+                <permop objName="PAGE1_456" opName="addActiveRole" type="Button" description="Permission for PAGE1_456.addActiveRole"/>
+                <permop objName="PAGE1_789" opName="addActiveRole" type="Button" description="Permission for PAGE1_789.addActiveRole"/>
+                <permop objName="PAGE1_123" opName="dropActiveRole" type="Button" description="Permission for PAGE1_123.dropActiveRole"/>
+                <permop objName="PAGE1_456" opName="dropActiveRole" type="Button" description="Permission for PAGE1_456.dropActiveRole"/>
+                <permop objName="PAGE1_789" opName="dropActiveRole" type="Button" description="Permission for PAGE1_789.dropActiveRole"/>
+
+                <permop objName="com.mycompany.Page2" opName="Add" objId="123" description="Permission for page2.add on Customer record 123"/>
+                <permop objName="com.mycompany.Page2" opName="Add" objId="456" description="Permission for page2.add on Customer record 456"/>
+                <permop objName="com.mycompany.Page2" opName="Add" objId="789" description="Permission for page2.add on Customer record 789"/>
+                <permop objName="com.mycompany.Page2" opName="Update" objId="123" description="Permission for page1.update on Customer record 123"/>
+                <permop objName="com.mycompany.Page2" opName="Update" objId="456" description="Permission for page1.update on Customer record 456"/>
+                <permop objName="com.mycompany.Page2" opName="Update" objId="789" description="Permission for page1.update on Customer record 789"/>
+                <permop objName="com.mycompany.Page2" opName="Delete" objId="123" description="Permission for page2.delete on Customer record 123"/>
+                <permop objName="com.mycompany.Page2" opName="Delete" objId="456" description="Permission for page2.delete on Customer record 456"/>
+                <permop objName="com.mycompany.Page2" opName="Delete" objId="789" description="Permission for page2.delete on Customer record 789"/>
+                <permop objName="com.mycompany.Page2" opName="Search" objId="123" description="Permission for page2.search on Customer record 123"/>
+                <permop objName="com.mycompany.Page2" opName="Search" objId="456" description="Permission for page2.search on Customer record 456"/>
+                <permop objName="com.mycompany.Page2" opName="Search" objId="789" description="Permission for page2.search on Customer record 789"/>
+                <permop objName="com.mycompany.Page2" opName="Read" objId="123" description="Permission for page2.read on Customer record 123"/>
+                <permop objName="com.mycompany.Page2" opName="Read" objId="456" description="Permission for page2.read on Customer record 456"/>
+                <permop objName="com.mycompany.Page2" opName="Read" objId="789" description="Permission for page2.read on Customer record 789"/>
+                <permop objName="PAGE2_123" opName="addActiveRole" type="Button" description="Permission for PAGE2_123.addActiveRole"/>
+                <permop objName="PAGE2_456" opName="addActiveRole" type="Button" description="Permission for PAGE2_456.addActiveRole"/>
+                <permop objName="PAGE2_789" opName="addActiveRole" type="Button" description="Permission for PAGE2_789.addActiveRole"/>
+                <permop objName="PAGE2_123" opName="dropActiveRole" type="Button" description="Permission for PAGE2_123.dropActiveRole"/>
+                <permop objName="PAGE2_456" opName="dropActiveRole" type="Button" description="Permission for PAGE2_456.dropActiveRole"/>
+                <permop objName="PAGE2_789" opName="dropActiveRole" type="Button" description="Permission for PAGE2_789.dropActiveRole"/>
+
+                <permop objName="com.mycompany.Page3" opName="Add" objId="123" description="Permission for page3.add on Customer record 123"/>
+                <permop objName="com.mycompany.Page3" opName="Add" objId="456" description="Permission for page3.add on Customer record 456"/>
+                <permop objName="com.mycompany.Page3" opName="Add" objId="789" description="Permission for page3.add on Customer record 789"/>
+                <permop objName="com.mycompany.Page3" opName="Update" objId="123" description="Permission for page3.update on Customer record 123"/>
+                <permop objName="com.mycompany.Page3" opName="Update" objId="456" description="Permission for page3.update on Customer record 456"/>
+                <permop objName="com.mycompany.Page3" opName="Update" objId="789" description="Permission for page3.update on Customer record 789"/>
+                <permop objName="com.mycompany.Page3" opName="Delete" objId="123" description="Permission for page3.delete on Customer record 123"/>
+                <permop objName="com.mycompany.Page3" opName="Delete" objId="456" description="Permission for page3.delete on Customer record 456"/>
+                <permop objName="com.mycompany.Page3" opName="Delete" objId="789" description="Permission for page3.delete on Customer record 789"/>
+                <permop objName="com.mycompany.Page3" opName="Search" objId="123" description="Permission for page3.search on Customer record 123"/>
+                <permop objName="com.mycompany.Page3" opName="Search" objId="456" description="Permission for page3.search on Customer record 456"/>
+                <permop objName="com.mycompany.Page3" opName="Search" objId="789" description="Permission for page3.search on Customer record 789"/>
+                <permop objName="com.mycompany.Page3" opName="Read" objId="123" description="Permission for page3.read on Customer record 123"/>
+                <permop objName="com.mycompany.Page3" opName="Read" objId="456" description="Permission for page3.read on Customer record 456"/>
+                <permop objName="com.mycompany.Page3" opName="Read" objId="789" description="Permission for page3.read on Customer record 789"/>
+                <permop objName="PAGE3_123" opName="addActiveRole" type="Button" description="Permission for PAGE3_123.addActiveRole"/>
+                <permop objName="PAGE3_456" opName="addActiveRole" type="Button" description="Permission for PAGE3_456.addActiveRole"/>
+                <permop objName="PAGE3_789" opName="addActiveRole" type="Button" description="Permission for PAGE3_789.addActiveRole"/>
+                <permop objName="PAGE3_123" opName="dropActiveRole" type="Button" description="Permission for PAGE3_123.dropActiveRole"/>
+                <permop objName="PAGE3_456" opName="dropActiveRole" type="Button" description="Permission for PAGE3_456.dropActiveRole"/>
+                <permop objName="PAGE3_789" opName="dropActiveRole" type="Button" description="Permission for PAGE3_789.dropActiveRole"/>
+            </addpermop>
+
+            <delsdset>
+                <sdset name="Demo2DSD" setType="DYNAMIC"/>
+            </delsdset>
+
+            <addsdset>
+                <sdset name="Demo2DSD" description="ROLE_TEST DATA roles are mutually exclusive" cardinality="2" setType="DYNAMIC" setmembers="PAGE1_123,PAGE1_456,PAGE1_789,PAGE2_123,PAGE2_456,PAGE2_789,PAGE3_123,PAGE3_456,PAGE3_789"/>
+            </addsdset>
+
+            <delorgunit>
+                <orgunit name="Demo2Perms" typeName="PERM"/>
+                <orgunit name="Demo2Users" typeName="USER"/>
+            </delorgunit>
+
+            <addorgunit>
+                <orgunit name="Demo2Perms" typeName="PERM" description="Fortress Demo2 Test Permissions"/>
+                <orgunit name="Demo2Users" typeName="USER" description="Fortress Demo2 Test Users"/>
+            </addorgunit>
+
+        </FortressAdmin>
+    </target>
+</project>

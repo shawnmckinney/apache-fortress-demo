@@ -1,0 +1,91 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<!--
+~ This is free and unencumbered software released into the public domain.
+-->
+<HTML>
+<HEAD>
+    <TITLE>Overview of Fortress Demo # 2</TITLE>
+</HEAD>
+<BODY>
+<p>
+    <h3>Overview of Fortress Demo # 2 End-to-End Web Security</h3>
+    The tutorial provides a how-to guide for applying end-to-end security enforcement across a  sample Java Web environment.
+    Security concerns covered are authentication, authorization, confidentiality and audit trail.
+    Both declarative and programmatic enforcement controls will be used.
+    <br><br>
+    More info here: <a href="./doc-files/AnatomyOfSecureWebApp.pdf">The Anatomy of a Secure Web App</a>
+<hr>
+<h4>Fortress Demo # 2 Installation Instructions</h4>
+Tutorial installation requires completion of these sections:
+<ol type="I">
+    <li><a href="./doc-files/I-opensslheartbleed.html">Heartbleed Bug</a></li>
+    <li><a href="./doc-files/II-keys.html">Managing PKI Keys</a></li>
+    <li><a href="./doc-files/III-hosts.html">Set Hostname Entry</a></li>
+    <li><a href="./doc-files/IV-fortress.html">Install Fortress</a></li>
+    <li><a href="./doc-files/V-mysql.html">Install MySQL</a></li>
+    <li><a href="./doc-files/VI-tomcat.html">Install Tomcat</a></li>
+    <li><a href="./doc-files/VII-commander.html">Install Commander RBAC Web Admin</a></li>
+    <li><a href="./doc-files/VIII-demo.html">Install Fortress Demo #2</a></li>
+</ol>
+</p>
+<hr>
+<h4>Fortress Demo # 2 Web Security System Overview</h4>
+The following block diagram illustrates the layered approach used to enforce security in this tutorial:
+<br><br>
+<img src="./doc-files/Demo2-Block-Diagram.png" height="400" width="600">
+<p>
+<hr>
+<h4>Prerequisites</h4>
+<ol type="1">
+    <li>Debian or Redhat Liunx machine with <a href="http://www.openssl.org">OpenSSL</a> installed</li>
+    <li>Java 7 (or greater) SDK</li>
+    <li><a href="http://ant.apache.org/">Apache Ant 1.8 (or greater)</a></li>
+    <li><a href="http://maven.apache.org/">Apache Maven</a></li>
+    <li><a href="https://www.mozilla.org/en-GB/firefox/new/">Firefox Web Browser</a></li>
+</ol>
+<hr>
+<h4>Getting Started - How to generate the tutorial's how-to guide</h4>
+This tutorial uses javadoc that is contained within the fortressdemo2 web application.  To generate, follow these instructions:
+<ol type="1">
+    <li>Download the <a href="https://github.com/shawnmckinney/fortressdemo2/archive/master.zip">fortressdemo2 source bundle</a>  from GitHub</li>
+    <li>Extract bundle</li>
+    <li>Set JAVA_HOME</li>
+    <li>Set M2_HOME</li>
+    <li>Run this command from the root package:
+                <pre>
+                    <p style="font: monospace; color: black; background-color: lightgrey; font-size: 10pt">
+$ $M2_HOME/bin/mvn javadoc:javadoc
+                    </p>
+                </pre>
+    </li>
+    <li>Open the help document: /*package home*/target/site/apidocs/overview-summary.html</li>
+    <li>Complete the sections under <b>Fortress Demo # 2 Installation Instructions</b></li>
+</ol>
+<hr>
+<h4>Infrastructure Installed</h4>
+<ol type="1">
+    <li><a href="http://www.openldap.org/">OpenLDAP Directory Server</a></li>
+    <li><a href="http://www.openldap.org/fortress/">OpenLDAP Fortress RBAC SDK</a></li>
+    <li><a href="http://www.mysql.com/">MySQL Database Manager</a></li>
+    <li><a href="http://tomcat.apache.org/">Apache Tomcat Servlet Container</a></li>
+</ol>
+</p>
+<hr>
+<h4>Security Functions Covered</h4>
+This sample Web application shows how-to do the following:
+<ol type="1">
+    <li>Java EE Authentication with UserId and Password</li>
+    <li>Java EE Coarse-grained Authorization using Roles</li>
+    <li>Spring Coarse-grained Page Authorization using Roles</li>
+    <li>Medium-grained Authorization inside Web Framework using RBAC Roles and Permissions</li>
+    <li>Fine-grained Authorization inside Data Access Objects using RBAC Permissions</li>
+    <li>HTTPS Confidentiality</li>
+    <li>LDAP v3 Confidentiality</li>
+    <li>JDBC Confidentiality</li>
+    <li>Audit Trail of Security Events</li>
+</ol>
+<hr>
+These concepts apply to other Web application infrastructure configurations.
+If you find security flaws, or have questions about Fortress, submit to <a href="http://www.openldap.org/lists/mm/listinfo/openldap-fortress">OpenLDAP Fortress Discussion list</a>.
+</BODY>
+</HTML>

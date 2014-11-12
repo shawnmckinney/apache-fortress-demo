@@ -1,0 +1,77 @@
+<!--
+  ~ This is free and unencumbered software released into the public domain.
+  -->
+<html xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="utf-8" />
+    <meta name="keywords" content="wicket jquery, wicket jquery ui, autocomplete, dialog, draggable, droppable, progress bar, wizard, kendo ui, border layout, calendar" />
+    <link rel="stylesheet" type="text/css" href="css/my-style.css" media="all" />
+    <link rel="stylesheet" type="text/css" href="css/ui-lightness/jquery-ui-1.10.2.custom.min.css" media="all" />
+    <link rel="stylesheet" type="text/css" href="css/kendo/kendo.common.min.css" media="all" />
+    <link rel="stylesheet" type="text/css" href="css/kendo/kendo.default.min.css" media="all" />
+    <link rel="shortcut icon" href="images/favicon.ico" />
+    <title>RBAC Project Sample for Wicket Web and Mybatis Data Persistence Frameworks</title>
+</head>
+<body>
+<div id="header">
+    <h3>
+        <fieldset>
+            <legend><span wicket:id="linksLabel" id="linksLabel"/></legend>
+            <a href="#" wicket:id="page1">PAGE1</a>
+            &nbsp
+            <a href="#" wicket:id="page2">PAGE2</a>
+            &nbsp
+            <a href="#" wicket:id="page3">PAGE3</a>
+            &nbsp
+            <a href="#" wicket:id="logout">LOGOUT</a>
+        </fieldset>
+    </h3>
+
+    <form wicket:id="commonForm">
+        <fieldset>
+            <legend><b>Activate and Deactivate Roles in Session</b></legend>
+            <table id="inputFormTableActivate">
+                <tr>
+                    <td>
+                        <label for="inactiveRoles">Inactive Roles</label>
+                    </td>
+                    <td>
+                        <input type="text" wicket:id="inactiveRoles" id="inactiveRoles" style="width: 250px"/>
+                        <button wicket:id="roles.activate" name="roles.activate" style="width: 100px">activate</button>
+                    </td>
+                    <td>
+                        <span wicket:id="inactivatedRoleString"></span>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                    </td>
+                    <td>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label for="activeRoles">Active Roles</label>
+                    </td>
+                    <td>
+                        <input type="text" wicket:id="activeRoles" id="activeRoles" style="width: 250px"/>
+                        <button wicket:id="roles.deactivate" name="roles.deactivate" style="width: 100px">deactivate</button>
+                    </td>
+                    <td>
+                        <span wicket:id="activatedRoleString"></span>
+                    </td>
+                </tr>
+            </table>
+        </fieldset>
+    </form>
+</div>
+<div id="body">
+    <wicket:child />
+</div>
+<div id="footer">
+    <h2><textarea wicket:id="infoField" id="infoField" rows="1" cols="80"></textarea></h2>
+    <hr>
+    <span wicket:id="footer"></span>
+</div>
+</body>
+</html>
