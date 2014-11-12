@@ -11,7 +11,7 @@
     <version>1.0-RC40</version>
     <packaging>war</packaging>
     <name>Apache Fortress Demo</name>
-    <description>Fortress End-to-End Security Project Sample using Apache Fortress, Wicket Web and Mybatis Data Persistence Frameworks.</description>
+    <description>Sample Web App using Apache Fortress, Wicket, Mybatis Data Persistence Frameworks.</description>
     <properties>
         <wicket.version>6.17.0</wicket.version>
         <wicket.jquery.version>6.17.0</wicket.jquery.version>
