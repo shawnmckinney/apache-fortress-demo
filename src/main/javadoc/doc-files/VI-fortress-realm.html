@@ -1,0 +1,89 @@
+<!--
+  ~ This is free and unencumbered software released into the public domain.
+  -->
+<html>
+<head>
+    <title>Apache Fortress End-to-End Web App Security Tutorial</title>
+    <hr>
+    <fieldset>
+        <legend><b>Navigation Links</b></legend>
+        <ul>
+            <li><a href="./I-opensslheartbleed.html">Section I - Heartbleed Bug</a></li>
+            <li><a href="./II-keys.html">Section II - Managing PKI Keys</a></li>
+            <li><a href="./III-hosts.html">Section III - Set Hostname Entry</a></li>
+            <li><a href="./IV-fortress-core.html">Section IV - Install Apache Fortress Core SDK</a></li>
+            <li><a href="./V-mysql.html">Section V - Install MySQL</a></li>
+            <li><a href="./VI-fortress-realm.html">Section VI - Install Fortress Realm</a></li>
+            <li><a href="./VII-tomcat.html">Section VII - Install Tomcat</a></li>
+            <li><a href="./VIII-fortress-web.html">Section VIII - Install Fortress Web UI</a></li>
+            <li><a href="./IX-demo.html">Section IX - Install Apache Fortress Demo</a></li>
+        </ul>
+        <a href="../overview-summary.html">Back to top</a>
+    </fieldset>
+    <hr>
+</head>
+<body>
+<h3>Section VI - Install Fortress Realm</h3>
+
+<h4>This section describes how to install The Fortress Realm Policy Enforcement Component </h4>
+
+<ol>
+
+    <li>
+        Download the <a href="https://git-wip-us.apache.org/repos/asf?p=directory-fortress-realm.git;a=summary">Apache Fortress Realm source bundle</a>.
+    </li>
+
+    <br>
+
+    <li>
+        Set JAVA_HOME:
+            <pre>
+                <p style="font: monospace; color: black; background-color: lightgrey; font-size: 10pt">
+                    # export JAVA_HOME=/opt/jdk1.7.0_10/
+                </p>
+            </pre>
+
+    </li>
+
+    <li>
+        Extract:
+            <pre>
+                <p style="font: monospace; color: black; background-color: lightgrey; font-size: 10pt">
+                    # tar xzf directory-fortress-realm-X.tar.gz
+                </p>
+            </pre>
+    </li>
+
+    <li>
+        Change directory:
+            <pre>
+                <p style="font: monospace; color: black; background-color: lightgrey; font-size: 10pt">
+                    # cd directory-fortress-realm/
+                </p>
+            </pre>
+    </li>
+
+    <li>
+        Set M2_HOME:
+            <pre>
+                <p style="font: monospace; color: black; background-color: lightgrey; font-size: 10pt">
+                    # export M2_HOME=../builder/apache-maven/
+                </p>
+            </pre>
+    </li>
+
+    <br>
+
+    <li>
+        Build fortress realm with maven and install to local repo (needed by demo app later on):
+                <pre>
+                    <p style="font: monospace; color: black; background-color: lightgrey; font-size: 10pt">
+                        # $M2_HOME/bin/mvn clean install
+                    </p>
+                </pre>
+    </li>
+</ol>
+
+</body>
+<p style="font: monospace; color: black; font-size: 6pt">This is free and unencumbered software released into the public domain.</p>
+</html>

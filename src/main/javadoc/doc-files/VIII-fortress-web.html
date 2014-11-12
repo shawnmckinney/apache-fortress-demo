@@ -11,25 +11,27 @@
                <li><a href="./I-opensslheartbleed.html">Section I - Heartbleed Bug</a></li>
                <li><a href="./II-keys.html">Section II - Managing PKI Keys</a></li>
                <li><a href="./III-hosts.html">Section III - Set Hostname Entry</a></li>
-               <li><a href="./IV-fortress.html">Section IV - Install Fortress</a></li>
+               <li><a href="./IV-fortress-core.html">Section IV - Install Apache Fortress Core SDK</a></li>
                <li><a href="./V-mysql.html">Section V - Install MySQL</a></li>
-               <li><a href="./VI-tomcat.html">Section VI - Install Tomcat</a></li>
-               <li><a href="./VII-commander.html">Section VII - Install Commander</a></li>
-               <li><a href="./VIII-demo.html">Section VIII - Install Fortress Demo #2</a></li>
+               <li><a href="./VI-fortress-realm.html">Section VI - Install Fortress Realm</a></li>
+               <li><a href="./VII-tomcat.html">Section VII - Install Tomcat</a></li>
+               <li><a href="./VIII-fortress-web.html">Section VIII - Install Fortress Web UI</a></li>
+               <li><a href="./IX-demo.html">Section IX - Install Apache Fortress Demo</a></li>
            </ul>
            <a href="../overview-summary.html">Back to top</a>
        </fieldset>
        <hr>
    </head>
    <body>
-      <h3>Section VII - Install Commander</h3>
+      <h3>Section VII - Install Fortress Web UI</h3>
       <img src="commander100.gif">
 
-      <h4>This section describes how to install and use the RBAC Commander Web application</h4>
+      <h4>This section describes how to install and use the Fortress Web Application for RBAC Administration </h4>
 
       <ol>
+
           <li>
-                Download the <a href="http://search.maven.org/remotecontent?filepath=org/openldap/commander/1.0-RC39/commander-1.0-RC39.jar">Commander RC39 source bundle</a>.
+              Download the <a href="https://git-wip-us.apache.org/repos/asf?p=directory-fortress-commander.git;a=summary">Apache Fortress Web source bundle</a>.
           </li>
 
           <br>
@@ -48,7 +50,7 @@
             Extract:
             <pre>
                 <p style="font: monospace; color: black; background-color: lightgrey; font-size: 10pt">
-# $JAVA_HOME/bin/jar -xf commander-1.0-RC39.jar
+# tar xzf directory-fortress-commander-X.tar.gz
                 </p>
             </pre>
           </li>
@@ -57,7 +59,7 @@
               Change directory:
             <pre>
                 <p style="font: monospace; color: black; background-color: lightgrey; font-size: 10pt">
-# cd commander-1.0-RC39/
+# cd directory-fortress-commander/
                 </p>
             </pre>
           </li>
@@ -90,7 +92,7 @@
           </li>
 
           <li>
-              Change the host, port and ssl to match settings from <a href="IV-fortress.html">Section IV - Install Fortress</a>.
+              Change the host, port and ssl to match settings from <a href="IV-fortress-core.html">Section IV - Install Fortress Core</a>.
                 <pre>
                     <p style="font: monospace; color: black; background-color: lightgrey; font-size: 10pt">
 # Use value from [<a href="III-hosts.html">Section III - Set Hostname Entry</a>]:
@@ -164,15 +166,15 @@ trust.store.set.prop=true
               <ol type="a">
                   <li>
                       non-SSL -
-                      local: <a href="http://localhost:8080/commander">http://localhost:8080/commander</a>,
-                      remote: <a href="http://fortressdemo2.com:8080/commander">http://fortressdemo2.com:8080/commander</a>
+                      local: <a href="http://localhost:8080/directory-fortress-web">http://localhost:8080/directory-fortress-web</a>,
+                      remote: <a href="http://fortressdemo2.com:8080/directory-fortress-web">http://fortressdemo2.com:8080/directory-fortress-web</a>
                       <br>
                   </li>
                   <br>
                   <li>
                       SSL -
-                      local: <a href="https://localhost:8443/commander">https://localhost:8443/commander</a>,
-                      remote: <a href="https://fortressdemo2.com:8443/commander">https://fortressdemo2.com:8443/commander</a>
+                      local: <a href="https://localhost:8443/directory-fortress-web">https://localhost:8443/directory-fortress-web</a>,
+                      remote: <a href="https://fortressdemo2.com:8443/directory-fortress-web">https://fortressdemo2.com:8443/directory-fortress-web</a>
                   </li>
                   <br>
                   Accept the self-signed certificate when the warning dialog appears.
@@ -181,16 +183,6 @@ trust.store.set.prop=true
           </li>
 
           <br>
-
-          <li>
-              Take an Apache Solenium test drive of the Commander web pages.  Firefox installed to target machine is a requirement.  Another requirement is Step #6
-              from <a href="./IV-fortress.html">Section IV - Install Fortress</a> has loaded the necessary test data.
-            <pre>
-                <p style="font: monospace; color: black; background-color: lightgrey; font-size: 10pt">
-$M2_HOME/bin/mvn verify -DskipTests=false
-                </p>
-            </pre>
-          </li>
 
           <li>
               Try the various user accounts:
