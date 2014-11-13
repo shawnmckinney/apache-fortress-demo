@@ -399,6 +399,7 @@
                                     <sysproperty key="version" value="${project.version}"/>
                                     <sysproperty key="tenant" value="HOME"/>
                                     <arg value="-buildfile"/>
+<!--                                    <arg file="./${load.file}"/>-->
                                     <arg file="./apache-fortress-demo-load-policy.xml"/>
                                 </java>
                             </target>
