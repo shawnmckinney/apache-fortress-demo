@@ -83,22 +83,7 @@
           </li>
 
           <li>
-              Set ANT_HOME:
-            <pre>
-                <p style="font: monospace; color: black; background-color: lightgrey; font-size: 10pt">
-# export ANT_HOME=../builder/apache-ant/
-                </p>
-            </pre>
-          </li>
-
-          <li>
-              Bind the fortress config contained in <b>build.properties</b> to <b>config/fortress.properties</b> and base load script in <b>ldap/setup/refreshLDAPData.xml</b>:
-                <pre>
-                    <p style="font: monospace; color: black; background-color: lightgrey; font-size: 10pt">
-# $ANT_HOME/bin/ant init-fortress-config
-                    </p>
-                </pre>
-              Verify the following files have been created as they are required later:
+              Verify the following files were created by build as they are required later:
                 <pre>
                     <p style="font: monospace; color: black; background-color: lightgrey; font-size: 10pt">
 # ls -l config/fortress.properties
@@ -135,6 +120,16 @@
 # $M2_HOME/bin/mvn install -Dload.file=./ldap/setup/DelegatedAdminManagerLoad.xml -DskipTests=true
                     </p>
                 </pre>
+          </li>
+
+          <li>
+              Run the Fortress Core Regression Tess:
+                <pre>
+                    <p style="font: monospace; color: black; background-color: lightgrey; font-size: 10pt">
+# $M2_HOME/bin/mvn -Dtest=FortressJUnitTest test
+                    </p>
+                </pre>
+              Tests should run with no errors.
           </li>
       </ol>
    </body>
