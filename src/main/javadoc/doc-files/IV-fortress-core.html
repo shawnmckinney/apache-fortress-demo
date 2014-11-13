@@ -11,7 +11,7 @@
                <li><a href="./I-opensslheartbleed.html">Section I - Heartbleed Bug</a></li>
                <li><a href="./II-keys.html">Section II - Managing PKI Keys</a></li>
                <li><a href="./III-hosts.html">Section III - Set Hostname Entry</a></li>
-               <li><a href="./IV-fortress-core.html">Section IV - Install Fortress Core SDK</a></li>
+               <li><a href="./IV-fortress-core.html">Section IV - Install Fortress Core</a></li>
                <li><a href="./V-mysql.html">Section V - Install MySQL</a></li>
                <li><a href="./VI-fortress-realm.html">Section VI - Install Fortress Realm</a></li>
                <li><a href="./VII-tomcat.html">Section VII - Install Tomcat</a></li>
@@ -31,22 +31,38 @@
       <ol>
 
           <li>
-              Perform [<b>Section I - Instructions to extract and configure Fortress Builder Package to Target System</b>] in <a href="http://directory.apache.org/fortress/quick-start/apacheds/section-I.html">FORTRESS APACHEDS QUICKSTART - Section I</a>
+              Download the <a href="https://git-wip-us.apache.org/repos/asf?p=directory-fortress-core.git;a=summary">Apache Fortress Core source bundle</a>.
           </li>
 
           <br>
 
           <li>
-              Perform [<b>Section 2 - Instructions to run the Fortress Ant Build</b>] in <a href="http://directory.apache.org/fortress/quick-start/apacheds/section-II.html">FORTRESS APACHEDS QUICKSTART - Section II</a>
-          </li>
+              Set JAVA_HOME:
+            <pre>
+                <p style="font: monospace; color: black; background-color: lightgrey; font-size: 10pt">
+# export JAVA_HOME=/opt/jdk1.7.0_10/
+                </p>
+            </pre>
 
-          <br>
+          </li>
 
           <li>
-              Perform [<b>Section III - Instructions to configure ApacheDS and load with seed data</b>] in <a href="http://directory.apache.org/fortress/quick-start/apacheds/section-III.html">FORTRESS APACHEDS QUICKSTART - Section III</a>
+              Extract:
+            <pre>
+                <p style="font: monospace; color: black; background-color: lightgrey; font-size: 10pt">
+# tar xzf directory-fortress-core-X.tar.gz
+                </p>
+            </pre>
           </li>
 
-          <br>
+          <li>
+              Change directory:
+            <pre>
+                <p style="font: monospace; color: black; background-color: lightgrey; font-size: 10pt">
+# cd directory-fortress-core/
+                </p>
+            </pre>
+          </li>
 
           <li>
               Set M2_HOME:
@@ -66,6 +82,60 @@
                 </pre>
           </li>
 
+          <li>
+              Set ANT_HOME:
+            <pre>
+                <p style="font: monospace; color: black; background-color: lightgrey; font-size: 10pt">
+# export ANT_HOME=../builder/apache-ant/
+                </p>
+            </pre>
+          </li>
+
+          <li>
+              Bind the fortress config contained in <b>build.properties</b> to <b>config/fortress.properties</b> and base load script in <b>ldap/setup/refreshLDAPData.xml</b>:
+                <pre>
+                    <p style="font: monospace; color: black; background-color: lightgrey; font-size: 10pt">
+# $ANT_HOME/bin/ant init-fortress-config
+                    </p>
+                </pre>
+              Verify the following files have been created as they are required later:
+                <pre>
+                    <p style="font: monospace; color: black; background-color: lightgrey; font-size: 10pt">
+# ls -l config/fortress.properties
+# ls -l ldap/setup/refreshLDAPData.xml
+                    </p>
+                </pre>
+          </li>
+
+          <li>
+              Load the fortress schema contained in <b>ldap/schema/apacheds-fortress.ldif</b> to ApacheDS instance.
+          </li>
+
+          <br>
+
+          <li>
+             Setup partition in ApacheDS server matching ldap server params in <b>config/fortress.properties</b> file.
+          </li>
+
+          <br>
+
+          <li>
+              Build the fortress LDAP DIT and create the configuration node:
+                <pre>
+                    <p style="font: monospace; color: black; background-color: lightgrey; font-size: 10pt">
+# $M2_HOME/bin/mvn install -Dload.file=./ldap/setup/refreshLDAPData.xml -DskipTests=true
+                    </p>
+                </pre>
+          </li>
+
+          <li>
+              Load the fortress ARBAC policies:
+                <pre>
+                    <p style="font: monospace; color: black; background-color: lightgrey; font-size: 10pt">
+# $M2_HOME/bin/mvn install -Dload.file=./ldap/setup/DelegatedAdminManagerLoad.xml -DskipTests=true
+                    </p>
+                </pre>
+          </li>
       </ol>
    </body>
    <p style="font: monospace; color: black; font-size: 6pt">This is free and unencumbered software released into the public domain.</p>
