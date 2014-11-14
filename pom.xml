@@ -8,7 +8,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>fortressdemo3</groupId>
     <artifactId>apache-fortress-demo</artifactId>
-    <version>1.0-RC40</version>
+    <version>1.0-RC40-SNAPSHOT</version>
     <packaging>war</packaging>
     <name>Apache Fortress Demo</name>
     <description>Sample Web App using Apache Fortress, Wicket, Mybatis Data Persistence Frameworks.</description>
