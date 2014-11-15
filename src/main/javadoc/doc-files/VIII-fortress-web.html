@@ -88,10 +88,14 @@
 # Use value from [<a href="III-hosts.html">Section III - Set Hostname Entry</a>]:
 host=fortressdemo2.com
 
-# SSL communication with slapd:
-port=636
+# SSL communication with apacheds server:
+port=10636
 
-# Used for SSL Connection to LDAP Server:
+# These credentials are used for read/write access to all nodes under suffix:
+admin.user=uid=admin,ou=system
+admin.pw=secret
+
+# Enables SSL Connection to LDAP Server:
 enable.ldap.ssl=true
 
 # Useful if problem occurs:

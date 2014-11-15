@@ -74,7 +74,44 @@
           </li>
 
           <li>
-              Build fortress core with maven and install to local repo (needed by demo app later on):
+              Edit the build.properties in root folder of package.
+              These parameters are bound for files like <b>config/fortress.properties</b> and <b>ldap/setup/refreshLDAPData.xml</b> and used on subsequent steps.
+              <br>
+              Change the settings to:
+
+              <pre>
+                <p style="font: monospace; color: black; background-color: lightgrey; font-size: 10pt">
+# This points fortress to LDAP host.
+# Use value from [<a href="III-hosts.html">Section III - Set Hostname Entry</a>]:
+ldap.host=fortressdemo2.com
+
+# SSL communication with apacheds server:
+ldap.port=10636
+
+# Switch tells Fortress to use SSL:
+enable.ldap.ssl=true
+
+# Useful if problem occurs:
+enable.ldap.ssl.debug=false
+
+# Use truststore genned [<a href="II-keys.html">Section II - Managing PKI Keys</a>] or found under /src/test/resources/certs.
+# Contains self-signed certificate used by slapd daemon:
+trust.store=/home/user/fortress/builder/src/test/resources/certs/mytruststore
+
+# This is a demo, use the default:
+trust.store.password=changeit
+
+# (This is a workaround)
+# Set the values of the trust.store param as java.system properties to enable for MySQL JDBC driver as well:
+trust.store.set.prop=true
+                </p>
+              </pre>
+
+          </li>
+
+          <li>
+              Build fortress core with maven and install to local repo.  The fortress realm [<a href="VI-fortress-realm.html">Section VI - Install Fortress Realm</a>]
+              is dependent on fortress core.
                 <pre>
                     <p style="font: monospace; color: black; background-color: lightgrey; font-size: 10pt">
 # $M2_HOME/bin/mvn clean install -DskipTests=true
