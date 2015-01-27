@@ -2,7 +2,7 @@ This is free and unencumbered software released into the public domain.
 _____________________________________________________________________________
 #############################################################################
 README for Apache Fortress Demo End-to-End Security Example
-Last updated: November 12, 2014
+Last updated: January 27, 2015
 _____________________________________________________________________________
 #############################################################################
 # Prerequisites:
@@ -24,3 +24,5 @@ _____________________________________________________________________________
 $ $M2_HOME/bin/mvn javadoc:javadoc
 7. Open the help document: /*package home*/target/site/apidocs/overview-summary.html
 8. Follow the steps under 'Sections required for installation'
+
+Note: This tutorial is a work-in-progress.

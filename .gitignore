@@ -3,6 +3,7 @@ target
 .classpath
 .settings
 .idea
+out
 eclipse-classes
 *.log
 *.iml
