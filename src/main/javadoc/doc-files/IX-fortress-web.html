@@ -88,26 +88,18 @@
                     <p style="font: monospace; color: black; background-color: lightgrey; font-size: 10pt">
 # Use value from [<a href="III-hosts.html">Section III - Set Hostname Entry</a>]:
 host=fortressdemo2.com
+ldap.port=10389
 
-# SSL communication with apacheds server:
-port=10636
+# These are the connection parameters used for LDAP service account and used by 'admin' pooled connections:
+root.dn=uid=admin,ou=system
+port=10389
 
 # These credentials are used for read/write access to all nodes under suffix:
 admin.user=uid=admin,ou=system
 admin.pw=secret
 
-# Enables SSL Connection to LDAP Server:
-enable.ldap.ssl=true
-
-# Useful if problem occurs:
-enable.ldap.ssl.debug=true
-
-# Use truststore genned [<a href="II-keys.html">Section II - Managing PKI Keys</a>] or found under /src/test/resources/certs in fortress source package.
-trust.store=/home/user/fortress/builder/src/test/resources/certs/mytruststore
-trust.store.password=changeit
-
-# Sets trust.store params as System.property:
-trust.store.set.prop=true
+# This param tells fortress what type of ldap server in use:
+ldap.server.type=apacheds
                     </p>
                 </pre>
           </li>
