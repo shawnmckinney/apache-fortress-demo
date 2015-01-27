@@ -82,10 +82,19 @@
 
               <pre>
                 <p style="font: monospace; color: black; background-color: lightgrey; font-size: 10pt">
-# This points fortress to LDAP host.
+# This points fortress to Apache Directory LDAP host name.
 # Use value from [<a href="III-hosts.html">Section III - Set Hostname Entry</a>]:
 ldap.host=fortressdemo2.com
 ldap.port=10389
+
+# These are the connection parameters used for LDAP service account and used by 'admin' pooled connections:
+root.dn=uid=admin,ou=system
+
+# This root pass is bound for fortress.properties and used by 'admin' pooled connections:
+cfg.root.pw=secret
+
+# This param tells fortress what type of ldap server in use:
+ldap.server.type=apacheds
                 </p>
               </pre>
 
