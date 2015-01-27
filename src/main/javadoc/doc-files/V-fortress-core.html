@@ -11,12 +11,13 @@
                <li><a href="./I-opensslheartbleed.html">Section I - Heartbleed Bug</a></li>
                <li><a href="./II-keys.html">Section II - Managing PKI Keys</a></li>
                <li><a href="./III-hosts.html">Section III - Set Hostname Entry</a></li>
-               <li><a href="./IV-fortress-core.html">Section IV - Install Fortress Core</a></li>
-               <li><a href="./V-mysql.html">Section V - Install MySQL</a></li>
-               <li><a href="./VI-fortress-realm.html">Section VI - Install Fortress Realm</a></li>
-               <li><a href="./VII-tomcat.html">Section VII - Install Tomcat</a></li>
-               <li><a href="./VIII-fortress-web.html">Section VIII - Install Fortress Web UI</a></li>
-               <li><a href="./IX-demo.html">Section IX - Install Fortress Demo</a></li>
+               <li><a href="./IV-apache-directory.html">Section IV - Install Apache Directory</a></li>
+               <li><a href="./V-fortress-core.html">Section V - Install Fortress Core</a></li>
+               <li><a href="./VI-mysql.html">Section VI - Install MySQL</a></li>
+               <li><a href="./VII-fortress-realm.html">Section VII - Install Fortress Realm</a></li>
+               <li><a href="./VIII-tomcat.html">Section VIII - Install Tomcat</a></li>
+               <li><a href="./IX-fortress-web.html">Section IX - Install Fortress Web UI</a></li>
+               <li><a href="./X-demo.html">Section X - Install Fortress Demo</a></li>
            </ul>
            <a href="../overview-summary.html">Back to top</a>
        </fieldset>
@@ -24,9 +25,9 @@
    </head>
    <body>
       <p>
-      <h3>Section IV - Install Fortress Core</h3>
+      <h3>Section V - Install Fortress Core</h3>
       <img src="fortress100.gif">
-      <br><br>This section provides instructions to install and configure Fortress & OpenLDAP and enable SSL traffic between them.
+      <br><br>This section provides instructions to install Fortress and configure to work with Apache Directory Server.
       <h4>Steps to install the Fortress security system</h4>
       <ol>
 
@@ -84,26 +85,7 @@
 # This points fortress to LDAP host.
 # Use value from [<a href="III-hosts.html">Section III - Set Hostname Entry</a>]:
 ldap.host=fortressdemo2.com
-
-# SSL communication with apacheds server:
-ldap.port=10636
-
-# Switch tells Fortress to use SSL:
-enable.ldap.ssl=true
-
-# Useful if problem occurs:
-enable.ldap.ssl.debug=false
-
-# Use truststore genned [<a href="II-keys.html">Section II - Managing PKI Keys</a>] or found under /src/test/resources/certs.
-# Contains self-signed certificate used by slapd daemon:
-trust.store=/home/user/fortress/builder/src/test/resources/certs/mytruststore
-
-# This is a demo, use the default:
-trust.store.password=changeit
-
-# (This is a workaround)
-# Set the values of the trust.store param as java.system properties to enable for MySQL JDBC driver as well:
-trust.store.set.prop=true
+ldap.port=10389
                 </p>
               </pre>
 
@@ -130,7 +112,7 @@ trust.store.set.prop=true
           </li>
 
           <li>
-              Load the fortress schema contained in <b>ldap/schema/apacheds-fortress.ldif</b> to ApacheDS instance.
+              Load the fortress schema contained in <b>ldap/schema/apacheds-fortress.ldif</b> to ApacheDS instance using Apache Directory Studio.
           </li>
 
           <br>
