@@ -15,14 +15,18 @@ _____________________________________________________________________________
 #############################################################################
 # Instructions for downloading app and generating the install doc:
 #############################################################################
-1. Download package: https://github.com/shawnmckinney/apache-fortress-demo/archive/master.zip
+1. Download fortress core package: https://git-wip-us.apache.org/repos/asf?p=directory-fortress-core.git
 2. Extract
 3. Set JAVA_HOME
 4. Set M2_HOME
 5. Set ANT_HOME
 6. Run this command from the root package:
-$ $M2_HOME/bin/mvn javadoc:javadoc
-7. Open the help document: /*package home*/target/site/apidocs/overview-summary.html
-8. Follow the steps under 'Sections required for installation'
+7 $M2_HOME/bin/mvn clean install -DskipTests
+8. Download package: https://github.com/shawnmckinney/apache-fortress-demo/archive/master.zip
+9. Extract
+10. Run this command from the root package:
+11 $M2_HOME/bin/mvn javadoc:javadoc
+12. Open the help document: /*package home*/target/site/apidocs/overview-summary.html
+13. Follow the steps under 'Sections required for installation'
 
 Note: This tutorial is a work-in-progress.
