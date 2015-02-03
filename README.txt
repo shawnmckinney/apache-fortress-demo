@@ -22,11 +22,15 @@ _____________________________________________________________________________
 3. Set M2_HOME
 4. Run this command from the root package:
 # $M2_HOME/bin/mvn clean install -DskipTests
-5. Download apache-fortress-demo package from github: https://github.com/shawnmckinney/apache-fortress-demo/archive/master.zip
-6. Extract the zip archive to your local machine.
-7. Run this command from the root package:
+5. Clone the directory-fortress-realm from apache git repo:
+# git clone https://git-wip-us.apache.org/repos/asf/directory-fortress-realm.git
+# cd directory-fortress-realm/
+# $M2_HOME/bin/mvn install -DskipTests
+6. Download apache-fortress-demo package from github: https://github.com/shawnmckinney/apache-fortress-demo/archive/master.zip
+7. Extract the zip archive to your local machine.
+8. Run this command from the root package:
 # $M2_HOME/bin/mvn javadoc:javadoc
-8. Open the help document: /*package home*/target/site/apidocs/overview-summary.html
-9. Follow the steps under 'Sections required for installation'
+9. Open the help document: /*package home*/target/site/apidocs/overview-summary.html
+10. Follow the steps under 'Sections required for installation'
 
 Note: This tutorial is a work-in-progress.
