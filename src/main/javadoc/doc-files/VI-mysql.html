@@ -144,6 +144,7 @@ tcp        0      0 localhost:mysql         *:*                     LISTEN      
     </li>
 
     <li>
+        From the apache-fortress-demo root directory
         Connect to SQL command line processor (<i>Enter password chosen before during install</i>):
         <pre>
           <p style="font: monospace; color: black; background-color: lightgrey; font-size: 10pt">
@@ -156,7 +157,7 @@ tcp        0      0 localhost:mysql         *:*                     LISTEN      
         Run the <a href="demo-db-create-and-load.sql">demo-db-create-and-load.sql</a> script:
         <pre>
             <p style="font: monospace; color: black; background-color: lightgrey; font-size: 10pt">
-mysql> source demo-db-create-and-load.sql;
+mysql> source ./src/main/javadoc/doc-files/demo-db-create-and-load.sql;
             </p>
         </pre>
     </li>
