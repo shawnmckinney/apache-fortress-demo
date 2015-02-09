@@ -29,45 +29,20 @@
 <h4>This section describes how to install The Fortress Realm Policy Enforcement Component </h4>
 
 <ol>
-
     <li>
-        Download the <a href="https://git-wip-us.apache.org/repos/asf?p=directory-fortress-realm.git;a=summary">Apache Fortress Realm source bundle</a>.
-    </li>
-
-    <br>
-
-    <li>
-        Set JAVA_HOME:
+        Clone the fortress realm project, from command line:
             <pre>
                 <p style="font: monospace; color: black; background-color: lightgrey; font-size: 10pt">
-# export JAVA_HOME=/opt/jdk1.7.0_10/
+# git clone https://git-wip-us.apache.org/repos/asf/directory-fortress-realm.git
                 </p>
             </pre>
     </li>
 
     <li>
-        Extract:
-            <pre>
-                <p style="font: monospace; color: black; background-color: lightgrey; font-size: 10pt">
-# tar xzf directory-fortress-realm-X.tar.gz
-                </p>
-            </pre>
-    </li>
-
-    <li>
-        Change directory:
+        Change into the project directory:
             <pre>
                 <p style="font: monospace; color: black; background-color: lightgrey; font-size: 10pt">
 # cd directory-fortress-realm/
-                </p>
-            </pre>
-    </li>
-
-    <li>
-        Set M2_HOME:
-            <pre>
-                <p style="font: monospace; color: black; background-color: lightgrey; font-size: 10pt">
-# export M2_HOME=/usr/local/maven-version
                 </p>
             </pre>
     </li>
@@ -80,7 +55,7 @@
         are both dependent on the fortress realm.
                 <pre>
                     <p style="font: monospace; color: black; background-color: lightgrey; font-size: 10pt">
-# $M2_HOME/bin/mvn clean install
+# mvn clean install
                     </p>
                 </pre>
     </li>
