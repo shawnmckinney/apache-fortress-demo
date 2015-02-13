@@ -38,7 +38,7 @@
 # sudo apt-get install mysql-server
             </p>
         </pre>
-        For Redhat (as root):
+        For Redhat 6 (as root):
         <pre>
             <p style="font: monospace; color: black; background-color: lightgrey; font-size: 10pt">
 # yum install mysql-server
@@ -46,8 +46,20 @@
 # /usr/bin/mysql_secure_installation
             </p>
         </pre>
+
+        For Redhat 7, use MariaDB (as root):<br>
+	<img src="MariaDB-seal-white-shaded.png">
+
         <pre>
+            <p style="font: monospace; color: black; background-color: lightgrey; font-size: 10pt">
+# yum -y install mariadb-server mariadb
+# systemctl start mariadb.service
+# systemctl enable mariadb.service
+# mysql_secure_installation
+            </p>
+        </pre>
         Clicking thru the Redhat security prompts...
+        <pre>
             <p style="font: monospace; color: black; background-color: lightgrey; font-size: 8pt">
 NOTE: RUNNING ALL PARTS OF THIS SCRIPT IS RECOMMENDED FOR ALL MySQL
 SERVERS IN PRODUCTION USE!  PLEASE READ EACH STEP CAREFULLY!
