@@ -37,8 +37,8 @@ in participating processes.  The server's public key common name must match its 
 <ol type="A">
 
     <li>
-        Use the <a href="http://en.wikipedia.org/wiki/Self-signed_certificate">self-signed certificate</a> and keys contained within the <a href="http://iamfortress.org/download">Fortress QUICKSTART</a> package.
-        This option requires the target host name for OpenLDAP & MySQL will be set to <b>fortressdemo2.com</b>.
+        Use the <a href="http://en.wikipedia.org/wiki/Self-signed_certificate">self-signed certificate</a> and keys contained within the <a href="https://git-wip-us.apache.org/repos/asf?p=directory-fortress-core.git">Directory Fortress Core</a> git repo [directory-fortress-core.git] / src / test / resources / certs /.
+        This option requires the target host name for machines hosting server software, i.e. directory, db and web, set to <b>fortressdemo2.com</b>.
         <br>For this option you may skip to <a href="III-hosts.html">Section III - Set Hostname Entry</a>.
     </li>
     <br>
@@ -255,38 +255,40 @@ ca-cert.pem  server-cert.pem  server-key.pem
         <pre>
             <p style="font: monospace; color: black; background-color: lightgrey; font-size: 10pt; font-size: 10pt">
 # openssl pkcs12 -export -name fortressDemo2ServerCACert -in server-cert.pem -inkey server-key.pem -out mykeystore.p12
+Enter Export Password:
+Verifying - Enter Export Password:
             </p>
         </pre>
+	The export password must be entered as 'source keystore password' on next step.
     </li>
+
+    <br>
 
     <li>
         Import PKCS12 into Java Keystore (JKS).  This will be used for Tomcat HTTPS connectivity.
         <pre>
             <p style="font: monospace; color: black; background-color: lightgrey; font-size: 10pt; font-size: 10pt">
 # keytool -importkeystore -destkeystore mykeystore -srckeystore mykeystore.p12 -srcstoretype pkcs12 -alias fortressDemo2ServerCACert
+Enter destination keystore password:  
+Enter source keystore password:  
             </p>
         </pre>
+	The value for the keystore's destination password must be placed inside tomcat server.xml later in this tutorial.
     </li>
+
+    <br>
 
     <li>
         Create Java truststore for JSSE.  This will be used for client-side SSL connectivity securing LDAPv3 and JDBC protocols.
         <br>
         <ol type="a">
             <br>
-            <li>
-                Set JAVA_HOME environment variable to point to Java SDK installation on target machine:
-                      <pre>
-                        <p style="font: monospace; color: black; background-color: lightgrey; font-size: 10pt">
-# export JAVA_HOME=/opt/jdk1.7.0_10/
-                        </p>
-                      </pre>
-            </li>
 
             <li>
                 Import public key into the Java truststore.
                       <pre>
                         <p style="font: monospace; color: black; background-color: lightgrey; font-size: 10pt">
-# $JAVA_HOME/bin/keytool -import -alias fortressDemo2ServerCACert -file ca-cert.pem -keystore mytruststore
+# keytool -import -alias fortressDemo2ServerCACert -file ca-cert.pem -keystore mytruststore
                         </p>
                       </pre>
                 Step through the prompts...
@@ -333,10 +335,15 @@ Trust this certificate? [no]:  yes
 Certificate was added to keystore
                         </p>
                       </pre>
+
+Remember the value for the truststore's password.  It maps to the fortress property named, 'trust.store.password', later in this tutorial.
+
             </li>
 
                 </ol>
             </li>
+    <br>
+
     <li>
         View listing of crypto artifacts:
                       <pre>
@@ -353,17 +360,17 @@ ca-cert.pem  ca-key.pem  mykeystore  mykeystore.p12  mytruststore  server-cert.p
             <br>
             <li>
                 <b>ca-cert.pem</b>, <b>server-cert.pem</b>, <b>server-key.pem</b>
-                <br>-Server-side: used by OpenLDAP and MySQL to encrypt data over LDAPv3 and JDBC protocols with the Fortress demo #2 web app.
+                <br>-Server-side: used by OpenLDAP and MySQL to encrypt data over LDAPv3 and JDBC protocols with the Fortress demo web app.
             </li>
             <br>
             <li>
                 <b>mykeystore</b>
-                <br>-Server-side: used by Tomcat to encrypt data for HTTPS traffic between Fortress demo #2 and its end users.
+                <br>-Server-side: used by Tomcat to encrypt data for HTTPS traffic between Fortress demo and its end users.
             </li>
             <br>
             <li>
                 <b>mytruststore</b>
-                <br>-Client-side: used to generate encrypted JDBC and LDAP connections between the Fortress Demo #2 web app and its servers.
+                <br>-Client-side: used to generate encrypted JDBC and LDAP connections between the Fortress demo web app and its servers.
             </li>
         </ol>
     </li>
