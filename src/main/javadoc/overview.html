@@ -5,6 +5,7 @@
 <HTML>
 <HEAD>
     <TITLE>Apache Fortress Web Security Demo</TITLE>
+    <link rel="stylesheet" type="text/css" href="stylesheet.css" title="Style">
 </HEAD>
 <BODY>
 <p>
@@ -17,18 +18,17 @@
 <hr>
 <h4>Demo Installation Instructions</h4>
 Tutorial installation requires completion of these sections:
-<ol type="I">
-    <li><a href="./doc-files/I-opensslheartbleed.html">Heartbleed Bug</a></li>
-    <li><a href="./doc-files/II-keys.html">Managing PKI Keys</a></li>
-    <li><a href="./doc-files/III-hosts.html">Set Hostname Entry</a></li>
-    <li><a href="./doc-files/IV-apache-directory.html">Section IV - Install Apache Directory</a></li>
-    <li><a href="./doc-files/V-fortress-core.html">Section V - Install Fortress Core</a></li>
-    <li><a href="./doc-files/VI-mysql.html">Section VI - Install MySQL</a></li>
-    <li><a href="./doc-files/VII-fortress-realm.html">Section VII - Install Fortress Realm</a></li>
-    <li><a href="./doc-files/VIII-tomcat.html">Section VIII - Install Tomcat</a></li>
-    <li><a href="./doc-files/IX-fortress-web.html">Section IX - Install Fortress Web UI</a></li>
-    <li><a href="./doc-files/X-demo.html">Section X - Install Fortress Demo</a></li>
-</ol>
+<ul>
+    <li><a href="./doc-files/opensslheartbleed.html">Heartbleed Bug</a></li>
+    <li><a href="./doc-files/keys.html">Managing PKI Keys</a></li>
+    <li><a href="./doc-files/hosts.html">Set Hostname Entry</a></li>
+    <li><a href="./doc-files/apache-directory-ssl.html">Apache Directory SSL</a></li>
+    <li><a href="./doc-files/apache-fortress-core-ssl.html">Apache Fortress Core SSL</a></li>
+    <li><a href="./doc-files/mysql.html">Install MySQL</a></li>
+    <li><a href="./doc-files/apache-tomcat-ssl.html">Apache Tomcat SSL</a></li>
+    <li><a href="./doc-files/apache-fortress-demo.html">Apache Fortress Demo</a></li>
+</ul>
+
 </p>
 <hr>
 <h4>Demo Security Architecture Overview</h4>
@@ -40,10 +40,12 @@ The following block diagram illustrates the layered approach used to enforce sec
 <h4>Prerequisites</h4>
 <ol type="1">
     <li>Debian or Redhat Liunx machine with <a href="http://www.openssl.org">OpenSSL</a> installed</li>
-    <li>Java 7 (or greater) SDK</li>
-    <li><a href="http://ant.apache.org/">Apache Ant 1.8 (or greater)</a></li>
-    <li><a href="http://maven.apache.org/">Apache Maven</a></li>
+    <li>Java 7 (or greater) for both compilation (jdk) and runtime (jre) required for every software package covered by this tutorial.</li>
+    <li><a href="http://git-scm.com/download/linux">Git Download for Linux and Unix</a></li>
+    <li><a href="http://maven.apache.org/">Apache Maven 3</a></li>
     <li><a href="https://www.mozilla.org/en-GB/firefox/new/">Firefox Web Browser</a></li>
+    <li>Completion of the <b>[directory-fortress-core.git] / README-TEN-MINUTE-GUIDE.txt</b>, located in the <a href="https://git-wip-us.apache.org/repos/asf?p=directory-fortress-core.git">Apache Fortress Core Git Repo</a>.
+        You may skip the section entitled: <b>Build Apache Fortress Rest</b></li>
 </ol>
 <hr>
 <h4>Getting Started - Generating the tutorial's how-to guide</h4>
@@ -64,13 +66,18 @@ $ $M2_HOME/bin/mvn javadoc:javadoc
     <li>Complete the sections under <b>Demo Installation Instructions</b> section</li>
 </ol>
 <hr>
-<h4>Infrastructure Installed</h4>
+<h4>Infrastructure Installed During this Tutorial</h4>
+<ol type="1">
+    <li><a href="http://www.mysql.com/">MySQL Database Manager</a></li>
+    <li><a href="http://tomcat.apache.org/">Apache Tomcat Servlet Container</a></li>
+</ol>
+</p>
+<h4>Infrastructure Configured During this Tutorial</h4>
 <ol type="1">
     <li><a href="http://directory.apache.org/apacheds/">Apache Directory Server</a></li>
     <li><a href="http://directory.apache.org/studio/">Apache Directory Studio</a></li>
-    <li><a href="http://directory.apache.org/fortress/">Apache Fortress</a></li>
-    <li><a href="http://www.mysql.com/">MySQL Database Manager</a></li>
-    <li><a href="http://tomcat.apache.org/">Apache Tomcat Servlet Container</a></li>
+    <li><a href="http://directory.apache.org/fortress/">Apache Fortress Core</a></li>
+    <li><a href="http://directory.apache.org/fortress/">Apache Fortress Web</a></li>
 </ol>
 </p>
 <hr>

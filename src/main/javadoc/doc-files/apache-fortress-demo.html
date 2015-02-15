@@ -4,27 +4,26 @@
 <html>
    <head>
        <title>Apache Fortress End-to-End Web App Security Tutorial</title>
+       <link rel="stylesheet" type="text/css" href="stylesheet.css" title="Style">
        <hr>
        <fieldset>
            <legend><b>Navigation Links</b></legend>
            <ul>
-               <li><a href="./I-opensslheartbleed.html">Section I - Heartbleed Bug</a></li>
-               <li><a href="./II-keys.html">Section II - Managing PKI Keys</a></li>
-               <li><a href="./III-hosts.html">Section III - Set Hostname Entry</a></li>
-               <li><a href="./IV-apache-directory.html">Section IV - Install Apache Directory</a></li>
-               <li><a href="./V-fortress-core.html">Section V - Install Fortress Core</a></li>
-               <li><a href="./VI-mysql.html">Section VI - Install MySQL</a></li>
-               <li><a href="./VII-fortress-realm.html">Section VII - Install Fortress Realm</a></li>
-               <li><a href="./VIII-tomcat.html">Section VIII - Install Tomcat</a></li>
-               <li><a href="./IX-fortress-web.html">Section IX - Install Fortress Web UI</a></li>
-               <li><a href="./X-demo.html">Section X - Install Fortress Demo</a></li>
+               <li><a href="./opensslheartbleed.html">Heartbleed Bug</a></li>
+               <li><a href="./keys.html">Managing PKI Keys</a></li>
+               <li><a href="./hosts.html">Set Hostname Entry</a></li>
+               <li><a href="./apache-directory-ssl.html">Apache Directory SSL</a></li>
+               <li><a href="./apache-fortress-core-ssl.html">Apache Fortress Core SSL</a></li>
+               <li><a href="./mysql.html">Install MySQL</a></li>
+               <li><a href="./apache-tomcat-ssl.html">Apache Tomcat SSL</a></li>
+               <li><a href="./apache-fortress-demo.html">Apache Fortress Demo</a></li>
            </ul>
            <a href="../overview-summary.html">Back to top</a>
        </fieldset>
        <hr>
    </head>
    <body>
-      <h3>Section X - Install Fortress Demo</h3>
+      <h3>Apache Fortress Demo</h3>
       <img src="./Demo2-Block-Diagram.png" height="400" width="600">
       <h4>This section describes the installation and usage of the Apache Fortress Demo Web application</h4>
 
@@ -73,41 +72,13 @@
           </li>
 
           <li>
-              Modify fortress.properties
+              Copy the fortress.properties, modified on step <a href="./apache-fortress-core-ssl.html">Apache Fortress Core SSL</a>, to this package's resource folder.
                 <pre>
                     <p style="font: monospace; color: black; background-color: lightgrey; font-size: 10pt">
-# vi src/main/resources/fortress.properties
+                        # cp [directory-fortress-core]/config/fortress.properties [apache-fortress-demo]/src/main/resources
                     </p>
                 </pre>
-          </li>
-
-          <li>
-              Change the host, port and ssl to match settings from <a href="IV-fortress-core.html">Section IV - Install Fortress Core</a>.
-                <pre>
-                    <p style="font: monospace; color: black; background-color: lightgrey; font-size: 10pt">
-# Use value from [<a href="III-hosts.html">Section III - Set Hostname Entry</a>]:
-host=fortressdemo2.com
-port=10389
-
-# These credentials are used for read/write access to all nodes under suffix:
-admin.user=uid=admin,ou=system
-admin.pw=secret
-
-# This param tells fortress what type of ldap server in use:
-ldap.server.type=apacheds
-
-# Use truststore genned [<a href="II-keys.html">Section II - Managing PKI Keys</a>] or found under /src/test/resources in apache-fortress-demo source package.
-trust.store=/home/user/apache-fortress-demo/src/test/resources/mytruststore
-trust.store.password=changeit
-
-# Sets trust.store params as System.property to be used by JDBC driver:
-trust.store.set.prop=true
-                    </p>
-                </pre>
-          </li>
-
-          <li>
-              Save and exit.
+              Where [directory-fortress-core] is base folder of the fortress core source package and [apache-fortress-demo] is the current package's home folder.
           </li>
 
           <br>
