@@ -34,10 +34,12 @@
 
           <br>
 
-          <li>Set java and maven home</li>
+          <li>Set java and maven home env variables.</li>
+
+          <br>
 
           <li>
-            Extract:
+            Extract the package:
             <pre>
                 <p style="font: monospace; color: black; background-color: lightgrey; font-size: 10pt">
 # jar -xf apache-fortress-demo-master.zip
@@ -88,7 +90,7 @@ database.url=jdbc:mysql://fortressdemo2.com:3306/demoDB?useSSL=true&amp;requireS
 database.username=admin
 database.password=secret
 
-# Used by application security components:
+# Required by the web app framework security components:
 perms.cached=true
                     </p>
                 </pre>

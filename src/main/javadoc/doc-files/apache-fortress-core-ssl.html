@@ -39,7 +39,9 @@
             </pre>
           </li>
 
-          <li>Set M2_HOME and JAVA_HOME</li>
+          <li>Set java and maven home env variables.</li>
+
+          <br>
 
           <li>
               Edit the build.properties in root folder of package.
@@ -57,7 +59,9 @@ ldap.port=10636
 enable.ldap.ssl=true
 # This can be set to 'true' for troubleshooting:
 enable.ldap.ssl.debug=false
-trust.store=[directory-fortress-core]/src/test/resources/certs/mytruststore
+
+# Use truststore genned [<a href="keys.html">Managing PKI Keys</a>] or found under /src/test/resources in [directory-fortress-core] source package.
+trust.store=[directory-fortress-core]/src/test/resources/mytruststore
 trust.store.password=changeit
                 </p>
               </pre>
@@ -83,10 +87,10 @@ trust.store.password=changeit
           </li>
 
           <li>
-              Re-run the Fortress Core Regression Tests to verify it worked:
+              Re-run the Fortress Core Regression Tests to verify fortress core is now SSL enabled:
                 <pre>
                     <p style="font: monospace; color: black; background-color: lightgrey; font-size: 10pt">
-# $M2_HOME/bin/mvn -Dtest=FortressJUnitTest test
+# mvn -Dtest=FortressJUnitTest test
                     </p>
                 </pre>
               Tests should run with no errors.
