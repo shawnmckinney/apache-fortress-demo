@@ -44,7 +44,10 @@ _____________________________________________________________________________
 4. Run this command from the root package:
 # mvn javadoc:javadoc
 
-5. Open the help document: /*package home*/target/site/apidocs/overview-summary.html
+5. Point your web browser to the following location:
+file:///[apache-fortress-demo]//target/site/apidocs/overview-summary.html
+
+(where [apache-fortress-demo] is location of this package)
 
 6. Follow the steps under 'Sections required for installation':
  a. Heartbleed Bug
