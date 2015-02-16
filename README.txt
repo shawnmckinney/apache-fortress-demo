@@ -51,7 +51,7 @@ file:///[apache-fortress-demo]//target/site/apidocs/overview-summary.html
 
 (where [apache-fortress-demo] is location of this package)
 
-7. Follow the steps under 'Sections required for installation':
+7. Follow the steps under 'Demo Installation Instructions':
  a. Heartbleed Bug
  b. Managing PKI Keys
  c. Set Hostname Entry
