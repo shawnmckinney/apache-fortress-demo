@@ -5,19 +5,19 @@ README for Apache Fortress Demo End-to-End Security Example
 Last updated: February 15, 2015
 _____________________________________________________________________________
 #############################################################################
-# Prerequisites:
+# Prerequisites for target machine:
 #############################################################################
-1. Debian or Redhat Liunx machine with <a href="http://www.openssl.org">OpenSSL</a> installed.
+1. Debian or Redhat Liunx machine with OpenSSL installed.
 
-2. Java 7 (or greater) for both compilation (jdk) and runtime (jre) required for every software package covered by this tutorial.
+2. Java 7 (or greater) sdk
 
-3. Git installed to target machine.
+3. Git
 
-4. Apache Maven 3 installed to target machine.
+4. Apache Maven 3
 
-5. Firefox Web Browser installed to target machine.
+5. Firefox Web Browser
 
-6. Apache Fortress installed to target machine.
+6. Apache Fortress Ten Minute Guide:
 
     Follow the [directory-fortress-core.git] / README-TEN-MINUTE-GUIDE.txt
     https://git-wip-us.apache.org/repos/asf?p=directory-fortress-core.git.
