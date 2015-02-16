@@ -34,21 +34,13 @@
 
           <br>
 
-          <li>
-            Set JAVA_HOME:
-            <pre>
-                <p style="font: monospace; color: black; background-color: lightgrey; font-size: 10pt">
-# export JAVA_HOME=/opt/jdk1.7.0_10/
-                </p>
-            </pre>
-
-          </li>
+          <li>Set java and maven home</li>
 
           <li>
             Extract:
             <pre>
                 <p style="font: monospace; color: black; background-color: lightgrey; font-size: 10pt">
-# $JAVA_HOME/bin/jar -xf apache-fortress-demo-master.zip
+# jar -xf apache-fortress-demo-master.zip
                 </p>
             </pre>
           </li>
@@ -61,27 +53,6 @@
                 </p>
             </pre>
           </li>
-
-          <li>
-              Set M2_HOME:
-            <pre>
-                <p style="font: monospace; color: black; background-color: lightgrey; font-size: 10pt">
-# export M2_HOME=/usr/local/maven-version
-                </p>
-            </pre>
-          </li>
-
-          <li>
-              Copy the fortress.properties, modified on step <a href="./apache-fortress-core-ssl.html">Apache Fortress Core SSL</a>, to this package's resource folder.
-                <pre>
-                    <p style="font: monospace; color: black; background-color: lightgrey; font-size: 10pt">
-# cp [directory-fortress-core]/config/fortress.properties [apache-fortress-demo]/src/main/resources
-                    </p>
-                </pre>
-              Where [directory-fortress-core] is base folder of the fortress core source package and [apache-fortress-demo] is the current package's home folder.
-          </li>
-
-          <br>
 
           <li>
               Edit [apache-fortress-demo]/src/main/resources/fortress.properties file.  Verify the host, port and ssl settings match <a href="apache-fortress-core.html">Apache Fortress Core SSL</a> setup.
@@ -116,6 +87,9 @@ database.driver=com.mysql.jdbc.Driver
 database.url=jdbc:mysql://fortressdemo2.com:3306/demoDB?useSSL=true&amp;requireSSL=true
 database.username=admin
 database.password=secret
+
+# Used by application security components:
+perms.cached=true
                     </p>
                 </pre>
           </li>
@@ -172,7 +146,7 @@ database.password=secret
               Use Apache Solenium to drive Firefox through a range of security unit tests.  Firefox must be installed before running this step.
             <pre>
                 <p style="font: monospace; color: black; background-color: lightgrey; font-size: 10pt">
-# $M2_HOME/bin/mvn verify -DskipTests=false
+# mvn verify -DskipTests=false
                 </p>
             </pre>
           </li>
