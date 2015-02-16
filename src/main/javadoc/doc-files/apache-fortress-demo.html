@@ -24,8 +24,7 @@
    </head>
    <body>
       <h3>Apache Fortress Demo</h3>
-      <img src="./Demo2-Block-Diagram.png" height="400" width="600">
-      <h4>This section describes the installation and usage of the Apache Fortress Demo Web application</h4>
+      <h4>This section describes how to download, build, deploy the demo web app with SSL hookups to MySQL, ApacheDS and Tomcat.</h4>
 
       <ol>
           <li>
@@ -57,38 +56,46 @@
           </li>
 
           <li>
-              Edit [apache-fortress-demo]/src/main/resources/fortress.properties file.  Verify the host, port and ssl settings match <a href="apache-fortress-core.html">Apache Fortress Core SSL</a> setup.
-              <br>Update the JDBC configuration param section to match your setup from <a href="./mysql.html">Install MySQL</a> step.
+              Edit [apache-fortress-demo]/src/main/resources/fortress.properties file.  Verify the settings match previous steps.  More info inline to params below...
                 <pre>
                     <p style="font: monospace; color: black; background-color: lightgrey; font-size: 10pt">
 
-# Use value from [<a href="hosts.html">Set Hostname Entry</a>]:
+# LDAP host use value from [<a href="hosts.html">Set Hostname Entry</a>]:
 host=fortressdemo2.com
+
+# LDAP port uses value from [<a href="./apache-fortress-core-ssl.html">Apache Fortress Core SSL</a>]:
 port=10636
 
-# These credentials are used for read/write access to all nodes under suffix:
+# The ldap admin creds required for read/write access to DIT:
+# LDAP user/pw use same value from [<a href="./apache-fortress-core-ssl.html">Apache Fortress Core SSL</a>]:
 admin.user=uid=admin,ou=system
 admin.pw=secret
 
-# This param tells fortress what type of ldap server in use:
-ldap.server.type=apacheds
-
-# Used for SSL Connection to LDAP Server:
+# Required for SSL Connections:
 enable.ldap.ssl=true
+
+# Useful when things go wrong:
 enable.ldap.ssl.debug=false
 
-# Use truststore genned [<a href="keys.html">Managing PKI Keys</a>] or found under /src/test/resources in apache-fortress-demo source package.
+# The truststore genned [<a href="keys.html">Managing PKI Keys</a>] or found under /src/test/resources in apache-fortress-demo source package.
 trust.store=/home/smckinn/fortress/apache-fortress-demo/src/test/resources/mytruststore
 trust.store.password=changeit
 
-# Sets trust.store params as System.property to be used by JDBC driver:
-trust.store.set.prop=true
-
-# These JDBC config params must match settings from [<a href="./mysql.html">Install MySQL</a>] step:
-database.driver=com.mysql.jdbc.Driver
+# The host value from [<a href="hosts.html">Set Hostname Entry</a>] step:
 database.url=jdbc:mysql://fortressdemo2.com:3306/demoDB?useSSL=true&amp;requireSSL=true
+
+# The JDBC creds required to match from [<a href="./mysql.html">Install MySQL</a>] step:
 database.username=admin
 database.password=secret
+
+# This param informs fortress runtime the type of ldap server in use:
+ldap.server.type=apacheds
+
+# Setting this to 'true' broadcasts the jdbc params (as system.property) required by MySQL JDBC driver:
+trust.store.set.prop=true
+
+# Required:
+database.driver=com.mysql.jdbc.Driver
 
 # Required by the web app framework security components:
 perms.cached=true
@@ -145,7 +152,7 @@ perms.cached=true
           <br>
 
           <li>
-              Use Apache Solenium to drive Firefox through a range of security unit tests.  Firefox must be installed before running this step.
+              Use Apache Selenium to drive Firefox through a range of security unit tests.  Firefox must be installed before running this step.
             <pre>
                 <p style="font: monospace; color: black; background-color: lightgrey; font-size: 10pt">
 # mvn verify -DskipTests=false
@@ -154,8 +161,7 @@ perms.cached=true
           </li>
 
           <li>
-              Try the various user accounts.  The RBAC policy is automatically loaded into LDAP using <b>apache-fortress-demo-load-policy.xml</b> during web deployment step.
-              View audit trail changes using Commander.
+              The Selenium test cases verify the following test cases automatically.  The policy file is <b>apache-fortress-demo-load-policy.xml</b> and was loaded automatically during the web deployment step.
               <ol type="a">
                   <br>
                   <li>
