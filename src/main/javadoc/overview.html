@@ -16,6 +16,27 @@
     <br><br>
     More info here: <a href="./doc-files/AnatomyOfSecureWebApp.pdf">The Anatomy of a Secure Web App</a>
 <hr>
+<h4>Prerequisites</h4>
+<ol type="1">
+    <li>Debian or Redhat Linux machine with <a href="http://www.openssl.org">OpenSSL</a> installed</li>
+    <li>Java 7 (or greater) sdk installed.</li>
+    <li><a href="http://git-scm.com/download/linux">Git installed.</a></li>
+    <li><a href="http://maven.apache.org/">Apache Maven 3 installed.</a></li>
+    <li><a href="https://www.mozilla.org/en-GB/firefox/new/">Firefox Web Browser</a></li>
+    <li>
+        Completion of the following steps in the <b>[directory-fortress-core.git] / README-TEN-MINUTE-GUIDE.txt</b>,
+        located under <a href="https://git-wip-us.apache.org/repos/asf?p=directory-fortress-core.git">Apache Fortress Core Git Repo</a>.
+        <ol type="a">
+            <li>Setup Apache Directory Server</li>
+            <li>Setup Apache Directory Studio</li>
+            <li>Build Apache Fortress Core</li>
+            <li>Build Apache Fortress Realm</li>
+            <li>Setup Apache Tomcat Web Server</li>
+            <li>Build Apache Fortress Web</li>
+        </ol>
+    </li>
+</ol>
+<hr>
 <h4>Demo Installation Instructions</h4>
 Tutorial installation requires completion of these sections:
 <ul>
@@ -36,17 +57,6 @@ The following block diagram illustrates the layered approach used to enforce sec
 <br><br>
 <img src="./doc-files/Demo2-Block-Diagram.png" height="400" width="600">
 <p>
-<hr>
-<h4>Prerequisites</h4>
-<ol type="1">
-    <li>Debian or Redhat Liunx machine with <a href="http://www.openssl.org">OpenSSL</a> installed</li>
-    <li>Java 7 (or greater) for both compilation (jdk) and runtime (jre) required for every software package covered by this tutorial.</li>
-    <li><a href="http://git-scm.com/download/linux">Git Download for Linux and Unix</a></li>
-    <li><a href="http://maven.apache.org/">Apache Maven 3</a></li>
-    <li><a href="https://www.mozilla.org/en-GB/firefox/new/">Firefox Web Browser</a></li>
-    <li>Completion of the <b>[directory-fortress-core.git] / README-TEN-MINUTE-GUIDE.txt</b>, located in the <a href="https://git-wip-us.apache.org/repos/asf?p=directory-fortress-core.git">Apache Fortress Core Git Repo</a>.
-        You may skip the section entitled: <b>Build Apache Fortress Rest</b></li>
-</ol>
 <hr>
 <h4>Getting Started - Generating the tutorial's how-to guide</h4>
 This tutorial uses javadoc that is contained within the apache-fortress-demo web application.  To generate, follow these instructions:

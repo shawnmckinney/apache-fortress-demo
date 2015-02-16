@@ -28,8 +28,7 @@ _____________________________________________________________________________
       c. Build Apache Fortress Core
       d. Build Apache Fortress Realm
       e. Setup Apache Tomcat Web Server
-      f. Build Apache Fortress Rest (this step not required)
-      g. Build Apache Fortress Web
+      f. Build Apache Fortress Web
 
 #############################################################################
 # Instructions for downloading app and generating the install doc:
