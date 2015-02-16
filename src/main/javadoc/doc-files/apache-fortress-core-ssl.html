@@ -39,14 +39,7 @@
             </pre>
           </li>
 
-          <li>
-              Set M2_HOME:
-            <pre>
-                <p style="font: monospace; color: black; background-color: lightgrey; font-size: 10pt">
-# export M2_HOME=/usr/local/maven-version
-                </p>
-            </pre>
-          </li>
+          <li>Set M2_HOME and JAVA_HOME</li>
 
           <li>
               Edit the build.properties in root folder of package.
@@ -74,7 +67,7 @@ trust.store.password=changeit
               Build fortress core with maven to regenerate the fortress.properties file with changes from build.properties.
                 <pre>
                     <p style="font: monospace; color: black; background-color: lightgrey; font-size: 10pt">
-# $M2_HOME/bin/mvn install -DskipTests=true
+# mvn install -DskipTests=true
                     </p>
                 </pre>
           </li>

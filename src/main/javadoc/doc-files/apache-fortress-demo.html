@@ -75,7 +75,7 @@
               Copy the fortress.properties, modified on step <a href="./apache-fortress-core-ssl.html">Apache Fortress Core SSL</a>, to this package's resource folder.
                 <pre>
                     <p style="font: monospace; color: black; background-color: lightgrey; font-size: 10pt">
-# cp [directory-fortress-core]/src/test/resources/fortress.properties [apache-fortress-demo]/src/main/resources
+# cp [directory-fortress-core]/config/fortress.properties [apache-fortress-demo]/src/main/resources
                     </p>
                 </pre>
               Where [directory-fortress-core] is base folder of the fortress core source package and [apache-fortress-demo] is the current package's home folder.
@@ -130,7 +130,7 @@ database.password=secret
               To build and deploy this web application, run this command:
                 <pre>
                     <p style="font: monospace; color: black; background-color: lightgrey; font-size: 10pt">
-# $M2_HOME/bin/mvn tomcat:deploy
+# mvn tomcat:deploy
                     </p>
                 </pre>
           </li>
@@ -139,7 +139,7 @@ database.password=secret
               If you need to redeploy this web application, run this command:
                 <pre>
                     <p style="font: monospace; color: black; background-color: lightgrey; font-size: 10pt">
-# $M2_HOME/bin/mvn tomcat:redeploy
+# mvn tomcat:redeploy
                     </p>
                 </pre>
           </li>
