@@ -39,17 +39,19 @@ _____________________________________________________________________________
 
 2. Extract the zip archive to your local machine.
 
-3. Set JAVA_HOME and M2_HOME
+3. cd to apache-fortress-demo-master
 
-4. Run this command from the root package:
+4. Set JAVA_HOME and M2_HOME
+
+5. Run this command from the root package:
 # mvn javadoc:javadoc
 
-5. Point your web browser to the following location:
+6. Point your web browser to the following location:
 file:///[apache-fortress-demo]//target/site/apidocs/overview-summary.html
 
 (where [apache-fortress-demo] is location of this package)
 
-6. Follow the steps under 'Sections required for installation':
+7. Follow the steps under 'Sections required for installation':
  a. Heartbleed Bug
  b. Managing PKI Keys
  c. Set Hostname Entry

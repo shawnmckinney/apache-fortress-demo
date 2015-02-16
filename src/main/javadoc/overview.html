@@ -53,16 +53,22 @@ This tutorial uses javadoc that is contained within the apache-fortress-demo web
 <ol type="1">
     <li>Download the <a href="https://github.com/shawnmckinney/apache-fortress-demo/archive/master.zip">apache-fortress-demo source bundle</a>  from GitHub</li>
     <li>Extract bundle</li>
-    <li>Set JAVA_HOME</li>
-    <li>Set M2_HOME</li>
-    <li>Run this command from the root package:
+    <li>Change directory:
                 <pre>
                     <p style="font: monospace; color: black; background-color: lightgrey; font-size: 10pt">
-$ $M2_HOME/bin/mvn javadoc:javadoc
+# cd apache-fortress-demo-master
                     </p>
                 </pre>
     </li>
-    <li>Point your web browser to the following location: file:///[apache-fortress-demo]//target/site/apidocs/overview-summary.html.</li>
+    <li>Set JAVA_HOME and M2_HOME</li>
+    <li>Build the javadoc for this package:
+                <pre>
+                    <p style="font: monospace; color: black; background-color: lightgrey; font-size: 10pt">
+# mvn javadoc:javadoc
+                    </p>
+                </pre>
+    </li>
+    <li>Point your web browser to the javadoc: file:///[apache-fortress-demo]//target/site/apidocs/overview-summary.html.</li>
     <li>Complete the sections under <b>Demo Installation Instructions</b> section</li>
 </ol>
 <hr>
