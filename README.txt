@@ -28,14 +28,15 @@ _____________________________________________________________________________
 4. Run this command from the root package:
 # $M2_HOME/bin/mvn javadoc:javadoc
 
-5. Open the help document: /*package home*/target/site/apidocs/overview-summary.html
+5. Open the help document: <a href="./src/main/javadoc/doc-files/overview-summary.html">Demo Overview</a>
+ generated to this location: (/*package home*/target/site/apidocs/overview-summary.html)
 
 6. Follow the steps under 'Sections required for installation':
- a. <a href="./opensslheartbleed.html">Heartbleed Bug</a>
- b. <a href="./keys.html">Managing PKI Keys</a>
- c. <a href="./hosts.html">Set Hostname Entry</a>
- d. <a href="./apache-directory-ssl.html">Apache Directory SSL</a>
- e. <a href="./apache-fortress-core-ssl.html">Apache Fortress Core SSL</a>
- d. <a href="./mysql.html">Install MySQL</a>
- e. <a href="./apache-tomcat-ssl.html">Apache Tomcat SSL</a>
- f. <a href="./apache-fortress-demo.html">Apache Fortress Demo</a>
+ a. <a href="./src/main/javadoc/doc-files/opensslheartbleed.html">Heartbleed Bug</a>
+ b. <a href="./src/main/javadoc/doc-files/keys.html">Managing PKI Keys</a>
+ c. <a href="./src/main/javadoc/doc-files/hosts.html">Set Hostname Entry</a>
+ d. <a href="./src/main/javadoc/doc-files/apache-directory-ssl.html">Apache Directory SSL</a>
+ e. <a href="./src/main/javadoc/doc-files/apache-fortress-core-ssl.html">Apache Fortress Core SSL</a>
+ d. <a href="./src/main/javadoc/doc-files/mysql.html">Install MySQL</a>
+ e. <a href="./src/main/javadoc/doc-files/apache-tomcat-ssl.html">Apache Tomcat SSL</a>
+ f. <a href="./src/main/javadoc/doc-files/apache-fortress-demo.html">Apache Fortress Demo</a>
