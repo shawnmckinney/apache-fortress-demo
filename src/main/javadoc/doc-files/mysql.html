@@ -35,15 +35,15 @@
         For Debian from system command prompt:
        <pre>
            <p style="font: monospace; color: black; background-color: lightgrey; font-size: 10pt">
-               # sudo apt-get install mysql-server
+# sudo apt-get install mysql-server
            </p>
        </pre>
         For Redhat 6 (as root):
        <pre>
            <p style="font: monospace; color: black; background-color: lightgrey; font-size: 10pt">
-               # yum install mysql-server
-               # /sbin/service mysqld start
-               # /usr/bin/mysql_secure_installation
+# yum install mysql-server
+# /sbin/service mysqld start
+# /usr/bin/mysql_secure_installation
            </p>
        </pre>
 
@@ -52,73 +52,73 @@
 
        <pre>
            <p style="font: monospace; color: black; background-color: lightgrey; font-size: 10pt">
-               # yum -y install mariadb-server mariadb
-               # systemctl start mariadb.service
-               # systemctl enable mariadb.service
-               # mysql_secure_installation
+# yum -y install mariadb-server mariadb
+# systemctl start mariadb.service
+# systemctl enable mariadb.service
+# mysql_secure_installation
            </p>
        </pre>
         Clicking thru the Redhat security prompts...
        <pre>
            <p style="font: monospace; color: black; background-color: lightgrey; font-size: 8pt">
-               NOTE: RUNNING ALL PARTS OF THIS SCRIPT IS RECOMMENDED FOR ALL MySQL
-               SERVERS IN PRODUCTION USE! PLEASE READ EACH STEP CAREFULLY!
+NOTE: RUNNING ALL PARTS OF THIS SCRIPT IS RECOMMENDED FOR ALL MySQL
+SERVERS IN PRODUCTION USE! PLEASE READ EACH STEP CAREFULLY!
 
-               In order to log into MySQL to secure it, we'll need the current
-               password for the root user. If you've just installed MySQL, and
-               you haven't set the root password yet, the password will be blank,
-               so you should just press enter here.
+In order to log into MySQL to secure it, we'll need the current
+password for the root user. If you've just installed MySQL, and
+you haven't set the root password yet, the password will be blank,
+so you should just press enter here.
 
-               Enter current password for root (enter for none):
-               OK, successfully used password, moving on...
+Enter current password for root (enter for none):
+OK, successfully used password, moving on...
 
-               Setting the root password ensures that nobody can log into the MySQL
-               root user without the proper authorisation.
+Setting the root password ensures that nobody can log into the MySQL
+root user without the proper authorisation.
 
-               Set root password? [Y/n] y
-               New password:
-               Re-enter new password:
-               Password updated successfully!
-               Reloading privilege tables..
-               ... Success!
+Set root password? [Y/n] y
+New password:
+Re-enter new password:
+Password updated successfully!
+Reloading privilege tables..
+... Success!
 
-               By default, a MySQL installation has an anonymous user, allowing anyone
-               to log into MySQL without having to have a user account created for
-               them. This is intended only for testing, and to make the installation
-               go a bit smoother. You should remove them before moving into a
-               production environment.
+By default, a MySQL installation has an anonymous user, allowing anyone
+to log into MySQL without having to have a user account created for
+them. This is intended only for testing, and to make the installation
+go a bit smoother. You should remove them before moving into a
+production environment.
 
-               Remove anonymous users? [Y/n] y
-               ... Success!
+Remove anonymous users? [Y/n] y
+... Success!
 
-               Normally, root should only be allowed to connect from 'localhost'. This
-               ensures that someone cannot guess at the root password from the network.
+Normally, root should only be allowed to connect from 'localhost'. This
+ensures that someone cannot guess at the root password from the network.
 
-               Disallow root login remotely? [Y/n] y
-               ... Success!
+Disallow root login remotely? [Y/n] y
+... Success!
 
-               By default, MySQL comes with a database named 'test' that anyone can
-               access. This is also intended only for testing, and should be removed
-               before moving into a production environment.
+By default, MySQL comes with a database named 'test' that anyone can
+access. This is also intended only for testing, and should be removed
+before moving into a production environment.
 
-               Remove test database and access to it? [Y/n] y
-               - Dropping test database...
-               ... Success!
-               - Removing privileges on test database...
-               ... Success!
+Remove test database and access to it? [Y/n] y
+- Dropping test database...
+... Success!
+- Removing privileges on test database...
+... Success!
 
-               Reloading the privilege tables will ensure that all changes made so far
-               will take effect immediately.
+Reloading the privilege tables will ensure that all changes made so far
+will take effect immediately.
 
-               Reload privilege tables now? [Y/n] y
-               ... Success!
+Reload privilege tables now? [Y/n] y
+... Success!
 
-               Cleaning up...
+Cleaning up...
 
-               All done! If you've completed all of the above steps, your MySQL
-               installation should now be secure.
+All done! If you've completed all of the above steps, your MySQL
+installation should now be secure.
 
-               Thanks for using MySQL!
+Thanks for using MySQL!
            </p>
        </pre>
 
@@ -128,13 +128,13 @@
         If Debian package install fails, you may need to issue update before retrying:
        <pre>
            <p style="font: monospace; color: black; background-color: lightgrey; font-size: 10pt">
-               # sudo apt-get update --fix-missing
+# sudo apt-get update --fix-missing
            </p>
        </pre>
         Redhat users issue different commands to accomplish package refresh (as root):
        <pre>
            <p style="font: monospace; color: black; background-color: lightgrey; font-size: 10pt">
-               # yum clean headers && yum clean metadata && yum makecache
+# yum clean headers && yum clean metadata && yum makecache
            </p>
        </pre>
     </li>
@@ -150,8 +150,8 @@
         Verify daemon is running and listening to network:
        <pre>
            <p style="font: monospace; color: black; background-color: lightgrey; font-size: 10pt">
-               # sudo netstat -tap | grep mysql
-               tcp 0 0 localhost:mysql *:* LISTEN 2969/mysqld
+# sudo netstat -tap | grep mysql
+tcp 0 0 localhost:mysql *:* LISTEN 2969/mysqld
            </p>
        </pre>
     </li>
@@ -161,7 +161,7 @@
         Connect to SQL command line processor (<i>Enter password chosen before during install</i>):
        <pre>
          <p style="font: monospace; color: black; background-color: lightgrey; font-size: 10pt">
-             # mysql -h localhost -P 3306 -u root -p
+# mysql -h localhost -P 3306 -u root -p
          </p>
        </pre>
     </li>
@@ -170,7 +170,7 @@
         Run the <a href="demo-db-create-and-load.sql">demo-db-create-and-load.sql</a> script:
        <pre>
            <p style="font: monospace; color: black; background-color: lightgrey; font-size: 10pt">
-               mysql> source ./src/main/javadoc/doc-files/demo-db-create-and-load.sql;
+mysql> source ./src/main/javadoc/doc-files/demo-db-create-and-load.sql;
            </p>
        </pre>
     </li>
@@ -186,9 +186,9 @@
                 users must create the folder:
                <pre>
                    <p style="font: monospace; color: black; background-color: lightgrey; font-size: 10pt">
-                       # sudo cp src/test/resources/certs/ca-cert.pem /etc/mysql
-                       # sudo cp src/test/resources/certs/server-cert.pem /etc/mysql
-                       # sudo cp src/test/resources/certs/server-key.pem /etc/mysql
+# sudo cp src/test/resources/certs/ca-cert.pem /etc/mysql
+# sudo cp src/test/resources/certs/server-cert.pem /etc/mysql
+# sudo cp src/test/resources/certs/server-key.pem /etc/mysql
                    </p>
                </pre>
             </li>
@@ -199,13 +199,13 @@
                 For Debian:
                <pre>
                    <p style="font: monospace; color: black; background-color: lightgrey; font-size: 10pt">
-                       # sudo vi /etc/mysql/my.cnf
+# sudo vi /etc/mysql/my.cnf
                    </p>
                </pre>
                 Redhat file in different location:
                <pre>
                    <p style="font: monospace; color: black; background-color: lightgrey; font-size: 10pt">
-                       # sudo vi /etc/my.cnf
+# sudo vi /etc/my.cnf
                    </p>
                </pre>
             </li>
@@ -215,9 +215,9 @@
                     href="III-hosts.html">Section III - Set Hostname Entry</a>.
                <pre>
                    <p style="font: monospace; color: black; background-color: lightgrey; font-size: 10pt">
-                       # Instead of skip-networking the default is now to listen only on
-                       # localhost which is more compatible and is not less secure.
-                       bind-address = fortressdemo2.com
+# Instead of skip-networking the default is now to listen only on
+# localhost which is more compatible and is not less secure.
+bind-address = fortressdemo2.com
                    </p>
                </pre>
             </li>
@@ -226,10 +226,10 @@
                 Add key locations to the <b>[mysqld]</b> section of <b>my.cnf</b> file:
                <pre>
                    <p style="font: monospace; color: black; background-color: lightgrey; font-size: 10pt">
-                       # Use keys genned [<a href="II-keys.html">Section II - Managing PKI Keys</a>]:
-                       ssl-ca=/etc/mysql/ca-cert.pem
-                       ssl-cert=/etc/mysql/server-cert.pem
-                       ssl-key=/etc/mysql/server-key.pem
+# Use keys genned [<a href="II-keys.html">Section II - Managing PKI Keys</a>]:
+ssl-ca=/etc/mysql/ca-cert.pem
+ssl-cert=/etc/mysql/server-cert.pem
+ssl-key=/etc/mysql/server-key.pem
                    </p>
                </pre>
             </li>
@@ -246,17 +246,17 @@
                 Restart MySQL daemon (Debian):
                <pre>
                    <p style="font: monospace; color: black; background-color: lightgrey; font-size: 10pt">
-                       # sudo service mysql restart
-                       mysql stop/waiting
-                       mysql start/running, process 3800
+# sudo service mysql restart
+mysql stop/waiting
+mysql start/running, process 3800
                    </p>
                </pre>
                 Redhat users have slightly different command:
                <pre>
                    <p style="font: monospace; color: black; background-color: lightgrey; font-size: 10pt">
-                       # sudo /sbin/service mysqld restart
-                       Stopping mysqld: [ OK ]
-                       Starting mysqld: [ OK ]
+# sudo /sbin/service mysqld restart
+Stopping mysqld: [ OK ]
+Starting mysqld: [ OK ]
                    </p>
                </pre>
                 For Redhat 7, use MariaDB (as root):<br>
@@ -264,8 +264,8 @@
 
        <pre>
            <p style="font: monospace; color: black; background-color: lightgrey; font-size: 10pt">
-               # systemctl restart mariadb.service
-               # systemctl is-active mariadb.service
+# systemctl restart mariadb.service
+# systemctl is-active mariadb.service
            </p>
        </pre>
             </li>
@@ -273,8 +273,8 @@
                 Verify the MySQL daemon is up:
                <pre>
                    <p style="font: monospace; color: black; background-color: lightgrey; font-size: 10pt">
-                       # sudo netstat -tap | grep mysql
-                       tcp 0 0 *:mysql *:* LISTEN 3800/mysqld
+# sudo netstat -tap | grep mysql
+tcp 0 0 *:mysql *:* LISTEN 3800/mysqld
                    </p>
                </pre>
             </li>
@@ -283,12 +283,12 @@
                 Verify SSL is enabled. From the command line SQL prompt:
                <pre>
                    <p style="font: monospace; color: black; background-color: lightgrey; font-size: 10pt">
-                       mysql> SHOW VARIABLES LIKE 'have_ssl';
-                       +---------------+-------+
-                       | Variable_name | Value |
-                       +---------------+-------+
-                       | have_ssl | YES |
-                       +---------------+-------+
+mysql> SHOW VARIABLES LIKE 'have_ssl';
++---------------+-------+
+| Variable_name | Value |
++---------------+-------+
+| have_ssl | YES |
++---------------+-------+
                        1 row in set (0.00 sec)
                    </p>
                </pre>
