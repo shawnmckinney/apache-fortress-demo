@@ -56,7 +56,17 @@
           </li>
 
           <li>
-              Edit [apache-fortress-demo]/src/main/resources/fortress.properties file.  Verify the settings match previous steps.  More info inline to params below...
+              Copy [apache-fortress-demo-master]/src/main/resources/fortress.properties.example to [apache-fortress-demo-master]/src/main/resources/fortress.properties.
+                <pre>
+                    <p style="font: monospace; color: black; background-color: lightgrey; font-size: 10pt">
+
+# cp ./src/main/resources/fortress.properties.example ./src/main/resources/fortress.properties
+                    </p>
+                </pre>
+          </li>
+
+          <li>
+              Edit [apache-fortress-demo-master]/src/main/resources/fortress.properties file.  Verify the settings match previous steps.  More info inline to params below...
                 <pre>
                     <p style="font: monospace; color: black; background-color: lightgrey; font-size: 10pt">
 
@@ -78,7 +88,7 @@ enable.ldap.ssl=true
 enable.ldap.ssl.debug=false
 
 # The truststore genned [<a href="keys.html">Managing PKI Keys</a>] or found under /src/test/resources in apache-fortress-demo source package.
-trust.store=/home/smckinn/fortress/apache-fortress-demo/src/test/resources/mytruststore
+trust.store=/home/smckinn/fortress/apache-fortress-demo-master/src/test/resources/mytruststore
 trust.store.password=changeit
 
 # The host value from [<a href="hosts.html">Set Hostname Entry</a>] step:
@@ -122,7 +132,7 @@ perms.cached=true
               If you need to redeploy this web application, run this command:
                 <pre>
                     <p style="font: monospace; color: black; background-color: lightgrey; font-size: 10pt">
-# mvn tomcat:redeploy
+# mvn tomcat:redeploy -Dnoload
                     </p>
                 </pre>
           </li>
@@ -155,7 +165,7 @@ perms.cached=true
               Use Apache Selenium to drive Firefox through a range of security unit tests.  Firefox must be installed before running this step.
             <pre>
                 <p style="font: monospace; color: black; background-color: lightgrey; font-size: 10pt">
-# mvn verify -DskipTests=false
+# mvn verify -DskipTests=false -Dnoload
                 </p>
             </pre>
           </li>

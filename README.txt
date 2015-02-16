@@ -38,9 +38,9 @@ _____________________________________________________________________________
 
 2. Extract the zip archive to your local machine.
 
-3. cd to apache-fortress-demo-master
+3. cd apache-fortress-demo-master
 
-4. Set JAVA_HOME and M2_HOME
+4. Set java and maven home env variables.
 
 5. Run this command from the root package:
 # mvn javadoc:javadoc
