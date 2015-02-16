@@ -7,30 +7,35 @@ _____________________________________________________________________________
 #############################################################################
 # Prerequisites:
 #############################################################################
-1. Linux machine (tested on Ubuntu 12.04 & Centos 6.3)
-2. Internet access to retrieve dependencies from online Maven repo.
-3. Java SDK Version 7 (or greater), Apache Ant 1.8 (or greater) and Apache Maven.
-4. Firefox browser installed (for automated unit testing with Apache Solenium).
-5. All other packages will be covered inside the help document.
+1. Debian or Redhat Liunx machine with <a href="http://www.openssl.org">OpenSSL</a> installed.
+2. Java 7 (or greater) for both compilation (jdk) and runtime (jre) required for every software package covered by this tutorial.
+3. Git
+4. Apache Maven 3.
+5. Firefox Web Browser
+6. Completion of the <b>[directory-fortress-core.git] / README-TEN-MINUTE-GUIDE.txt</b>, located in the <a href="https://git-wip-us.apache.org/repos/asf?p=directory-fortress-core.git">Apache Fortress Core Git Repo</a>.
+        (You may skip the section entitled: 'Build Apache Fortress Rest')
+
 #############################################################################
 # Instructions for downloading app and generating the install doc:
 #############################################################################
-1. Clone the directory-fortress-core from apache git repo:
-# git clone https://git-wip-us.apache.org/repos/asf/directory-fortress-core.git
-# cd directory-fortress-core/
-2. Set JAVA_HOME
-3. Set M2_HOME
-4. Run this command from the root package:
-# $M2_HOME/bin/mvn clean install -DskipTests
-5. Clone the directory-fortress-realm from apache git repo:
-# git clone https://git-wip-us.apache.org/repos/asf/directory-fortress-realm.git
-# cd directory-fortress-realm/
-# $M2_HOME/bin/mvn install -DskipTests
-6. Download apache-fortress-demo package from github: https://github.com/shawnmckinney/apache-fortress-demo/archive/master.zip
-7. Extract the zip archive to your local machine.
-8. Run this command from the root package:
-# $M2_HOME/bin/mvn javadoc:javadoc
-9. Open the help document: /*package home*/target/site/apidocs/overview-summary.html
-10. Follow the steps under 'Sections required for installation'
 
-Note: This tutorial is a work-in-progress.
+1. Download apache-fortress-demo package from github: https://github.com/shawnmckinney/apache-fortress-demo/archive/master.zip
+
+2. Extract the zip archive to your local machine.
+
+3. Set JAVA_HOME and M2_HOME
+
+4. Run this command from the root package:
+# $M2_HOME/bin/mvn javadoc:javadoc
+
+5. Open the help document: /*package home*/target/site/apidocs/overview-summary.html
+
+6. Follow the steps under 'Sections required for installation':
+ a. <a href="./opensslheartbleed.html">Heartbleed Bug</a>
+ b. <a href="./keys.html">Managing PKI Keys</a>
+ c. <a href="./hosts.html">Set Hostname Entry</a>
+ d. <a href="./apache-directory-ssl.html">Apache Directory SSL</a>
+ e. <a href="./apache-fortress-core-ssl.html">Apache Fortress Core SSL</a>
+ d. <a href="./mysql.html">Install MySQL</a>
+ e. <a href="./apache-tomcat-ssl.html">Apache Tomcat SSL</a>
+ f. <a href="./apache-fortress-demo.html">Apache Fortress Demo</a>

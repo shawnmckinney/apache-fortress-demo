@@ -84,7 +84,8 @@
           <br>
 
           <li>
-              Change the host, port and ssl to match settings from <a href="apache-fortress-core.html">Apache Fortress Core SSL</a>.
+              Edit [apache-fortress-demo]/src/main/resources/fortress.properties file.  Verify the host, port and ssl settings match <a href="apache-fortress-core.html">Apache Fortress Core SSL</a> setup.
+              <br>Update the JDBC configuration param section to match your setup from <a href="./mysql.html">Install MySQL</a> step.
                 <pre>
                     <p style="font: monospace; color: black; background-color: lightgrey; font-size: 10pt">
 
@@ -110,7 +111,7 @@ trust.store.password=changeit
 # Sets trust.store params as System.property to be used by JDBC driver:
 trust.store.set.prop=true
 
-# These are the JDBC configuration params for MyBatis DAO connect to MySQL database example:
+# These JDBC config params must match settings from [<a href="./mysql.html">Install MySQL</a>] step:
 database.driver=com.mysql.jdbc.Driver
 database.url=jdbc:mysql://fortressdemo2.com:3306/demoDB?useSSL=true&amp;requireSSL=true
 database.username=admin
@@ -123,6 +124,8 @@ database.password=secret
               Save and exit.
           </li>
 
+          <br>
+
           <li>
               To build and deploy this web application, run this command:
                 <pre>
@@ -131,8 +134,6 @@ database.password=secret
                     </p>
                 </pre>
           </li>
-
-          <br>
 
           <li>
               If you need to redeploy this web application, run this command:
