@@ -42,7 +42,7 @@ _____________________________________________________________________________
 3. Set JAVA_HOME and M2_HOME
 
 4. Run this command from the root package:
-# $M2_HOME/bin/mvn javadoc:javadoc
+# mvn javadoc:javadoc
 
 5. Open the help document: /*package home*/target/site/apidocs/overview-summary.html
 
