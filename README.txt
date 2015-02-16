@@ -20,7 +20,7 @@ _____________________________________________________________________________
 6. Apache Fortress installed to target machine.
 
     Follow the [directory-fortress-core.git] / README-TEN-MINUTE-GUIDE.txt
-    located under https://git-wip-us.apache.org/repos/asf?p=directory-fortress-core.git.
+    https://git-wip-us.apache.org/repos/asf?p=directory-fortress-core.git.
 
     Complete these steps under 'Navigation Links':
       a. Setup Apache Directory Server
