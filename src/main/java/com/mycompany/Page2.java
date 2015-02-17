@@ -365,7 +365,7 @@ public class Page2 extends MyBasePage
         grid.setClickRowToDeselect(false);
         grid.setSelectToEdit(false);
         // expand the root node
-        grid.getTreeState().expandNode((TreeNode ) treeModel.getRoot());
+        grid.getTreeState().expandAll();
         this.add(grid);
         grid.setOutputMarkupId(true);
     }
@@ -412,8 +412,7 @@ public class Page2 extends MyBasePage
     private DefaultTreeModel createTreeModel(List<Page2EO> page2EOs)
     {
         DefaultTreeModel model;
-        Page2EO rootObject = new Page2EO(  );
-        rootNode = new DefaultMutableTreeNode(rootObject);
+        rootNode = new DefaultMutableTreeNode(null);
         model = new DefaultTreeModel(rootNode);
         if (page2EOs == null)
             LOG.debug("no Page2 datasets found");
