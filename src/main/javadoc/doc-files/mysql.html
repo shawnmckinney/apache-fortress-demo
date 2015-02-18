@@ -35,15 +35,15 @@
         For Debian from system command prompt:
        <pre>
            <p style="font: monospace; color: black; background-color: lightgrey; font-size: 10pt">
-# sudo apt-get install mysql-server
+sudo apt-get install mysql-server
            </p>
        </pre>
         For Redhat 6 (as root):
        <pre>
            <p style="font: monospace; color: black; background-color: lightgrey; font-size: 10pt">
-# yum install mysql-server
-# /sbin/service mysqld start
-# /usr/bin/mysql_secure_installation
+yum install mysql-server
+/sbin/service mysqld start
+/usr/bin/mysql_secure_installation
            </p>
        </pre>
 
@@ -52,10 +52,10 @@
 
        <pre>
            <p style="font: monospace; color: black; background-color: lightgrey; font-size: 10pt">
-# yum -y install mariadb-server mariadb
-# systemctl start mariadb.service
-# systemctl enable mariadb.service
-# mysql_secure_installation
+yum -y install mariadb-server mariadb
+systemctl start mariadb.service
+systemctl enable mariadb.service
+mysql_secure_installation
            </p>
        </pre>
         Clicking thru the Redhat security prompts...
@@ -128,13 +128,13 @@ Thanks for using MySQL!
         If Debian package install fails, you may need to issue update before retrying:
        <pre>
            <p style="font: monospace; color: black; background-color: lightgrey; font-size: 10pt">
-# sudo apt-get update --fix-missing
+sudo apt-get update --fix-missing
            </p>
        </pre>
         Redhat users issue different commands to accomplish package refresh (as root):
        <pre>
            <p style="font: monospace; color: black; background-color: lightgrey; font-size: 10pt">
-# yum clean headers && yum clean metadata && yum makecache
+yum clean headers && yum clean metadata && yum makecache
            </p>
        </pre>
     </li>
@@ -150,7 +150,7 @@ Thanks for using MySQL!
         Verify daemon is running and listening to network:
        <pre>
            <p style="font: monospace; color: black; background-color: lightgrey; font-size: 10pt">
-# sudo netstat -tap | grep mysql
+sudo netstat -tap | grep mysql
 tcp 0 0 localhost:mysql *:* LISTEN 2969/mysqld
            </p>
        </pre>
@@ -161,7 +161,7 @@ tcp 0 0 localhost:mysql *:* LISTEN 2969/mysqld
         Connect to SQL command line processor (<i>Enter password chosen before during install</i>):
        <pre>
          <p style="font: monospace; color: black; background-color: lightgrey; font-size: 10pt">
-# mysql -h localhost -P 3306 -u root -p
+mysql -h localhost -P 3306 -u root -p
          </p>
        </pre>
     </li>
@@ -186,9 +186,9 @@ mysql> source ./src/main/javadoc/doc-files/demo-db-create-and-load.sql;
                 users must create the folder:
                <pre>
                    <p style="font: monospace; color: black; background-color: lightgrey; font-size: 10pt">
-# sudo cp src/test/resources/certs/ca-cert.pem /etc/mysql
-# sudo cp src/test/resources/certs/server-cert.pem /etc/mysql
-# sudo cp src/test/resources/certs/server-key.pem /etc/mysql
+sudo cp src/test/resources/certs/ca-cert.pem /etc/mysql
+sudo cp src/test/resources/certs/server-cert.pem /etc/mysql
+sudo cp src/test/resources/certs/server-key.pem /etc/mysql
                    </p>
                </pre>
             </li>
@@ -199,13 +199,13 @@ mysql> source ./src/main/javadoc/doc-files/demo-db-create-and-load.sql;
                 For Debian:
                <pre>
                    <p style="font: monospace; color: black; background-color: lightgrey; font-size: 10pt">
-# sudo vi /etc/mysql/my.cnf
+sudo vi /etc/mysql/my.cnf
                    </p>
                </pre>
                 Redhat file in different location:
                <pre>
                    <p style="font: monospace; color: black; background-color: lightgrey; font-size: 10pt">
-# sudo vi /etc/my.cnf
+sudo vi /etc/my.cnf
                    </p>
                </pre>
             </li>
@@ -246,7 +246,7 @@ ssl-key=/etc/mysql/server-key.pem
                 Restart MySQL daemon (Debian):
                <pre>
                    <p style="font: monospace; color: black; background-color: lightgrey; font-size: 10pt">
-# sudo service mysql restart
+sudo service mysql restart
 mysql stop/waiting
 mysql start/running, process 3800
                    </p>
@@ -254,7 +254,7 @@ mysql start/running, process 3800
                 Redhat users have slightly different command:
                <pre>
                    <p style="font: monospace; color: black; background-color: lightgrey; font-size: 10pt">
-# sudo /sbin/service mysqld restart
+sudo /sbin/service mysqld restart
 Stopping mysqld: [ OK ]
 Starting mysqld: [ OK ]
                    </p>
@@ -264,8 +264,8 @@ Starting mysqld: [ OK ]
 
        <pre>
            <p style="font: monospace; color: black; background-color: lightgrey; font-size: 10pt">
-# systemctl restart mariadb.service
-# systemctl is-active mariadb.service
+systemctl restart mariadb.service
+systemctl is-active mariadb.service
            </p>
        </pre>
             </li>
@@ -273,7 +273,7 @@ Starting mysqld: [ OK ]
                 Verify the MySQL daemon is up:
                <pre>
                    <p style="font: monospace; color: black; background-color: lightgrey; font-size: 10pt">
-# sudo netstat -tap | grep mysql
+sudo netstat -tap | grep mysql
 tcp 0 0 *:mysql *:* LISTEN 3800/mysqld
                    </p>
                </pre>

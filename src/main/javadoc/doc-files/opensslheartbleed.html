@@ -33,7 +33,7 @@ target machine is version <b>1.0.1</b> through <b>1.0.1f</b>.  OpenSSL is used b
 <br>To determine if upgrade is needed, enter the following at the command prompt:
 <pre>
     <p style="font: monospace; color: black; background-color: lightgrey; font-size: 10pt">
-# openssl version -b
+openssl version -b
     </p>
 </pre>
 
@@ -46,14 +46,14 @@ and must be upgraded.
         If Debian, you may need to update package lists in repo to latest:
         <pre>
             <p style="font: monospace; color: black; background-color: lightgrey; font-size: 10pt; font-size: 10pt">
-# sudo apt-get update
+sudo apt-get update
             </p>
         </pre>
 
         If Redhat, to do similar:
         <pre>
             <p style="font: monospace; color: black; background-color: lightgrey; font-size: 10pt; font-size: 10pt">
-# yum clean headers && yum clean metadata && yum makecache
+yum clean headers && yum clean metadata && yum makecache
             </p>
         </pre>
 
@@ -64,7 +64,7 @@ and must be upgraded.
 
         <pre>
             <p style="font: monospace; color: black; background-color: lightgrey; font-size: 10pt; font-size: 10pt">
-# sudo apt-get upgrade openssl
+sudo apt-get upgrade openssl
             </p>
         </pre>
 
@@ -72,7 +72,7 @@ and must be upgraded.
 
         <pre>
             <p style="font: monospace; color: black; background-color: lightgrey; font-size: 10pt; font-size: 10pt">
-# yum upgrade openssl
+yum upgrade openssl
             </p>
         </pre>
 
@@ -82,7 +82,7 @@ and must be upgraded.
         Verify that it worked (date will vary by linux distro):
         <pre>
             <p style="font: monospace; color: black; background-color: lightgrey; font-size: 10pt; font-size: 10pt">
-# openssl version -b
+openssl version -b
 built on: Fri Jun 20 18:54:15 UTC 2014
             </p>
         </pre>
