@@ -182,7 +182,7 @@
                 <role name="PAGE2_456" description="Grants User Access to Page 2 and its Buttons for Customer 456"/>
                 <role name="PAGE2_789" description="Grants User Access to Page 2 and its Buttons for Customer 789"/>
 
-                <role name="ROLE_PAGE3" description="Grants User Access to Page 1 and its Buttons"/>
+                <role name="ROLE_PAGE3" description="Grants User Access to Page 3 and its Buttons"/>
                 <role name="PAGE3_123" description="Grants User Access to Page 3 and its Buttons for Customer 123"/>
                 <role name="PAGE3_456" description="Grants User Access to Page 3 and its Buttons for Customer 456"/>
                 <role name="PAGE3_789" description="Grants User Access to Page 3 and its Buttons for Customer 789"/>
