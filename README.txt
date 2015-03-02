@@ -45,6 +45,16 @@ _____________________________________________________________________________
 5. Run this command from the root package:
 # mvn javadoc:javadoc
 
+note: if using java 8, add this param to the pom.xml:
+<plugin>
+    ...
+    <artifactId>maven-javadoc-plugin</artifactId>
+    <configuration>
+        <additionalparam>-Xdoclint:none</additionalparam>
+        ...
+    </configuration>
+</plugin>
+
 6. Point your web browser to the following location:
 file:///[apache-fortress-demo]//target/site/apidocs/overview-summary.html
 
