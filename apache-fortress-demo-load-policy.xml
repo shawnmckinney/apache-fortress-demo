@@ -190,25 +190,10 @@
 
             <addroleinheritance>
                 <relationship child="ROLE_DEMO2_SUPER_USER" parent="DEMO2_USER"/>
+                <relationship child="ROLE_DEMO2_SUPER_USER" parent="DEMO2_ALL_PAGES"/>
                 <relationship child="ROLE_PAGE1" parent="DEMO2_USER"/>
                 <relationship child="ROLE_PAGE2" parent="DEMO2_USER"/>
                 <relationship child="ROLE_PAGE3" parent="DEMO2_USER"/>
-
-                <relationship child="ROLE_DEMO2_SUPER_USER" parent="ROLE_PAGE1"/>
-                <relationship child="ROLE_DEMO2_SUPER_USER" parent="PAGE1_123"/>
-                <relationship child="ROLE_DEMO2_SUPER_USER" parent="PAGE1_456"/>
-                <relationship child="ROLE_DEMO2_SUPER_USER" parent="PAGE1_789"/>
-
-                <relationship child="ROLE_DEMO2_SUPER_USER" parent="ROLE_PAGE2"/>
-                <relationship child="ROLE_DEMO2_SUPER_USER" parent="PAGE2_123"/>
-                <relationship child="ROLE_DEMO2_SUPER_USER" parent="PAGE2_456"/>
-                <relationship child="ROLE_DEMO2_SUPER_USER" parent="PAGE2_789"/>
-
-                <relationship child="ROLE_DEMO2_SUPER_USER" parent="ROLE_PAGE3"/>
-                <relationship child="ROLE_DEMO2_SUPER_USER" parent="PAGE3_123"/>
-                <relationship child="ROLE_DEMO2_SUPER_USER" parent="PAGE3_456"/>
-                <relationship child="ROLE_DEMO2_SUPER_USER" parent="PAGE3_789"/>
-
                 <relationship child="DEMO2_ALL_PAGES" parent="ROLE_PAGE1"/>
                 <relationship child="DEMO2_ALL_PAGES" parent="ROLE_PAGE2"/>
                 <relationship child="DEMO2_ALL_PAGES" parent="ROLE_PAGE3"/>
@@ -301,6 +286,57 @@
                 <permgrant objName="PAGE3_123" opName="dropActiveRole" roleNm="ROLE_PAGE3"/>
                 <permgrant objName="PAGE3_456" opName="dropActiveRole" roleNm="ROLE_PAGE3"/>
                 <permgrant objName="PAGE3_789" opName="dropActiveRole" roleNm="ROLE_PAGE3"/>
+
+
+                <!-- Super User has all permissions -->
+                <permgrant objName="com.mycompany.Page1" opName="Add" objId="123" roleNm="ROLE_DEMO2_SUPER_USER"/>
+                <permgrant objName="com.mycompany.Page1" opName="Add" objId="456" roleNm="ROLE_DEMO2_SUPER_USER"/>
+                <permgrant objName="com.mycompany.Page1" opName="Add" objId="789" roleNm="ROLE_DEMO2_SUPER_USER"/>
+                <permgrant objName="com.mycompany.Page1" opName="Update" objId="123" roleNm="ROLE_DEMO2_SUPER_USER"/>
+                <permgrant objName="com.mycompany.Page1" opName="Update" objId="456" roleNm="ROLE_DEMO2_SUPER_USER"/>
+                <permgrant objName="com.mycompany.Page1" opName="Update" objId="789" roleNm="ROLE_DEMO2_SUPER_USER"/>
+                <permgrant objName="com.mycompany.Page1" opName="Delete" objId="123" roleNm="ROLE_DEMO2_SUPER_USER"/>
+                <permgrant objName="com.mycompany.Page1" opName="Delete" objId="456" roleNm="ROLE_DEMO2_SUPER_USER"/>
+                <permgrant objName="com.mycompany.Page1" opName="Delete" objId="789" roleNm="ROLE_DEMO2_SUPER_USER"/>
+                <permgrant objName="com.mycompany.Page1" opName="Search" objId="123" roleNm="ROLE_DEMO2_SUPER_USER"/>
+                <permgrant objName="com.mycompany.Page1" opName="Search" objId="456" roleNm="ROLE_DEMO2_SUPER_USER"/>
+                <permgrant objName="com.mycompany.Page1" opName="Search" objId="789" roleNm="ROLE_DEMO2_SUPER_USER"/>
+                <permgrant objName="com.mycompany.Page1" opName="Read" objId="123" roleNm="ROLE_DEMO2_SUPER_USER"/>
+                <permgrant objName="com.mycompany.Page1" opName="Read" objId="456" roleNm="ROLE_DEMO2_SUPER_USER"/>
+                <permgrant objName="com.mycompany.Page1" opName="Read" objId="789" roleNm="ROLE_DEMO2_SUPER_USER"/>
+
+                <permgrant objName="com.mycompany.Page2" opName="Add" objId="123" roleNm="ROLE_DEMO2_SUPER_USER"/>
+                <permgrant objName="com.mycompany.Page2" opName="Add" objId="456" roleNm="ROLE_DEMO2_SUPER_USER"/>
+                <permgrant objName="com.mycompany.Page2" opName="Add" objId="789" roleNm="ROLE_DEMO2_SUPER_USER"/>
+                <permgrant objName="com.mycompany.Page2" opName="Update" objId="123" roleNm="ROLE_DEMO2_SUPER_USER"/>
+                <permgrant objName="com.mycompany.Page2" opName="Update" objId="456" roleNm="ROLE_DEMO2_SUPER_USER"/>
+                <permgrant objName="com.mycompany.Page2" opName="Update" objId="789" roleNm="ROLE_DEMO2_SUPER_USER"/>
+                <permgrant objName="com.mycompany.Page2" opName="Delete" objId="123" roleNm="ROLE_DEMO2_SUPER_USER"/>
+                <permgrant objName="com.mycompany.Page2" opName="Delete" objId="456" roleNm="ROLE_DEMO2_SUPER_USER"/>
+                <permgrant objName="com.mycompany.Page2" opName="Delete" objId="789" roleNm="ROLE_DEMO2_SUPER_USER"/>
+                <permgrant objName="com.mycompany.Page2" opName="Search" objId="123" roleNm="ROLE_DEMO2_SUPER_USER"/>
+                <permgrant objName="com.mycompany.Page2" opName="Search" objId="456" roleNm="ROLE_DEMO2_SUPER_USER"/>
+                <permgrant objName="com.mycompany.Page2" opName="Search" objId="789" roleNm="ROLE_DEMO2_SUPER_USER"/>
+                <permgrant objName="com.mycompany.Page2" opName="Read" objId="123" roleNm="ROLE_DEMO2_SUPER_USER"/>
+                <permgrant objName="com.mycompany.Page2" opName="Read" objId="456" roleNm="ROLE_DEMO2_SUPER_USER"/>
+                <permgrant objName="com.mycompany.Page2" opName="Read" objId="789" roleNm="ROLE_DEMO2_SUPER_USER"/>
+
+                <permgrant objName="com.mycompany.Page3" opName="Add" objId="123" roleNm="ROLE_DEMO2_SUPER_USER"/>
+                <permgrant objName="com.mycompany.Page3" opName="Add" objId="456" roleNm="ROLE_DEMO2_SUPER_USER"/>
+                <permgrant objName="com.mycompany.Page3" opName="Add" objId="789" roleNm="ROLE_DEMO2_SUPER_USER"/>
+                <permgrant objName="com.mycompany.Page3" opName="Update" objId="123" roleNm="ROLE_DEMO2_SUPER_USER"/>
+                <permgrant objName="com.mycompany.Page3" opName="Update" objId="456" roleNm="ROLE_DEMO2_SUPER_USER"/>
+                <permgrant objName="com.mycompany.Page3" opName="Update" objId="789" roleNm="ROLE_DEMO2_SUPER_USER"/>
+                <permgrant objName="com.mycompany.Page3" opName="Delete" objId="123" roleNm="ROLE_DEMO2_SUPER_USER"/>
+                <permgrant objName="com.mycompany.Page3" opName="Delete" objId="456" roleNm="ROLE_DEMO2_SUPER_USER"/>
+                <permgrant objName="com.mycompany.Page3" opName="Delete" objId="789" roleNm="ROLE_DEMO2_SUPER_USER"/>
+                <permgrant objName="com.mycompany.Page3" opName="Search" objId="123" roleNm="ROLE_DEMO2_SUPER_USER"/>
+                <permgrant objName="com.mycompany.Page3" opName="Search" objId="456" roleNm="ROLE_DEMO2_SUPER_USER"/>
+                <permgrant objName="com.mycompany.Page3" opName="Search" objId="789" roleNm="ROLE_DEMO2_SUPER_USER"/>
+                <permgrant objName="com.mycompany.Page3" opName="Read" objId="123" roleNm="ROLE_DEMO2_SUPER_USER"/>
+                <permgrant objName="com.mycompany.Page3" opName="Read" objId="456" roleNm="ROLE_DEMO2_SUPER_USER"/>
+                <permgrant objName="com.mycompany.Page3" opName="Read" objId="789" roleNm="ROLE_DEMO2_SUPER_USERs"/>
+
             </addpermgrant>
 
             <delpermobj>
