@@ -80,17 +80,15 @@ cd apache-fortress-demo-master
 mvn javadoc:javadoc
                     </p>
                 </pre>
-        note: if using java 8, add this param to the pom.xml:
+        javadoc note: If using JDK 8, you must turn off doclint to get past errors.  Add the following to project's pom:
                 <pre>
                     <p style="font: monospace; color: black; background-color: lightgrey; font-size: 10pt">
-plugin
-    ...
-    artifactId maven-javadoc-plugin /artifactId
-    configuration
-        &lt;additionalparam&gt;-Xdoclint:none&lt;additionalparam/&gt;
-        ...
-    configuration
-plugin
+&lt;plugin&gt;
+    &lt;artifactId&gt;maven-javadoc-plugin&lt;/artifactId&gt;
+    &lt;configuration&gt;
+        &lt;additionalparam&gt;-Xdoclint:none&lt;/additionalparam&gt;
+    &lt;/configuration&gt;
+&lt;/plugin&gt;
                     </p>
                 </pre>
     </li>
