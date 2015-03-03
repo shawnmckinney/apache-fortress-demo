@@ -178,7 +178,8 @@ mvn verify -DskipTests=false -Dnoload
                   <li>
                       <b>userId</b>: <i>superuser</i>, <b>password</b>: <i>password</i>
                       <br><br>
-                      This user is assigned <b>ROLE_DEMO2_SUPER_USER</b> which grants all permissions and inherits all of the app's page roles.  This user may navigate to any page, perform any function and view all data without restriction.
+                      This user is assigned <b>ROLE_DEMO2_SUPER_USER</b> which grants all permissions and inherits page1, page2 and page3 roles.
+                      The page roles allow user to navigate to any page.  The perm grants on this user allow all app functions and to view all customer data.
                       <br><br>
                       <table border="1">
                           <tr>
@@ -211,8 +212,8 @@ mvn verify -DskipTests=false -Dnoload
                   <li>
                       <b>userId</b>: <i>poweruser</i>, <b>password</b>: <i>password</i>
                       <br><br>
-                      The account has been assigned all of the page roles.  User may navigate to any page and operate on any data but must first activate the corresponding page role
-                      and is subject to dynamic separation of duty constraints preventing activation of more than one page role at a time.
+                      The account has been assigned all of the page-customer roles and inherits page1, page2 and page3.  User may navigate to any page and operate on any customer's data but must first activate the corresponding role
+                      and is subject to dynamic separation of duty constraints preventing activation of more than one page-customer role at a time.
                       <br><br>
                       <table border="1">
                           <tr>
