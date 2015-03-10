@@ -30,6 +30,11 @@
           factory-method="createInstance">
         <constructor-arg value="HOME"/>
     </bean>
+    <!-- The Fortress Realm J2EE Manager bean used for deserializing the principal as returned from tomcat -->
+    <bean id="j2eePolicyMgr" class="org.apache.directory.fortress.realm.J2eePolicyMgrFactory" scope="prototype"
+          factory-method="createInstance">
+        <!--<constructor-arg value="HOME"/>-->
+    </bean>
 
     <!-- JDBC Connection properties follow for SSL.  Their associated values contained inside fortress.properties file -->
     <!-- Note, iff Fortress is using SSL, AND, its 'trust.store.set.prop' is set to TRUE, it will set these as System.properties during connection pool initialization -->

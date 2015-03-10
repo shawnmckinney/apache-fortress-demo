@@ -159,38 +159,4 @@ public class GlobalUtils
         Permission permission = new Permission( objName, opName, objId );
         return accessMgr.checkAccess( session.getRbacSession(), permission );
     }
-
-    /**
-     * This utility method can deserialize any object but is used to convert java.security.Principal to Fortress RBAC session object.
-     *
-     * @param str contains String to deserialize
-     * @param cls contains class to use for destination object
-     * @return deserialization target object
-     */
-    public static <T> T deserialize(String str, Class<T> cls, Logger LOG)
-    {
-        // deserialize the object
-        try
-        {
-            // This encoding induces a bijection between byte[] and String (unlike UTF-8)
-            byte b[] = str.getBytes("ISO-8859-1");
-            ByteArrayInputStream bi = new ByteArrayInputStream(b);
-            ObjectInputStream si = new ObjectInputStream(bi);
-            return cls.cast(si.readObject());
-        }
-        catch (java.io.UnsupportedEncodingException e)
-        {
-            LOG.warn( "deserialize caught UnsupportedEncodingException:" + e);
-        }
-        catch (IOException e)
-        {
-            LOG.warn( "deserialize caught IOException:" + e);
-        }
-        catch (ClassNotFoundException e)
-        {
-            LOG.warn( "deserialize caught ClassNotFoundException:" + e);
-        }
-        // this method failed so return null
-        return null;
-    }
 }

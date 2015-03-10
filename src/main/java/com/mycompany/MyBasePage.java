@@ -5,6 +5,9 @@ package com.mycompany;
 
 import com.googlecode.wicket.kendo.ui.form.combobox.ComboBox;
 import com.googlecode.wicket.kendo.ui.renderer.ChoiceRenderer;
+import org.apache.directory.fortress.core.*;
+import org.apache.directory.fortress.core.SecurityException;
+import org.apache.directory.fortress.realm.J2eePolicyMgr;
 import org.apache.log4j.Logger;
 import org.apache.wicket.Component;
 import org.apache.wicket.ajax.AjaxRequestTarget;
@@ -19,9 +22,6 @@ import org.apache.wicket.model.Model;
 import org.apache.wicket.model.PropertyModel;
 import org.apache.wicket.settings.IExceptionSettings;
 import org.apache.wicket.spring.injection.annot.SpringBean;
-import org.apache.directory.fortress.core.AccessMgr;
-import org.apache.directory.fortress.core.GlobalErrIds;
-import org.apache.directory.fortress.core.ReviewMgr;
 import org.apache.directory.fortress.core.rbac.Permission;
 import org.apache.directory.fortress.core.rbac.Session;
 import org.apache.directory.fortress.core.rbac.UserRole;
@@ -45,6 +45,8 @@ public abstract class MyBasePage extends WebPage
     protected AccessMgr accessMgr;
     @SpringBean
     private ReviewMgr reviewMgr;
+    @SpringBean
+    private J2eePolicyMgr j2eePolicyMgr;
     private static final Logger LOG = Logger.getLogger( MyBasePage.class.getName() );
     private Form myForm;
     private static final String LINKS_LABEL = "linksLabel";
@@ -451,7 +453,7 @@ public abstract class MyBasePage extends WebPage
             isSuccessful = true;
             LOG.info( "Fortress dropActiveRole roleName: " + roleName + " was successful" );
         }
-        catch ( org.apache.directory.fortress.core.SecurityException se )
+        catch ( SecurityException se )
         {
             String msg = "Role selection " + roleName + " deactivation failed because of ";
             if ( se.getErrorId() == GlobalErrIds.URLE_NOT_ACTIVE )
@@ -475,7 +477,15 @@ public abstract class MyBasePage extends WebPage
      */
     private void initializeRbacSession(String szPrincipal)
     {
-        Session realmSession = GlobalUtils.deserialize(szPrincipal, Session.class, LOG);
+        Session realmSession = null;
+        try
+        {
+            realmSession = j2eePolicyMgr.deserialize( szPrincipal );
+        }
+        catch( SecurityException se )
+        {
+            throw new RuntimeException( se );
+        }
         if(realmSession != null)
         {
             synchronized ( ( RbacSession ) RbacSession.get() )
