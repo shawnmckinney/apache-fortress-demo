@@ -3,20 +3,7 @@
  */
 package com.mycompany;
 
-import org.apache.log4j.Logger;
-import org.apache.wicket.Component;
-import org.apache.directory.fortress.core.AccessMgr;
-import org.apache.directory.fortress.core.cfg.Config;
-import org.apache.directory.fortress.core.rbac.Permission;
-import org.apache.directory.fortress.core.rbac.Session;
-import org.apache.directory.fortress.core.util.attr.VUtil;
-
 import javax.servlet.http.HttpServletRequest;
-import java.io.ByteArrayInputStream;
-import java.io.IOException;
-import java.io.ObjectInputStream;
-import java.util.List;
-import java.util.StringTokenizer;
 
 /**
  * ...
@@ -24,12 +11,8 @@ import java.util.StringTokenizer;
  * @author Shawn McKinney
  * @version $Rev$
  */
-public class GlobalUtils
+public class GlobalIds
 {
-    private static final String PERMS_CACHED = "perms.cached";
-    public static final boolean IS_PERM_CACHED = ( ( Config.getProperty( PERMS_CACHED ) != null ) && ( Config
-        .getProperty( PERMS_CACHED ).equalsIgnoreCase( "true" ) ) );
-
     public static final String ADD = "add";
     public static final String UPDATE = "update";
     public static final String DELETE = "delete";
@@ -116,47 +99,5 @@ public class GlobalUtils
     public static String getLocationReplacement(HttpServletRequest servletRequest)
     {
         return "window.location.replace(\"" + servletRequest.getContextPath() + "\");";
-    }
-
-    public static Session getRbacSession( Component component )
-    {
-        return ( ( RbacSession ) component.getSession() ).getRbacSession();
-    }
-
-    public static List<Permission> getRbacPermissions( Component component )
-    {
-        return ( ( RbacSession ) component.getSession() ).getPermissions();
-    }
-
-    public static boolean isAuthorized( String roleNames, HttpServletRequest servletReq )
-    {
-        boolean isAuthorized = false;
-        StringTokenizer tokenizer = new StringTokenizer( roleNames, "," );
-        if (tokenizer.countTokens() > 0)
-        {
-            while (tokenizer.hasMoreTokens())
-            {
-                String roleName = tokenizer.nextToken();
-                if ( servletReq.isUserInRole( roleName ) )
-                {
-                    isAuthorized = true;
-                    break;
-                }
-            }
-        }
-        return isAuthorized;
-    }
-
-    public static boolean isFound( Permission permission, Component component )
-    {
-        List<Permission> permissions = GlobalUtils.getRbacPermissions( component );
-        return VUtil.isNotNullOrEmpty( permissions ) && permissions.contains( permission );
-    }
-
-    public static boolean checkAccess(Component component, AccessMgr accessMgr, String objName, String opName, String objId ) throws org.apache.directory.fortress.core.SecurityException
-    {
-        RbacSession session = ( RbacSession )component.getSession();
-        Permission permission = new Permission( objName, opName, objId );
-        return accessMgr.checkAccess( session.getRbacSession(), permission );
     }
 }

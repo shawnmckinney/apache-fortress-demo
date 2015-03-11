@@ -10,6 +10,7 @@ import com.inmethod.grid.column.PropertyColumn;
 import com.inmethod.grid.treegrid.TreeGrid;
 import com.mycompany.dao.Page1DaoMgr;
 import com.mycompany.dao.Page1EO;
+import org.apache.directory.fortress.web.SecureIndicatingAjaxButton;
 import org.apache.log4j.Logger;
 import org.apache.wicket.Component;
 import org.apache.wicket.ajax.AjaxRequestTarget;
@@ -27,7 +28,6 @@ import org.apache.directory.fortress.core.util.attr.VUtil;
 import javax.servlet.http.HttpServletRequest;
 import javax.swing.tree.DefaultMutableTreeNode;
 import javax.swing.tree.DefaultTreeModel;
-import javax.swing.tree.TreeNode;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
@@ -77,13 +77,13 @@ public class Page1 extends MyBasePage
          */
         private void addButtons()
         {
-            add( new SecureIndicatingAjaxButton( this, GlobalUtils.BTN_PAGE_1_ADD, GlobalUtils.PAGE1_OBJNAME, GlobalUtils.ADD )
+            add( new SecureIndicatingAjaxButton( this, GlobalIds.BTN_PAGE_1_ADD, GlobalIds.PAGE1_OBJNAME, GlobalIds.ADD )
             {
                 @Override
                 protected void onSubmit( AjaxRequestTarget target, Form form )
                 {
                     Page1EO page1EO = ( Page1EO ) editForm.getModel().getObject();
-                    info( GlobalUtils.BTN_PAGE_1_ADD );
+                    info( GlobalIds.BTN_PAGE_1_ADD );
                     if( page1EO != null && checkAccess(page1EO.getCustomer()) )
                     {
                         p1manager.addPage1( page1EO, this );
@@ -98,7 +98,7 @@ public class Page1 extends MyBasePage
                 @Override
                 public void onError( AjaxRequestTarget target, Form form )
                 {
-                    LOG.error( "submit failed: " + GlobalUtils.BTN_PAGE_1_ADD );
+                    LOG.error( "submit failed: " + GlobalIds.BTN_PAGE_1_ADD );
                 }
 
                 @Override
@@ -109,7 +109,8 @@ public class Page1 extends MyBasePage
                         @Override
                         public CharSequence getFailureHandler( Component component )
                         {
-                            String szRelocation = GlobalUtils.getLocationReplacement(( HttpServletRequest ) getRequest().getContainerRequest());
+                            String szRelocation = GlobalIds.getLocationReplacement( ( HttpServletRequest ) getRequest
+                                ().getContainerRequest() );
                             LOG.info( "Page1.add Failure Handler, relocation string = " + szRelocation );
                             return szRelocation;
                         }
@@ -117,13 +118,13 @@ public class Page1 extends MyBasePage
                     attributes.getAjaxCallListeners().add( ajaxCallListener );
                 }
             } );
-            add( new SecureIndicatingAjaxButton( this, GlobalUtils.BTN_PAGE_1_UPDATE, GlobalUtils.PAGE1_OBJNAME, GlobalUtils.UPDATE )
+            add( new SecureIndicatingAjaxButton( this, GlobalIds.BTN_PAGE_1_UPDATE, GlobalIds.PAGE1_OBJNAME, GlobalIds.UPDATE )
             {
                 @Override
                 protected void onSubmit( AjaxRequestTarget target, Form form )
                 {
                     Page1EO page1EO = ( Page1EO ) editForm.getModel().getObject();
-                    info( GlobalUtils.BTN_PAGE_1_UPDATE );
+                    info( GlobalIds.BTN_PAGE_1_UPDATE );
                     if( page1EO != null && checkAccess(page1EO.getCustomer()) )
                     {
                         p1manager.updatePage1( page1EO, this );
@@ -138,7 +139,7 @@ public class Page1 extends MyBasePage
                 @Override
                 public void onError( AjaxRequestTarget target, Form form )
                 {
-                    LOG.error( "submit failed: " + GlobalUtils.BTN_PAGE_1_UPDATE );
+                    LOG.error( "submit failed: " + GlobalIds.BTN_PAGE_1_UPDATE );
                 }
 
                 @Override
@@ -149,7 +150,7 @@ public class Page1 extends MyBasePage
                         @Override
                         public CharSequence getFailureHandler( Component component )
                         {
-                            String szRelocation = GlobalUtils.getLocationReplacement(( HttpServletRequest ) getRequest().getContainerRequest());
+                            String szRelocation = GlobalIds.getLocationReplacement( ( HttpServletRequest ) getRequest().getContainerRequest() );
                             LOG.info( "Page1.update Failure Handler, relocation string = " + szRelocation );
                             return szRelocation;
                         }
@@ -157,18 +158,18 @@ public class Page1 extends MyBasePage
                     attributes.getAjaxCallListeners().add( ajaxCallListener );
                 }
             } );
-            add( new SecureIndicatingAjaxButton( this, GlobalUtils.BTN_PAGE_1_DELETE, GlobalUtils.PAGE1_OBJNAME, GlobalUtils.DELETE )
+            add( new SecureIndicatingAjaxButton( this, GlobalIds.BTN_PAGE_1_DELETE, GlobalIds.PAGE1_OBJNAME, GlobalIds.DELETE )
             {
                 @Override
                 protected void onSubmit( AjaxRequestTarget target, Form form )
                 {
                     Page1EO page1EO = ( Page1EO ) editForm.getModel().getObject();
-                    info( GlobalUtils.BTN_PAGE_1_DELETE );
+                    info( GlobalIds.BTN_PAGE_1_DELETE );
                     if( page1EO != null && checkAccess(page1EO.getCustomer()) )
                     {
                         p1manager.deletePage1ById( page1EO, this );
                         SaveModelEvent.send( getPage(), this, clearDetailFields( ), target, SaveModelEvent.Operations.DELETE );
-                        target.appendJavaScript(";alert('" + GlobalUtils.BTN_PAGE_1_DELETE + "');");
+                        target.appendJavaScript(";alert('" + GlobalIds.BTN_PAGE_1_DELETE + "');");
                     }
                     else
                     {
@@ -179,7 +180,7 @@ public class Page1 extends MyBasePage
                 @Override
                 public void onError( AjaxRequestTarget target, Form form )
                 {
-                    LOG.error( "submit failed: " + GlobalUtils.BTN_PAGE_1_DELETE );
+                    LOG.error( "submit failed: " + GlobalIds.BTN_PAGE_1_DELETE );
                 }
 
                 @Override
@@ -190,7 +191,7 @@ public class Page1 extends MyBasePage
                         @Override
                         public CharSequence getFailureHandler( Component component )
                         {
-                            String szRelocation = GlobalUtils.getLocationReplacement(( HttpServletRequest ) getRequest().getContainerRequest());
+                            String szRelocation = GlobalIds.getLocationReplacement( ( HttpServletRequest ) getRequest().getContainerRequest() );
                             LOG.info( "Page1.delete Failure Handler, relocation string = " + szRelocation );
                             return szRelocation;
                         }
@@ -198,7 +199,7 @@ public class Page1 extends MyBasePage
                     attributes.getAjaxCallListeners().add( ajaxCallListener );
                 }
             } );
-            add( new SecureIndicatingAjaxButton( this, GlobalUtils.BTN_PAGE_1_SEARCH, GlobalUtils.PAGE1_OBJNAME, GlobalUtils.SEARCH )
+            add( new SecureIndicatingAjaxButton( this, GlobalIds.BTN_PAGE_1_SEARCH, GlobalIds.PAGE1_OBJNAME, GlobalIds.SEARCH )
             {
                 @Override
                 protected void onSubmit( AjaxRequestTarget target, Form form )
@@ -231,7 +232,7 @@ public class Page1 extends MyBasePage
                 @Override
                 public void onError( AjaxRequestTarget target, Form form )
                 {
-                    LOG.error( "submit failed: " + GlobalUtils.BTN_PAGE_1_SEARCH );
+                    LOG.error( "submit failed: " + GlobalIds.BTN_PAGE_1_SEARCH );
                 }
 
                 @Override
@@ -242,7 +243,7 @@ public class Page1 extends MyBasePage
                         @Override
                         public CharSequence getFailureHandler( Component component )
                         {
-                            String szRelocation = GlobalUtils.getLocationReplacement(( HttpServletRequest ) getRequest().getContainerRequest());
+                            String szRelocation = GlobalIds.getLocationReplacement( ( HttpServletRequest ) getRequest().getContainerRequest() );
                             LOG.info( "Page1.search Failure Handler, relocation string = " + szRelocation );
                             return szRelocation;
                         }

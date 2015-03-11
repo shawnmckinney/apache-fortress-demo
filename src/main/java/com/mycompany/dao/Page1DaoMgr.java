@@ -4,7 +4,8 @@
 
 package com.mycompany.dao;
 
-import com.mycompany.GlobalUtils;
+import com.mycompany.GlobalIds;
+import org.apache.directory.fortress.web.SecUtils;
 import org.apache.ibatis.session.SqlSession;
 import org.apache.wicket.Component;
 import org.apache.wicket.injection.Injector;
@@ -40,7 +41,7 @@ public class Page1DaoMgr implements Serializable
         SqlSession sqlSession = ConnectionFactory.getSqlSessionFactory().openSession();
         try
         {
-            if(GlobalUtils.checkAccess( component, accessMgr, GlobalUtils.PAGE1_OBJNAME, GlobalUtils.ADD, page1EO.getCustomer() ))
+            if(SecUtils.checkAccess( component, accessMgr, GlobalIds.PAGE1_OBJNAME, GlobalIds.ADD, page1EO.getCustomer() ))
             {
                 Page1Dao page1DaoMapper = sqlSession.getMapper( Page1Dao.class );
                 Integer id = page1DaoMapper.getMaxId();
@@ -50,7 +51,7 @@ public class Page1DaoMgr implements Serializable
                 sqlSession.commit();
                 page1EO = page1DaoMapper.getPage1ById( id );
             }
-            else throw new RuntimeException( "User not Authorized: " + GlobalUtils.PAGE1_OBJNAME + "." + GlobalUtils.ADD + "." + page1EO.getCustomer() );
+            else throw new RuntimeException( "User not Authorized: " + GlobalIds.PAGE1_OBJNAME + "." + GlobalIds.ADD + "." + page1EO.getCustomer() );
         }
         catch ( Exception e )
         {
@@ -75,14 +76,15 @@ public class Page1DaoMgr implements Serializable
         SqlSession sqlSession = ConnectionFactory.getSqlSessionFactory().openSession();
         try
         {
-            if(GlobalUtils.checkAccess( component, accessMgr, GlobalUtils.PAGE1_OBJNAME, GlobalUtils.UPDATE, page1EO.getCustomer() ))
+            if( SecUtils.checkAccess( component, accessMgr, GlobalIds.PAGE1_OBJNAME, GlobalIds.UPDATE, page1EO
+                .getCustomer() ))
             {
                 Page1Dao page1DaoMapper = sqlSession.getMapper( Page1Dao.class );
                 int rc = page1DaoMapper.updatePage1( page1EO );
                 sqlSession.commit();
                 page1EO = page1DaoMapper.getPage1ById( page1EO.getId() );
             }
-            else throw new RuntimeException( "User not Authorized:" + GlobalUtils.PAGE1_OBJNAME + "." + GlobalUtils.UPDATE + "." + page1EO.getCustomer() );
+            else throw new RuntimeException( "User not Authorized:" + GlobalIds.PAGE1_OBJNAME + "." + GlobalIds.UPDATE + "." + page1EO.getCustomer() );
         }
         catch ( Exception e )
         {
@@ -109,12 +111,12 @@ public class Page1DaoMgr implements Serializable
         SqlSession sqlSession = ConnectionFactory.getSqlSessionFactory().openSession();
         try
         {
-            if(GlobalUtils.checkAccess( component, accessMgr, GlobalUtils.PAGE1_OBJNAME, GlobalUtils.SEARCH_A, page1EO.getCustomer() ))
+            if(SecUtils.checkAccess( component, accessMgr, GlobalIds.PAGE1_OBJNAME, GlobalIds.SEARCH_A, page1EO.getCustomer() ))
             {
                 Page1Dao page1DaoMapper = sqlSession.getMapper( Page1Dao.class );
                 pages = page1DaoMapper.getPages1ByAttrA( page1EO.getAttr_a() + "%" );
             }
-            else throw new RuntimeException( "User not Authorized: " + GlobalUtils.PAGE1_OBJNAME + "." + GlobalUtils.SEARCH_A + "." + page1EO.getCustomer());
+            else throw new RuntimeException( "User not Authorized: " + GlobalIds.PAGE1_OBJNAME + "." + GlobalIds.SEARCH_A + "." + page1EO.getCustomer());
         }
         catch ( Exception e )
         {
@@ -141,12 +143,12 @@ public class Page1DaoMgr implements Serializable
         SqlSession sqlSession = ConnectionFactory.getSqlSessionFactory().openSession();
         try
         {
-            if(GlobalUtils.checkAccess( component, accessMgr, GlobalUtils.PAGE1_OBJNAME, GlobalUtils.SEARCH, page1EO.getCustomer() ))
+            if(SecUtils.checkAccess( component, accessMgr, GlobalIds.PAGE1_OBJNAME, GlobalIds.SEARCH, page1EO.getCustomer() ))
             {
                 Page1Dao page1DaoMapper = sqlSession.getMapper( Page1Dao.class );
                 pages = page1DaoMapper.getPages1ByCustomer( page1EO.getCustomer() + "%" );
             }
-            else throw new RuntimeException( "User not Authorized: "  + GlobalUtils.PAGE1_OBJNAME + "." + GlobalUtils.SEARCH + "." + page1EO.getCustomer());
+            else throw new RuntimeException( "User not Authorized: "  + GlobalIds.PAGE1_OBJNAME + "." + GlobalIds.SEARCH + "." + page1EO.getCustomer());
         }
         catch ( Exception e )
         {
@@ -174,12 +176,12 @@ public class Page1DaoMgr implements Serializable
         SqlSession sqlSession = ConnectionFactory.getSqlSessionFactory().openSession();
         try
         {
-            if(GlobalUtils.checkAccess( component, accessMgr, GlobalUtils.PAGE1_OBJNAME, GlobalUtils.READ, page1EO.getCustomer() ))
+            if(SecUtils.checkAccess( component, accessMgr, GlobalIds.PAGE1_OBJNAME, GlobalIds.READ, page1EO.getCustomer() ))
             {
                 Page1Dao page1DaoMapper = sqlSession.getMapper( Page1Dao.class );
                 page1 = page1DaoMapper.getPage1ById( page1EO.getId() );
             }
-            else throw new RuntimeException( "User not Authorized: " + GlobalUtils.PAGE1_OBJNAME + "." + GlobalUtils.READ + "." + page1EO.getCustomer());
+            else throw new RuntimeException( "User not Authorized: " + GlobalIds.PAGE1_OBJNAME + "." + GlobalIds.READ + "." + page1EO.getCustomer());
         }
         catch ( Exception e )
         {
@@ -203,13 +205,13 @@ public class Page1DaoMgr implements Serializable
         SqlSession sqlSession = ConnectionFactory.getSqlSessionFactory().openSession();
         try
         {
-            if(GlobalUtils.checkAccess( component, accessMgr, GlobalUtils.PAGE1_OBJNAME, GlobalUtils.DELETE, page1EO.getCustomer() ))
+            if(SecUtils.checkAccess( component, accessMgr, GlobalIds.PAGE1_OBJNAME, GlobalIds.DELETE, page1EO.getCustomer() ))
             {
                 Page1Dao page1DaoMapper = sqlSession.getMapper( Page1Dao.class );
                 page1DaoMapper.deletePage1ById( page1EO.getId() );
                 sqlSession.commit();
             }
-            else throw new RuntimeException( "User not Authorized: " + GlobalUtils.PAGE1_OBJNAME + "." + GlobalUtils.DELETE + "." + page1EO.getCustomer());
+            else throw new RuntimeException( "User not Authorized: " + GlobalIds.PAGE1_OBJNAME + "." + GlobalIds.DELETE + "." + page1EO.getCustomer());
         }
         catch ( Exception e )
         {

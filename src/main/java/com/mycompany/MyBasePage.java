@@ -8,6 +8,9 @@ import com.googlecode.wicket.kendo.ui.renderer.ChoiceRenderer;
 import org.apache.directory.fortress.core.*;
 import org.apache.directory.fortress.core.SecurityException;
 import org.apache.directory.fortress.realm.J2eePolicyMgr;
+import org.apache.directory.fortress.web.SecUtils;
+import org.apache.directory.fortress.web.SecureIndicatingAjaxButton;
+import org.apache.directory.fortress.web.WicketSession;
 import org.apache.log4j.Logger;
 import org.apache.wicket.Component;
 import org.apache.wicket.ajax.AjaxRequestTarget;
@@ -22,7 +25,6 @@ import org.apache.wicket.model.Model;
 import org.apache.wicket.model.PropertyModel;
 import org.apache.wicket.settings.IExceptionSettings;
 import org.apache.wicket.spring.injection.annot.SpringBean;
-import org.apache.directory.fortress.core.rbac.Permission;
 import org.apache.directory.fortress.core.rbac.Session;
 import org.apache.directory.fortress.core.rbac.UserRole;
 import org.apache.directory.fortress.core.rbac.Warning;
@@ -74,7 +76,7 @@ public abstract class MyBasePage extends WebPage
     public MyBasePage()
     {
         addSecureLinks();
-        final Link actionLink = new Link( GlobalUtils.LOGOUT )
+        final Link actionLink = new Link( GlobalIds.LOGOUT )
         {
             @Override
             public void onClick()
@@ -89,7 +91,7 @@ public abstract class MyBasePage extends WebPage
         infoTA = new TextArea<>( "infoField", Model.of( infoField ) );
         infoTA.setOutputMarkupId( true );
         add( infoTA );
-        add( new Label( "footer", GlobalUtils.FOOTER ) );
+        add( new Label( "footer", GlobalIds.FOOTER ) );
 
         HttpServletRequest servletReq = ( HttpServletRequest ) getRequest().getContainerRequest();
         // RBAC Security Processing:
@@ -104,7 +106,7 @@ public abstract class MyBasePage extends WebPage
             {
                 String szPrincipal = principal.toString();
                 // Pull the RBAC session from the realm and assert into the Web app's session:
-                initializeRbacSession(szPrincipal);
+                SecUtils.initializeSession( this, j2eePolicyMgr, accessMgr, szPrincipal );
             }
         }
         myForm = new MyBasePageForm( "commonForm" );
@@ -119,7 +121,7 @@ public abstract class MyBasePage extends WebPage
     private boolean isLoggedIn( )
     {
         boolean isLoggedIn = false;
-        if ( GlobalUtils.getRbacSession( this ) != null )
+        if ( SecUtils.getSession( this ) != null )
         {
             isLoggedIn = true;
         }
@@ -132,14 +134,14 @@ public abstract class MyBasePage extends WebPage
     private void addSecureLinks()
     {
         add( new Label( LINKS_LABEL, new PropertyModel<String>( this, LINKS_LABEL ) ) );
-        SecureBookmarkablePageLink page1Link = new SecureBookmarkablePageLink( GlobalUtils.BTN_PAGE_1, Page1.class,
-            GlobalUtils.ROLE_SUPER + "," + GlobalUtils.ROLE_PAGE1 );
+        SecureBookmarkablePageLink page1Link = new SecureBookmarkablePageLink( GlobalIds.BTN_PAGE_1, Page1.class,
+            GlobalIds.ROLE_SUPER + "," + GlobalIds.ROLE_PAGE1 );
         add( page1Link );
-        SecureBookmarkablePageLink page2Link = new SecureBookmarkablePageLink( GlobalUtils.BTN_PAGE_2, Page2.class,
-            GlobalUtils.ROLE_SUPER + "," + GlobalUtils.ROLE_PAGE2 );
+        SecureBookmarkablePageLink page2Link = new SecureBookmarkablePageLink( GlobalIds.BTN_PAGE_2, Page2.class,
+            GlobalIds.ROLE_SUPER + "," + GlobalIds.ROLE_PAGE2 );
         add( page2Link );
-        SecureBookmarkablePageLink page3Link = new SecureBookmarkablePageLink( GlobalUtils.BTN_PAGE_3, Page3.class,
-            GlobalUtils.ROLE_SUPER + "," + GlobalUtils.ROLE_PAGE3 );
+        SecureBookmarkablePageLink page3Link = new SecureBookmarkablePageLink( GlobalIds.BTN_PAGE_3, Page3.class,
+            GlobalIds.ROLE_SUPER + "," + GlobalIds.ROLE_PAGE3 );
         add( page3Link );
     }
 
@@ -164,10 +166,10 @@ public abstract class MyBasePage extends WebPage
 
         private void addRoleActivationComboBoxesAndButtons()
         {
-            rolesCB = new ComboBox<UserRole>( GlobalUtils.INACTIVE_ROLES, new PropertyModel<String>( this, "roleSelection" ), inactiveRoles, new ChoiceRenderer<UserRole>( "name" ) );
+            rolesCB = new ComboBox<UserRole>( GlobalIds.INACTIVE_ROLES, new PropertyModel<String>( this, "roleSelection" ), inactiveRoles, new ChoiceRenderer<UserRole>( "name" ) );
             rolesCB.setOutputMarkupId( true );
             add( rolesCB );
-            add( new SecureIndicatingAjaxButton( this, GlobalUtils.ROLES_ACTIVATE, "com.mycompany.MyBasePage", "addActiveRole" )
+            add( new SecureIndicatingAjaxButton( this, GlobalIds.ROLES_ACTIVATE, "com.mycompany.MyBasePage", "addActiveRole" )
             {
                 private static final long serialVersionUID = 1L;
 
@@ -203,7 +205,8 @@ public abstract class MyBasePage extends WebPage
                         @Override
                         public CharSequence getFailureHandler( Component component )
                         {
-                            String szRelocation = GlobalUtils.getLocationReplacement(( HttpServletRequest ) getRequest().getContainerRequest());
+                            String szRelocation = GlobalIds.getLocationReplacement( ( HttpServletRequest ) getRequest
+                                ().getContainerRequest() );
                             LOG.info( "MyBasePage.addActiveRole Failure Handler, relocation string = " + szRelocation );
                             return szRelocation;
                         }
@@ -212,10 +215,10 @@ public abstract class MyBasePage extends WebPage
                 }
             } );
 
-            activeRolesCB = new ComboBox<UserRole>( GlobalUtils.ACTIVE_ROLES, new PropertyModel<String>( this, "activeRoleSelection" ), activeRoles, new ChoiceRenderer<UserRole>( "name" ) );
+            activeRolesCB = new ComboBox<UserRole>( GlobalIds.ACTIVE_ROLES, new PropertyModel<String>( this, "activeRoleSelection" ), activeRoles, new ChoiceRenderer<UserRole>( "name" ) );
             activeRolesCB.setOutputMarkupId( true );
             add( activeRolesCB );
-            add( new SecureIndicatingAjaxButton( this, GlobalUtils.ROLES_DEACTIVATE, "com.mycompany.MyBasePage", "dropActiveRole" )
+            add( new SecureIndicatingAjaxButton( this, GlobalIds.ROLES_DEACTIVATE, "com.mycompany.MyBasePage", "dropActiveRole" )
             {
                 private static final long serialVersionUID = 1L;
 
@@ -248,7 +251,7 @@ public abstract class MyBasePage extends WebPage
                         @Override
                         public CharSequence getFailureHandler( Component component )
                         {
-                            String szRelocation = GlobalUtils.getLocationReplacement(( HttpServletRequest ) getRequest().getContainerRequest());
+                            String szRelocation = GlobalIds.getLocationReplacement( ( HttpServletRequest ) getRequest().getContainerRequest() );
                             LOG.info( "MyBasePage.dropActiveRole Failure Handler, relocation string = " + szRelocation );
                             return szRelocation;
                         }
@@ -342,7 +345,7 @@ public abstract class MyBasePage extends WebPage
          */
         private void loadActivatedRoleSets()
         {
-            Session session = GlobalUtils.getRbacSession( this );
+            Session session = SecUtils.getSession( this );
             if ( session != null )
             {
                 LOG.info( "get assigned roles for user: " + session.getUserId() );
@@ -389,10 +392,10 @@ public abstract class MyBasePage extends WebPage
         boolean isSuccessful = false;
         try
         {
-            RbacSession session = ( RbacSession ) getSession();
-            session.getRbacSession().setWarnings( null );
-            accessMgr.addActiveRole( session.getRbacSession(), new UserRole( roleName ) );
-            List<Warning> warnings = session.getRbacSession().getWarnings();
+            WicketSession session = ( WicketSession ) getSession();
+            session.getSession().setWarnings( null );
+            accessMgr.addActiveRole( session.getSession(), new UserRole( roleName ) );
+            List<Warning> warnings = session.getSession().getWarnings();
             if ( VUtil.isNotNullOrEmpty( warnings ) )
             {
                 for ( Warning warning : warnings )
@@ -409,7 +412,7 @@ public abstract class MyBasePage extends WebPage
                 }
             }
 
-            getPermissions();
+            SecUtils.getPermissions( this, accessMgr );
             isSuccessful = true;
             String message = "Activate role name: " + roleName + " successful";
             LOG.info( message );
@@ -447,9 +450,9 @@ public abstract class MyBasePage extends WebPage
         boolean isSuccessful = false;
         try
         {
-            RbacSession session = ( RbacSession ) getSession();
-            accessMgr.dropActiveRole( session.getRbacSession(), new UserRole( roleName ) );
-            getPermissions();
+            WicketSession session = ( WicketSession ) getSession();
+            accessMgr.dropActiveRole( session.getSession(), new UserRole( roleName ) );
+            SecUtils.getPermissions( this, accessMgr );
             isSuccessful = true;
             LOG.info( "Fortress dropActiveRole roleName: " + roleName + " was successful" );
         }
@@ -468,58 +471,5 @@ public abstract class MyBasePage extends WebPage
             target.appendJavaScript( ";alert('" + msg + "');" );
         }
         return isSuccessful;
-    }
-
-    /**
-     * Call Fortress createSession and load into the Wicket session object
-     *
-     * @return
-     */
-    private void initializeRbacSession(String szPrincipal)
-    {
-        Session realmSession = null;
-        try
-        {
-            realmSession = j2eePolicyMgr.deserialize( szPrincipal );
-        }
-        catch( SecurityException se )
-        {
-            throw new RuntimeException( se );
-        }
-        if(realmSession != null)
-        {
-            synchronized ( ( RbacSession ) RbacSession.get() )
-            {
-                if ( GlobalUtils.getRbacSession( this ) == null )
-                {
-                    LOG.info( "realmSession user: " + realmSession.getUserId() );
-                        // Retrieve user permissions and attach RBAC session to Wicket session:
-                        ( ( RbacSession ) RbacSession.get() ).setSession( realmSession );
-                        getPermissions();
-                }
-            }
-        }
-    }
-
-    /**
-     * Retrieve RBAC session permissions from Fortress and place in the Wicket session.
-     */
-    private void getPermissions()
-    {
-        try
-        {
-            if ( GlobalUtils.IS_PERM_CACHED )
-            {
-                RbacSession session = ( RbacSession ) getSession();
-                List<Permission> permissions = accessMgr.sessionPermissions( session.getRbacSession() );
-                ( ( RbacSession ) RbacSession.get() ).setPermissions( permissions );
-            }
-        }
-        catch ( org.apache.directory.fortress.core.SecurityException se )
-        {
-            String error = "getPermissions caught SecurityException=" + se;
-            LOG.error( error );
-            throw new RuntimeException( error );
-        }
     }
 }

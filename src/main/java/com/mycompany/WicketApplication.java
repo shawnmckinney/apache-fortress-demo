@@ -3,6 +3,7 @@
  */
 package com.mycompany;
 
+import org.apache.directory.fortress.web.WicketSession;
 import org.apache.wicket.Session;
 import org.apache.wicket.core.request.handler.PageProvider;
 import org.apache.wicket.core.request.handler.RenderPageRequestHandler;
@@ -26,7 +27,7 @@ public class WicketApplication extends WebApplication
     @Override
     public Session newSession(Request request, Response response)
     {
-        return new RbacSession(request);
+        return new WicketSession(request);
     }
 
 	/**

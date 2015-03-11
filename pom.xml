@@ -57,9 +57,18 @@
         <!--  FORTRESS DEPENDENCIES -->
         <dependency>
             <groupId>org.apache.directory</groupId>
-            <artifactId>fortress-realm-impl</artifactId>
+            <artifactId>fortress-web</artifactId>
             <version>${project.version}</version>
+            <classifier>classes</classifier>
         </dependency>
+
+        <!--
+                <dependency>
+                    <groupId>org.apache.directory</groupId>
+                    <artifactId>fortress-realm-impl</artifactId>
+                    <version>${project.version}</version>
+                </dependency>
+        -->
 
         <dependency>
            <groupId>log4j</groupId>
