@@ -6,12 +6,10 @@ package com.mycompany;
 import com.googlecode.wicket.kendo.ui.form.combobox.ComboBox;
 import com.googlecode.wicket.kendo.ui.renderer.ChoiceRenderer;
 import org.apache.directory.fortress.core.*;
-import org.apache.directory.fortress.core.SecurityException;
 import org.apache.directory.fortress.realm.J2eePolicyMgr;
 import org.apache.directory.fortress.web.SecUtils;
 import org.apache.directory.fortress.web.SecureBookmarkablePageLink;
 import org.apache.directory.fortress.web.SecureIndicatingAjaxButton;
-import org.apache.directory.fortress.web.WicketSession;
 import org.apache.log4j.Logger;
 import org.apache.wicket.Component;
 import org.apache.wicket.ajax.AjaxRequestTarget;
@@ -28,7 +26,6 @@ import org.apache.wicket.settings.IExceptionSettings;
 import org.apache.wicket.spring.injection.annot.SpringBean;
 import org.apache.directory.fortress.core.rbac.Session;
 import org.apache.directory.fortress.core.rbac.UserRole;
-import org.apache.directory.fortress.core.rbac.Warning;
 import org.apache.directory.fortress.core.util.attr.VUtil;
 
 import javax.servlet.http.HttpServletRequest;
@@ -106,44 +103,13 @@ public abstract class MyBasePage extends WebPage
             if( !isLoggedIn( ) )
             {
                 String szPrincipal = principal.toString();
-                // Pull the RBAC session from the realm and assert into the Web app's session:
+                // Pull the RBAC session from the realm and assert into the Web app's session along with user's perms:
                 SecUtils.initializeSession( this, j2eePolicyMgr, accessMgr, szPrincipal );
             }
         }
         myForm = new MyBasePageForm( "commonForm" );
         myForm.setOutputMarkupId( true );
         add( myForm );
-    }
-
-    /**
-     *
-     * @return
-     */
-    private boolean isLoggedIn( )
-    {
-        boolean isLoggedIn = false;
-        if ( SecUtils.getSession( this ) != null )
-        {
-            isLoggedIn = true;
-        }
-        return isLoggedIn;
-    }
-
-    /**
-     *
-     */
-    private void addSecureLinks()
-    {
-        add( new Label( LINKS_LABEL, new PropertyModel<String>( this, LINKS_LABEL ) ) );
-        SecureBookmarkablePageLink page1Link = new SecureBookmarkablePageLink( GlobalIds.BTN_PAGE_1, Page1.class,
-            GlobalIds.ROLE_SUPER + "," + GlobalIds.ROLE_PAGE1 );
-        add( page1Link );
-        SecureBookmarkablePageLink page2Link = new SecureBookmarkablePageLink( GlobalIds.BTN_PAGE_2, Page2.class,
-            GlobalIds.ROLE_SUPER + "," + GlobalIds.ROLE_PAGE2 );
-        add( page2Link );
-        SecureBookmarkablePageLink page3Link = new SecureBookmarkablePageLink( GlobalIds.BTN_PAGE_3, Page3.class,
-            GlobalIds.ROLE_SUPER + "," + GlobalIds.ROLE_PAGE3 );
-        add( page3Link );
     }
 
     /**
@@ -379,5 +345,36 @@ public abstract class MyBasePage extends WebPage
     protected void setChildPage( ChildPage childPage )
     {
         this.childPage = childPage;
+    }
+
+    /**
+     *
+     * @return
+     */
+    private boolean isLoggedIn( )
+    {
+        boolean isLoggedIn = false;
+        if ( SecUtils.getSession( this ) != null )
+        {
+            isLoggedIn = true;
+        }
+        return isLoggedIn;
+    }
+
+    /**
+     *
+     */
+    private void addSecureLinks()
+    {
+        add( new Label( LINKS_LABEL, new PropertyModel<String>( this, LINKS_LABEL ) ) );
+        SecureBookmarkablePageLink page1Link = new SecureBookmarkablePageLink( GlobalIds.BTN_PAGE_1, Page1.class,
+            GlobalIds.ROLE_SUPER + "," + GlobalIds.ROLE_PAGE1 );
+        add( page1Link );
+        SecureBookmarkablePageLink page2Link = new SecureBookmarkablePageLink( GlobalIds.BTN_PAGE_2, Page2.class,
+            GlobalIds.ROLE_SUPER + "," + GlobalIds.ROLE_PAGE2 );
+        add( page2Link );
+        SecureBookmarkablePageLink page3Link = new SecureBookmarkablePageLink( GlobalIds.BTN_PAGE_3, Page3.class,
+            GlobalIds.ROLE_SUPER + "," + GlobalIds.ROLE_PAGE3 );
+        add( page3Link );
     }
 }
