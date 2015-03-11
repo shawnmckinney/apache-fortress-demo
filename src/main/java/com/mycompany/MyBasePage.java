@@ -9,6 +9,7 @@ import org.apache.directory.fortress.core.*;
 import org.apache.directory.fortress.core.SecurityException;
 import org.apache.directory.fortress.realm.J2eePolicyMgr;
 import org.apache.directory.fortress.web.SecUtils;
+import org.apache.directory.fortress.web.SecureBookmarkablePageLink;
 import org.apache.directory.fortress.web.SecureIndicatingAjaxButton;
 import org.apache.directory.fortress.web.WicketSession;
 import org.apache.log4j.Logger;
