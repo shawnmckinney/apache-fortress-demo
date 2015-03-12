@@ -100,7 +100,7 @@ public abstract class MyBasePage extends WebPage
         if(isSecured)
         {
             linksLabel += " for " + principal.getName();
-            if( !isLoggedIn( ) )
+            if( !SecUtils.isLoggedIn( this ) )
             {
                 String szPrincipal = principal.toString();
                 // Pull the RBAC session from the realm and assert into the Web app's session along with user's perms:
@@ -345,20 +345,6 @@ public abstract class MyBasePage extends WebPage
     protected void setChildPage( ChildPage childPage )
     {
         this.childPage = childPage;
-    }
-
-    /**
-     *
-     * @return
-     */
-    private boolean isLoggedIn( )
-    {
-        boolean isLoggedIn = false;
-        if ( SecUtils.getSession( this ) != null )
-        {
-            isLoggedIn = true;
-        }
-        return isLoggedIn;
     }
 
     /**
