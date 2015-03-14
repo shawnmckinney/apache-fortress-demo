@@ -32,11 +32,11 @@
                   Download the <a href="https://github.com/shawnmckinney/apache-fortress-demo/archive/master.zip">Apache Fortress Demo source bundle</a>.
           </li>
 
-          <br>
+          <hr>
 
           <li>Set java and maven home env variables.</li>
 
-          <br>
+          <hr>
 
           <li>
             Extract the package:
@@ -47,6 +47,8 @@ jar -xf apache-fortress-demo-master.zip
             </pre>
           </li>
 
+          <hr>
+
           <li>
               Change directory:
             <pre>
@@ -55,6 +57,8 @@ cd apache-fortress-demo-master/
                 </p>
             </pre>
           </li>
+
+          <hr>
 
           <li>
               Copy [apache-fortress-demo-master]/src/main/resources/fortress.properties.example to [apache-fortress-demo-master]/src/main/resources/fortress.properties.
@@ -65,6 +69,8 @@ cp ./src/main/resources/fortress.properties.example ./src/main/resources/fortres
                     </p>
                 </pre>
           </li>
+
+          <hr>
 
           <li>
               Edit [apache-fortress-demo-master]/src/main/resources/fortress.properties file.  Verify the settings match previous steps.  More info inline to params below...
@@ -114,11 +120,13 @@ perms.cached=true
                 </pre>
           </li>
 
+          <hr>
+
           <li>
               Save and exit.
           </li>
 
-          <br>
+          <hr>
 
           <li>
               To build and deploy this web application, run this command:
@@ -129,6 +137,8 @@ mvn tomcat:deploy
                 </pre>
           </li>
 
+          <hr>
+
           <li>
               If you need to redeploy this web application, run this command:
                 <pre>
@@ -138,8 +148,25 @@ mvn tomcat:redeploy -Dnoload
                 </pre>
           </li>
 
+          <hr>
+
           <li>
-              Connect to web app:
+              Automatically test using Apache Selenium.  Firefox must be installed before running this step.
+            <pre>
+                <p style="font: monospace; color: black; background-color: lightgrey; font-size: 10pt">
+mvn verify -DskipTests=false -Dnoload
+                </p>
+            </pre>
+              <p>Selenium verifies the test cases automatically.  For each user, attempts are made to hit all pages and components.  Positive and
+                  negative tests are performed.  Failures in test cases will halt the execution of the program.  The policy in effect is contained
+                  within <b>apache-fortress-demo-load-policy.xml</b> and loaded automatically during the web deployment step.
+              </p>
+          </li>
+
+          <hr>
+
+          <li>
+              Manually test by connecting to web app:
               <br><br>
               <ol type="a">
                   <li>
@@ -154,25 +181,44 @@ mvn tomcat:redeploy -Dnoload
                       local: <a href="https://localhost:8443/apache-fortress-demo">https://localhost:8443/apache-fortress-demo</a>,
                       remote: <a href="https://fortressdemo2.com:8443/apache-fortress-demo">https://fortressdemo2.com:8443/apache-fortress-demo</a>
                   </li>
-                  <br>
-                  Accept the self-signed certificate when the warning dialog appears.
               </ol>
-
+              <br>
+              Accept the self-signed certificate when the warning dialog appears.
+              <p>
+                  During manually testing, the credentials must match the tables that follow.  Activate/deactivate roles to gain access to different page
+                  and customer data sets.  There exists a dynamic separation of duty constraint (also described in the following tables) preventing activation of
+                  more than one page-customer role at a time.  Due to these complexities, it is best to run the selenium tests first, before attempting manual operation,
+                  in order to learn how to drive this app.
+              </p>
           </li>
 
-          <br>
+          <hr>
 
           <li>
-              Use Apache Selenium to drive Firefox through a range of security unit tests.  Firefox must be installed before running this step.
-            <pre>
-                <p style="font: monospace; color: black; background-color: lightgrey; font-size: 10pt">
-mvn verify -DskipTests=false -Dnoload
-                </p>
-            </pre>
+              More about testing this app...
+              <p>
+                  This diagram shows the complex role-to-role and user-role relationships in effect.  Page roles, e.g. Page1, provide access to the page itself.
+                  Page-Customer roles, e.g. Page1_123, provide access to the components and data matching a particular page to customer relationship.  Some users are limited
+                  to a single page, customer combo, e.g. user1_123.  Others have access to all pages for a given customer, e.g. user123, or access to all customers for a single
+                  page, e.g. user1.  SuperUser has access to all pages, all customers but that access is due to the given role, SuperUsers, being granted to all perms directly
+                  (as opposed of via inheritance relationships to the page-customer roles).
+              </p>
+              more on superuser...
+              <p>
+                  Granting superuser authority is a common <b>security antipattern</b>.  Giving access to all pages, all data violates the concept of least privilege.
+                  Poweruser is better approach.  Although the poweruser also has access to all pages, all customers, they may only have access to
+                  a given combination, one at a time.  The rationale: a user cannot simultaneously service two customers at the exact same time
+                  so why allow it in the first place?  Only give the user the access needed to perform their job at a given point in time.
+              </p>
+              <<img src="apache-fortress-demo-users-roles-sample-policy.png" height="75%" width="55%">
+              <br><br><b>Demo policy role-role and user-role relationships</b>
           </li>
 
+          <hr>
+
           <li>
-              The Selenium test cases verify the following test cases automatically.  The policy file is <b>apache-fortress-demo-load-policy.xml</b> and was loaded automatically during the web deployment step.
+              These tables contain definitions for the users, pws, and assigned roles:
+
               <ol type="a">
                   <br>
                   <li>
@@ -754,10 +800,6 @@ mvn verify -DskipTests=false -Dnoload
                   </li>
                   <br>
               </ol>
-              <hr>
-              The following diagram depicts the role-role and the user-role relationships defined by this security policy.
-              <br><img src="apache-fortress-demo-users-roles-sample-policy.png" height="75%" width="55%">
-              <br><br>Apache Fortress Demo role-role and user-role relationships
           </li>
           <br>
       </ol>
