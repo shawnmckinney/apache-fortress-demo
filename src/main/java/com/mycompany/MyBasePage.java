@@ -6,6 +6,7 @@ package com.mycompany;
 import com.googlecode.wicket.kendo.ui.form.combobox.ComboBox;
 import com.googlecode.wicket.kendo.ui.renderer.ChoiceRenderer;
 import org.apache.directory.fortress.core.*;
+import org.apache.directory.fortress.core.SecurityException;
 import org.apache.directory.fortress.realm.J2eePolicyMgr;
 import org.apache.directory.fortress.web.SecUtils;
 import org.apache.directory.fortress.web.SecureBookmarkablePageLink;
@@ -102,9 +103,16 @@ public abstract class MyBasePage extends WebPage
             linksLabel += " for " + principal.getName();
             if( !SecUtils.isLoggedIn( this ) )
             {
-                String szPrincipal = principal.toString();
-                // Pull the RBAC session from the realm and assert into the Web app's session along with user's perms:
-                SecUtils.initializeSession( this, j2eePolicyMgr, accessMgr, szPrincipal );
+                try
+                {
+                    String szPrincipal = principal.toString();
+                    // Pull the RBAC session from the realm and assert into the Web app's session along with user's perms:
+                    SecUtils.initializeSession( this, j2eePolicyMgr, accessMgr, szPrincipal );
+                }
+                catch(SecurityException se)
+                {
+                    throw new RuntimeException( se );
+                }
             }
         }
         myForm = new MyBasePageForm( "commonForm" );
