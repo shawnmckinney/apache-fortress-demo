@@ -2,8 +2,9 @@
 
  Last updated: March 15, 2015
 
- This document is starting point for apache fortress demo web app.  Here we will download the source package from githut,
- and generate a java document that contains the actual installation instructions.
+ This document is the starting point for apache fortress demo web app.
+ It provides directions to download the source package from githut, and generate the
+ a java document that contains the actual installation instructions.
 
 ## Prerequisites for target machine:
 1. Debian or Redhat Liunx machine with OpenSSL installed.
