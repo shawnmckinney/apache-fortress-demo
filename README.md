@@ -19,7 +19,7 @@
 
 ## Instructions for downloading app and generating the install doc:
 
-1. [Download ZIP](github: https://github.com/shawnmckinney/apache-fortress-demo/archive/master.zip)
+1. [Download ZIP](https://github.com/shawnmckinney/apache-fortress-demo/archive/master.zip)
 
 2. Extract the contents zip archive to your local machine.
 
