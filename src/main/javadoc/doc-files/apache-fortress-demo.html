@@ -185,10 +185,10 @@ mvn verify -DskipTests=false -Dnoload
               <br>
               Accept the self-signed certificate when the warning dialog appears.
               <p>
-                  During manually testing, the credentials must match the tables that follow.  Activate/deactivate roles to gain access to different page
-                  and customer data sets.  There exists a dynamic separation of duty constraint (also described in the following tables) preventing activation of
-                  more than one page-customer role at a time.  Due to these complexities, it is best to run the selenium tests first, before attempting manual operation,
-                  in order to learn how to drive this app.
+                  During manual testing, enter creds to login form, matching the entries found in the tables at the end of this document.
+                  Activate/deactivate different roles to gain access to different page and customer combinations.
+                  A dynamic separation of duty constraint prevents activation of more than one page-customer role at a time.
+                  It is best to run the automated selenium tests first, before attempting manual operation, in order to understand how to use this app.
               </p>
           </li>
 
@@ -197,9 +197,14 @@ mvn verify -DskipTests=false -Dnoload
           <li>
               More about testing this app...
               <p>
-                  This app's security policy maintains complex role-to-role (role inheritance) and user-role assignments.  Page roles, e.g. Page1, provide access to the page itself.
-                  Page-Customer roles, e.g. Page1_123, provide access to the components and data elements corresponding with that particular page to customer relationship.  All users
+                  This app's security policy maintains complex role-to-role (inheritance) and user-role assignments.  Page roles, e.g. Page1, provide access to the page itself.
+                  Page-Customer roles, e.g. Page1_123, provide access to the components and data elements corresponding with that particular page for a given customer.  All users
                   (except SuperUser) are assigned combinations of page and page-customer roles.  Only one page-customer role may be active in a user's session.
+              </p>
+              <p>
+                  For a user to have access to a given page, customer combination, they must have been, at a minimum, assigned two roles, one for the page, e.g. page1, and one for page-customer, e.g. page1_789.
+                  The page roles are not bound by dynamic separation of duty (DSD) constraint.  Hence we have users like poweruser, who may navigated across pages without changing roles.  On the
+                  other hand the page-customer roles are bound by DSD constraint requiring a user to deactivate one page-customer role, e.g. page1_789, before activating another, e.g. page2_789.
               </p>
               <h4>user-role relations</h4>
               <p>
