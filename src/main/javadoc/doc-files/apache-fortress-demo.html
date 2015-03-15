@@ -200,18 +200,24 @@ mvn verify -DskipTests=false -Dnoload
                   This diagram shows the complex role-to-role and user-role relationships in effect.  Page roles, e.g. Page1, provide access to the page itself.
                   Page-Customer roles, e.g. Page1_123, provide access to the components and data matching a particular page to customer relationship.  Some users are limited
                   to a single page, customer combo, e.g. user1_123.  Others have access to all pages for a given customer, e.g. user123, or access to all customers for a single
-                  page, e.g. user1.  SuperUser has access to all pages, all customers but that access is due to the given role, SuperUsers, being granted to all perms directly
+                  page, e.g. user1.
+              </p>
+              <h4>role-role and user-role relations</h4>
+              <<img src="apache-fortress-demo-users-roles-sample-policy.png" height="75%" width="55%">
+              <br><br><b>Demo policy role-role and user-role relationships</b>
+              <h4>more on superuser</h4>
+              <p>
+                  SuperUser has access to all pages, all customers but that access is due to the given role, SuperUsers, being granted to all perms directly
                   (as opposed of via inheritance relationships to the page-customer roles).
               </p>
-              more on superuser...
               <p>
                   Granting superuser authority is a common <b>security antipattern</b>.  Giving access to all pages, all data violates the concept of least privilege.
                   Poweruser is better approach.  Although the poweruser also has access to all pages, all customers, they may only have access to
                   a given combination, one at a time.  The rationale: a user cannot simultaneously service two customers at the exact same time
                   so why allow it in the first place?  Only give the user the access needed to perform their job at a given point in time.
               </p>
-              <<img src="apache-fortress-demo-users-roles-sample-policy.png" height="75%" width="55%">
-              <br><br><b>Demo policy role-role and user-role relationships</b>
+              <img src="apache-fortress-demo-roles-perms-sample-policy.png" height="75%" width="55%">
+              <br><br><b>Demo policy role-role and role-perm relationships</b>
           </li>
 
           <hr>
