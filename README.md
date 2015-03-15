@@ -32,7 +32,7 @@
 
 ### 4. Set java and maven home env variables.
 
-### 5. Run this command from the root package:
+### 5. Generate the package javadoc which contains the demo installation instructions.
 ````
 mvn javadoc:javadoc
 ````
@@ -49,11 +49,10 @@ note: if using java 8, add this param to the pom.xml:
 </plugin>
 ````
 
-### 6. Point your web browser to the following location:
+### 6. Point your web browser to the javadoc:
 #### [Apache Fortress Overview](target/site/apidocs/overview-summary.html)
 
 ### 7. Follow the steps under 'Demo Installation Instructions':
-
 #### a. [Heartbleed Bug](target/site/apidocs/doc-files/opensslheartbleed.html)
 #### b. [Managing PKI Keys](target/site/apidocs/doc-files/keys.html)
 #### c. [Set Hostname Entry](target/site/apidocs/doc-files/hosts.html)
