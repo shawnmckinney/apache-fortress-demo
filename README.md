@@ -1,4 +1,5 @@
 # README for Apache Fortress Demo End-to-End Security Example
+ This document demonstrates how to download, install and setup the apache fortress demo web app.
 
 ## Last updated: March 15, 2015
 
