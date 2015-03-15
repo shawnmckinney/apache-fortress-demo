@@ -21,7 +21,7 @@
     * [Build Apache Fortress Web](http://symas.com/javadocs/apache-fortress-core/org/apache/directory/fortress/core/doc-files/apache-fortress-web.html)
 
 
-## Instructions for downloading app and generating the install doc:
+## Instructions for downloading and generating the install doc:
 
 1. [Download ZIP](https://github.com/shawnmckinney/apache-fortress-demo/archive/master.zip)
 
