@@ -17,7 +17,7 @@
 #### Complete these steps under 'Navigation Links':
 #### a. [Setup Apache Directory Server](http://symas.com/javadocs/apache-fortress-core/org/apache/directory/fortress/core/doc-files/apache-directory-server.html)
 #### b. [Setup Apache Directory Studio](http://symas.com/javadocs/apache-fortress-core/org/apache/directory/fortress/core/doc-files/apache-directory-studio.html)
-#### c. [Build Apache Fortress Core](http://symas.com/javadocs/apache-fortress-core/org/apache/directory/fortress/core/doc-files/apache-fortress-core.html)
+#### c. [Build Apache Fortress Core](http://symas.com/javadocs/apac1he-fortress-core/org/apache/directory/fortress/core/doc-files/apache-fortress-core.html)
 #### d. [Build Apache Fortress Realm](http://symas.com/javadocs/apache-fortress-core/org/apache/directory/fortress/core/doc-files/apache-fortress-realm.html)
 #### e. [Setup Apache Tomcat Web Server](http://symas.com/javadocs/apache-fortress-core/org/apache/directory/fortress/core/doc-files/apache-tomcat.html)
 #### f. [Build Apache Fortress Web](http://symas.com/javadocs/apache-fortress-core/org/apache/directory/fortress/core/doc-files/apache-fortress-web.html)
@@ -50,7 +50,7 @@ note: if using java 8, add this param to the pom.xml:
 ````
 
 ### 6. Point your web browser to the following location:
-[Apache Fortress Overview](target/site/apidocs/overview-summary.html)
+#### [Apache Fortress Overview](target/site/apidocs/overview-summary.html)
 
 ### 7. Follow the steps under 'Demo Installation Instructions':
 
