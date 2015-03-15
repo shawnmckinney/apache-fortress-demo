@@ -1,7 +1,9 @@
 # README for Apache Fortress Demo End-to-End Security Example
- This document demonstrates how to download, install and setup the apache fortress demo web app.
 
-## Last updated: March 15, 2015
+ Last updated: March 15, 2015
+
+ This document is starting point for apache fortress demo web app.  Here we will download the source package from githut,
+ and generate a java document that contains the actual tutorial instructions.
 
 ## Prerequisites for target machine:
 1. Debian or Redhat Liunx machine with OpenSSL installed.
