@@ -197,34 +197,92 @@ mvn verify -DskipTests=false -Dnoload
           <li>
               More about testing this app...
               <p>
-                  This diagram shows the complex role-to-role and user-role relationships in effect.  Page roles, e.g. Page1, provide access to the page itself.
-                  Page-Customer roles, e.g. Page1_123, provide access to the components and data matching a particular page to customer relationship.  Some users are limited
-                  to a single page, customer combo, e.g. user1_123.  Others have access to all pages for a given customer, e.g. user123, or access to all customers for a single
-                  page, e.g. user1.
+                  This app's security policy maintains complex role-to-role (role inheritance) and user-role assignments.  Page roles, e.g. Page1, provide access to the page itself.
+                  Page-Customer roles, e.g. Page1_123, provide access to the components and data elements corresponding with that particular page to customer relationship.  All users
+                  (except SuperUser) are assigned combinations of page and page-customer roles.  Only one page-customer role may be active in a user's session.
               </p>
-              <h4>role-role and user-role relations</h4>
+              <h4>user-role relations</h4>
+              <p>
+              The following diagram shows the role-role and user-role relations in place:
+              </p>
               <<img src="apache-fortress-demo-users-roles-sample-policy.png" height="75%" width="55%">
               <br><br><b>Demo policy role-role and user-role relationships</b>
-              <h4>more on superuser</h4>
+              <h4>role-permission relations</h4>
               <p>
-                  SuperUser has access to all pages, all customers but that access is due to the given role, SuperUsers, being granted to all perms directly
-                  (as opposed of via inheritance relationships to the page-customer roles).
-              </p>
-              <p>
-                  Granting superuser authority is a common <b>security antipattern</b>.  Giving access to all pages, all data violates the concept of least privilege.
-                  Poweruser is better approach.  Although the poweruser also has access to all pages, all customers, they may only have access to
-                  a given combination, one at a time.  The rationale: a user cannot simultaneously service two customers at the exact same time
-                  so why allow it in the first place?  Only give the user the access needed to perform their job at a given point in time.
+                  The following diagram provides a view of the role-permission relationships in place:
               </p>
               <img src="apache-fortress-demo-roles-perms-sample-policy.png" height="75%" width="55%">
               <br><br><b>Demo policy role-role and role-perm relationships</b>
+              <h4>about superuser</h4>
+              <p>
+                  The above diagrams shows that SuperUser has been granted access to all pages, all customers, via their assigned role, <b>SuperUsers</b>.
+                  Granting full access in this way is a common <b>security antipattern</b> because
+                  it violates the <b>principle of least privilege</b>.  Only provide the access needed to perform assigned job tasks at a given point in time - and no more.
+              </p>
+              <h4>about poweruser</h4>
+              <p>
+                  PowerUser also has access to all pages, all customers.  But this user cannot simultaneously access more than one page-customer combination.
+                  This is accomplished by assigning all of the page-customer roles, i.e. Pag1_123, Page2_123, ... Page3_789, to the poweruser.
+                  But the roles have a mutual exclusion policy (dynamic separation of duty constraint) preventing activation of more than one at a time.
+              </p>
+              <p>
+                  Here is the DSD policy in effect:
+              </p>
+
+                <pre>
+                    <p style="font: monospace; color: black; background-color: lightgrey; font-size: 10pt">
+&lt;addsdset&gt;
+    &lt;sdset
+        name="Demo2DSD"
+        setmembers="PAGE1_123,PAGE1_456,PAGE1_789,PAGE2_123,PAGE2_456,PAGE2_789,PAGE3_123,PAGE3_456,PAGE3_789"
+        cardinality="2"
+        setType="DYNAMIC"
+       description="ROLE_TEST DATA roles are mutually exclusive"
+    /&gt;
+&lt;/addsdset&gt;
+                    </p>
+                </pre>
+                  This is a safer approach to granting all access.  The rationale: a user cannot simultaneously service two customers at the exact same time
+                  so why allow it in the first place?
+
+              <h4>about the other users</h4>
+              <p>
+                  Based on the name, one may infer what level of access they have.  For example user1_123, may access page1's customer 123 functions.
+                  User2 has access to all customers on page2.  User789 has access to all pages, for customer data 789.
+              </p>
+              <p>
+                  Users may only have one page-customer role activated at a time.  To change which role is activated, deactive the old one, and activate the new using the
+                  dropdown component at the top of the page.
+              </p>
+              <p>
+                  The following diagram shows the role activation dropdown:
+              </p>
+              <img src="Screenshot-apache-fortress-demo-activation.png" height="40%" width="50%">
+              <br><br><b>role activation dropdown</b>
+              <p>
+              Always activate page-customer roles: page1_123, page1_456, page1_789, page2_123, page2_456, page2_789, page3_123, page3_456, page3_789.
+              <br><br>Never activate or deactivate page roles: role_page1, role_page2, role_page3.
+              </p>
+              <p>
+                  Once a page-customer role has been activated/deactivated, its corresponding buttons will appear/disappear from the page.
+              </p>
+              <p>
+                  The following diagram shows User1's page after role activation of page1_789 role occurred.  Notice that the buttons, Add, Update, Delete, Search, are visible.
+              </p>
+              <img src="Screenshot-apache-fortress-demo-user1-activate.png" height="50%" width="35%">
+              <br><br><b>user1, page1, role activation step</b>
+              <p>
+                  The following diagram shows User1's page after role deactivation of page1_789 occurred.  Notice the buttons, Add, Update, Delete, Search, are no longer visible.
+              </p>
+              <img src="Screenshot-apache-fortress-demo-user1-deactivate.png" height="50%" width="35%">
+              <br><br><b>user1, page1, role deactivation step</b>
           </li>
 
           <hr>
 
           <li>
-              These tables contain definitions for the users, pws, and assigned roles:
-
+              Here are the policy tables that define users, pws, and their assigned page-customer roles.  Use this information for manual test validations.
+              The same policy was verified by selenium test cases, automatically, on an earlier step.
               <ol type="a">
                   <br>
                   <li>

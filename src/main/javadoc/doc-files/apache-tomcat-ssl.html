@@ -53,12 +53,13 @@ vi /usr/local/tomcat7/conf/server.xml
            Add the following to <b>server.xml</b>:
                 <pre>
                     <p style="font: monospace; color: black; background-color: lightgrey; font-size: 10pt">
-                        &lt;!-- Define a SSL Coyote HTTP/1.1 Connector on port 8443 --&gt;
-                        &lt;Connector
-                        port="8443" maxThreads="200"
-                        scheme="https" secure="true" SSLEnabled="true"
-                        keystoreFile="conf/mykeystore" keystorePass="changeit"
-                        clientAuth="false" sslProtocol="TLS"/&gt;
+&lt;!-- Define a SSL Coyote HTTP/1.1 Connector on port 8443 --&gt;
+&lt;Connector
+    port="8443" maxThreads="200"
+    scheme="https" secure="true" SSLEnabled="true"
+    keystoreFile="conf/mykeystore" keystorePass="changeit"
+    clientAuth="false" sslProtocol="TLS"
+/&gt;
                     </p>
         </pre>
        </li>
