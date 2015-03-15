@@ -14,12 +14,12 @@
 5. Firefox Web Browser
 
 6. Completion of the [Apache Fortress Ten Minute Guide](http://symas.com/javadocs/apache-fortress-core/org/apache/directory/fortress/core/doc-files/ten-minute-guide.html):
-   a. [Setup Apache Directory Server](http://symas.com/javadocs/apache-fortress-core/org/apache/directory/fortress/core/doc-files/apache-directory-server.html)
-   b. [Setup Apache Directory Studio](http://symas.com/javadocs/apache-fortress-core/org/apache/directory/fortress/core/doc-files/apache-directory-studio.html)
-   c. [Build Apache Fortress Core](http://symas.com/javadocs/apac1he-fortress-core/org/apache/directory/fortress/core/doc-files/apache-fortress-core.html)
-   d. [Build Apache Fortress Realm](http://symas.com/javadocs/apache-fortress-core/org/apache/directory/fortress/core/doc-files/apache-fortress-realm.html)
-   e. [Setup Apache Tomcat Web Server](http://symas.com/javadocs/apache-fortress-core/org/apache/directory/fortress/core/doc-files/apache-tomcat.html)
-   f. [Build Apache Fortress Web](http://symas.com/javadocs/apache-fortress-core/org/apache/directory/fortress/core/doc-files/apache-fortress-web.html)
+     a. [Setup Apache Directory Server](http://symas.com/javadocs/apache-fortress-core/org/apache/directory/fortress/core/doc-files/apache-directory-server.html)
+     b. [Setup Apache Directory Studio](http://symas.com/javadocs/apache-fortress-core/org/apache/directory/fortress/core/doc-files/apache-directory-studio.html)
+     c. [Build Apache Fortress Core](http://symas.com/javadocs/apac1he-fortress-core/org/apache/directory/fortress/core/doc-files/apache-fortress-core.html)
+     d. [Build Apache Fortress Realm](http://symas.com/javadocs/apache-fortress-core/org/apache/directory/fortress/core/doc-files/apache-fortress-realm.html)
+     e. [Setup Apache Tomcat Web Server](http://symas.com/javadocs/apache-fortress-core/org/apache/directory/fortress/core/doc-files/apache-tomcat.html)
+     f. [Build Apache Fortress Web](http://symas.com/javadocs/apache-fortress-core/org/apache/directory/fortress/core/doc-files/apache-fortress-web.html)
 
 ## Instructions for downloading app and generating the install doc:
 
@@ -51,11 +51,11 @@ note: if using java 8, add this param to the pom.xml:
 6. Point your web browser to the javadoc: [Apache Fortress Overview](target/site/apidocs/overview-summary.html)
 
 7. Follow the steps under 'Demo Installation Instructions':
-   a. [Heartbleed Bug](target/site/apidocs/doc-files/opensslheartbleed.html)
-   b. [Managing PKI Keys](target/site/apidocs/doc-files/keys.html)
-   c. [Set Hostname Entry](target/site/apidocs/doc-files/hosts.html)
-   d. [Apache Directory SSL](target/site/apidocs/doc-files/apache-directory-ssl.html)
-   e. [Apache Fortress Core SSL](target/site/apidocs/doc-files/apache-fortress-core-ssl.html)
-   f. [Install MySQL](target/site/apidocs/doc-files/mysql.html)
-   g. [Apache Tomcat SSL](target/site/apidocs/doc-files/apache-tomcat-ssl.html)
-   h. [Apache Fortress Demo](target/site/apidocs/doc-files/apache-fortress-demo.html)
+     a. [Heartbleed Bug](target/site/apidocs/doc-files/opensslheartbleed.html)
+     b. [Managing PKI Keys](target/site/apidocs/doc-files/keys.html)
+     c. [Set Hostname Entry](target/site/apidocs/doc-files/hosts.html)
+     d. [Apache Directory SSL](target/site/apidocs/doc-files/apache-directory-ssl.html)
+     e. [Apache Fortress Core SSL](target/site/apidocs/doc-files/apache-fortress-core-ssl.html)
+     f. [Install MySQL](target/site/apidocs/doc-files/mysql.html)
+     g. [Apache Tomcat SSL](target/site/apidocs/doc-files/apache-tomcat-ssl.html)
+     h. [Apache Fortress Demo](target/site/apidocs/doc-files/apache-fortress-demo.html)
