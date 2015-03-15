@@ -20,16 +20,20 @@
 ## Instructions for downloading app and generating the install doc:
 
 1. [Download ZIP](github: https://github.com/shawnmckinney/apache-fortress-demo/archive/master.zip)
-2. Extract the contents zip archive to your local machine.
-3. cd apache-fortress-demo-master
-4. Set java and maven home env variables.
-5. Generate the package javadoc which contains the demo installation instructions.
-````
-mvn javadoc:javadoc
-````
 
-note: if using java 8, add this param to the pom.xml:
-```
+2. Extract the contents zip archive to your local machine.
+
+3. cd apache-fortress-demo-master
+
+4. Set java and maven home env variables.
+
+5. Generate the package javadoc which contains the demo installation instructions.
+ ````
+mvn javadoc:javadoc
+ ````
+
+ note: if using java 8, add this param to the pom.xml:
+ ```
 <plugin>
     ...
     <artifactId>maven-javadoc-plugin</artifactId>
@@ -38,8 +42,10 @@ note: if using java 8, add this param to the pom.xml:
         ...
     </configuration>
 </plugin>
-```
+ ```
+
 6. Point your web browser to the javadoc: [Apache Fortress Overview](target/site/apidocs/overview-summary.html)
+
 7. Follow the steps under 'Demo Installation Instructions':
     * [Heartbleed Bug](target/site/apidocs/doc-files/opensslheartbleed.html)
     * [Managing PKI Keys](target/site/apidocs/doc-files/keys.html)
