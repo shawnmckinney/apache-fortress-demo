@@ -51,12 +51,11 @@ mvn javadoc:javadoc
 6. Perform these steps
 
  (links relative to *target/site/apidocs/doc-files/* on local machine)
- * open the [overview-summary.html](target/site/apidocs/overview-summary.html) and follow these steps:
-    * [Heartbleed Bug](target/site/apidocs/doc-files/opensslheartbleed.html)
-    * [Managing PKI Keys](target/site/apidocs/doc-files/keys.html)
-    * [Set Hostname Entry](target/site/apidocs/doc-files/hosts.html)
-    * [Apache Directory SSL](target/site/apidocs/doc-files/apache-directory-ssl.html)
-    * [Apache Fortress Core SSL](target/site/apidocs/doc-files/apache-fortress-core-ssl.html)
-    * [Install MySQL](target/site/apidocs/doc-files/mysql.html)
-    * [Apache Tomcat SSL](target/site/apidocs/doc-files/apache-tomcat-ssl.html)
-    * [Apache Fortress Demo](target/site/apidocs/doc-files/apache-fortress-demo.html)
+ * [Heartbleed Bug](target/site/apidocs/doc-files/opensslheartbleed.html)
+ * [Managing PKI Keys](target/site/apidocs/doc-files/keys.html)
+ * [Set Hostname Entry](target/site/apidocs/doc-files/hosts.html)
+ * [Apache Directory SSL](target/site/apidocs/doc-files/apache-directory-ssl.html)
+ * [Apache Fortress Core SSL](target/site/apidocs/doc-files/apache-fortress-core-ssl.html)
+ * [Install MySQL](target/site/apidocs/doc-files/mysql.html)
+ * [Apache Tomcat SSL](target/site/apidocs/doc-files/apache-tomcat-ssl.html)
+ * [Apache Fortress Demo](target/site/apidocs/doc-files/apache-fortress-demo.html)
