@@ -6,7 +6,7 @@
  It provides directions to download the source package from githut, and generate
  a java document that contains the actual installation instructions.
 
-## Prerequisites for target environment:
+## Prerequisites for target environment
 1. Debian or Redhat Liunx machine with OpenSSL installed.
 2. Java 7 (or greater) sdk
 3. Git
@@ -21,7 +21,7 @@
     * [Build Apache Fortress Web](http://symas.com/javadocs/apache-fortress-core/org/apache/directory/fortress/core/doc-files/apache-fortress-web.html)
 
 
-## Instructions for downloading and generating the install doc:
+## Instructions for downloading and generating the install doc
 
 1. [Download ZIP](https://github.com/shawnmckinney/apache-fortress-demo/archive/master.zip)
 
