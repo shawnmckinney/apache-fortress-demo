@@ -25,7 +25,7 @@
 
 1. [Download ZIP](https://github.com/shawnmckinney/apache-fortress-demo/archive/master.zip)
 
-2. Extract the contents zip archive to your local machine.
+2. Extract the contents to your local machine.
 
 3. cd apache-fortress-demo-master
 
