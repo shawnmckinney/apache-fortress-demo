@@ -37,7 +37,7 @@ mvn javadoc:javadoc
  ````
 
  note: if using java 8, add this param to the pom.xml:
- ```
+ ```xml
 <plugin>
     ...
     <artifactId>maven-javadoc-plugin</artifactId>
