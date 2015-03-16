@@ -31,7 +31,7 @@
 
 4. Set java and maven home env variables.
 
-5. Generate the package javadoc which contains the demo installation instructions.
+5. Generate the java document that contains the demo installation instructions.
  ````
 mvn javadoc:javadoc
  ````
