@@ -6,7 +6,7 @@
  It provides directions to download the source package from githut, and generate
  a java document that contains the actual installation instructions.
 
-## Prerequisites for target machine:
+## Prerequisites for target environment:
 1. Debian or Redhat Liunx machine with OpenSSL installed.
 2. Java 7 (or greater) sdk
 3. Git
