@@ -48,8 +48,7 @@ mvn javadoc:javadoc
 </plugin>
  ```
 
-6. Point your web browser to the javadoc links that follow...
- * links are relative to *target/site/apidocs/doc-files/*
+6. Links are relative to *target/site/apidocs/doc-files/*
  * open the [overview-summary.html](target/site/apidocs/overview-summary.html) and follow these steps:
     * [Heartbleed Bug](target/site/apidocs/doc-files/opensslheartbleed.html)
     * [Managing PKI Keys](target/site/apidocs/doc-files/keys.html)
