@@ -48,7 +48,9 @@ mvn javadoc:javadoc
 </plugin>
  ```
 
-6. View the doc.  These links relative to *target/site/apidocs/doc-files/* on local machine.
+6. View the doc.
+
+ These links relative to *target/site/apidocs/doc-files/* on local machine.
  * open the [overview-summary.html](target/site/apidocs/overview-summary.html) and follow these steps:
     * [Heartbleed Bug](target/site/apidocs/doc-files/opensslheartbleed.html)
     * [Managing PKI Keys](target/site/apidocs/doc-files/keys.html)
