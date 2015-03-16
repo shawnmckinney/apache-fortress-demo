@@ -48,8 +48,7 @@ mvn javadoc:javadoc
 </plugin>
  ```
 
-6. Perform these steps
-
+6. Perform these steps:
  (links relative to *target/site/apidocs/doc-files/* on local machine)
  * [Heartbleed Bug](target/site/apidocs/doc-files/opensslheartbleed.html)
  * [Managing PKI Keys](target/site/apidocs/doc-files/keys.html)
