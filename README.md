@@ -50,9 +50,7 @@ mvn javadoc:javadoc
 
 6. Point your web browser to the javadoc
  * links relative to target/site/apidocs/doc-files/
- * [Apache Fortress Overview](target/site/apidocs/overview-summary.html)
-
-7. Follow the steps under 'Demo Installation Instructions':
+ * [Apache Fortress Overview](target/site/apidocs/overview-summary.html) follow these steps:
     * [Heartbleed Bug](target/site/apidocs/doc-files/opensslheartbleed.html)
     * [Managing PKI Keys](target/site/apidocs/doc-files/keys.html)
     * [Set Hostname Entry](target/site/apidocs/doc-files/hosts.html)
