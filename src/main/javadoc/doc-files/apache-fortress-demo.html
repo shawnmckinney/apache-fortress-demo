@@ -132,7 +132,7 @@ perms.cached=true
               To build and deploy this web application, run this command:
                 <pre>
                     <p style="font: monospace; color: black; background-color: lightgrey; font-size: 10pt">
-mvn tomcat:deploy
+mvn tomcat:deploy -Dload.file
                     </p>
                 </pre>
           </li>
@@ -143,7 +143,17 @@ mvn tomcat:deploy
               If you need to redeploy this web application, run this command:
                 <pre>
                     <p style="font: monospace; color: black; background-color: lightgrey; font-size: 10pt">
-mvn tomcat:redeploy -Dnoload
+mvn tomcat:redeploy -Dload.file
+                    </p>
+                </pre>
+          </li>
+
+          <hr>
+          <li>
+              The -Dload.file system parameter tells maven to load the demo security policy into ldap in addition to deploying the app.  Since you need to do the load only once it can be dropped from future invocations:
+                <pre>
+                    <p style="font: monospace; color: black; background-color: lightgrey; font-size: 10pt">
+mvn tomcat:redeploy
                     </p>
                 </pre>
           </li>
@@ -154,7 +164,7 @@ mvn tomcat:redeploy -Dnoload
               Automatically test using Apache Selenium.  Firefox must be installed before running this step.
             <pre>
                 <p style="font: monospace; color: black; background-color: lightgrey; font-size: 10pt">
-mvn verify -DskipTests=false -Dnoload
+mvn test -Dtest=ApacheFortressDemoSeleniumITCase
                 </p>
             </pre>
               <p>Selenium verifies the test cases automatically.  For each user, attempts are made to hit all pages and components.  Positive and
