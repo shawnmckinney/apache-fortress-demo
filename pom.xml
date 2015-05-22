@@ -8,13 +8,13 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>fortressdemo3</groupId>
     <artifactId>apache-fortress-demo</artifactId>
-    <version>1.0-RC40-SNAPSHOT</version>
+    <version>1.0-RC41-SNAPSHOT</version>
     <packaging>war</packaging>
     <name>Apache Fortress Demo</name>
     <description>Sample Web App using Apache Fortress, Wicket, Mybatis Data Persistence Frameworks.</description>
     <properties>
-        <wicket.version>6.17.0</wicket.version>
-        <wicket.jquery.version>6.17.0</wicket.jquery.version>
+        <wicket.version>6.19.0</wicket.version>
+        <wicket.jquery.version>6.19.0</wicket.jquery.version>
         <ant.version>1.8.1</ant.version>
         <slf4j.version>1.5.11</slf4j.version>
         <version.slf4j.log4j12>1.7.7</version.slf4j.log4j12>
@@ -55,7 +55,7 @@
 
         <!--  FORTRESS DEPENDENCIES -->
         <dependency>
-            <groupId>org.apache.directory</groupId>
+            <groupId>org.apache.directory.fortress</groupId>
             <artifactId>fortress-web</artifactId>
             <version>${project.version}</version>
             <classifier>classes</classifier>
@@ -386,13 +386,13 @@
                                         <pathelement location="./src/main/resources"/>
                                         <pathelement location="${org.apache.ant:ant-launcher:jar}"/>
                                         <pathelement location="${org.apache.ant:ant:jar}"/>
-                                        <pathelement location="${org.apache.directory:fortress-core:jar}"/>
+                                        <pathelement location="${org.apache.directory.fortress:fortress-core:jar}"/>
                                         <pathelement location="${org.openldap:accelerator-api:jar}"/>
                                         <pathelement location="${org.openldap:accelerator-impl:jar}"/>
                                         <pathelement location="${log4j:log4j:jar}"/>
                                         <pathelement location="${org.apache.directory.api:api-all:jar}"/>
                                         <pathelement location="${org.apache.mina:mina-core:jar}"/>
-                                        <pathelement location="${org.jgrapht:jgrapht-jdk1.5:jar}"/>
+                                        <pathelement location="${org.jgrapht:jgrapht-core:jar}"/>
                                         <pathelement location="${org.jasypt:jasypt:jar}"/>
                                         <pathelement location="${commons-configuration:commons-configuration:jar}"/>
                                         <pathelement location="${commons-lang:commons-lang:jar}"/>
