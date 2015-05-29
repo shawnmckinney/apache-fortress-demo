@@ -3,7 +3,7 @@
  */
 package com.mycompany;
 
-import org.apache.directory.fortress.web.WicketSession;
+import org.apache.directory.fortress.web.control.WicketSession;
 import org.apache.wicket.Session;
 import org.apache.wicket.core.request.handler.PageProvider;
 import org.apache.wicket.core.request.handler.RenderPageRequestHandler;

@@ -5,7 +5,7 @@
 package com.mycompany.dao;
 
 import com.mycompany.GlobalIds;
-import org.apache.directory.fortress.web.SecUtils;
+import org.apache.directory.fortress.web.control.SecUtils;
 import org.apache.ibatis.session.SqlSession;
 import org.apache.wicket.Component;
 import org.apache.wicket.injection.Injector;
@@ -41,7 +41,8 @@ public class Page1DaoMgr implements Serializable
         SqlSession sqlSession = ConnectionFactory.getSqlSessionFactory().openSession();
         try
         {
-            if(SecUtils.checkAccess( component, accessMgr, GlobalIds.PAGE1_OBJNAME, GlobalIds.ADD, page1EO.getCustomer() ))
+            if( SecUtils.checkAccess( component, accessMgr, GlobalIds.PAGE1_OBJNAME, GlobalIds.ADD, page1EO
+                .getCustomer() ))
             {
                 Page1Dao page1DaoMapper = sqlSession.getMapper( Page1Dao.class );
                 Integer id = page1DaoMapper.getMaxId();

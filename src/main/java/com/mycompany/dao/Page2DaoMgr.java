@@ -5,7 +5,7 @@
 package com.mycompany.dao;
 
 import com.mycompany.GlobalIds;
-import org.apache.directory.fortress.web.SecUtils;
+import org.apache.directory.fortress.web.control.SecUtils;
 import org.apache.ibatis.session.SqlSession;
 import org.apache.wicket.Component;
 import org.apache.wicket.injection.Injector;

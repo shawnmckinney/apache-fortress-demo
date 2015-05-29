@@ -10,7 +10,7 @@ import com.inmethod.grid.column.PropertyColumn;
 import com.inmethod.grid.treegrid.TreeGrid;
 import com.mycompany.dao.Page2DaoMgr;
 import com.mycompany.dao.Page2EO;
-import org.apache.directory.fortress.web.SecureIndicatingAjaxButton;
+import org.apache.directory.fortress.web.control.SecureIndicatingAjaxButton;
 import org.apache.log4j.Logger;
 import org.apache.wicket.Component;
 import org.apache.wicket.ajax.AjaxRequestTarget;
