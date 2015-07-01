@@ -5,6 +5,8 @@ package com.mycompany;
 
 import com.googlecode.wicket.kendo.ui.form.combobox.ComboBox;
 import com.googlecode.wicket.kendo.ui.renderer.ChoiceRenderer;
+import org.apache.commons.collections.CollectionUtils;
+import org.apache.commons.lang.StringUtils;
 import org.apache.directory.fortress.core.*;
 import org.apache.directory.fortress.core.SecurityException;
 import org.apache.directory.fortress.realm.J2eePolicyMgr;
@@ -25,9 +27,8 @@ import org.apache.wicket.model.Model;
 import org.apache.wicket.model.PropertyModel;
 import org.apache.wicket.settings.IExceptionSettings;
 import org.apache.wicket.spring.injection.annot.SpringBean;
-import org.apache.directory.fortress.core.rbac.Session;
-import org.apache.directory.fortress.core.rbac.UserRole;
-import org.apache.directory.fortress.core.util.attr.VUtil;
+import org.apache.directory.fortress.core.model.Session;
+import org.apache.directory.fortress.core.model.UserRole;
 
 import javax.servlet.http.HttpServletRequest;
 import java.security.Principal;
@@ -154,7 +155,7 @@ public abstract class MyBasePage extends WebPage
                     getApplication().getExceptionSettings().setAjaxErrorHandlingStrategy(
                         IExceptionSettings.AjaxErrorStrategy.REDIRECT_TO_ERROR_PAGE);
 
-                    if ( VUtil.isNotNullOrEmpty( roleSelection ) )
+                    if ( StringUtils.isNotEmpty( roleSelection ) )
                     {
                         if ( checkAccess( roleSelection, "addActiveRole" ) )
                         {
@@ -200,7 +201,7 @@ public abstract class MyBasePage extends WebPage
                 @Override
                 protected void onSubmit( AjaxRequestTarget target, Form<?> form )
                 {
-                    if ( VUtil.isNotNullOrEmpty( activeRoleSelection ) )
+                    if ( StringUtils.isNotEmpty( activeRoleSelection ) )
                     {
                         if ( checkAccess( activeRoleSelection, "dropActiveRole" ) )
                         {
@@ -249,7 +250,7 @@ public abstract class MyBasePage extends WebPage
         public String getActivatedRoleString()
         {
             String szRoleStr = "";
-            if(VUtil.isNotNullOrEmpty( activeRoles ))
+            if(CollectionUtils.isNotEmpty( activeRoles ))
             {
                 int ctr = 0;
                 for(UserRole role : activeRoles )
@@ -273,7 +274,7 @@ public abstract class MyBasePage extends WebPage
         public String getInactivatedRoleString()
         {
             String szRoleStr = "";
-            if(VUtil.isNotNullOrEmpty( inactiveRoles ))
+            if( CollectionUtils.isNotEmpty( inactiveRoles ))
             {
                 int ctr = 0;
                 for(UserRole role : inactiveRoles )

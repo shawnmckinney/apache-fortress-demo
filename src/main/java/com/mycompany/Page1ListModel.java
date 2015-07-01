@@ -6,10 +6,10 @@ package com.mycompany;
 
 import com.mycompany.dao.Page1DaoMgr;
 import com.mycompany.dao.Page1EO;
+import org.apache.commons.lang.StringUtils;
 import org.apache.log4j.Logger;
 import org.apache.wicket.Component;
 import org.apache.wicket.model.Model;
-import org.apache.directory.fortress.core.util.attr.VUtil;
 
 import java.io.Serializable;
 import java.util.List;
@@ -79,7 +79,7 @@ public class Page1ListModel<T extends Serializable> extends Model
     private List<Page1EO> getList(Page1EO page1EO)
     {
         List<Page1EO> page1EOList = null;
-        if( page1EO != null && VUtil.isNotNullOrEmpty( page1EO.getCustomer() ) )
+        if( page1EO != null && StringUtils.isNotEmpty( page1EO.getCustomer() ) )
         {
             page1EOList = p1manager.getPages1ByCustomer( page1EO, this.component );
         }

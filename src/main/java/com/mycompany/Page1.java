@@ -10,6 +10,7 @@ import com.inmethod.grid.column.PropertyColumn;
 import com.inmethod.grid.treegrid.TreeGrid;
 import com.mycompany.dao.Page1DaoMgr;
 import com.mycompany.dao.Page1EO;
+import org.apache.commons.collections.CollectionUtils;
 import org.apache.directory.fortress.web.control.SecureIndicatingAjaxButton;
 import org.apache.log4j.Logger;
 import org.apache.wicket.Component;
@@ -23,7 +24,6 @@ import org.apache.wicket.markup.html.form.TextField;
 import org.apache.wicket.model.CompoundPropertyModel;
 import org.apache.wicket.model.IModel;
 import org.apache.wicket.model.Model;
-import org.apache.directory.fortress.core.util.attr.VUtil;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.swing.tree.DefaultMutableTreeNode;
@@ -211,7 +211,7 @@ public class Page1 extends MyBasePage
                         treeModel.reload();
                         rootNode.removeAllChildren();
                         List<Page1EO> page1EOs = ( List<Page1EO> ) this.getPage().getDefaultModelObject();
-                        if ( VUtil.isNotNullOrEmpty( page1EOs ) )
+                        if ( CollectionUtils.isNotEmpty( page1EOs ) )
                         {
                             for ( Page1EO entity : page1EOs )
                                 rootNode.add( new DefaultMutableTreeNode( entity ) );

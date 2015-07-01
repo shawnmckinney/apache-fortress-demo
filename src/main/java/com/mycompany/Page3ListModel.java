@@ -6,10 +6,10 @@ package com.mycompany;
 
 import com.mycompany.dao.Page3DaoMgr;
 import com.mycompany.dao.Page3EO;
+import org.apache.commons.lang.StringUtils;
 import org.apache.log4j.Logger;
 import org.apache.wicket.Component;
 import org.apache.wicket.model.Model;
-import org.apache.directory.fortress.core.util.attr.VUtil;
 
 import java.io.Serializable;
 import java.util.List;
@@ -79,7 +79,7 @@ public class Page3ListModel<T extends Serializable> extends Model
     private List<Page3EO> getList(Page3EO page3EO)
     {
         List<Page3EO> page3EOList = null;
-        if( page3EO != null && VUtil.isNotNullOrEmpty( page3EO.getCustomer() ) )
+        if( page3EO != null && StringUtils.isNotEmpty( page3EO.getCustomer() ) )
         {
             page3EOList = p3manager.getPages3ByCustomer( page3EO, this.component );
         }
