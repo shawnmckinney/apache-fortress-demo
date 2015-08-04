@@ -18,8 +18,8 @@
         <ant.version>1.8.1</ant.version>
         <slf4j.version>1.5.11</slf4j.version>
         <version.slf4j.log4j12>1.7.7</version.slf4j.log4j12>
-        <spring.version>3.2.3.RELEASE</spring.version>
-        <spring.security.version>3.1.4.RELEASE</spring.security.version>
+        <spring.version>4.2.0.RELEASE</spring.version>
+        <spring.security.version>4.0.2.RELEASE</spring.security.version>
         <version.log4j>1.2.17</version.log4j>
         <version.junit>4.11</version.junit>
         <javadoc.version>2.9.1</javadoc.version>
@@ -147,7 +147,7 @@
         <dependency>
             <groupId>org.mybatis</groupId>
             <artifactId>mybatis</artifactId>
-            <version>3.2.3</version>
+            <version>3.2.7</version>
         </dependency>
         <dependency>
             <groupId>mysql</groupId>
@@ -160,6 +160,13 @@
             <artifactId>mybatis-spring</artifactId>
             <version>1.2.2</version>
         </dependency>
+        
+    	<!-- Not sure why this was not needed before, but it is necessary for upgrade to Spring 4 -->
+        <dependency>
+	        <groupId>org.springframework</groupId>
+	        <artifactId>spring-jdbc</artifactId>
+	        <version>${spring.version}</version>
+	    </dependency>
 
         <!--  ANT DEPENDENCIES FOR maven-ant-run PLUG-IN used in FORTRESS data loads  -->
         <dependency>

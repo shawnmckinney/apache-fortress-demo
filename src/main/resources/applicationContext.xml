@@ -10,11 +10,11 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans
         http://www.springframework.org/schema/beans/spring-beans.xsd
         http://www.springframework.org/schema/beans
-        http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+        http://www.springframework.org/schema/beans/spring-beans.xsd
         http://www.springframework.org/schema/util
-        http://www.springframework.org/schema/util/spring-util-3.0.xsd
+        http://www.springframework.org/schema/util/spring-util.xsd
         http://www.springframework.org/schema/context
-        http://www.springframework.org/schema/context/spring-context-3.2.xsd
+        http://www.springframework.org/schema/context/spring-context.xsd
         http://www.springframework.org/schema/security
         http://www.springframework.org/schema/security/spring-security.xsd">
 
@@ -55,9 +55,12 @@
         </property>
     </bean>
 
+
 	<!-- Added explicit JDBC DataSource bean to enable Cloud Foundry to create a binding to a MySql instance -->        
-	<bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
-		<property name="driverClassName" value="${database.driver}" />
+	<bean id="aDriver" class="${database.driver}"/>
+	
+	<bean id="dataSource" class="org.springframework.jdbc.datasource.SimpleDriverDataSource">
+		<property name="driver" ref="aDriver" />
 		<property name="url" value="${database.url}" />
 		<property name="username" value="${database.username}" />
 		<property name="password" value="${database.password}" />
@@ -69,12 +72,15 @@
 		<property name="configLocation" value="classpath:Configuration.xml"/>
 	</bean>
 		
-    <!-- setup spring security using preauthenticated (java ee) strategy -->
+    <!-- setup spring security using pre-authenticated (Java EE) strategy -->
     <bean id="filterChainProxy" class="org.springframework.security.web.FilterChainProxy">
-        <sec:filter-chain-map path-type="ant">
-            <sec:filter-chain pattern="/**" filters="sif,j2eePreAuthFilter,logoutFilter,etf,fsi"/>
-        </sec:filter-chain-map>
-    </bean>
+    	<constructor-arg>
+			<list>
+				<sec:filter-chain pattern="/**" filters="sif,j2eePreAuthFilter,logoutFilter,etf,fsi" />
+			</list>
+		</constructor-arg>
+	</bean>
+    
     <bean id="sif" class="org.springframework.security.web.context.SecurityContextPersistenceFilter"/>
     <sec:authentication-manager alias="authenticationManager">
         <sec:authentication-provider ref='preAuthenticatedAuthenticationProvider'/>
@@ -107,31 +113,34 @@
             </list>
         </constructor-arg>
     </bean>
-    <bean id="servletContext" class="org.springframework.web.context.support.ServletContextFactoryBean"/>
+    
+<!--     <bean id="servletContext" class="org.springframework.web.context.support.ServletContextFactoryBean"/> -->
+    
     <bean id="etf" class="org.springframework.security.web.access.ExceptionTranslationFilter">
-        <property name="authenticationEntryPoint" ref="preAuthenticatedProcessingFilterEntryPoint"/>
-    </bean>
+        <constructor-arg  ref="preAuthenticatedProcessingFilterEntryPoint"/>
+    </bean>   
+    
     <bean id="httpRequestAccessDecisionManager" class="org.springframework.security.access.vote.AffirmativeBased">
-        <property name="allowIfAllAbstainDecisions" value="false"/>
-        <property name="decisionVoters">
+    	<constructor-arg>
             <list>
                 <ref bean="roleVoter"/>
             </list>
-        </property>
+        </constructor-arg>
     </bean>
+    
     <bean id="fsi" class="org.springframework.security.web.access.intercept.FilterSecurityInterceptor">
         <property name="authenticationManager" ref="authenticationManager"/>
         <property name="accessDecisionManager" ref="httpRequestAccessDecisionManager"/>
         <property name="securityMetadataSource">
-            <sec:filter-invocation-definition-source>
-                <!-- before spring interceptor recognizes these roles,the j2ee preauthentication filter requires prior java ee security constraint in web.xml -->
+            <sec:filter-security-metadata-source use-expressions="false">
+                <!-- before spring interceptor recognizes these roles,the j2ee pre-authentication filter requires prior java ee security constraint in web.xml -->
                 <sec:intercept-url pattern="/wicket/bookmarkable/com.mycompany.page1"
                                    access="ROLE_DEMO2_SUPER_USER,ROLE_PAGE1"/>
                 <sec:intercept-url pattern="/wicket/bookmarkable/com.mycompany.page2"
                                    access="ROLE_DEMO2_SUPER_USER,ROLE_PAGE2"/>
                 <sec:intercept-url pattern="/wicket/bookmarkable/com.mycompany.page3"
                                    access="ROLE_DEMO2_SUPER_USER,ROLE_PAGE3"/>
-            </sec:filter-invocation-definition-source>
+            </sec:filter-security-metadata-source>
         </property>
     </bean>
     <bean id="roleVoter" class="org.springframework.security.access.vote.RoleVoter"/>
