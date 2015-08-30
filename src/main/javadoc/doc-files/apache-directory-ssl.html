@@ -36,7 +36,7 @@
               Copy keystore created during <a href="keys.html">Managing PKI Keys</a> to ApacheDS conf folder.
                 <pre>
                     <p style="font: monospace; color: black; background-color: lightgrey; font-size: 10pt">
-sudo cp mykeystore /var/lib/apacheds-2.0.0-M19/default/conf
+sudo cp mykeystore /var/lib/apacheds-2.0.0-M20/default/conf
                     </p>
                 </pre>
           </li>
@@ -45,7 +45,7 @@ sudo cp mykeystore /var/lib/apacheds-2.0.0-M19/default/conf
               Ensure the apacheds daemon has permission to access the file:
                 <pre>
                     <p style="font: monospace; color: black; background-color: lightgrey; font-size: 10pt">
-sudo chown apacheds /var/lib/apacheds-2.0.0-M19/default/conf/mykeystore
+sudo chown apacheds /var/lib/apacheds-2.0.0-M20/default/conf/mykeystore
                     </p>
                 </pre>
           </li>
@@ -74,7 +74,7 @@ sudo chown apacheds /var/lib/apacheds-2.0.0-M19/default/conf/mykeystore
               Restart ApacheDS server, from system command prompt (as apacheds user):
         <pre>
             <p style="font: monospace; color: black; background-color: lightgrey; font-size: 10pt">
-/etc/init.d/apacheds-2.0.0-M19-default restart
+/etc/init.d/apacheds-2.0.0-M20-default restart
             </p>
         </pre>
           </li>
@@ -85,7 +85,7 @@ sudo chown apacheds /var/lib/apacheds-2.0.0-M19/default/conf/mykeystore
               From system command prompt (as apacheds user):
         <pre>
             <p style="font: monospace; color: black; background-color: lightgrey; font-size: 10pt">
-/etc/init.d/apacheds-2.0.0-M19-default status
+/etc/init.d/apacheds-2.0.0-M20-default status
                 ApacheDS - default is running (70041).
             </p>
         </pre>
