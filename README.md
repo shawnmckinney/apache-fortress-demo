@@ -1,7 +1,5 @@
 # README for Apache Fortress Demo End-to-End Security Example
 
- Last updated: March 15, 2015
-
  This document is a starting point for the apache fortress demo web app.
  It provides directions to download the source package from github, and generate
  a java document that contains the actual installation instructions.
