@@ -168,9 +168,7 @@ public abstract class MyBasePage extends WebPage
                         }
                         else
                         {
-                            //String msg = "Unauthorized addActiveRole: " + roleSelection;
-                            //target.appendJavaScript( ";alert('" + msg + "');" );
-                            setAuthZError( "Authorization Failed", "com.mycompany.MyBasePage", "addActiveRole", null );
+                            setAuthZError( "Authorization Failed", "com.mycompany.MyBasePage", "addActiveRole", roleSelection );
                             roleSelection = "";
                         }
                     }
@@ -215,7 +213,7 @@ public abstract class MyBasePage extends WebPage
                         }
                         else
                         {
-                            setAuthZError( "Authorization Failed", "com.mycompany.MyBasePage", "dropActiveRole", null );
+                            setAuthZError( "Authorization Failed", "com.mycompany.MyBasePage", "dropActiveRole", activeRoleSelection );
                             activeRoleSelection = "";
                         }
                     }
@@ -361,14 +359,11 @@ public abstract class MyBasePage extends WebPage
     protected void setAuthZError( String error, String object, String operation, String id )
     {
         String msg = error;
-        msg += " for object: " + object + ", operation: " + operation;
-        //if( StringUtils)
-
+        msg += " object name: " + object + ", operation name: " + operation;
         if ( StringUtils.isNotEmpty( id ) )
         {
-            msg += " customer id: " + id;
+            msg += " id: " + id;
         }
-
         PageParameters parameters = new PageParameters();
         parameters.add( "errorValue", msg );
         setResponsePage( AuthZErrorPage.class, parameters );
