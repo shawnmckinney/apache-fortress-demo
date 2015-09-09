@@ -168,8 +168,9 @@ public abstract class MyBasePage extends WebPage
                         }
                         else
                         {
-                            String msg = "Unauthorized addActiveRole: " + roleSelection;
-                            target.appendJavaScript( ";alert('" + msg + "');" );
+                            //String msg = "Unauthorized addActiveRole: " + roleSelection;
+                            //target.appendJavaScript( ";alert('" + msg + "');" );
+                            setAuthZError( "Authorization Failed", "com.mycompany.MyBasePage", "addActiveRole", null );
                             roleSelection = "";
                         }
                     }
@@ -214,7 +215,7 @@ public abstract class MyBasePage extends WebPage
                         }
                         else
                         {
-                            target.appendJavaScript( ";alert('Unauthorized');" );
+                            setAuthZError( "Authorization Failed", "com.mycompany.MyBasePage", "dropActiveRole", null );
                             activeRoleSelection = "";
                         }
                     }
@@ -357,11 +358,16 @@ public abstract class MyBasePage extends WebPage
         this.childPage = childPage;
     }
 
-    protected void setAuthZError( String object, String operation, String id, String error )
+    protected void setAuthZError( String error, String object, String operation, String id )
     {
         String msg = error;
         msg += " for object: " + object + ", operation: " + operation;
         //if( StringUtils)
+
+        if ( StringUtils.isNotEmpty( id ) )
+        {
+            msg += " customer id: " + id;
+        }
 
         PageParameters parameters = new PageParameters();
         parameters.add( "errorValue", msg );

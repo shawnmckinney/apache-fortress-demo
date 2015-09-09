@@ -91,8 +91,7 @@ public class Page1 extends MyBasePage
                     }
                     else
                     {
-                        target.appendJavaScript( ";alert('Page1.Add Button Unauthorized');" );
-                        setAuthZError( GlobalIds.PAGE1_OBJNAME, GlobalIds.ADD, page1EO.getCustomer(), "Authorization Failed" );
+                        setAuthZError( "Authorization Failed", GlobalIds.PAGE1_OBJNAME, GlobalIds.ADD, page1EO.getCustomer() );
                     }
                 }
 
@@ -133,7 +132,7 @@ public class Page1 extends MyBasePage
                     }
                     else
                     {
-                        target.appendJavaScript( ";alert('Page1.Update Button Unauthorized');" );
+                        setAuthZError( "Authorization Failed", GlobalIds.PAGE1_OBJNAME, GlobalIds.UPDATE, page1EO.getCustomer() );
                     }
                 }
 
@@ -170,11 +169,11 @@ public class Page1 extends MyBasePage
                     {
                         p1manager.deletePage1ById( page1EO, this );
                         SaveModelEvent.send( getPage(), this, clearDetailFields( ), target, SaveModelEvent.Operations.DELETE );
-                        target.appendJavaScript(";alert('" + GlobalIds.BTN_PAGE_1_DELETE + "');");
+                        target.appendJavaScript( ";alert('" + GlobalIds.BTN_PAGE_1_DELETE + "');" );
                     }
                     else
                     {
-                        target.appendJavaScript( ";alert('Page1.Delete Button Unauthorized');" );
+                        setAuthZError( "Authorization Failed", GlobalIds.PAGE1_OBJNAME, GlobalIds.DELETE, page1EO.getCustomer() );
                     }
                 }
 
@@ -226,7 +225,7 @@ public class Page1 extends MyBasePage
                     }
                     else
                     {
-                        target.appendJavaScript( ";alert('Page1.Search Button Unauthorized');" );
+                        setAuthZError( "Authorization Failed", GlobalIds.PAGE1_OBJNAME, GlobalIds.SEARCH, page1EO.getCustomer() );
                     }
                 }
 

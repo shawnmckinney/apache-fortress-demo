@@ -93,6 +93,7 @@ public class Page2 extends MyBasePage
                     else
                     {
                         target.appendJavaScript( ";alert('Page2.Add Button Unauthorized');" );
+                        setAuthZError( "Authorization Failed", GlobalIds.PAGE2_OBJNAME, GlobalIds.ADD, page2EO.getCustomer() );
                     }
                 }
 
@@ -133,7 +134,7 @@ public class Page2 extends MyBasePage
                     }
                     else
                     {
-                        target.appendJavaScript( ";alert('Page2.Update Button Unauthorized');" );
+                        setAuthZError( "Authorization Failed", GlobalIds.PAGE2_OBJNAME, GlobalIds.UPDATE, page2EO.getCustomer() );
                     }
                 }
 
@@ -174,7 +175,7 @@ public class Page2 extends MyBasePage
                     }
                     else
                     {
-                        target.appendJavaScript( ";alert('Page2.Delete Button Unauthorized');" );
+                        setAuthZError( "Authorization Failed", GlobalIds.PAGE2_OBJNAME, GlobalIds.DELETE, page2EO.getCustomer() );
                     }
                 }
 
@@ -225,7 +226,7 @@ public class Page2 extends MyBasePage
                     }
                     else
                     {
-                        target.appendJavaScript( ";alert('Page2.Search Button Unauthorized');" );
+                        setAuthZError( "Authorization Failed", GlobalIds.PAGE2_OBJNAME, GlobalIds.SEARCH, page2EO.getCustomer() );
                     }
                 }
 
