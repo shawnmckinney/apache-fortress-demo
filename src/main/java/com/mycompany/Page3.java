@@ -169,7 +169,6 @@ public class Page3 extends MyBasePage
                     {
                         p3manager.deletePage3ById( page3EO, this );
                         SaveModelEvent.send( getPage(), this, clearDetailFields( ), target, SaveModelEvent.Operations.DELETE );
-                        target.appendJavaScript(";alert('" + GlobalIds.BTN_PAGE_3_DELETE + "');");
                     }
                     else
                     {

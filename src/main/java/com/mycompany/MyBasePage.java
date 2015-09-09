@@ -163,8 +163,13 @@ public abstract class MyBasePage extends WebPage
                             if ( SecUtils.addActiveRole( this, target, accessMgr, roleSelection ) )
                             {
                                 setMyResponsePage();
+                                target.add( form );
                             }
-                            target.add( form );
+                            else
+                            {
+                                setAuthZError( "Dynamic SoD Constraint Violation", "com.mycompany.MyBasePage", "addActiveRole", roleSelection );
+                            }
+                            //target.add( form );
                         }
                         else
                         {
@@ -208,8 +213,13 @@ public abstract class MyBasePage extends WebPage
                             if ( SecUtils.dropActiveRole( this, target, accessMgr, activeRoleSelection ) )
                             {
                                 setMyResponsePage();
+                                target.add( form );
                             }
-                            target.add( form );
+                            else
+                            {
+                                setAuthZError( "Dynamic SoD Constraint Violation", "com.mycompany.MyBasePage", "dropActiveRole", roleSelection );
+                            }
+                            //target.add( form );
                         }
                         else
                         {

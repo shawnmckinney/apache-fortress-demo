@@ -92,7 +92,6 @@ public class Page2 extends MyBasePage
                     }
                     else
                     {
-                        target.appendJavaScript( ";alert('Page2.Add Button Unauthorized');" );
                         setAuthZError( "Authorization Failed", GlobalIds.PAGE2_OBJNAME, GlobalIds.ADD, page2EO.getCustomer() );
                     }
                 }
