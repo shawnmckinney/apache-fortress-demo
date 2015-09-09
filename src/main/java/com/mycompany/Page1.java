@@ -91,8 +91,8 @@ public class Page1 extends MyBasePage
                     }
                     else
                     {
-                        info( "Page1.Add Button Unauthorized" );
                         target.appendJavaScript( ";alert('Page1.Add Button Unauthorized');" );
+                        setAuthZError( GlobalIds.PAGE1_OBJNAME, GlobalIds.ADD, page1EO.getCustomer(), "Authorization Failed" );
                     }
                 }
 

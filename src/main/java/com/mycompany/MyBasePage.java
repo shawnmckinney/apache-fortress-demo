@@ -25,6 +25,7 @@ import org.apache.wicket.markup.html.form.TextArea;
 import org.apache.wicket.markup.html.link.Link;
 import org.apache.wicket.model.Model;
 import org.apache.wicket.model.PropertyModel;
+import org.apache.wicket.request.mapper.parameter.PageParameters;
 import org.apache.wicket.settings.IExceptionSettings;
 import org.apache.wicket.spring.injection.annot.SpringBean;
 import org.apache.directory.fortress.core.model.Session;
@@ -354,6 +355,17 @@ public abstract class MyBasePage extends WebPage
     protected void setChildPage( ChildPage childPage )
     {
         this.childPage = childPage;
+    }
+
+    protected void setAuthZError( String object, String operation, String id, String error )
+    {
+        String msg = error;
+        msg += " for object: " + object + ", operation: " + operation;
+        //if( StringUtils)
+
+        PageParameters parameters = new PageParameters();
+        parameters.add( "errorValue", msg );
+        setResponsePage( AuthZErrorPage.class, parameters );
     }
 
     /**
