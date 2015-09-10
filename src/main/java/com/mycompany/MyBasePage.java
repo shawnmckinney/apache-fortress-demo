@@ -9,10 +9,12 @@ import org.apache.commons.collections.CollectionUtils;
 import org.apache.commons.lang.StringUtils;
 import org.apache.directory.fortress.core.*;
 import org.apache.directory.fortress.core.SecurityException;
+import org.apache.directory.fortress.core.model.Warning;
 import org.apache.directory.fortress.realm.J2eePolicyMgr;
 import org.apache.directory.fortress.web.control.SecUtils;
 import org.apache.directory.fortress.web.control.SecureBookmarkablePageLink;
 import org.apache.directory.fortress.web.control.SecureIndicatingAjaxButton;
+import org.apache.directory.fortress.web.control.WicketSession;
 import org.apache.log4j.Logger;
 import org.apache.wicket.Component;
 import org.apache.wicket.ajax.AjaxRequestTarget;
@@ -158,23 +160,44 @@ public abstract class MyBasePage extends WebPage
 
                     if ( StringUtils.isNotEmpty( roleSelection ) )
                     {
+                        String errMessage = null;
                         if ( checkAccess( roleSelection, "addActiveRole" ) )
                         {
-                            if ( SecUtils.addActiveRole( this, target, accessMgr, roleSelection ) )
+                            try
                             {
+                                addActiveRole( this, accessMgr, roleSelection );
                                 setMyResponsePage();
                                 target.add( form );
                             }
-                            else
+                            catch (SecurityException se)
                             {
-                                setAuthZError( "Dynamic SoD Constraint Violation", "com.mycompany.MyBasePage", "addActiveRole", roleSelection );
+                                if ( se.getErrorId() == GlobalErrIds.DSD_VALIDATION_FAILED )
+                                {
+                                    //setAuthZError( "Role Activation Failed due to Dynamic SoD rule", "com.mycompany.MyBasePage", "addActiveRole", roleSelection );
+                                    errMessage = "Role Activation Failed due to Dynamic SoD rule";
+                                }
+                                else if ( se.getErrorId() == GlobalErrIds.URLE_ALREADY_ACTIVE )
+                                {
+                                    // setAuthZError( "Role Already Active", "com.mycompany.MyBasePage", "addActiveRole", roleSelection );
+                                    errMessage = "Role Already Active";
+                                }
+                                else
+                                {
+                                    //setAuthZError( "Role Activation Failed: " + se.getMessage(), "com.mycompany.MyBasePage", "addActiveRole", roleSelection );
+                                    errMessage = "Role Activation Failed: " + se.getMessage();
+                                }
                             }
-                            //target.add( form );
                         }
                         else
                         {
-                            setAuthZError( "Authorization Failed", "com.mycompany.MyBasePage", "addActiveRole", roleSelection );
+                            //setAuthZError( "Authorization Failed", "com.mycompany.MyBasePage", "addActiveRole", roleSelection );
+                            errMessage = "Authorization Failed";
                             roleSelection = "";
+                        }
+                        // if role activation failed:
+                        if ( errMessage != null )
+                        {
+                            setAuthZError( errMessage, "com.mycompany.MyBasePage", "addActiveRole", roleSelection );
                         }
                     }
                 }
@@ -395,4 +418,28 @@ public abstract class MyBasePage extends WebPage
             GlobalIds.ROLE_SUPER + "," + GlobalIds.ROLE_PAGE3 );
         add( page3Link );
     }
+    /**
+     * Call RBAC addActiveRole to activate a new role into user's session.
+     * This routine must first retrieves the wicket session.
+     * It is needed because it contains the fortress session which is required for api.
+     * Next it invokes the fortress addActiveRole method.
+     * If all successful refresh user's perms cached as they've changed.
+     *
+     * @param component contains handle to wicket session.
+     * @param accessMgr used to call fortress api for role op
+     * @param roleName contains the role name target
+     */
+    public static void addActiveRole( Component component, AccessMgr accessMgr, String roleName ) throws SecurityException
+    {
+        WicketSession session = ( WicketSession ) component.getSession();
+        session.getSession().setWarnings( null );
+        accessMgr.addActiveRole( session.getSession(), new UserRole( roleName ) );
+        List<Warning> warnings = session.getSession().getWarnings();
+
+        // User's active role set changed so refresh their permissions:
+        SecUtils.getPermissions( component, accessMgr );
+        String message = "Activate role name: " + roleName + " successful";
+        LOG.info( message );
+    }
+
 }
