@@ -23,9 +23,7 @@ import org.apache.wicket.ajax.attributes.AjaxRequestAttributes;
 import org.apache.wicket.markup.html.WebPage;
 import org.apache.wicket.markup.html.basic.Label;
 import org.apache.wicket.markup.html.form.Form;
-import org.apache.wicket.markup.html.form.TextArea;
 import org.apache.wicket.markup.html.link.Link;
-import org.apache.wicket.model.Model;
 import org.apache.wicket.model.PropertyModel;
 import org.apache.wicket.request.mapper.parameter.PageParameters;
 import org.apache.wicket.settings.IExceptionSettings;
@@ -56,8 +54,6 @@ public abstract class MyBasePage extends WebPage
     private Form myForm;
     private static final String LINKS_LABEL = "linksLabel";
     private String linksLabel = "Authorized Links";
-    protected String infoField;
-    protected TextArea infoTA;
 
 
     /**
@@ -91,9 +87,6 @@ public abstract class MyBasePage extends WebPage
             }
         };
         add( actionLink );
-        infoTA = new TextArea<>( "infoField", Model.of( infoField ) );
-        infoTA.setOutputMarkupId( true );
-        add( infoTA );
         add( new Label( "footer", GlobalIds.FOOTER ) );
 
         HttpServletRequest servletReq = ( HttpServletRequest ) getRequest().getContainerRequest();
