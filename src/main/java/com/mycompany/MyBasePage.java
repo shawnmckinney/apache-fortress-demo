@@ -173,24 +173,24 @@ public abstract class MyBasePage extends WebPage
                             {
                                 if ( se.getErrorId() == GlobalErrIds.DSD_VALIDATION_FAILED )
                                 {
-                                    //setAuthZError( "Role Activation Failed due to Dynamic SoD rule", "com.mycompany.MyBasePage", "addActiveRole", roleSelection );
                                     errMessage = "Role Activation Failed due to Dynamic SoD rule";
                                 }
                                 else if ( se.getErrorId() == GlobalErrIds.URLE_ALREADY_ACTIVE )
                                 {
-                                    // setAuthZError( "Role Already Active", "com.mycompany.MyBasePage", "addActiveRole", roleSelection );
                                     errMessage = "Role Already Active";
+                                }
+                                else if ( se.getErrorId() == GlobalErrIds.URLE_ACTIVATE_FAILED )
+                                {
+                                    errMessage = "Role is Not Assigned";
                                 }
                                 else
                                 {
-                                    //setAuthZError( "Role Activation Failed: " + se.getMessage(), "com.mycompany.MyBasePage", "addActiveRole", roleSelection );
                                     errMessage = "Role Activation Failed: " + se.getMessage();
                                 }
                             }
                         }
                         else
                         {
-                            //setAuthZError( "Authorization Failed", "com.mycompany.MyBasePage", "addActiveRole", roleSelection );
                             errMessage = "Authorization Failed";
                             roleSelection = "";
                         }
