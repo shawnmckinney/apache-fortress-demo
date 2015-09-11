@@ -359,7 +359,7 @@ public class Page1 extends MyBasePage
                 }
             }
         };
-        grid.setContentHeight(8, SizeUnit.EM);
+        grid.setContentHeight(10, SizeUnit.EM);
         grid.setAllowSelectMultiple(false);
         grid.setClickRowToSelect(true);
         grid.setClickRowToDeselect(false);
