@@ -115,6 +115,7 @@ public abstract class MyBasePage extends WebPage
         myForm = new MyBasePageForm( "commonForm" );
         myForm.setOutputMarkupId( true );
         add( myForm );
+        add( new Label( "infoField" ));
     }
 
     /**
