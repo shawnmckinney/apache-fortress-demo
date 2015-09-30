@@ -95,6 +95,9 @@ public class GlobalIds
     public static final String ROLES_DEACTIVATE = "roles.deactivate";
     public static final String ROLES_ACTIVATE = "roles.activate";
     public static final String FOOTER = "This is free and unencumbered software released into the public domain.";
+    public static final String INFO_FIELD = "infoField";
+    public static final String DSD_ERROR_MSG = "Role Activation Failed due to Dynamic SoD rule";
+    public static final String AUTHZ_ERROR_MSG = "Authorization Failed";
 
     public static String getLocationReplacement(HttpServletRequest servletRequest)
     {

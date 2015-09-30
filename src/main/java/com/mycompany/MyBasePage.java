@@ -115,7 +115,7 @@ public abstract class MyBasePage extends WebPage
         myForm = new MyBasePageForm( "commonForm" );
         myForm.setOutputMarkupId( true );
         add( myForm );
-        add( new Label( "infoField" ));
+        add( new Label( GlobalIds.INFO_FIELD ));
     }
 
     /**
@@ -167,7 +167,7 @@ public abstract class MyBasePage extends WebPage
                             {
                                 if ( se.getErrorId() == GlobalErrIds.DSD_VALIDATION_FAILED )
                                 {
-                                    errMessage = "Role Activation Failed due to Dynamic SoD rule";
+                                    errMessage = GlobalIds.DSD_ERROR_MSG;
                                 }
                                 else if ( se.getErrorId() == GlobalErrIds.URLE_ALREADY_ACTIVE )
                                 {

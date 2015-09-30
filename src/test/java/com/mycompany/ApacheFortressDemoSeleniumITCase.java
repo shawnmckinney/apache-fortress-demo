@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2013, JoshuaTree Software. All rights reserved.
+ * This is free and unencumbered software released into the public domain.
  */
 package com.mycompany;
 
@@ -38,6 +38,7 @@ public class ApacheFortressDemoSeleniumITCase
         baseUrl = "http://localhost:8080";
         //baseUrl = "http://apache-fortress-demo.com:8080";
         //baseUrl = "https://fortressdemo2.com:8443";
+        //baseUrl = "https://IL1SCOLSP102";
         baseUrl += "/apache-fortress-demo";
         driver.manage().timeouts().implicitlyWait( 2500, TimeUnit.MILLISECONDS );
     }
@@ -111,21 +112,21 @@ public class ApacheFortressDemoSeleniumITCase
         doNegativeButtonTests( GlobalIds.PAGE_1, GlobalIds.USER_123, GlobalIds.BTN_PAGE_1 );
         doActivateTest( GlobalIds.USER_123, GlobalIds.PAGE_1, GlobalIds.BTN_PAGE_1, GlobalIds.ROLE_PAGE1_123, null, "123", "789", false );
         TUtils.sleep( 1 );
-        doNegativeDataTest( GlobalIds.BTN_PAGE_1, GlobalIds.ROLE_PAGE1_123, "456");
+        doNegativeDataTest( GlobalIds.PAGE_1, GlobalIds.BTN_PAGE_1, GlobalIds.ROLE_PAGE1_123, "456");
         TUtils.sleep( 1 );
-        doNegativeDataTest( GlobalIds.BTN_PAGE_1, GlobalIds.ROLE_PAGE1_123, "789");
+        doNegativeDataTest( GlobalIds.PAGE_1, GlobalIds.BTN_PAGE_1, GlobalIds.ROLE_PAGE1_123, "789");
         driver.findElement( By.linkText( GlobalIds.PAGE_2 ) ).click();
         doActivateTest( GlobalIds.USER_123, GlobalIds.PAGE_2, GlobalIds.BTN_PAGE_2, GlobalIds.ROLE_PAGE2_123, GlobalIds.ROLE_PAGE1_123, "123", "789", true );
         TUtils.sleep( 1 );
-        doNegativeDataTest( GlobalIds.BTN_PAGE_2, GlobalIds.ROLE_PAGE2_123, "456");
+        doNegativeDataTest( GlobalIds.PAGE_2, GlobalIds.BTN_PAGE_2, GlobalIds.ROLE_PAGE2_123, "456");
         TUtils.sleep( 1 );
-        doNegativeDataTest( GlobalIds.BTN_PAGE_2, GlobalIds.ROLE_PAGE2_123, "789");
+        doNegativeDataTest( GlobalIds.PAGE_2, GlobalIds.BTN_PAGE_2, GlobalIds.ROLE_PAGE2_123, "789");
         driver.findElement( By.linkText( GlobalIds.PAGE_3 ) ).click();
         doActivateTest( GlobalIds.USER_123, GlobalIds.PAGE_3, GlobalIds.BTN_PAGE_3, GlobalIds.ROLE_PAGE3_123, GlobalIds.ROLE_PAGE2_123, "123", "789", true );
         TUtils.sleep( 1 );
-        doNegativeDataTest( GlobalIds.BTN_PAGE_3, GlobalIds.ROLE_PAGE3_123, "456");
+        doNegativeDataTest( GlobalIds.PAGE_3, GlobalIds.BTN_PAGE_3, GlobalIds.ROLE_PAGE3_123, "456");
         TUtils.sleep( 1 );
-        doNegativeDataTest( GlobalIds.BTN_PAGE_3, GlobalIds.ROLE_PAGE3_123, "789");
+        doNegativeDataTest( GlobalIds.PAGE_3, GlobalIds.BTN_PAGE_3, GlobalIds.ROLE_PAGE3_123, "789");
         logout( GlobalIds.USER_123 );
 
         // User 456, has access to all pages, Customer 456 data only:
@@ -134,21 +135,21 @@ public class ApacheFortressDemoSeleniumITCase
         doNegativeButtonTests( GlobalIds.PAGE_1, GlobalIds.USER_456, GlobalIds.BTN_PAGE_1 );
         doActivateTest( GlobalIds.USER_456, GlobalIds.PAGE_1, GlobalIds.BTN_PAGE_1, GlobalIds.ROLE_PAGE1_456, null, "456", "123", false );
         TUtils.sleep( 1 );
-        doNegativeDataTest( GlobalIds.BTN_PAGE_1, GlobalIds.ROLE_PAGE1_456, "123");
+        doNegativeDataTest( GlobalIds.PAGE_1, GlobalIds.BTN_PAGE_1, GlobalIds.ROLE_PAGE1_456, "123");
         TUtils.sleep( 1 );
-        doNegativeDataTest( GlobalIds.BTN_PAGE_1, GlobalIds.ROLE_PAGE1_456, "789");
+        doNegativeDataTest( GlobalIds.PAGE_1, GlobalIds.BTN_PAGE_1, GlobalIds.ROLE_PAGE1_456, "789");
         driver.findElement( By.linkText( GlobalIds.PAGE_2 ) ).click();
         doActivateTest( GlobalIds.USER_456, GlobalIds.PAGE_2, GlobalIds.BTN_PAGE_2, GlobalIds.ROLE_PAGE2_456, GlobalIds.ROLE_PAGE1_456, "456", "789", true );
         TUtils.sleep( 1 );
-        doNegativeDataTest( GlobalIds.BTN_PAGE_2, GlobalIds.ROLE_PAGE2_456, "123");
+        doNegativeDataTest( GlobalIds.PAGE_2, GlobalIds.BTN_PAGE_2, GlobalIds.ROLE_PAGE2_456, "123");
         TUtils.sleep( 1 );
-        doNegativeDataTest( GlobalIds.BTN_PAGE_2, GlobalIds.ROLE_PAGE2_456, "789");
+        doNegativeDataTest( GlobalIds.PAGE_2, GlobalIds.BTN_PAGE_2, GlobalIds.ROLE_PAGE2_456, "789");
         driver.findElement( By.linkText( GlobalIds.PAGE_3 ) ).click();
         doActivateTest( GlobalIds.USER_456, GlobalIds.PAGE_3, GlobalIds.BTN_PAGE_3, GlobalIds.ROLE_PAGE3_456, GlobalIds.ROLE_PAGE2_456, "456", "789", true );
         TUtils.sleep( 1 );
-        doNegativeDataTest( GlobalIds.BTN_PAGE_3, GlobalIds.ROLE_PAGE3_456, "123");
+        doNegativeDataTest( GlobalIds.PAGE_3, GlobalIds.BTN_PAGE_3, GlobalIds.ROLE_PAGE3_456, "123");
         TUtils.sleep( 1 );
-        doNegativeDataTest( GlobalIds.BTN_PAGE_3, GlobalIds.ROLE_PAGE3_456, "789");
+        doNegativeDataTest( GlobalIds.PAGE_3, GlobalIds.BTN_PAGE_3, GlobalIds.ROLE_PAGE3_456, "789");
         logout( GlobalIds.USER_456 );
 
         // User 789, has access to all pages, Customer 789 data only:
@@ -157,21 +158,21 @@ public class ApacheFortressDemoSeleniumITCase
         doNegativeButtonTests( GlobalIds.PAGE_1, GlobalIds.USER_789, GlobalIds.BTN_PAGE_1 );
         doActivateTest( GlobalIds.USER_789, GlobalIds.PAGE_1, GlobalIds.BTN_PAGE_1, GlobalIds.ROLE_PAGE1_789, null, "789", "123", false );
         TUtils.sleep( 1 );
-        doNegativeDataTest( GlobalIds.BTN_PAGE_1, GlobalIds.ROLE_PAGE1_789, "123");
+        doNegativeDataTest( GlobalIds.PAGE_1, GlobalIds.BTN_PAGE_1, GlobalIds.ROLE_PAGE1_789, "123");
         TUtils.sleep( 1 );
-        doNegativeDataTest( GlobalIds.BTN_PAGE_1, GlobalIds.ROLE_PAGE1_789, "456");
+        doNegativeDataTest( GlobalIds.PAGE_1, GlobalIds.BTN_PAGE_1, GlobalIds.ROLE_PAGE1_789, "456");
         driver.findElement( By.linkText( GlobalIds.PAGE_2 ) ).click();
         doActivateTest( GlobalIds.USER_789, GlobalIds.PAGE_2, GlobalIds.BTN_PAGE_2, GlobalIds.ROLE_PAGE2_789, GlobalIds.ROLE_PAGE1_789, "789", "456", true );
         TUtils.sleep( 1 );
-        doNegativeDataTest( GlobalIds.BTN_PAGE_2, GlobalIds.ROLE_PAGE2_789, "123");
+        doNegativeDataTest( GlobalIds.PAGE_2, GlobalIds.BTN_PAGE_2, GlobalIds.ROLE_PAGE2_789, "123");
         TUtils.sleep( 1 );
-        doNegativeDataTest( GlobalIds.BTN_PAGE_2, GlobalIds.ROLE_PAGE2_789, "456");
+        doNegativeDataTest( GlobalIds.PAGE_2, GlobalIds.BTN_PAGE_2, GlobalIds.ROLE_PAGE2_789, "456");
         driver.findElement( By.linkText( GlobalIds.PAGE_3 ) ).click();
         doActivateTest( GlobalIds.USER_789, GlobalIds.PAGE_3, GlobalIds.BTN_PAGE_3, GlobalIds.ROLE_PAGE3_789, GlobalIds.ROLE_PAGE2_789, "789", "123", true );
         TUtils.sleep( 1 );
-        doNegativeDataTest( GlobalIds.BTN_PAGE_3, GlobalIds.ROLE_PAGE3_789, "123");
+        doNegativeDataTest( GlobalIds.PAGE_3, GlobalIds.BTN_PAGE_3, GlobalIds.ROLE_PAGE3_789, "123");
         TUtils.sleep( 1 );
-        doNegativeDataTest( GlobalIds.BTN_PAGE_3, GlobalIds.ROLE_PAGE3_789, "456");
+        doNegativeDataTest( GlobalIds.PAGE_3, GlobalIds.BTN_PAGE_3, GlobalIds.ROLE_PAGE3_789, "456");
         logout( GlobalIds.USER_789 );
 
         // User 1 has access to Page 1, all customer data with DSD constraints applied::
@@ -302,8 +303,9 @@ public class ApacheFortressDemoSeleniumITCase
             // Now activate ROLE:
             activateRole(activateRole);
             // Make sure the pop-up is correct:
-            if(!processPopup("Role selection " + activateRole + " activation failed because of Dynamic SoD rule violation"))
+            if(!processError( GlobalIds.DSD_ERROR_MSG ))
                 fail("doActivate Button Test 2 Failed: " + buttonPage);
+            driver.findElement( By.linkText( page ) ).click();
             doNegativeButtonTest( userId, page, buttonPage );
 
             // Now deactivate ROLE_PAGE1:
@@ -319,7 +321,8 @@ public class ApacheFortressDemoSeleniumITCase
         // Click the buttons on page 2
         doPositiveButtonTests( null, buttonPage );
         TUtils.sleep( 1 );
-        doNegativeDataTest(buttonPage, activateRole, unauthorizedData);
+        doNegativeDataTest(GlobalIds.PAGE_2, buttonPage, activateRole, unauthorizedData);
+        driver.findElement( By.linkText( page ) ).click();
         TUtils.sleep( 1 );
         doPositiveDataTest(buttonPage, activateRole, authorizedData);
     }
@@ -332,14 +335,15 @@ public class ApacheFortressDemoSeleniumITCase
         driver.findElement( By.name( buttonPage + "." + GlobalIds.SEARCH ) ).click();
     }
 
-    private void doNegativeDataTest(String buttonPage, String activateRole, String data)
+    private void doNegativeDataTest(String page, String buttonPage, String activateRole, String data)
     {
         info( "Negative Data test for role: " + activateRole + ", customer: " + data );
         driver.findElement( By.id( GlobalIds.CUSTOMER_EF_ID ) ).clear();
         driver.findElement( By.id( GlobalIds.CUSTOMER_EF_ID ) ).sendKeys( data );
         driver.findElement( By.name( buttonPage + "." + GlobalIds.SEARCH ) ).click();
-        if(!processPopup("Unauthorized"))
+        if(!processError( GlobalIds.AUTHZ_ERROR_MSG ))
             fail("doActivateTest Unauthorized data Test Failed: " + buttonPage + "." + GlobalIds.SEARCH);
+        driver.findElement( By.linkText( page ) ).click();
     }
 
     private void doPositiveButtonTests( String linkName, String pageId )
@@ -386,6 +390,16 @@ public class ApacheFortressDemoSeleniumITCase
         return textFound;
     }
 
+    private boolean processError(String text)
+    {
+        boolean textFound = false;
+        WebElement element = driver.findElement(By.xpath("//*[@id=\"body\"]/h3/span"));
+        String szValue = element.getText();
+        if(szValue.contains( text ))
+            textFound = true;
+        return textFound;
+    }
+
     private void activateRole(String roleName)
     {
         info("Activate test for " + roleName);
@@ -406,7 +420,7 @@ public class ApacheFortressDemoSeleniumITCase
         }
 
         //TUtils.sleep( 1 );
-        //if(!processPopup(alertText))
+        //if(!processError(alertText))
         //    fail("Button Test Failed: " + pageId + "." + buttonId);
     }
 
