@@ -35,9 +35,8 @@ public class ApacheFortressDemoSeleniumITCase
         driver.manage().window().maximize();
 
         // Use test local default:
-        baseUrl = "http://localhost:8080";
-        //baseUrl = "http://apache-fortress-demo.com:8080";
-        //baseUrl = "https://fortressdemo2.com:8443";
+        //baseUrl = "http://localhost:8080";
+        baseUrl = "https://fortressdemo2.com:8443";
         //baseUrl = "https://IL1SCOLSP102";
         baseUrl += "/apache-fortress-demo";
         driver.manage().timeouts().implicitlyWait( 2500, TimeUnit.MILLISECONDS );
@@ -321,7 +320,7 @@ public class ApacheFortressDemoSeleniumITCase
         // Click the buttons on page 2
         doPositiveButtonTests( null, buttonPage );
         TUtils.sleep( 1 );
-        doNegativeDataTest(GlobalIds.PAGE_2, buttonPage, activateRole, unauthorizedData);
+        doNegativeDataTest(page, buttonPage, activateRole, unauthorizedData);
         driver.findElement( By.linkText( page ) ).click();
         TUtils.sleep( 1 );
         doPositiveDataTest(buttonPage, activateRole, authorizedData);
