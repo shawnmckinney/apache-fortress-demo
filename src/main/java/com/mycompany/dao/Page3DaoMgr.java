@@ -153,6 +153,7 @@ public class Page3DaoMgr implements Serializable
         catch ( Exception e )
         {
             String error = "getPages3ByCustomer customer number [" + page3EO.getCustomer() + "], caught Exception=" + e;
+            e.printStackTrace();
             throw new RuntimeException( error );
         }
         finally
