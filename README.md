@@ -1,8 +1,10 @@
 # README for Apache Fortress Demo End-to-End Security Example
 
- This document is a starting point for the apache fortress demo web app.
- It provides directions to download the source package from github, and generate
- a java document that contains the actual installation instructions.
+## Security Layers in this Demo
+ ![Apache Fortress Demo Security Layers](src/main/javadoc/doc-files/Demo2-Block-Diagram.png  "Apache Fortress Demo")
+
+## Document Overview
+ This document is the starting point for the apache fortress demo web app.  It provides directions to download the source package from github, and generate a java document that contains the actual installation instructions.
 
 ## Prerequisites for target environment
 1. Debian or Redhat Liunx machine with OpenSSL installed.
