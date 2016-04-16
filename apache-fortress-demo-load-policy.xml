@@ -221,21 +221,36 @@
                 <permgrant objName="com.mycompany.MyBasePage" opName="addActiveRole" roleNm="ROLE_PAGE3"/>
                 <permgrant objName="com.mycompany.MyBasePage" opName="dropActiveRole" roleNm="ROLE_PAGE3"/>
 
-                <permgrant objName="com.mycompany.Page1" opName="Add" objId="123" roleNm="PAGE1_123"/>
-                <permgrant objName="com.mycompany.Page1" opName="Add" objId="456" roleNm="PAGE1_456"/>
-                <permgrant objName="com.mycompany.Page1" opName="Add" objId="789" roleNm="PAGE1_789"/>
+                <permgrant objName="com.mycompany.Page1" opName="Add"    objId="123" roleNm="PAGE1_123"/>
+                <permgrant objName="com.mycompany.Page1" opName="Add"                roleNm="PAGE1_123"/>
+                <permgrant objName="com.mycompany.Page1" opName="Add"    objId="456" roleNm="PAGE1_456"/>
+                <permgrant objName="com.mycompany.Page1" opName="Add"                roleNm="PAGE1_456"/>
+                <permgrant objName="com.mycompany.Page1" opName="Add"    objId="789" roleNm="PAGE1_789"/>
+                <permgrant objName="com.mycompany.Page1" opName="Add"                roleNm="PAGE1_789"/>
                 <permgrant objName="com.mycompany.Page1" opName="Update" objId="123" roleNm="PAGE1_123"/>
+                <permgrant objName="com.mycompany.Page1" opName="Update"             roleNm="PAGE1_123"/>
                 <permgrant objName="com.mycompany.Page1" opName="Update" objId="456" roleNm="PAGE1_456"/>
+                <permgrant objName="com.mycompany.Page1" opName="Update"             roleNm="PAGE1_456"/>
                 <permgrant objName="com.mycompany.Page1" opName="Update" objId="789" roleNm="PAGE1_789"/>
+                <permgrant objName="com.mycompany.Page1" opName="Update"             roleNm="PAGE1_789"/>
                 <permgrant objName="com.mycompany.Page1" opName="Delete" objId="123" roleNm="PAGE1_123"/>
+                <permgrant objName="com.mycompany.Page1" opName="Delete"             roleNm="PAGE1_123"/>
                 <permgrant objName="com.mycompany.Page1" opName="Delete" objId="456" roleNm="PAGE1_456"/>
+                <permgrant objName="com.mycompany.Page1" opName="Delete"             roleNm="PAGE1_456"/>
                 <permgrant objName="com.mycompany.Page1" opName="Delete" objId="789" roleNm="PAGE1_789"/>
+                <permgrant objName="com.mycompany.Page1" opName="Delete"             roleNm="PAGE1_789"/>
                 <permgrant objName="com.mycompany.Page1" opName="Search" objId="123" roleNm="PAGE1_123"/>
+                <permgrant objName="com.mycompany.Page1" opName="Search"             roleNm="PAGE1_123"/>
                 <permgrant objName="com.mycompany.Page1" opName="Search" objId="456" roleNm="PAGE1_456"/>
+                <permgrant objName="com.mycompany.Page1" opName="Search"             roleNm="PAGE1_456"/>
                 <permgrant objName="com.mycompany.Page1" opName="Search" objId="789" roleNm="PAGE1_789"/>
-                <permgrant objName="com.mycompany.Page1" opName="Read" objId="123" roleNm="PAGE1_123"/>
-                <permgrant objName="com.mycompany.Page1" opName="Read" objId="456" roleNm="PAGE1_456"/>
-                <permgrant objName="com.mycompany.Page1" opName="Read" objId="789" roleNm="PAGE1_789"/>
+                <permgrant objName="com.mycompany.Page1" opName="Search"             roleNm="PAGE1_789"/>
+                <permgrant objName="com.mycompany.Page1" opName="Read"   objId="123" roleNm="PAGE1_123"/>
+                <permgrant objName="com.mycompany.Page1" opName="Read"               roleNm="PAGE1_123"/>
+                <permgrant objName="com.mycompany.Page1" opName="Read"   objId="456" roleNm="PAGE1_456"/>
+                <permgrant objName="com.mycompany.Page1" opName="Read"               roleNm="PAGE1_456"/>
+                <permgrant objName="com.mycompany.Page1" opName="Read"   objId="789" roleNm="PAGE1_789"/>
+                <permgrant objName="com.mycompany.Page1" opName="Read"               roleNm="PAGE1_789"/>
                 <permgrant objName="PAGE1_123" opName="addActiveRole" roleNm="ROLE_PAGE1"/>
                 <permgrant objName="PAGE1_456" opName="addActiveRole" roleNm="ROLE_PAGE1"/>
                 <permgrant objName="PAGE1_789" opName="addActiveRole" roleNm="ROLE_PAGE1"/>
@@ -243,21 +258,36 @@
                 <permgrant objName="PAGE1_456" opName="dropActiveRole" roleNm="ROLE_PAGE1"/>
                 <permgrant objName="PAGE1_789" opName="dropActiveRole" roleNm="ROLE_PAGE1"/>
 
-                <permgrant objName="com.mycompany.Page2" opName="Add" objId="123" roleNm="PAGE2_123"/>
-                <permgrant objName="com.mycompany.Page2" opName="Add" objId="456" roleNm="PAGE2_456"/>
-                <permgrant objName="com.mycompany.Page2" opName="Add" objId="789" roleNm="PAGE2_789"/>
+                <permgrant objName="com.mycompany.Page2" opName="Add"    objId="123" roleNm="PAGE2_123"/>
+                <permgrant objName="com.mycompany.Page2" opName="Add"                roleNm="PAGE2_123"/>
+                <permgrant objName="com.mycompany.Page2" opName="Add"    objId="456" roleNm="PAGE2_456"/>
+                <permgrant objName="com.mycompany.Page2" opName="Add"                roleNm="PAGE2_456"/>
+                <permgrant objName="com.mycompany.Page2" opName="Add"    objId="789" roleNm="PAGE2_789"/>
+                <permgrant objName="com.mycompany.Page2" opName="Add"                roleNm="PAGE2_789"/>
                 <permgrant objName="com.mycompany.Page2" opName="Update" objId="123" roleNm="PAGE2_123"/>
+                <permgrant objName="com.mycompany.Page2" opName="Update"             roleNm="PAGE2_123"/>
                 <permgrant objName="com.mycompany.Page2" opName="Update" objId="456" roleNm="PAGE2_456"/>
+                <permgrant objName="com.mycompany.Page2" opName="Update"             roleNm="PAGE2_456"/>
                 <permgrant objName="com.mycompany.Page2" opName="Update" objId="789" roleNm="PAGE2_789"/>
+                <permgrant objName="com.mycompany.Page2" opName="Update"             roleNm="PAGE2_789"/>
                 <permgrant objName="com.mycompany.Page2" opName="Delete" objId="123" roleNm="PAGE2_123"/>
+                <permgrant objName="com.mycompany.Page2" opName="Delete"             roleNm="PAGE2_123"/>
                 <permgrant objName="com.mycompany.Page2" opName="Delete" objId="456" roleNm="PAGE2_456"/>
+                <permgrant objName="com.mycompany.Page2" opName="Delete"             roleNm="PAGE2_456"/>
                 <permgrant objName="com.mycompany.Page2" opName="Delete" objId="789" roleNm="PAGE2_789"/>
+                <permgrant objName="com.mycompany.Page2" opName="Delete"             roleNm="PAGE2_789"/>
                 <permgrant objName="com.mycompany.Page2" opName="Search" objId="123" roleNm="PAGE2_123"/>
+                <permgrant objName="com.mycompany.Page2" opName="Search"             roleNm="PAGE2_123"/>
                 <permgrant objName="com.mycompany.Page2" opName="Search" objId="456" roleNm="PAGE2_456"/>
+                <permgrant objName="com.mycompany.Page2" opName="Search"             roleNm="PAGE2_456"/>
                 <permgrant objName="com.mycompany.Page2" opName="Search" objId="789" roleNm="PAGE2_789"/>
-                <permgrant objName="com.mycompany.Page2" opName="Read" objId="123" roleNm="PAGE2_123"/>
-                <permgrant objName="com.mycompany.Page2" opName="Read" objId="456" roleNm="PAGE2_456"/>
-                <permgrant objName="com.mycompany.Page2" opName="Read" objId="789" roleNm="PAGE2_789"/>
+                <permgrant objName="com.mycompany.Page2" opName="Search"             roleNm="PAGE2_789"/>
+                <permgrant objName="com.mycompany.Page2" opName="Read"   objId="123" roleNm="PAGE2_123"/>
+                <permgrant objName="com.mycompany.Page2" opName="Read"               roleNm="PAGE2_123"/>
+                <permgrant objName="com.mycompany.Page2" opName="Read"   objId="456" roleNm="PAGE2_456"/>
+                <permgrant objName="com.mycompany.Page2" opName="Read"               roleNm="PAGE2_456"/>
+                <permgrant objName="com.mycompany.Page2" opName="Read"   objId="789" roleNm="PAGE2_789"/>
+                <permgrant objName="com.mycompany.Page2" opName="Read"               roleNm="PAGE2_789"/>
                 <permgrant objName="PAGE2_123" opName="addActiveRole" roleNm="ROLE_PAGE2"/>
                 <permgrant objName="PAGE2_456" opName="addActiveRole" roleNm="ROLE_PAGE2"/>
                 <permgrant objName="PAGE2_789" opName="addActiveRole" roleNm="ROLE_PAGE2"/>
@@ -265,21 +295,36 @@
                 <permgrant objName="PAGE2_456" opName="dropActiveRole" roleNm="ROLE_PAGE2"/>
                 <permgrant objName="PAGE2_789" opName="dropActiveRole" roleNm="ROLE_PAGE2"/>
 
-                <permgrant objName="com.mycompany.Page3" opName="Add" objId="123" roleNm="PAGE3_123"/>
-                <permgrant objName="com.mycompany.Page3" opName="Add" objId="456" roleNm="PAGE3_456"/>
-                <permgrant objName="com.mycompany.Page3" opName="Add" objId="789" roleNm="PAGE3_789"/>
+                <permgrant objName="com.mycompany.Page3" opName="Add"    objId="123" roleNm="PAGE3_123"/>
+                <permgrant objName="com.mycompany.Page3" opName="Add"                roleNm="PAGE3_123"/>
+                <permgrant objName="com.mycompany.Page3" opName="Add"    objId="456" roleNm="PAGE3_456"/>
+                <permgrant objName="com.mycompany.Page3" opName="Add"                roleNm="PAGE3_456"/>
+                <permgrant objName="com.mycompany.Page3" opName="Add"    objId="789" roleNm="PAGE3_789"/>
+                <permgrant objName="com.mycompany.Page3" opName="Add"                roleNm="PAGE3_789"/>
                 <permgrant objName="com.mycompany.Page3" opName="Update" objId="123" roleNm="PAGE3_123"/>
+                <permgrant objName="com.mycompany.Page3" opName="Update"             roleNm="PAGE3_123"/>
                 <permgrant objName="com.mycompany.Page3" opName="Update" objId="456" roleNm="PAGE3_456"/>
+                <permgrant objName="com.mycompany.Page3" opName="Update"             roleNm="PAGE3_456"/>
                 <permgrant objName="com.mycompany.Page3" opName="Update" objId="789" roleNm="PAGE3_789"/>
+                <permgrant objName="com.mycompany.Page3" opName="Update"             roleNm="PAGE3_789"/>
                 <permgrant objName="com.mycompany.Page3" opName="Delete" objId="123" roleNm="PAGE3_123"/>
+                <permgrant objName="com.mycompany.Page3" opName="Delete"             roleNm="PAGE3_123"/>
                 <permgrant objName="com.mycompany.Page3" opName="Delete" objId="456" roleNm="PAGE3_456"/>
+                <permgrant objName="com.mycompany.Page3" opName="Delete"             roleNm="PAGE3_456"/>
                 <permgrant objName="com.mycompany.Page3" opName="Delete" objId="789" roleNm="PAGE3_789"/>
+                <permgrant objName="com.mycompany.Page3" opName="Delete"             roleNm="PAGE3_789"/>
                 <permgrant objName="com.mycompany.Page3" opName="Search" objId="123" roleNm="PAGE3_123"/>
+                <permgrant objName="com.mycompany.Page3" opName="Search"             roleNm="PAGE3_123"/>
                 <permgrant objName="com.mycompany.Page3" opName="Search" objId="456" roleNm="PAGE3_456"/>
+                <permgrant objName="com.mycompany.Page3" opName="Search"             roleNm="PAGE3_456"/>
                 <permgrant objName="com.mycompany.Page3" opName="Search" objId="789" roleNm="PAGE3_789"/>
-                <permgrant objName="com.mycompany.Page3" opName="Read" objId="123" roleNm="PAGE3_123"/>
-                <permgrant objName="com.mycompany.Page3" opName="Read" objId="456" roleNm="PAGE3_456"/>
-                <permgrant objName="com.mycompany.Page3" opName="Read" objId="789" roleNm="PAGE3_789"/>
+                <permgrant objName="com.mycompany.Page3" opName="Search"             roleNm="PAGE3_789"/>
+                <permgrant objName="com.mycompany.Page3" opName="Read"   objId="123" roleNm="PAGE3_123"/>
+                <permgrant objName="com.mycompany.Page3" opName="Read"               roleNm="PAGE3_123"/>
+                <permgrant objName="com.mycompany.Page3" opName="Read"   objId="456" roleNm="PAGE3_456"/>
+                <permgrant objName="com.mycompany.Page3" opName="Read"               roleNm="PAGE3_456"/>
+                <permgrant objName="com.mycompany.Page3" opName="Read"   objId="789" roleNm="PAGE3_789"/>
+                <permgrant objName="com.mycompany.Page3" opName="Read"               roleNm="PAGE3_789"/>
                 <permgrant objName="PAGE3_123" opName="addActiveRole" roleNm="ROLE_PAGE3"/>
                 <permgrant objName="PAGE3_456" opName="addActiveRole" roleNm="ROLE_PAGE3"/>
                 <permgrant objName="PAGE3_789" opName="addActiveRole" roleNm="ROLE_PAGE3"/>
@@ -289,53 +334,68 @@
 
 
                 <!-- Super User has all permissions -->
-                <permgrant objName="com.mycompany.Page1" opName="Add" objId="123" roleNm="ROLE_DEMO2_SUPER_USER"/>
-                <permgrant objName="com.mycompany.Page1" opName="Add" objId="456" roleNm="ROLE_DEMO2_SUPER_USER"/>
-                <permgrant objName="com.mycompany.Page1" opName="Add" objId="789" roleNm="ROLE_DEMO2_SUPER_USER"/>
+                <permgrant objName="com.mycompany.Page1" opName="Add"    objId="123" roleNm="ROLE_DEMO2_SUPER_USER"/>
+                <permgrant objName="com.mycompany.Page1" opName="Add"    objId="456" roleNm="ROLE_DEMO2_SUPER_USER"/>
+                <permgrant objName="com.mycompany.Page1" opName="Add"    objId="789" roleNm="ROLE_DEMO2_SUPER_USER"/>
+                <permgrant objName="com.mycompany.Page1" opName="Add"             roleNm="ROLE_DEMO2_SUPER_USER"/>
                 <permgrant objName="com.mycompany.Page1" opName="Update" objId="123" roleNm="ROLE_DEMO2_SUPER_USER"/>
                 <permgrant objName="com.mycompany.Page1" opName="Update" objId="456" roleNm="ROLE_DEMO2_SUPER_USER"/>
                 <permgrant objName="com.mycompany.Page1" opName="Update" objId="789" roleNm="ROLE_DEMO2_SUPER_USER"/>
+                <permgrant objName="com.mycompany.Page1" opName="Update"             roleNm="ROLE_DEMO2_SUPER_USER"/>
                 <permgrant objName="com.mycompany.Page1" opName="Delete" objId="123" roleNm="ROLE_DEMO2_SUPER_USER"/>
                 <permgrant objName="com.mycompany.Page1" opName="Delete" objId="456" roleNm="ROLE_DEMO2_SUPER_USER"/>
                 <permgrant objName="com.mycompany.Page1" opName="Delete" objId="789" roleNm="ROLE_DEMO2_SUPER_USER"/>
+                <permgrant objName="com.mycompany.Page1" opName="Delete"             roleNm="ROLE_DEMO2_SUPER_USER"/>
                 <permgrant objName="com.mycompany.Page1" opName="Search" objId="123" roleNm="ROLE_DEMO2_SUPER_USER"/>
                 <permgrant objName="com.mycompany.Page1" opName="Search" objId="456" roleNm="ROLE_DEMO2_SUPER_USER"/>
                 <permgrant objName="com.mycompany.Page1" opName="Search" objId="789" roleNm="ROLE_DEMO2_SUPER_USER"/>
-                <permgrant objName="com.mycompany.Page1" opName="Read" objId="123" roleNm="ROLE_DEMO2_SUPER_USER"/>
-                <permgrant objName="com.mycompany.Page1" opName="Read" objId="456" roleNm="ROLE_DEMO2_SUPER_USER"/>
-                <permgrant objName="com.mycompany.Page1" opName="Read" objId="789" roleNm="ROLE_DEMO2_SUPER_USER"/>
+                <permgrant objName="com.mycompany.Page1" opName="Search"             roleNm="ROLE_DEMO2_SUPER_USER"/>
+                <permgrant objName="com.mycompany.Page1" opName="Read"   objId="123" roleNm="ROLE_DEMO2_SUPER_USER"/>
+                <permgrant objName="com.mycompany.Page1" opName="Read"   objId="456" roleNm="ROLE_DEMO2_SUPER_USER"/>
+                <permgrant objName="com.mycompany.Page1" opName="Read"   objId="789" roleNm="ROLE_DEMO2_SUPER_USER"/>
+                <permgrant objName="com.mycompany.Page1" opName="Read"               roleNm="ROLE_DEMO2_SUPER_USER"/>
 
-                <permgrant objName="com.mycompany.Page2" opName="Add" objId="123" roleNm="ROLE_DEMO2_SUPER_USER"/>
-                <permgrant objName="com.mycompany.Page2" opName="Add" objId="456" roleNm="ROLE_DEMO2_SUPER_USER"/>
-                <permgrant objName="com.mycompany.Page2" opName="Add" objId="789" roleNm="ROLE_DEMO2_SUPER_USER"/>
+                <permgrant objName="com.mycompany.Page2" opName="Add"    objId="123" roleNm="ROLE_DEMO2_SUPER_USER"/>
+                <permgrant objName="com.mycompany.Page2" opName="Add"    objId="456" roleNm="ROLE_DEMO2_SUPER_USER"/>
+                <permgrant objName="com.mycompany.Page2" opName="Add"    objId="789" roleNm="ROLE_DEMO2_SUPER_USER"/>
+                <permgrant objName="com.mycompany.Page2" opName="Add"             roleNm="ROLE_DEMO2_SUPER_USER"/>
                 <permgrant objName="com.mycompany.Page2" opName="Update" objId="123" roleNm="ROLE_DEMO2_SUPER_USER"/>
                 <permgrant objName="com.mycompany.Page2" opName="Update" objId="456" roleNm="ROLE_DEMO2_SUPER_USER"/>
                 <permgrant objName="com.mycompany.Page2" opName="Update" objId="789" roleNm="ROLE_DEMO2_SUPER_USER"/>
+                <permgrant objName="com.mycompany.Page2" opName="Update"             roleNm="ROLE_DEMO2_SUPER_USER"/>
                 <permgrant objName="com.mycompany.Page2" opName="Delete" objId="123" roleNm="ROLE_DEMO2_SUPER_USER"/>
                 <permgrant objName="com.mycompany.Page2" opName="Delete" objId="456" roleNm="ROLE_DEMO2_SUPER_USER"/>
                 <permgrant objName="com.mycompany.Page2" opName="Delete" objId="789" roleNm="ROLE_DEMO2_SUPER_USER"/>
+                <permgrant objName="com.mycompany.Page2" opName="Delete"             roleNm="ROLE_DEMO2_SUPER_USER"/>
                 <permgrant objName="com.mycompany.Page2" opName="Search" objId="123" roleNm="ROLE_DEMO2_SUPER_USER"/>
                 <permgrant objName="com.mycompany.Page2" opName="Search" objId="456" roleNm="ROLE_DEMO2_SUPER_USER"/>
                 <permgrant objName="com.mycompany.Page2" opName="Search" objId="789" roleNm="ROLE_DEMO2_SUPER_USER"/>
-                <permgrant objName="com.mycompany.Page2" opName="Read" objId="123" roleNm="ROLE_DEMO2_SUPER_USER"/>
-                <permgrant objName="com.mycompany.Page2" opName="Read" objId="456" roleNm="ROLE_DEMO2_SUPER_USER"/>
-                <permgrant objName="com.mycompany.Page2" opName="Read" objId="789" roleNm="ROLE_DEMO2_SUPER_USER"/>
+                <permgrant objName="com.mycompany.Page2" opName="Search"             roleNm="ROLE_DEMO2_SUPER_USER"/>
+                <permgrant objName="com.mycompany.Page2" opName="Read"   objId="123" roleNm="ROLE_DEMO2_SUPER_USER"/>
+                <permgrant objName="com.mycompany.Page2" opName="Read"   objId="456" roleNm="ROLE_DEMO2_SUPER_USER"/>
+                <permgrant objName="com.mycompany.Page2" opName="Read"   objId="789" roleNm="ROLE_DEMO2_SUPER_USER"/>
+                <permgrant objName="com.mycompany.Page2" opName="Read"   objId="789" roleNm="ROLE_DEMO2_SUPER_USER"/>
 
-                <permgrant objName="com.mycompany.Page3" opName="Add" objId="123" roleNm="ROLE_DEMO2_SUPER_USER"/>
-                <permgrant objName="com.mycompany.Page3" opName="Add" objId="456" roleNm="ROLE_DEMO2_SUPER_USER"/>
-                <permgrant objName="com.mycompany.Page3" opName="Add" objId="789" roleNm="ROLE_DEMO2_SUPER_USER"/>
+                <permgrant objName="com.mycompany.Page3" opName="Add"    objId="123" roleNm="ROLE_DEMO2_SUPER_USER"/>
+                <permgrant objName="com.mycompany.Page3" opName="Add"    objId="456" roleNm="ROLE_DEMO2_SUPER_USER"/>
+                <permgrant objName="com.mycompany.Page3" opName="Add"    objId="789" roleNm="ROLE_DEMO2_SUPER_USER"/>
+                <permgrant objName="com.mycompany.Page3" opName="Add"                roleNm="ROLE_DEMO2_SUPER_USER"/>
                 <permgrant objName="com.mycompany.Page3" opName="Update" objId="123" roleNm="ROLE_DEMO2_SUPER_USER"/>
                 <permgrant objName="com.mycompany.Page3" opName="Update" objId="456" roleNm="ROLE_DEMO2_SUPER_USER"/>
                 <permgrant objName="com.mycompany.Page3" opName="Update" objId="789" roleNm="ROLE_DEMO2_SUPER_USER"/>
+                <permgrant objName="com.mycompany.Page3" opName="Update"             roleNm="ROLE_DEMO2_SUPER_USER"/>
                 <permgrant objName="com.mycompany.Page3" opName="Delete" objId="123" roleNm="ROLE_DEMO2_SUPER_USER"/>
                 <permgrant objName="com.mycompany.Page3" opName="Delete" objId="456" roleNm="ROLE_DEMO2_SUPER_USER"/>
                 <permgrant objName="com.mycompany.Page3" opName="Delete" objId="789" roleNm="ROLE_DEMO2_SUPER_USER"/>
+                <permgrant objName="com.mycompany.Page3" opName="Delete"             roleNm="ROLE_DEMO2_SUPER_USER"/>
                 <permgrant objName="com.mycompany.Page3" opName="Search" objId="123" roleNm="ROLE_DEMO2_SUPER_USER"/>
                 <permgrant objName="com.mycompany.Page3" opName="Search" objId="456" roleNm="ROLE_DEMO2_SUPER_USER"/>
                 <permgrant objName="com.mycompany.Page3" opName="Search" objId="789" roleNm="ROLE_DEMO2_SUPER_USER"/>
-                <permgrant objName="com.mycompany.Page3" opName="Read" objId="123" roleNm="ROLE_DEMO2_SUPER_USER"/>
-                <permgrant objName="com.mycompany.Page3" opName="Read" objId="456" roleNm="ROLE_DEMO2_SUPER_USER"/>
-                <permgrant objName="com.mycompany.Page3" opName="Read" objId="789" roleNm="ROLE_DEMO2_SUPER_USERs"/>
+                <permgrant objName="com.mycompany.Page3" opName="Search"             roleNm="ROLE_DEMO2_SUPER_USER"/>
+                <permgrant objName="com.mycompany.Page3" opName="Read" objId="123"   roleNm="ROLE_DEMO2_SUPER_USER"/>
+                <permgrant objName="com.mycompany.Page3" opName="Read" objId="456"   roleNm="ROLE_DEMO2_SUPER_USER"/>
+                <permgrant objName="com.mycompany.Page3" opName="Read" objId="789"   roleNm="ROLE_DEMO2_SUPER_USERs"/>
+                <permgrant objName="com.mycompany.Page3" opName="Read"               roleNm="ROLE_DEMO2_SUPER_USERs"/>
 
             </addpermgrant>
 
@@ -392,21 +452,27 @@
                 <permop objName="org.apache.directory.fortress.core.rbac.AccessMgrImpl" opName="addActiveRole" type="Button" description="Permission for AccessMgrImpl.addActiveRole"/>
                 <permop objName="org.apache.directory.fortress.core.rbac.AccessMgrImpl" opName="dropActiveRole" type="Button" description="Permission for AccessMgrImpl.dropActiveRole"/>
 
-                <permop objName="com.mycompany.Page1" opName="Add" objId="123" description="Permission for page1.add on Customer record 123"/>
-                <permop objName="com.mycompany.Page1" opName="Add" objId="456" description="Permission for page1.add on Customer record 456"/>
-                <permop objName="com.mycompany.Page1" opName="Add" objId="789" description="Permission for page1.add on Customer record 789"/>
+                <permop objName="com.mycompany.Page1" opName="Add"    objId="123" description="Permission for page1.add on Customer record 123"/>
+                <permop objName="com.mycompany.Page1" opName="Add"    objId="456" description="Permission for page1.add on Customer record 456"/>
+                <permop objName="com.mycompany.Page1" opName="Add"    objId="789" description="Permission for page1.add on Customer record 789"/>
+                <permop objName="com.mycompany.Page1" opName="Add"                description="Permission for page1.add"/>
                 <permop objName="com.mycompany.Page1" opName="Update" objId="123" description="Permission for page1.update on Customer record 123"/>
                 <permop objName="com.mycompany.Page1" opName="Update" objId="456" description="Permission for page1.update on Customer record 456"/>
                 <permop objName="com.mycompany.Page1" opName="Update" objId="789" description="Permission for page1.update on Customer record 789"/>
+                <permop objName="com.mycompany.Page1" opName="Update"             description="Permission for page1.update"/>
                 <permop objName="com.mycompany.Page1" opName="Delete" objId="123" description="Permission for page1.delete on Customer record 123"/>
                 <permop objName="com.mycompany.Page1" opName="Delete" objId="456" description="Permission for page1.delete on Customer record 456"/>
                 <permop objName="com.mycompany.Page1" opName="Delete" objId="789" description="Permission for page1.delete on Customer record 789"/>
+                <permop objName="com.mycompany.Page1" opName="Delete"             description="Permission for page1.delete on Customer record 789"/>
                 <permop objName="com.mycompany.Page1" opName="Search" objId="123" description="Permission for page1.search on Customer record 123"/>
                 <permop objName="com.mycompany.Page1" opName="Search" objId="456" description="Permission for page1.search on Customer record 456"/>
                 <permop objName="com.mycompany.Page1" opName="Search" objId="789" description="Permission for page1.search on Customer record 789"/>
-                <permop objName="com.mycompany.Page1" opName="Read" objId="123" description="Permission for page1.read on Customer record 123"/>
-                <permop objName="com.mycompany.Page1" opName="Read" objId="456" description="Permission for page1.read on Customer record 456"/>
-                <permop objName="com.mycompany.Page1" opName="Read" objId="789" description="Permission for page1.read on Customer record 789"/>
+                <permop objName="com.mycompany.Page1" opName="Search"             description="Permission for page1.search"/>
+                <permop objName="com.mycompany.Page1" opName="Read"   objId="123" description="Permission for page1.read on Customer record 123"/>
+                <permop objName="com.mycompany.Page1" opName="Read"   objId="456" description="Permission for page1.read on Customer record 456"/>
+                <permop objName="com.mycompany.Page1" opName="Read"   objId="789" description="Permission for page1.read on Customer record 789"/>
+                <permop objName="com.mycompany.Page1" opName="Read"               description="Permission for page1.read"/>
+
                 <permop objName="PAGE1_123" opName="addActiveRole" type="Button" description="Permission for PAGE1_123.addActiveRole"/>
                 <permop objName="PAGE1_456" opName="addActiveRole" type="Button" description="Permission for PAGE1_456.addActiveRole"/>
                 <permop objName="PAGE1_789" opName="addActiveRole" type="Button" description="Permission for PAGE1_789.addActiveRole"/>
@@ -414,21 +480,26 @@
                 <permop objName="PAGE1_456" opName="dropActiveRole" type="Button" description="Permission for PAGE1_456.dropActiveRole"/>
                 <permop objName="PAGE1_789" opName="dropActiveRole" type="Button" description="Permission for PAGE1_789.dropActiveRole"/>
 
-                <permop objName="com.mycompany.Page2" opName="Add" objId="123" description="Permission for page2.add on Customer record 123"/>
-                <permop objName="com.mycompany.Page2" opName="Add" objId="456" description="Permission for page2.add on Customer record 456"/>
-                <permop objName="com.mycompany.Page2" opName="Add" objId="789" description="Permission for page2.add on Customer record 789"/>
+                <permop objName="com.mycompany.Page2" opName="Add"    objId="123" description="Permission for page2.add on Customer record 123"/>
+                <permop objName="com.mycompany.Page2" opName="Add"    objId="456" description="Permission for page2.add on Customer record 456"/>
+                <permop objName="com.mycompany.Page2" opName="Add"    objId="789" description="Permission for page2.add on Customer record 789"/>
+                <permop objName="com.mycompany.Page2" opName="Add"                description="Permission for page2.add"/>
                 <permop objName="com.mycompany.Page2" opName="Update" objId="123" description="Permission for page1.update on Customer record 123"/>
                 <permop objName="com.mycompany.Page2" opName="Update" objId="456" description="Permission for page1.update on Customer record 456"/>
                 <permop objName="com.mycompany.Page2" opName="Update" objId="789" description="Permission for page1.update on Customer record 789"/>
+                <permop objName="com.mycompany.Page2" opName="Update"             description="Permission for page1.update"/>
                 <permop objName="com.mycompany.Page2" opName="Delete" objId="123" description="Permission for page2.delete on Customer record 123"/>
                 <permop objName="com.mycompany.Page2" opName="Delete" objId="456" description="Permission for page2.delete on Customer record 456"/>
                 <permop objName="com.mycompany.Page2" opName="Delete" objId="789" description="Permission for page2.delete on Customer record 789"/>
+                <permop objName="com.mycompany.Page2" opName="Delete"             description="Permission for page2.delete"/>
                 <permop objName="com.mycompany.Page2" opName="Search" objId="123" description="Permission for page2.search on Customer record 123"/>
                 <permop objName="com.mycompany.Page2" opName="Search" objId="456" description="Permission for page2.search on Customer record 456"/>
                 <permop objName="com.mycompany.Page2" opName="Search" objId="789" description="Permission for page2.search on Customer record 789"/>
-                <permop objName="com.mycompany.Page2" opName="Read" objId="123" description="Permission for page2.read on Customer record 123"/>
-                <permop objName="com.mycompany.Page2" opName="Read" objId="456" description="Permission for page2.read on Customer record 456"/>
-                <permop objName="com.mycompany.Page2" opName="Read" objId="789" description="Permission for page2.read on Customer record 789"/>
+                <permop objName="com.mycompany.Page2" opName="Search"             description="Permission for page2.search"/>
+                <permop objName="com.mycompany.Page2" opName="Read"   objId="123" description="Permission for page2.read on Customer record 123"/>
+                <permop objName="com.mycompany.Page2" opName="Read"   objId="456" description="Permission for page2.read on Customer record 456"/>
+                <permop objName="com.mycompany.Page2" opName="Read"   objId="789" description="Permission for page2.read on Customer record 789"/>
+                <permop objName="com.mycompany.Page2" opName="Read"               description="Permission for page2.read"/>
                 <permop objName="PAGE2_123" opName="addActiveRole" type="Button" description="Permission for PAGE2_123.addActiveRole"/>
                 <permop objName="PAGE2_456" opName="addActiveRole" type="Button" description="Permission for PAGE2_456.addActiveRole"/>
                 <permop objName="PAGE2_789" opName="addActiveRole" type="Button" description="Permission for PAGE2_789.addActiveRole"/>
@@ -436,21 +507,26 @@
                 <permop objName="PAGE2_456" opName="dropActiveRole" type="Button" description="Permission for PAGE2_456.dropActiveRole"/>
                 <permop objName="PAGE2_789" opName="dropActiveRole" type="Button" description="Permission for PAGE2_789.dropActiveRole"/>
 
-                <permop objName="com.mycompany.Page3" opName="Add" objId="123" description="Permission for page3.add on Customer record 123"/>
-                <permop objName="com.mycompany.Page3" opName="Add" objId="456" description="Permission for page3.add on Customer record 456"/>
-                <permop objName="com.mycompany.Page3" opName="Add" objId="789" description="Permission for page3.add on Customer record 789"/>
+                <permop objName="com.mycompany.Page3" opName="Add"    objId="123" description="Permission for page3.add on Customer record 123"/>
+                <permop objName="com.mycompany.Page3" opName="Add"    objId="456" description="Permission for page3.add on Customer record 456"/>
+                <permop objName="com.mycompany.Page3" opName="Add"    objId="789" description="Permission for page3.add on Customer record 789"/>
+                <permop objName="com.mycompany.Page3" opName="Add"                description="Permission for page3.add"/>
                 <permop objName="com.mycompany.Page3" opName="Update" objId="123" description="Permission for page3.update on Customer record 123"/>
                 <permop objName="com.mycompany.Page3" opName="Update" objId="456" description="Permission for page3.update on Customer record 456"/>
                 <permop objName="com.mycompany.Page3" opName="Update" objId="789" description="Permission for page3.update on Customer record 789"/>
+                <permop objName="com.mycompany.Page3" opName="Update"             description="Permission for page3.update"/>
                 <permop objName="com.mycompany.Page3" opName="Delete" objId="123" description="Permission for page3.delete on Customer record 123"/>
                 <permop objName="com.mycompany.Page3" opName="Delete" objId="456" description="Permission for page3.delete on Customer record 456"/>
                 <permop objName="com.mycompany.Page3" opName="Delete" objId="789" description="Permission for page3.delete on Customer record 789"/>
+                <permop objName="com.mycompany.Page3" opName="Delete"             description="Permission for page3.delete"/>
                 <permop objName="com.mycompany.Page3" opName="Search" objId="123" description="Permission for page3.search on Customer record 123"/>
                 <permop objName="com.mycompany.Page3" opName="Search" objId="456" description="Permission for page3.search on Customer record 456"/>
                 <permop objName="com.mycompany.Page3" opName="Search" objId="789" description="Permission for page3.search on Customer record 789"/>
-                <permop objName="com.mycompany.Page3" opName="Read" objId="123" description="Permission for page3.read on Customer record 123"/>
-                <permop objName="com.mycompany.Page3" opName="Read" objId="456" description="Permission for page3.read on Customer record 456"/>
-                <permop objName="com.mycompany.Page3" opName="Read" objId="789" description="Permission for page3.read on Customer record 789"/>
+                <permop objName="com.mycompany.Page3" opName="Search"             description="Permission for page3.search"/>
+                <permop objName="com.mycompany.Page3" opName="Read"   objId="123" description="Permission for page3.read on Customer record 123"/>
+                <permop objName="com.mycompany.Page3" opName="Read"   objId="456" description="Permission for page3.read on Customer record 456"/>
+                <permop objName="com.mycompany.Page3" opName="Read"   objId="789" description="Permission for page3.read on Customer record 789"/>
+                <permop objName="com.mycompany.Page3" opName="Read"               description="Permission for page3.read"/>
                 <permop objName="PAGE3_123" opName="addActiveRole" type="Button" description="Permission for PAGE3_123.addActiveRole"/>
                 <permop objName="PAGE3_456" opName="addActiveRole" type="Button" description="Permission for PAGE3_456.addActiveRole"/>
                 <permop objName="PAGE3_789" opName="addActiveRole" type="Button" description="Permission for PAGE3_789.addActiveRole"/>

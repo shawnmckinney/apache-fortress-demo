@@ -29,20 +29,22 @@
 4. Set java and maven home env variables.
 
 5. Generate the java document that contains the demo installation instructions:
- ````
-mvn javadoc:javadoc
+
+ ````maven
+ mvn javadoc:javadoc
  ````
 
  note: if using java 8, add this param to the pom.xml:
+
  ```xml
-<plugin>
+ <plugin>
     ...
     <artifactId>maven-javadoc-plugin</artifactId>
     <configuration>
         <additionalparam>-Xdoclint:none</additionalparam>
         ...
     </configuration>
-</plugin>
+ </plugin>
  ```
 
 6. Perform these steps:
