@@ -52,7 +52,7 @@ public class Page1DaoMgr implements Serializable
                 sqlSession.commit();
                 page1EO = page1DaoMapper.getPage1ById( id );
             }
-            else throw new RuntimeException( "User not Authorized: " + GlobalIds.PAGE1_OBJNAME + "." + GlobalIds.ADD + "." + page1EO.getCustomer() );
+            else throw new RuntimeException( GlobalIds.USR_AUTH_ERROR_MSG + GlobalIds.PAGE1_OBJNAME + "." + GlobalIds.ADD + "." + page1EO.getCustomer() );
         }
         catch ( Exception e )
         {
@@ -117,7 +117,7 @@ public class Page1DaoMgr implements Serializable
                 Page1Dao page1DaoMapper = sqlSession.getMapper( Page1Dao.class );
                 pages = page1DaoMapper.getPages1ByAttrA( page1EO.getAttr_a() + "%" );
             }
-            else throw new RuntimeException( "User not Authorized: " + GlobalIds.PAGE1_OBJNAME + "." + GlobalIds.SEARCH_A + "." + page1EO.getCustomer());
+            else throw new RuntimeException( GlobalIds.USR_AUTH_ERROR_MSG + GlobalIds.PAGE1_OBJNAME + "." + GlobalIds.SEARCH_A + "." + page1EO.getCustomer());
         }
         catch ( Exception e )
         {
@@ -149,7 +149,7 @@ public class Page1DaoMgr implements Serializable
                 Page1Dao page1DaoMapper = sqlSession.getMapper( Page1Dao.class );
                 pages = page1DaoMapper.getPages1ByCustomer( page1EO.getCustomer() + "%" );
             }
-            else throw new RuntimeException( "User not Authorized: "  + GlobalIds.PAGE1_OBJNAME + "." + GlobalIds.SEARCH + "." + page1EO.getCustomer());
+            else throw new RuntimeException( GlobalIds.USR_AUTH_ERROR_MSG  + GlobalIds.PAGE1_OBJNAME + "." + GlobalIds.SEARCH + "." + page1EO.getCustomer());
         }
         catch ( Exception e )
         {
@@ -183,7 +183,7 @@ public class Page1DaoMgr implements Serializable
                 Page1Dao page1DaoMapper = sqlSession.getMapper( Page1Dao.class );
                 page1 = page1DaoMapper.getPage1ById( page1EO.getId() );
             }
-            else throw new RuntimeException( "User not Authorized: " + GlobalIds.PAGE1_OBJNAME + "." + GlobalIds.READ + "." + page1EO.getCustomer());
+            else throw new RuntimeException( GlobalIds.USR_AUTH_ERROR_MSG + GlobalIds.PAGE1_OBJNAME + "." + GlobalIds.READ + "." + page1EO.getCustomer());
         }
         catch ( Exception e )
         {
@@ -213,7 +213,7 @@ public class Page1DaoMgr implements Serializable
                 page1DaoMapper.deletePage1ById( page1EO.getId() );
                 sqlSession.commit();
             }
-            else throw new RuntimeException( "User not Authorized: " + GlobalIds.PAGE1_OBJNAME + "." + GlobalIds.DELETE + "." + page1EO.getCustomer());
+            else throw new RuntimeException( GlobalIds.USR_AUTH_ERROR_MSG + GlobalIds.PAGE1_OBJNAME + "." + GlobalIds.DELETE + "." + page1EO.getCustomer());
         }
         catch ( Exception e )
         {

@@ -10,6 +10,7 @@ import com.inmethod.grid.column.PropertyColumn;
 import com.inmethod.grid.treegrid.TreeGrid;
 import com.mycompany.dao.Page1DaoMgr;
 import com.mycompany.dao.Page1EO;
+
 import org.apache.commons.collections.CollectionUtils;
 import org.apache.directory.fortress.web.control.SecureIndicatingAjaxButton;
 import org.apache.log4j.Logger;
@@ -28,6 +29,7 @@ import org.apache.wicket.model.Model;
 import javax.servlet.http.HttpServletRequest;
 import javax.swing.tree.DefaultMutableTreeNode;
 import javax.swing.tree.DefaultTreeModel;
+
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
@@ -61,6 +63,7 @@ public class Page1 extends MyBasePage
 
     public class Page1Form extends Form
     {
+        
         private TextField customer;
 
         public Page1Form( String id, final IModel<Page1EO> model )
@@ -91,14 +94,14 @@ public class Page1 extends MyBasePage
                     }
                     else
                     {
-                        setAuthZError( "Authorization Failed", GlobalIds.PAGE1_OBJNAME, GlobalIds.ADD, page1EO.getCustomer() );
+                        setAuthZError( GlobalIds.AUTHZ_ERROR_MSG, GlobalIds.PAGE1_OBJNAME, GlobalIds.ADD, page1EO.getCustomer() );
                     }
                 }
 
                 @Override
                 public void onError( AjaxRequestTarget target, Form form )
                 {
-                    LOG.error( "submit failed: " + GlobalIds.BTN_PAGE_1_ADD );
+                    LOG.error( GlobalIds.SUBMIT_ERROR_MSG + GlobalIds.BTN_PAGE_1_ADD );
                 }
 
                 @Override
@@ -132,14 +135,14 @@ public class Page1 extends MyBasePage
                     }
                     else
                     {
-                        setAuthZError( "Authorization Failed", GlobalIds.PAGE1_OBJNAME, GlobalIds.UPDATE, page1EO.getCustomer() );
+                        setAuthZError( GlobalIds.AUTHZ_ERROR_MSG, GlobalIds.PAGE1_OBJNAME, GlobalIds.UPDATE, page1EO.getCustomer() );
                     }
                 }
 
                 @Override
                 public void onError( AjaxRequestTarget target, Form form )
                 {
-                    LOG.error( "submit failed: " + GlobalIds.BTN_PAGE_1_UPDATE );
+                    LOG.error( GlobalIds.SUBMIT_ERROR_MSG + GlobalIds.BTN_PAGE_1_UPDATE );
                 }
 
                 @Override
@@ -172,14 +175,14 @@ public class Page1 extends MyBasePage
                     }
                     else
                     {
-                        setAuthZError( "Authorization Failed", GlobalIds.PAGE1_OBJNAME, GlobalIds.DELETE, page1EO.getCustomer() );
+                        setAuthZError( GlobalIds.AUTHZ_ERROR_MSG, GlobalIds.PAGE1_OBJNAME, GlobalIds.DELETE, page1EO.getCustomer() );
                     }
                 }
 
                 @Override
                 public void onError( AjaxRequestTarget target, Form form )
                 {
-                    LOG.error( "submit failed: " + GlobalIds.BTN_PAGE_1_DELETE );
+                    LOG.error( GlobalIds.SUBMIT_ERROR_MSG + GlobalIds.BTN_PAGE_1_DELETE );
                 }
 
                 @Override
@@ -224,14 +227,14 @@ public class Page1 extends MyBasePage
                     }
                     else
                     {
-                        setAuthZError( "Authorization Failed", GlobalIds.PAGE1_OBJNAME, GlobalIds.SEARCH, page1EO.getCustomer() );
+                        setAuthZError( GlobalIds.AUTHZ_ERROR_MSG, GlobalIds.PAGE1_OBJNAME, GlobalIds.SEARCH, page1EO.getCustomer() );
                     }
                 }
 
                 @Override
                 public void onError( AjaxRequestTarget target, Form form )
                 {
-                    LOG.error( "submit failed: " + GlobalIds.BTN_PAGE_1_SEARCH );
+                    LOG.error( GlobalIds.SUBMIT_ERROR_MSG + GlobalIds.BTN_PAGE_1_SEARCH );
                 }
 
                 @Override

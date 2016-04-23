@@ -53,6 +53,9 @@ public abstract class MyBasePage extends WebPage
     private static final Logger LOG = Logger.getLogger( MyBasePage.class.getName() );
     private Form myForm;
     private static final String LINKS_LABEL = "linksLabel";
+    public static final String COMPANY_BASE_PAGE = "com.mycompany.MyBasePage";
+    public static final String ADD_ACTIVE_ROLE = "addActiveRole";
+    public static final String DROP_ACTIVE_ROLE = "dropActiveRole";
     private String linksLabel = "Authorized Links";
 
 
@@ -142,7 +145,7 @@ public abstract class MyBasePage extends WebPage
             rolesCB = new ComboBox<UserRole>( GlobalIds.INACTIVE_ROLES, new PropertyModel<String>( this, "roleSelection" ), inactiveRoles, new ChoiceRenderer<UserRole>( "name" ) );
             rolesCB.setOutputMarkupId( true );
             add( rolesCB );
-            add( new SecureIndicatingAjaxButton( this, GlobalIds.ROLES_ACTIVATE, "com.mycompany.MyBasePage", "addActiveRole" )
+            add( new SecureIndicatingAjaxButton( this, GlobalIds.ROLES_ACTIVATE, COMPANY_BASE_PAGE, ADD_ACTIVE_ROLE )
             {
                 private static final long serialVersionUID = 1L;
 
@@ -155,7 +158,7 @@ public abstract class MyBasePage extends WebPage
                     if ( StringUtils.isNotEmpty( roleSelection ) )
                     {
                         String errMessage = null;
-                        if ( checkAccess( roleSelection, "addActiveRole" ) )
+                        if ( checkAccess( roleSelection, ADD_ACTIVE_ROLE ) )
                         {
                             try
                             {
@@ -191,7 +194,7 @@ public abstract class MyBasePage extends WebPage
                         // if role activation failed:
                         if ( errMessage != null )
                         {
-                            setAuthZError( errMessage, "com.mycompany.MyBasePage", "addActiveRole", roleSelection );
+                            setAuthZError( errMessage, COMPANY_BASE_PAGE, ADD_ACTIVE_ROLE, roleSelection );
                         }
                     }
                 }
@@ -216,7 +219,7 @@ public abstract class MyBasePage extends WebPage
             activeRolesCB = new ComboBox<UserRole>( GlobalIds.ACTIVE_ROLES, new PropertyModel<String>( this, "activeRoleSelection" ), activeRoles, new ChoiceRenderer<UserRole>( "name" ) );
             activeRolesCB.setOutputMarkupId( true );
             add( activeRolesCB );
-            add( new SecureIndicatingAjaxButton( this, GlobalIds.ROLES_DEACTIVATE, "com.mycompany.MyBasePage", "dropActiveRole" )
+            add( new SecureIndicatingAjaxButton( this, GlobalIds.ROLES_DEACTIVATE, COMPANY_BASE_PAGE, DROP_ACTIVE_ROLE )
             {
                 private static final long serialVersionUID = 1L;
 
@@ -225,7 +228,7 @@ public abstract class MyBasePage extends WebPage
                 {
                     if ( StringUtils.isNotEmpty( activeRoleSelection ) )
                     {
-                        if ( checkAccess( activeRoleSelection, "dropActiveRole" ) )
+                        if ( checkAccess( activeRoleSelection, DROP_ACTIVE_ROLE ) )
                         {
                             if ( SecUtils.dropActiveRole( this, target, accessMgr, activeRoleSelection ) )
                             {
@@ -234,13 +237,13 @@ public abstract class MyBasePage extends WebPage
                             }
                             else
                             {
-                                setAuthZError( "Dynamic SoD Constraint Violation", "com.mycompany.MyBasePage", "dropActiveRole", roleSelection );
+                                setAuthZError( "Dynamic SoD Constraint Violation", COMPANY_BASE_PAGE, DROP_ACTIVE_ROLE, roleSelection );
                             }
                             //target.add( form );
                         }
                         else
                         {
-                            setAuthZError( "Authorization Failed", "com.mycompany.MyBasePage", "dropActiveRole", activeRoleSelection );
+                            setAuthZError( "Authorization Failed", COMPANY_BASE_PAGE, DROP_ACTIVE_ROLE, activeRoleSelection );
                             activeRoleSelection = "";
                         }
                     }
