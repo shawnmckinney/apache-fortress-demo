@@ -48,7 +48,7 @@ public class Page3DaoMgr implements Serializable
                 Integer id = page3DaoMapper.getMaxId();
                 id = id == null ? 1 : id + 1;
                 page3EO.setId( id );
-                int rc = page3DaoMapper.addPage3( page3EO );
+                page3DaoMapper.addPage3( page3EO );
                 sqlSession.commit();
                 page3EO = page3DaoMapper.getPage3ById( id );
             }
@@ -80,7 +80,7 @@ public class Page3DaoMgr implements Serializable
             if(SecUtils.checkAccess( component, accessMgr, GlobalIds.PAGE3_OBJNAME, GlobalIds.UPDATE, page3EO.getCustomer() ))
             {
                 Page3Dao page3DaoMapper = sqlSession.getMapper( Page3Dao.class );
-                int rc = page3DaoMapper.updatePage3( page3EO );
+                page3DaoMapper.updatePage3( page3EO );
                 sqlSession.commit();
                 page3EO = page3DaoMapper.getPage3ById( page3EO.getId() );
             }

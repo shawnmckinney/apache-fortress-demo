@@ -48,7 +48,7 @@ public class Page2DaoMgr implements Serializable
                 Integer id = page2DaoMapper.getMaxId();
                 id = id == null ? 1 : id + 1;
                 page2EO.setId( id );
-                int rc = page2DaoMapper.addPage2( page2EO );
+                page2DaoMapper.addPage2( page2EO );
                 sqlSession.commit();
                 page2EO = page2DaoMapper.getPage2ById( id );
             }
@@ -80,7 +80,7 @@ public class Page2DaoMgr implements Serializable
             if(SecUtils.checkAccess( component, accessMgr, GlobalIds.PAGE2_OBJNAME, GlobalIds.UPDATE, page2EO.getCustomer() ))
             {
                 Page2Dao page2DaoMapper = sqlSession.getMapper( Page2Dao.class );
-                int rc = page2DaoMapper.updatePage2( page2EO );
+                page2DaoMapper.updatePage2( page2EO );
                 sqlSession.commit();
                 page2EO = page2DaoMapper.getPage2ById( page2EO.getId() );
             }
