@@ -26,7 +26,7 @@ import org.apache.wicket.markup.html.form.Form;
 import org.apache.wicket.markup.html.link.Link;
 import org.apache.wicket.model.PropertyModel;
 import org.apache.wicket.request.mapper.parameter.PageParameters;
-import org.apache.wicket.settings.IExceptionSettings;
+import org.apache.wicket.settings.ExceptionSettings;
 import org.apache.wicket.spring.injection.annot.SpringBean;
 import org.apache.directory.fortress.core.model.Session;
 import org.apache.directory.fortress.core.model.UserRole;
@@ -150,7 +150,7 @@ public abstract class MyBasePage extends WebPage
                 protected void onSubmit( AjaxRequestTarget target, Form<?> form )
                 {
                     getApplication().getExceptionSettings().setAjaxErrorHandlingStrategy(
-                        IExceptionSettings.AjaxErrorStrategy.REDIRECT_TO_ERROR_PAGE);
+                        ExceptionSettings.AjaxErrorStrategy.REDIRECT_TO_ERROR_PAGE);
 
                     if ( StringUtils.isNotEmpty( roleSelection ) )
                     {

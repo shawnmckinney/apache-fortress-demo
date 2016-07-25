@@ -8,18 +8,18 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>fortressdemo3</groupId>
     <artifactId>apache-fortress-demo</artifactId>
-    <version>1.0.0</version>
+    <version>1.0.1</version>
     <packaging>war</packaging>
     <name>Apache Fortress Demo</name>
     <description>Sample Web App using Apache Fortress, Wicket, Mybatis Data Persistence Frameworks.</description>
     <properties>
-        <wicket.version>6.19.0</wicket.version>
-        <wicket.jquery.version>6.15.0</wicket.jquery.version>
+        <wicket.version>7.3.0</wicket.version>
+        <wicket.jquery.version>7.3.0</wicket.jquery.version>
+        <spring.version>4.3.1.RELEASE</spring.version>
+        <spring.security.version>4.1.1.RELEASE</spring.security.version>
         <ant.version>1.8.1</ant.version>
         <slf4j.version>1.5.11</slf4j.version>
         <version.slf4j.log4j12>1.7.7</version.slf4j.log4j12>
-        <spring.version>4.2.0.RELEASE</spring.version>
-        <spring.security.version>4.0.2.RELEASE</spring.security.version>
         <version.log4j>1.2.17</version.log4j>
         <version.junit>4.12</version.junit>
         <javadoc.version>2.9.1</javadoc.version>
@@ -83,21 +83,6 @@
         <dependency>
             <groupId>com.googlecode.wicket-jquery-ui</groupId>
             <artifactId>wicket-jquery-ui</artifactId>
-            <version>${wicket.jquery.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>org.apache.wicket</groupId>
-            <artifactId>wicket-core</artifactId>
-            <version>${wicket.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>org.apache.wicket</groupId>
-            <artifactId>wicket-extensions</artifactId>
-            <version>${wicket.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>org.wicketstuff</groupId>
-            <artifactId>wicketstuff-inmethod-grid</artifactId>
             <version>${wicket.jquery.version}</version>
         </dependency>
 
