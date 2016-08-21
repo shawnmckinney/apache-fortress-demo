@@ -134,12 +134,12 @@
         <property name="securityMetadataSource">
             <sec:filter-security-metadata-source use-expressions="false">
                 <!-- before spring interceptor recognizes these roles,the j2ee pre-authentication filter requires prior java ee security constraint in web.xml -->
-                <sec:intercept-url pattern="/wicket/bookmarkable/com.mycompany.page1"
-                                   access="ROLE_DEMO2_SUPER_USER,ROLE_PAGE1"/>
-                <sec:intercept-url pattern="/wicket/bookmarkable/com.mycompany.page2"
-                                   access="ROLE_DEMO2_SUPER_USER,ROLE_PAGE2"/>
-                <sec:intercept-url pattern="/wicket/bookmarkable/com.mycompany.page3"
-                                   access="ROLE_DEMO2_SUPER_USER,ROLE_PAGE3"/>
+                <sec:intercept-url pattern="/wicket/bookmarkable/com.mycompany.Page1"
+                                   access="ROLE_DEMO2_SUPER_USERx,ROLE_PAGE1"/>
+                <sec:intercept-url pattern="/wicket/bookmarkable/com.mycompany.Page2"
+                                   access="ROLE_DEMO2_SUPER_USERx,ROLE_PAGE2"/>
+                <sec:intercept-url pattern="/wicket/bookmarkable/com.mycompany.Page3"
+                                   access="ROLE_DEMO2_SUPER_USERx,ROLE_PAGE3"/>
             </sec:filter-security-metadata-source>
         </property>
     </bean>
