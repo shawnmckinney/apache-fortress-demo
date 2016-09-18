@@ -254,8 +254,6 @@ public class Page3 extends MyBasePage
 
         private void addDetailFields()
         {
-            Label id = new Label( "id" );
-            add( id );
             customer = new TextField( "customer" );
             add( customer );
             customer.setRequired( true );

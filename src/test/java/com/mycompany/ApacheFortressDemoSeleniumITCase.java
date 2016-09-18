@@ -7,6 +7,7 @@ import java.lang.String;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 
+import io.github.bonigarcia.wdm.MarionetteDriverManager;
 import org.apache.log4j.Logger;
 import org.junit.*;
 import static org.junit.Assert.*;
@@ -29,15 +30,9 @@ public class ApacheFortressDemoSeleniumITCase
     @Before
     public void setUp() throws Exception
     {
-        FirefoxProfile ffProfile = new FirefoxProfile();
-        ffProfile.setPreference( "browser.safebrowsing.malware.enabled", false );
-        driver = new FirefoxDriver( ffProfile );
-        driver.manage().window().maximize();
-
         // Use test local default:
-        //baseUrl = "http://localhost:8080";
-        baseUrl = "https://fortressdemo2.com:8443";
-        //baseUrl = "https://IL1SCOLSP102";
+        baseUrl = "http://localhost:8080";
+        //baseUrl = "https://fortressdemo2.com:8443";
         baseUrl += "/apache-fortress-demo";
         driver.manage().timeouts().implicitlyWait( 2500, TimeUnit.MILLISECONDS );
     }
@@ -47,63 +42,32 @@ public class ApacheFortressDemoSeleniumITCase
         ( ( JavascriptExecutor ) driver ).executeScript( "$(document.getElementById('infoField')).val('" + msg + "');" );
     }
 
+    @BeforeClass
+    public static void setupClass()
+    {
+        MarionetteDriverManager.getInstance().setup();
+    }
+
+    @Before
+    public void setupTest()
+    {
+        driver = new FirefoxDriver( );
+        driver.manage().window().maximize();
+    }
+
+    @After
+    public void teardown()
+    {
+        if (driver != null)
+        {
+            driver.quit();
+        }
+    }
     @Test
     public void testCase1() throws Exception
     {
         LOG.info( "Begin FortressDemo2SeleniumITCase" );
         driver.get( baseUrl );
-
-        // SuperUser has access to all pages and all customer data without restriction:
-        login( GlobalIds.SUPER_USER, "password");
-        TUtils.sleep( 1 );
-        doPositiveButtonTests( GlobalIds.PAGE_1, GlobalIds.BTN_PAGE_1 );
-        TUtils.sleep( 1 );
-        doPositiveDataTest( GlobalIds.BTN_PAGE_1, GlobalIds.ROLE_SUPER, "123");
-        TUtils.sleep( 1 );
-        doPositiveDataTest( GlobalIds.BTN_PAGE_1, GlobalIds.ROLE_SUPER, "456");
-        TUtils.sleep( 1 );
-        doPositiveDataTest( GlobalIds.BTN_PAGE_1, GlobalIds.ROLE_SUPER, "789");
-        TUtils.sleep( 1 );
-        doPositiveButtonTests( GlobalIds.PAGE_2, GlobalIds.BTN_PAGE_2 );
-        TUtils.sleep( 1 );
-        doPositiveDataTest( GlobalIds.BTN_PAGE_2, GlobalIds.ROLE_SUPER, "123");
-        TUtils.sleep( 1 );
-        doPositiveDataTest( GlobalIds.BTN_PAGE_2, GlobalIds.ROLE_SUPER, "456");
-        TUtils.sleep( 1 );
-        doPositiveDataTest( GlobalIds.BTN_PAGE_2, GlobalIds.ROLE_SUPER, "789");
-        TUtils.sleep( 1 );
-        doPositiveButtonTests( GlobalIds.PAGE_3, GlobalIds.BTN_PAGE_3 );
-        doPositiveDataTest( GlobalIds.BTN_PAGE_3, GlobalIds.ROLE_SUPER, "123");
-        TUtils.sleep( 1 );
-        doPositiveDataTest( GlobalIds.BTN_PAGE_3, GlobalIds.ROLE_SUPER, "456");
-        TUtils.sleep( 1 );
-        doPositiveDataTest( GlobalIds.BTN_PAGE_3, GlobalIds.ROLE_SUPER, "789");
-        TUtils.sleep( 1 );
-        logout( GlobalIds.SUPER_USER );
-
-        // Poweruser has access to all pages, and all customer data with DSD constraints applied:
-        login( GlobalIds.POWER_USER, "password");
-        TUtils.sleep( 1 );
-        driver.findElement( By.linkText( GlobalIds.PAGE_1 ) ).click();
-        activateRole( GlobalIds.ROLE_PAGE3_789 );
-        doActivateTest( GlobalIds.POWER_USER, GlobalIds.PAGE_1, GlobalIds.BTN_PAGE_1, GlobalIds.ROLE_PAGE1_123, GlobalIds.ROLE_PAGE3_789, "123", "456", true );
-        driver.findElement( By.linkText( GlobalIds.PAGE_2 ) ).click();
-        doActivateTest( GlobalIds.POWER_USER, GlobalIds.PAGE_2, GlobalIds.BTN_PAGE_2, GlobalIds.ROLE_PAGE2_123, GlobalIds.ROLE_PAGE1_123, "123", "456", true );
-        driver.findElement( By.linkText( GlobalIds.PAGE_3 ) ).click();
-        doActivateTest( GlobalIds.POWER_USER, GlobalIds.PAGE_3, GlobalIds.BTN_PAGE_3, GlobalIds.ROLE_PAGE3_123, GlobalIds.ROLE_PAGE2_123, "123", "456", true );
-        driver.findElement( By.linkText( GlobalIds.PAGE_1 ) ).click();
-        doActivateTest( GlobalIds.POWER_USER, GlobalIds.PAGE_1, GlobalIds.BTN_PAGE_1, GlobalIds.ROLE_PAGE1_456, GlobalIds.ROLE_PAGE3_123, "456", "789", true );
-        driver.findElement( By.linkText( GlobalIds.PAGE_2 ) ).click();
-        doActivateTest( GlobalIds.POWER_USER, GlobalIds.PAGE_2, GlobalIds.BTN_PAGE_2, GlobalIds.ROLE_PAGE2_456, GlobalIds.ROLE_PAGE1_456, "456", "789", true );
-        driver.findElement( By.linkText( GlobalIds.PAGE_3 ) ).click();
-        doActivateTest( GlobalIds.POWER_USER, GlobalIds.PAGE_3, GlobalIds.BTN_PAGE_3, GlobalIds.ROLE_PAGE3_456, GlobalIds.ROLE_PAGE2_456, "456", "789", true );
-        driver.findElement( By.linkText( GlobalIds.PAGE_1 ) ).click();
-        doActivateTest( GlobalIds.POWER_USER, GlobalIds.PAGE_1, GlobalIds.BTN_PAGE_1, GlobalIds.ROLE_PAGE1_789, GlobalIds.ROLE_PAGE3_456, "789", "123", true );
-        driver.findElement( By.linkText( GlobalIds.PAGE_2 ) ).click();
-        doActivateTest( GlobalIds.POWER_USER, GlobalIds.PAGE_2, GlobalIds.BTN_PAGE_2, GlobalIds.ROLE_PAGE2_789, GlobalIds.ROLE_PAGE1_789, "789", "123", true );
-        driver.findElement( By.linkText( GlobalIds.PAGE_3 ) ).click();
-        doActivateTest( GlobalIds.POWER_USER, GlobalIds.PAGE_3, GlobalIds.BTN_PAGE_3, GlobalIds.ROLE_PAGE3_789, GlobalIds.ROLE_PAGE2_789, "789", "123", true );
-        logout( GlobalIds.POWER_USER );
 
         // User 123, has access to all pages, Customer 123 data only:
         login( GlobalIds.USER_123, "password" );
@@ -290,6 +254,58 @@ public class ApacheFortressDemoSeleniumITCase
         doNegativeLinkTest( GlobalIds.PAGE_2, GlobalIds.USER_3_789 );
         doActivateTest( GlobalIds.USER_3_789, GlobalIds.PAGE_3, GlobalIds.BTN_PAGE_3, GlobalIds.ROLE_PAGE3_789, null, "789", "123", false );
         logout( GlobalIds.USER_1_789 );
+        
+        // SuperUser has access to all pages and all customer data without restriction:
+        login( GlobalIds.SUPER_USER, "password");
+        TUtils.sleep( 1 );
+        doPositiveButtonTests( GlobalIds.PAGE_1, GlobalIds.BTN_PAGE_1 );
+        TUtils.sleep( 1 );
+        doPositiveDataTest( GlobalIds.BTN_PAGE_1, GlobalIds.ROLE_SUPER, "123");
+        TUtils.sleep( 1 );
+        doPositiveDataTest( GlobalIds.BTN_PAGE_1, GlobalIds.ROLE_SUPER, "456");
+        TUtils.sleep( 1 );
+        doPositiveDataTest( GlobalIds.BTN_PAGE_1, GlobalIds.ROLE_SUPER, "789");
+        TUtils.sleep( 1 );
+        doPositiveButtonTests( GlobalIds.PAGE_2, GlobalIds.BTN_PAGE_2 );
+        TUtils.sleep( 1 );
+        doPositiveDataTest( GlobalIds.BTN_PAGE_2, GlobalIds.ROLE_SUPER, "123");
+        TUtils.sleep( 1 );
+        doPositiveDataTest( GlobalIds.BTN_PAGE_2, GlobalIds.ROLE_SUPER, "456");
+        TUtils.sleep( 1 );
+        doPositiveDataTest( GlobalIds.BTN_PAGE_2, GlobalIds.ROLE_SUPER, "789");
+        TUtils.sleep( 1 );
+        doPositiveButtonTests( GlobalIds.PAGE_3, GlobalIds.BTN_PAGE_3 );
+        doPositiveDataTest( GlobalIds.BTN_PAGE_3, GlobalIds.ROLE_SUPER, "123");
+        TUtils.sleep( 1 );
+        doPositiveDataTest( GlobalIds.BTN_PAGE_3, GlobalIds.ROLE_SUPER, "456");
+        TUtils.sleep( 1 );
+        doPositiveDataTest( GlobalIds.BTN_PAGE_3, GlobalIds.ROLE_SUPER, "789");
+        TUtils.sleep( 1 );
+        logout( GlobalIds.SUPER_USER );
+
+        // Poweruser has access to all pages, and all customer data with DSD constraints applied:
+        login( GlobalIds.POWER_USER, "password");
+        TUtils.sleep( 1 );
+        driver.findElement( By.linkText( GlobalIds.PAGE_1 ) ).click();
+        activateRole( GlobalIds.ROLE_PAGE3_789 );
+        doActivateTest( GlobalIds.POWER_USER, GlobalIds.PAGE_1, GlobalIds.BTN_PAGE_1, GlobalIds.ROLE_PAGE1_123, GlobalIds.ROLE_PAGE3_789, "123", "456", true );
+        driver.findElement( By.linkText( GlobalIds.PAGE_2 ) ).click();
+        doActivateTest( GlobalIds.POWER_USER, GlobalIds.PAGE_2, GlobalIds.BTN_PAGE_2, GlobalIds.ROLE_PAGE2_123, GlobalIds.ROLE_PAGE1_123, "123", "456", true );
+        driver.findElement( By.linkText( GlobalIds.PAGE_3 ) ).click();
+        doActivateTest( GlobalIds.POWER_USER, GlobalIds.PAGE_3, GlobalIds.BTN_PAGE_3, GlobalIds.ROLE_PAGE3_123, GlobalIds.ROLE_PAGE2_123, "123", "456", true );
+        driver.findElement( By.linkText( GlobalIds.PAGE_1 ) ).click();
+        doActivateTest( GlobalIds.POWER_USER, GlobalIds.PAGE_1, GlobalIds.BTN_PAGE_1, GlobalIds.ROLE_PAGE1_456, GlobalIds.ROLE_PAGE3_123, "456", "789", true );
+        driver.findElement( By.linkText( GlobalIds.PAGE_2 ) ).click();
+        doActivateTest( GlobalIds.POWER_USER, GlobalIds.PAGE_2, GlobalIds.BTN_PAGE_2, GlobalIds.ROLE_PAGE2_456, GlobalIds.ROLE_PAGE1_456, "456", "789", true );
+        driver.findElement( By.linkText( GlobalIds.PAGE_3 ) ).click();
+        doActivateTest( GlobalIds.POWER_USER, GlobalIds.PAGE_3, GlobalIds.BTN_PAGE_3, GlobalIds.ROLE_PAGE3_456, GlobalIds.ROLE_PAGE2_456, "456", "789", true );
+        driver.findElement( By.linkText( GlobalIds.PAGE_1 ) ).click();
+        doActivateTest( GlobalIds.POWER_USER, GlobalIds.PAGE_1, GlobalIds.BTN_PAGE_1, GlobalIds.ROLE_PAGE1_789, GlobalIds.ROLE_PAGE3_456, "789", "123", true );
+        driver.findElement( By.linkText( GlobalIds.PAGE_2 ) ).click();
+        doActivateTest( GlobalIds.POWER_USER, GlobalIds.PAGE_2, GlobalIds.BTN_PAGE_2, GlobalIds.ROLE_PAGE2_789, GlobalIds.ROLE_PAGE1_789, "789", "123", true );
+        driver.findElement( By.linkText( GlobalIds.PAGE_3 ) ).click();
+        doActivateTest( GlobalIds.POWER_USER, GlobalIds.PAGE_3, GlobalIds.BTN_PAGE_3, GlobalIds.ROLE_PAGE3_789, GlobalIds.ROLE_PAGE2_789, "789", "123", true );
+        logout( GlobalIds.POWER_USER );
     }
 
     private void doActivateTest( String userId, String page, String buttonPage, String activateRole, String deactivateRole, String authorizedData, String unauthorizedData, boolean isDeactivateTest )
