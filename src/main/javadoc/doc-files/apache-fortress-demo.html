@@ -161,16 +161,27 @@ mvn tomcat:redeploy
           <hr>
 
           <li>
-              Automatically test using Apache Selenium.  Firefox must be installed before running this step.
+              Automatically test using Apache Selenium with Firefox.
             <pre>
                 <p style="font: monospace; color: black; background-color: lightgrey; font-size: 10pt">
 mvn test -Dtest=ApacheFortressDemoSeleniumITCase
                 </p>
             </pre>
+              <p>Firefox must be installed to target machine before running this step.</p>
               <p>Selenium verifies the test cases automatically.  For each user, attempts are made to hit all pages and components.  Positive and
                   negative tests are performed.  Failures in test cases will halt the execution of the program.  The policy in effect is contained
                   within <b>apache-fortress-demo-load-policy.xml</b> and loaded automatically during the web deployment step.
               </p>
+          </li>
+
+          <li>
+              Automatically test using Apache Selenium with Chrome.
+            <pre>
+                <p style="font: monospace; color: black; background-color: lightgrey; font-size: 10pt">
+mvn test -Dtest=ApacheFortressDemoSeleniumITCase -Dweb.driver=chrome
+                </p>
+            </pre>
+              <p>Chrome must be installed to target machine before running this step.</p>
           </li>
 
           <hr>
