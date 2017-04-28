@@ -8,13 +8,15 @@
 
 ## Prerequisites for target environment
 1. Debian or Redhat Liunx machine with OpenSSL installed.
-2. Java 7++
+2. Java 8
 3. Apache Maven 3++
 4. Apache Tomcat 7++
 5. Firefox Web Browser
 6. Completed either section in Apache Fortress Core Quickstart:
     * *SECTION 3. Apache Fortress Core Integration Test* in [README-QUICKSTART-SLAPD.md](https://github.com/apache/directory-fortress-core/blob/master/README-QUICKSTART-SLAPD.md)
     * *SECTION 4. Apache Fortress Core Integration Test* in [README-QUICKSTART-APACHEDS.md](https://github.com/apache/directory-fortress-core/blob/master/README-QUICKSTART-APACHEDS.md)
+
+    Note: Both openldap and apacheds LDAP servers are supported but be sure to choose the correct instructions when it is time for LDAPS setup (either Apache Directory SSL or OpenLDAP SSL).
 
 ## Instructions for downloading and generating the install doc
 
@@ -49,7 +51,7 @@
  * [Heartbleed Bug](target/site/apidocs/doc-files/opensslheartbleed.html)
  * [Managing PKI Keys](target/site/apidocs/doc-files/keys.html)
  * [Set Hostname Entry](target/site/apidocs/doc-files/hosts.html)
- * [Apache Directory SSL](target/site/apidocs/doc-files/apache-directory-ssl.html)
+ * [Apache Directory SSL](target/site/apidocs/doc-files/apache-directory-ssl.html) or [OpenLDAP SSL](target/site/apidocs/doc-files/openldap-ssl.html)
  * [Apache Fortress Core SSL](target/site/apidocs/doc-files/apache-fortress-core-ssl.html)
  * [Install MySQL](target/site/apidocs/doc-files/mysql.html)
  * [Apache Tomcat SSL](target/site/apidocs/doc-files/apache-tomcat-ssl.html)
