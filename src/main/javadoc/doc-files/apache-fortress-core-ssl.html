@@ -60,8 +60,8 @@ enable.ldap.ssl=true
 # This can be set to 'true' for troubleshooting:
 enable.ldap.ssl.debug=false
 
-# Use truststore genned [<a href="keys.html">Managing PKI Keys</a>] or found under /src/test/resources/certs in [directory-fortress-core] source package.
-trust.store=[directory-fortress-core]/src/test/resources/certs/mytruststore
+# Use truststore genned [<a href="keys.html">Managing PKI Keys</a>].  It must be present on the fortress runtime classpath, i.e. [directory-fortress-core]/config.
+trust.store=mytruststore
 trust.store.password=changeit
                 </p>
               </pre>
@@ -69,6 +69,16 @@ trust.store.password=changeit
           </li>
 
           <br>
+
+
+          <li>
+              Copy the truststore generated earlier to fortress core's runtime classpath.
+                <pre>
+                    <p style="font: monospace; color: black; background-color: lightgrey; font-size: 10pt">
+cp ../certs/mytruststore ./config/mytruststore
+                    </p>
+                </pre>
+          </li>
 
           <li>
               Build fortress core with maven to regenerate the fortress.properties file with changes from build.properties.
