@@ -1,0 +1,85 @@
+<!--
+  ~ This is free and unencumbered software released into the public domain.
+  -->
+<html>
+<head>
+    <title>Apache Fortress End-to-End Web App Security Tutorial</title>
+    <link rel="stylesheet" type="text/css" href="../stylesheet.css" title="Style">
+    <hr>
+    <fieldset>
+        <legend><b>Navigation Links</b></legend>
+        <ul>
+            <li><a href="./opensslheartbleed.html">Heartbleed Bug</a></li>
+            <li><a href="./hosts.html">Set Hostname Entry</a></li>
+            <li><a href="./keys.html">Managing PKI Keys</a></li>
+            <li><a href="./apache-directory-ssl.html">Apache Directory SSL</a>  -OR-  <a href="./openldap-ssl.html">OpenLDAP SSL</a></li>
+            <li><a href="./apache-fortress-core-ssl.html">Apache Fortress Core SSL</a></li>
+            <li><a href="./mysql.html">Install MySQL</a></li>
+            <li><a href="./apache-tomcat-ssl.html">Apache Tomcat SSL</a></li>
+            <li><a href="./apache-fortress-demo.html">Apache Fortress Demo</a></li>
+        </ul>
+        <a href="../overview-summary.html">Back to top</a>
+    </fieldset>
+    <hr>
+</head>
+<body>
+<p>
+<h3>OpenLDAP SSL</h3>
+<img src="LDAPworm.gif">
+<br><br>
+This section enables OpenLDAP SSL.
+
+<h4>Steps to Enable</h4>
+<ol>
+
+    <li>
+        use artifacts created during <a href="keys.html">Managing PKI Keys</a> for OpenLDAP ssl.
+    </li>
+
+    <br>
+
+    <li>
+        Update openldap's config to point to these files and they must be accessible by slapd process at runtime:
+                <pre>
+                    <p style="font: monospace; color: black; background-color: lightgrey; font-size: 10pt">
+### SSL Configuration
+TLSCACertificateFile  /path/to/ca-cert.pem
+TLSCertificateFile    /path/to/server-cert.pem
+TLSCertificateKeyFile /path/to/server-key.pem
+                    </p>
+                </pre>
+    </li>
+
+    <li>
+        Modify the slapd startup script to include LDAPS port (default 636) upon startup.  e.g.
+                <pre>
+                    <p style="font: monospace; color: black; background-color: lightgrey; font-size: 10pt">
+"ldap:/// ldaps:///"
+                    </p>
+                </pre>
+    </li>
+
+    <li>
+        Restart the slapd process.
+    </li>
+
+    <br>
+
+    <li>
+        Check the status of server process.
+
+        From system command prompt (as apacheds user):
+        <pre>
+            <p style="font: monospace; color: black; background-color: lightgrey; font-size: 10pt">
+[student@NY1SCOLFTDEMO01 directory-fortress-core]$ ps -ef | grep slapd
+root      2144     1  0 13:17 ?        00:00:00 /opt/symas/lib64/slapd -u root -g root -h ldap:/// ldaps:/// ldapi:///
+student   2185  2022  0 13:34 pts/2    00:00:00 grep --color=auto slapd
+            </p>
+        </pre>
+
+        Verify slapd server restarted successfully and is now listening over LDAPS port.
+    </li>
+</ol>
+</body>
+<p style="font: monospace; color: black; font-size: 6pt">This is free and unencumbered software released into the public domain.</p>
+</html>

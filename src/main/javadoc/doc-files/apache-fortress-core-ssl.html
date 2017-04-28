@@ -12,7 +12,7 @@
                <li><a href="./opensslheartbleed.html">Heartbleed Bug</a></li>
                <li><a href="./hosts.html">Set Hostname Entry</a></li>
                <li><a href="./keys.html">Managing PKI Keys</a></li>
-               <li><a href="./apache-directory-ssl.html">Apache Directory SSL</a></li>
+               <li><a href="./apache-directory-ssl.html">Apache Directory SSL</a>  -OR-  <a href="./openldap-ssl.html">OpenLDAP SSL</a></li>
                <li><a href="./apache-fortress-core-ssl.html">Apache Fortress Core SSL</a></li>
                <li><a href="./mysql.html">Install MySQL</a></li>
                <li><a href="./apache-tomcat-ssl.html">Apache Tomcat SSL</a></li>
@@ -51,9 +51,10 @@ cd directory-fortress-core/
 
               <pre>
                 <p style="font: monospace; color: black; background-color: lightgrey; font-size: 10pt">
-# This points fortress to Apache Directory LDAP host name.
+# This points fortress to LDAP host name.
 # Use value from [<a href="hosts.html">Set Hostname Entry</a>]:
 ldap.host=fortressdemo2.com
+# LDAPS port by default 10636 on apacheds and 636 for openldap.
 ldap.port=10636
 
 enable.ldap.ssl=true
