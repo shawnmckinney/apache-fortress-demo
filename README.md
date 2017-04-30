@@ -16,7 +16,7 @@
     * *SECTION 3. Apache Fortress Core Integration Test* in [README-QUICKSTART-SLAPD.md](https://github.com/apache/directory-fortress-core/blob/master/README-QUICKSTART-SLAPD.md)
     * *SECTION 4. Apache Fortress Core Integration Test* in [README-QUICKSTART-APACHEDS.md](https://github.com/apache/directory-fortress-core/blob/master/README-QUICKSTART-APACHEDS.md)
 
-    Note: Both openldap and apacheds LDAP servers are supported but be sure to choose the correct instructions when it is time for LDAPS setup (either Apache Directory SSL or OpenLDAP SSL).
+ These instructions have been modified to use either openldap and apacheds LDAP servers.  Be sure to choose the correct instructions, either [Apache Directory SSL](target/site/apidocs/doc-files/apache-directory-ssl.html) or [OpenLDAP SSL](target/site/apidocs/doc-files/openldap-ssl.html).
 
 ## Instructions for downloading and generating the install doc
 
@@ -57,4 +57,4 @@
  * [Apache Tomcat SSL](target/site/apidocs/doc-files/apache-tomcat-ssl.html)
  * [Apache Fortress Demo](target/site/apidocs/doc-files/apache-fortress-demo.html)
 
- [links are relative to **target/site/apidocs/doc-files/** on local machine]
+ [links are relative to the target machine: **target/site/apidocs/doc-files/** on local machine]
