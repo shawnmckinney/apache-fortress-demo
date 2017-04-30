@@ -8,13 +8,13 @@ This application corresponds with a technical talk that has been given many time
 
 The idea for this talk started several years back, when I first began working full-time with Symas. I was working on a project that spanned multiple companies with my friend and colleague, John Field, who's a security architect at EMC, now Pivotal.
 
-At the time, we were working on a process to migrate legacy Cobalt apps from running on their native IBM z Series mainframe platform to run on top of open systems architectures, i.e. Linux.
+At the time, we were working on a process to migrate legacy COBOL apps from running on their native IBM z Series mainframe platform to run on top of open systems architectures, i.e. Linux.
 
 These were massive programs with millions of lines of code, built over decades. Their conversion processes required mimicking the mainframe's legendary security controls onto Linux platforms, using what was available to us via native and non-native security controls.
 
 This meant dealing with a multitude of security concerns across every tier of the system and into many of its sub-layers as well. Mandatory access controls were enforced on every node in the system.
 
-Linux systems had to be hardened to the nth degree and at the same time, multiple grades of authorization were required within the platform layers. Fortunately, everything we needed to do all this was already readily available and usable, and easily found within the public domain.
+Linux systems had to be hardened to the nth degree and at the same time, multiple grains of authorization were required within the platform layers. Fortunately, everything we needed to do all this was already readily available and usable, and easily found within the public domain.
 Only open, established, and timeworn practices were being targeted. That is, technologies released under permissible licenses, like the Apache software license, and these things were allowed into the final design. Our problem wasn't with how to design the security system, per se, nor how to build it. Strangely, those were the easy parts.
 
 The hard part for us was how do we convey the contents of its complex design to others in a way that is understandable? Because, many of us are not, shall we say, security afflicted, so despite recommending only best practices, their concepts remain arcane, complicated, and generally not known to the masses.
