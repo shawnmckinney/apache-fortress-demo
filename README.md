@@ -10,7 +10,7 @@
 1. Debian or Redhat Liunx machine with OpenSSL installed.
 2. Java 8
 3. Apache Maven 3++
-4. Apache Tomcat 7++
+4. Apache Tomcat 8++
 5. Firefox Web Browser
 6. Successful installation of an LDAP server and passed integration test in Apache Fortress Core Quickstart:
     * *SECTION 3. Apache Fortress Core Integration Test* in [README-QUICKSTART-SLAPD.md](https://github.com/apache/directory-fortress-core/blob/master/README-QUICKSTART-SLAPD.md)
@@ -33,19 +33,6 @@
  ````maven
  mvn javadoc:javadoc
  ````
-
- note: if using java 8, add this param to the pom.xml:
-
- ```xml
- <plugin>
-    ...
-    <artifactId>maven-javadoc-plugin</artifactId>
-    <configuration>
-        <additionalparam>-Xdoclint:none</additionalparam>
-        ...
-    </configuration>
- </plugin>
- ```
 
 6. Perform these steps:
  * [Heartbleed Bug](target/site/apidocs/doc-files/opensslheartbleed.html)
