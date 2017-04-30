@@ -61,22 +61,25 @@ enable.ldap.ssl=true
 # This can be set to 'true' for troubleshooting:
 enable.ldap.ssl.debug=false
 
-# Use truststore genned [<a href="keys.html">Managing PKI Keys</a>].  It must be present on the fortress runtime classpath, i.e. [directory-fortress-core]/config.
-trust.store=mytruststore
+# Use truststore genned [<a href="keys.html">Managing PKI Keys</a>].
+# Due to limitations with this example's JDBC SSL impl, the java truststore must be specified as a fully qualified filename present on the machine:
+trust.store=/path/to/mytruststore
 trust.store.password=changeit
+
+# Set to false so mytruststore will be found on the filepath of the machine:
+trust.store.onclasspath=false
                 </p>
               </pre>
-              Where [directory-fortress-core] is base folder of the fortress core source package.
           </li>
 
           <br>
 
 
           <li>
-              Copy the truststore generated earlier to fortress core's runtime classpath.
+              Copy the truststore generated earlier to local machine.
                 <pre>
                     <p style="font: monospace; color: black; background-color: lightgrey; font-size: 10pt">
-cp ../certs/mytruststore ./config/mytruststore
+cp ../certs/mytruststore /path/to/mytruststore
                     </p>
                 </pre>
           </li>

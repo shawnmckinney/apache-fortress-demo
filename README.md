@@ -12,7 +12,7 @@
 3. Apache Maven 3++
 4. Apache Tomcat 7++
 5. Firefox Web Browser
-6. Completed either section in Apache Fortress Core Quickstart:
+6. Successful installation of an LDAP server and passed integration test in Apache Fortress Core Quickstart:
     * *SECTION 3. Apache Fortress Core Integration Test* in [README-QUICKSTART-SLAPD.md](https://github.com/apache/directory-fortress-core/blob/master/README-QUICKSTART-SLAPD.md)
     * *SECTION 4. Apache Fortress Core Integration Test* in [README-QUICKSTART-APACHEDS.md](https://github.com/apache/directory-fortress-core/blob/master/README-QUICKSTART-APACHEDS.md)
 

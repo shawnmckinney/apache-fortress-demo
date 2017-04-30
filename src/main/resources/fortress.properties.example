@@ -15,9 +15,13 @@ port=10636
 admin.user=uid=admin,ou=system
 admin.pw=secret
 
-# Use truststore genned [Managing PKI Keys] or found under /src/test/resources in apache-fortress-demo source package.
-trust.store=/home/smckinn/fortress/apache-fortress-demo-master/src/test/resources/mytruststore
+# Use truststore genned [Managing PKI Keys]
+# Due to limitations with this example's JDBC SSL impl, the java truststore must be specified as a fully qualified filename present on the machine:
+trust.store=/path/to/mytruststore
 trust.store.password=changeit
+
+# Set to false so mytruststore will be found on the filepath of the machine:
+trust.store.onclasspath=false
 
 # This is min/max settings for LDAP administrator pool connections that have read/write access to all nodes under suffix:
 min.admin.conn=1
@@ -26,9 +30,6 @@ max.admin.conn=10
 # Used for SSL Connection to LDAP Server:
 enable.ldap.ssl=true
 enable.ldap.ssl.debug=false
-
-# Sets trust.store params as System.property to be used by JDBC driver:
-trust.store.set.prop=true
 
 # These are the JDBC configuration params for MyBatis DAO connect to MySQL database example:
 database.driver=com.mysql.jdbc.Driver
@@ -49,10 +50,12 @@ ehcache.config.file=ehcache.xml
 # Default for pool reconnect flag is false:
 enable.pool.reconnect=true
 
-# Used when connecting with Fortress Rest instead of LDAP:
+# Used to connect APIS with Fortress-Rest instead of LDAPv3:
 #enable.mgr.impl.rest=true
-# If using EnMasse, these parameters needed:
+
+# This user account is added automatically during deployment of fortress-rest via -Dload.file=./src/main/resources/FortressRestServerPolicy.xml:
 #http.user=demouser4
-#http.pw=gX9JbCTxJW5RiH+otQEX0Ja0RIAoPBQf
-#http.host=localhost
-#http.port=8080
+#http.pw=password
+# For TLs connections:
+#http.port=8443
+#http.protocol=https
