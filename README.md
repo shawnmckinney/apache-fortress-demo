@@ -7,16 +7,16 @@
  This document is the starting point for the apache fortress demo web app.  It provides directions to download the source package from github, and generate a java document that contains the actual installation instructions.
 
 ## Prerequisites for target environment
-1. Debian or Redhat Liunx machine with OpenSSL installed.
+1. Debian or Redhat Liunx variant machine with OpenSSL installed.
 2. Java 8
 3. Apache Maven 3++
 4. Apache Tomcat 8++
 5. Firefox Web Browser
-6. Successful installation of an LDAP server and passed integration test in Apache Fortress Core Quickstart:
+6. Successful installation (of an LDAP server) and passing integration tests in either of these two Apache Fortress Core Quickstart guides:
     * *SECTION 3. Apache Fortress Core Integration Test* in [README-QUICKSTART-SLAPD.md](https://github.com/apache/directory-fortress-core/blob/master/README-QUICKSTART-SLAPD.md)
     * *SECTION 4. Apache Fortress Core Integration Test* in [README-QUICKSTART-APACHEDS.md](https://github.com/apache/directory-fortress-core/blob/master/README-QUICKSTART-APACHEDS.md)
 
- These instructions have been modified to use either openldap and apacheds LDAP servers.  Be sure to choose the correct instructions, either [Apache Directory SSL](target/site/apidocs/doc-files/apache-directory-ssl.html) or [OpenLDAP SSL](target/site/apidocs/doc-files/openldap-ssl.html).
+ These instructions have been recently modified to use either openldap and apacheds LDAP servers.  Be sure to choose the correct instructions, either [Apache Directory SSL](target/site/apidocs/doc-files/apache-directory-ssl.html) or [OpenLDAP SSL](target/site/apidocs/doc-files/openldap-ssl.html).
 
 ## Instructions for downloading and generating the install doc
 
