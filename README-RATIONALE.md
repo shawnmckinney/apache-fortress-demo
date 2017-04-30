@@ -2,13 +2,12 @@
 
 ### Introduction
 
-This application corresponds with a technical talk that has been given many times.  It contains a program that demonstrates end-to-end security of a typcial web with:
-
- - web server (apache tomcat)
- - ldap server to store security policies
+This application corresponds with a technical talk that has been given many times.  It contains a program that demonstrates end-to-end security of a typical java web app:
+ - apache wicket web applications for business logic
+ - ldap server to store the security policies
  - relational database for the business data.
 
-Everything needed to run this is either included by this project, or referenced to it.  The intent is for you to be able to follow these instructions and learn how to do security.
+What is needed to run this demo is either included by this project, or referenced by it.  The intent is that you can follow these instructions, and learn how to do end-to-end security.
 
 ### Rationale for the application
 
