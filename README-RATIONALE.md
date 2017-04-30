@@ -3,9 +3,9 @@
 ### Introduction
 
 This application corresponds with a technical talk that has been given many times.  It contains a program that demonstrates end-to-end security of a typical java web app:
- - apache wicket web applications for business logic
+ - apache wicket web application simulating business logic with links, buttons, dials, etc...
+ - relational database for the business data that must be secured
  - ldap server to store the security policies
- - relational database for the business data.
 
 What is needed to run this demo is either included by this project, or referenced by it.  The intent is that you can follow these instructions, and learn how to do end-to-end security.
 
