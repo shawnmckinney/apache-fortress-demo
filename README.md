@@ -56,5 +56,4 @@
  * [Install MySQL](target/site/apidocs/doc-files/mysql.html)
  * [Apache Tomcat SSL](target/site/apidocs/doc-files/apache-tomcat-ssl.html)
  * [Apache Fortress Demo](target/site/apidocs/doc-files/apache-fortress-demo.html)
-
- [links are relative to the target machine: **target/site/apidocs/doc-files/** on local machine]
+ * These links relative to your local machine: **target/site/apidocs/doc-files/** after the javadoc has been created.
