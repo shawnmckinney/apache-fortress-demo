@@ -33,13 +33,19 @@ This section enables slapd LDAPS for usage in this tutorial.  More general purpo
 <ol>
 
     <li>
-        use artifacts created during <a href="keys.html">Managing PKI Keys</a> for OpenLDAP ssl.
+        Gather the server-side crypto artifacts created during <a href="keys.html">Managing PKI Keys</a> for OpenLDAP ssl:
+        <ul>
+            <li>ca-cert.pem is the ca certificate file</li>
+            <li>server-cert.pem is the server certificate</li>
+            <li>server-key.pem is the server private key</li>
+
+        </ul>
     </li>
 
     <br>
 
     <li>
-        Update openldap's config to point to these files and they must be accessible by slapd process at runtime:
+        Update openldap's config (slapd.conf or dynamic config) to point to these files and they must be accessible by slapd process at runtime:
                 <pre>
                     <p style="font: monospace; color: black; background-color: lightgrey; font-size: 10pt">
 ### SSL Configuration
@@ -48,16 +54,32 @@ TLSCertificateFile    /path/to/server-cert.pem
 TLSCertificateKeyFile /path/to/server-key.pem
                     </p>
                 </pre>
+        Note: If setup openldap using the apache fortress openldap quickstart, <a href="https://github.com/apache/directory-fortress-core/blob/master/README-QUICKSTART-SLAPD.md">README-QUICKSTART-SLAPD.md</a>,
+        these artifacts can be automatically applied.
     </li>
 
+    <br>
+
     <li>
-        Modify the slapd startup script to include LDAPS port (default 636) upon startup.  e.g.
+        Modify the slapd startup script to listen on LDAPS port (default 636) during startup.  e.g. here's how to enable for both LDAP and LDAPS listening over any hostname:
                 <pre>
                     <p style="font: monospace; color: black; background-color: lightgrey; font-size: 10pt">
 "ldap:/// ldaps:///"
                     </p>
                 </pre>
+        Notes:
+        <ul>
+            <li>The common name listed in the server-side certificate must match the hostname used on clientside during connections or verfication will fail.</li>
+            <li>The ldap server must be listening to the same host name in the certificate as well.</li>
+            <li>For proper security, the listener should be scoped to only the hosts and ports necessary.</li>
+            <li>If setup openldap using the apache fortress openldap quickstart, <a href="https://github.com/apache/directory-fortress-core/blob/master/README-QUICKSTART-SLAPD.md">README-QUICKSTART-SLAPD.md</a>,
+                the startup script will be automatically modified.</li>
+            <li>More info here: <a href="http://www.openldap.org/doc/admin24/runningslapd.html">Running slapd</a></li>
+        </ul>
+
     </li>
+
+    <br>
 
     <li>
         Restart the slapd process.
@@ -71,9 +93,8 @@ TLSCertificateKeyFile /path/to/server-key.pem
         From system command prompt (as apacheds user):
         <pre>
             <p style="font: monospace; color: black; background-color: lightgrey; font-size: 10pt">
-[student@NY1SCOLFTDEMO01 directory-fortress-core]$ ps -ef | grep slapd
-root      2144     1  0 13:17 ?        00:00:00 /opt/symas/lib64/slapd -u root -g root -h ldap:/// ldaps:/// ldapi:///
-student   2185  2022  0 13:34 pts/2    00:00:00 grep --color=auto slapd
+[student@FTDEMO01]$ ps -ef | grep slapd
+root 00:00:09 /opt/symas/lib64/slapd -u root -g root ... -h ldap://localhost:389 ldaps://fortressdemo2.com:636
             </p>
         </pre>
 
