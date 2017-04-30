@@ -1,10 +1,6 @@
 # RATIONALE for Apache Fortress Demo End-to-End Security Example
 
-## Antatomy Security Diagram
- ![Apache Fortress Demo Security Layers](src/main/javadoc/doc-files/Demo2-Block-Diagram.png  "Apache Fortress Demo")
-
-
-## Overview
+### Overview
 
 The idea for this talk started several years back, when I first began working full-time with Symas. I was working on a project that spanned multiple companies with my friend and colleague, John Field, who's a security architect at EMC, now Pivotal.
 
@@ -24,4 +20,8 @@ To break through this complexity barrier, John and I borrowed an idea remembered
 We thought this a good way to communicate our complicated security system design to others. We adapted this idea for our end-to-end security design layout. Each image corresponds with an individual security component contained within a typical web app from it's outer to innermost layers.
 
 What's unique about this particular talk is that it started with those initial visual images of a typical web security system architecture.  Next, a test application was created to go along with those anatomy images. The test app mimicked a typical web system, complete with test pages, links, buttons, database tables, et cetera, all of which are under tight security controls of various types.  The goal of the test app was to create a comprehensive tutorial demonstrating all of the pertinent security controls that were contained within the anatomy diagram. Finally, we added instructions to install, deploy, and run the test app and published it all to GitHub.  The project is called The Apache Fortress Demo, and we used it in our live demos and it could also be used by anyone else who wants to try it out at home. During our live demos, we would simultaneously dissect and discuss the web system security functionality, switching between the Power Point slides visually depicting the images and into the concrete demo to show how it all worked in a live system.
+
+### The Anatomy Diagram
+ ![Apache Fortress Demo Security Layers](src/main/javadoc/doc-files/Demo2-Block-Diagram.png  "Apache Fortress Demo")
+
 
