@@ -9,7 +9,7 @@ This application corresponds with a technical talk that has been given many time
 
 What is needed to run this demo is either included by this project, or referenced by it.  The intent is that you can follow these instructions, and learn how to do end-to-end security.
 
-### Rationale for the application
+### Rationale for the apache fortress demo application
 
 The idea for this talk started several years back, when I first began working full-time with Symas. I was working on a project that spanned multiple companies with my friend and colleague, John Field, who's a security architect at EMC, now Pivotal.
 
