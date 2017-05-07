@@ -35,12 +35,11 @@
  ````
 
 6. Perform these steps:
- * [Heartbleed Bug](target/site/apidocs/doc-files/opensslheartbleed.html)
- * [Managing PKI Keys](target/site/apidocs/doc-files/keys.html)
- * [Set Hostname Entry](target/site/apidocs/doc-files/hosts.html)
- * [Apache Directory SSL](target/site/apidocs/doc-files/apache-directory-ssl.html) or [OpenLDAP SSL](target/site/apidocs/doc-files/openldap-ssl.html)
- * [Apache Fortress Core SSL](target/site/apidocs/doc-files/apache-fortress-core-ssl.html)
- * [Install MySQL](target/site/apidocs/doc-files/mysql.html)
- * [Apache Tomcat SSL](target/site/apidocs/doc-files/apache-tomcat-ssl.html)
- * [Apache Fortress Demo](target/site/apidocs/doc-files/apache-fortress-demo.html)
- * These links relative to your local machine: **target/site/apidocs/doc-files/** after the javadoc has been created.
+ * [Heartbleed Bug](http://shawnmckinney.github.io/apache-fortress-demo/apidocs/doc-files/opensslheartbleed.html)
+ * [Managing PKI Keys](http://shawnmckinney.github.io/apache-fortress-demo/apidocs/doc-files/keys.html)
+ * [Set Hostname Entry](http://shawnmckinney.github.io/apache-fortress-demo/apidocs/doc-files/hosts.html)
+ * [Apache Directory SSL](http://shawnmckinney.github.io/apache-fortress-demo/apidocs/doc-files/apache-directory-ssl.html) or [OpenLDAP SSL](http://shawnmckinney.github.io/apache-fortress-demo/apidocs/doc-files/openldap-ssl.html)
+ * [Apache Fortress Core SSL](http://shawnmckinney.github.io/apache-fortress-demo/apidocs/doc-files/apache-fortress-core-ssl.html)
+ * [Install MySQL](http://shawnmckinney.github.io/apache-fortress-demo/apidocs/doc-files/mysql.html)
+ * [Apache Tomcat SSL](http://shawnmckinney.github.io/apache-fortress-demo/apidocs/doc-files/apache-tomcat-ssl.html)
+ * [Apache Fortress Demo](http://shawnmckinney.github.io/apache-fortress-demo/apidocs/doc-files/apache-fortress-demo.html)
