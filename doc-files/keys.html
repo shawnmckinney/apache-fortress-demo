@@ -1,0 +1,378 @@
+<!--
+  ~ This is free and unencumbered software released into the public domain.
+  -->
+<html>
+<head>
+    <title>Apache Fortress End-to-End Web App Security Tutorial</title>
+    <link rel="stylesheet" type="text/css" href="../stylesheet.css" title="Style">
+    <hr>
+    <fieldset>
+        <legend><b>Navigation Links</b></legend>
+        <ul>
+            <li><a href="./opensslheartbleed.html">Heartbleed Bug</a></li>
+            <li><a href="./hosts.html">Set Hostname Entry</a></li>
+            <li><a href="./keys.html">Managing PKI Keys</a></li>
+            <li><a href="./apache-directory-ssl.html">Apache Directory SSL</a>  -OR-  <a href="./openldap-ssl.html">OpenLDAP SSL</a></li>
+            <li><a href="./apache-fortress-core-ssl.html">Apache Fortress Core SSL</a></li>
+            <li><a href="./mysql.html">Install MySQL</a></li>
+            <li><a href="./apache-tomcat-ssl.html">Apache Tomcat SSL</a></li>
+            <li><a href="./apache-fortress-demo.html">Apache Fortress Demo</a></li>
+        </ul>
+        <a href="../overview-summary.html">Back to top</a>
+    </fieldset>
+    <hr>
+</head>
+<body>
+<p>
+<h3>Managing PKI Keys</h3>
+<img src="keys.jpg">
+<br><br>
+This app uses <a href="http://en.wikipedia.org/wiki/Transport_Layer_Security">Transport Layer Security</a>, hereafter referred to as <b>SSL</b>, for
+maintaining confidential communication between the client and server processes.
+A prerequisite of SSL communication is that <a href="http://en.wikipedia.org/wiki/Public-key_cryptography">PKI keys</a> be generated and enabled for use
+in participating processes.  The server's public key common name must match its hostname.  The keys generated here are needed in later sections of tutorial.
+<hr>
+<h4>Pick one of the following options for obtaining PKI keys and certificate:</h4>
+<ol type="A">
+
+    <li>
+        Use the <a href="http://en.wikipedia.org/wiki/Self-signed_certificate">self-signed certificate</a> and keys contained within the <a href="https://git-wip-us.apache.org/repos/asf?p=directory-fortress-core.git">Directory Fortress Core</a> git repo [directory-fortress-core.git] / src / test / resources / certs /.
+        This option requires the target host name for machines hosting server software, i.e. directory, db and web, set to <b>fortressdemo2.com</b>.
+        <br>For this option you may skip to <a href="III-hosts.html">Section III - Set Hostname Entry</a>.
+    </li>
+    <br>
+    <li>
+        Use <a href="http://www.openssl.org">OpenSSL</a> to generate a new private key to (self) sign a new certificate.  It is assumed this option
+        will be followed to create a certificate bound for a hostname other than <b>fortressdemo2.com</b>.  For this option, follow the instructions below.
+    </li>
+    <br>
+    <li>
+        Use keys and certificate signed by a well-known <a href="http://en.wikipedia.org/wiki/Certificate_authority">Certificate authority</a>.  Often times the correct
+        choice for apps in production but beyond the scope of this introductory tutorial.
+    </li>
+</ol>
+<hr>
+<h4>Create new SSL Keys</h4>
+<ol>
+    <li>
+        Create a folder to work in:
+        <pre>
+            <p style="font: monospace; color: black; background-color: lightgrey; font-size: 10pt; font-size: 10pt">
+# mkdir certs
+# cd certs
+~certs$
+            </p>
+        </pre>
+    </li>
+
+    <li>
+        Create a new certificate:
+        <ol type="a">
+            <br>
+            <li>
+                Generate new RSA private key:
+                <pre>
+                    <p style="font: monospace; color: black; background-color: lightgrey; font-size: 10pt; font-size: 10pt; font-size: 10pt">
+# openssl genrsa 2048 > ca-key.pem
+Generating RSA private key, 2048 bit long modulus
+.....+++
+...............................................................................................................................................................+++
+e is 65537 (0x10001)
+                      </p>
+                </pre>
+            </li>
+
+            <li>
+                Generate certificate.  When testing, these prompts may be be answered arbitrarily except for <b>common name</b> which must match the hostname on machine hosting the OpenLDAP and MySQL daemons:
+                <pre>
+                    <p style="font: monospace; color: black; background-color: lightgrey; font-size: 10pt; font-size: 10pt">
+# openssl req -new -x509 -nodes -days 3600 -key ca-key.pem -out ca-cert.pem
+You are about to be asked to enter information that will be incorporated
+into your certificate request.
+What you are about to enter is what is called a Distinguished Name or a DN.
+There are quite a few fields but you can leave some blank
+For some fields there will be a default value,
+If you enter '.', the field will be left blank.
+-----
+                    </p>
+                </pre>
+
+                <ol type="i">
+
+                    <li>
+                        Set country:
+                        <pre>
+                            <p style="font: monospace; color: black; background-color: lightgrey; font-size: 10pt; font-size: 10pt">
+Country Name (2 letter code) [AU]:US
+                            </p>
+                        </pre>
+
+                    </li>
+
+                    <li>
+                        Set state:
+                        <pre>
+                            <p style="font: monospace; color: black; background-color: lightgrey; font-size: 10pt; font-size: 10pt">
+State or Province Name (full name) [Some-State]:California
+                            </p>
+                        </pre>
+                    </li>
+                    <li>
+                        Set city:
+                        <pre>
+                            <p style="font: monospace; color: black; background-color: lightgrey; font-size: 10pt; font-size: 10pt">
+Locality Name (eg, city) []:Joshua Tree
+                            </p>
+                        </pre>
+
+                    </li>
+
+                    <li>
+                        Set Organization name:
+                        <pre>
+                            <p style="font: monospace; color: black; background-color: lightgrey; font-size: 10pt; font-size: 10pt">
+Organization Name (eg, company) [Internet Widgits Pty Ltd]:mycompanyname
+                            </p>
+                        </pre>
+
+                    </li>
+
+                    <li>
+                        Set Organiational Unit Name (this may be left blank):
+                        <pre>
+                            <p style="font: monospace; color: black; background-color: lightgrey; font-size: 10pt; font-size: 10pt">
+Organizational Unit Name (eg, section) []:mygroupname
+                            </p>
+                        </pre>
+                    </li>
+
+                    <li>
+                        Set Common Name, i.e. hostname of target machine.  Note this is the most important setting and name you specify here must match the
+                        value entered in <a href="./hosts.html">Set Hostname Entry</a>.
+                        <pre>
+                            <p style="font: monospace; color: black; background-color: lightgrey; font-size: 10pt; font-size: 10pt">
+Common Name (e.g. server FQDN or YOUR name) []:fortressdemo2.com
+                            </p>
+                        </pre>
+                    </li>
+
+                    <li>
+                        Set Email Address (this may be left blank):
+                        <pre>
+                            <p style="font: monospace; color: black; background-color: lightgrey; font-size: 10pt; font-size: 10pt">
+Email Address []:
+                            </p>
+                        </pre>
+                    </li>
+                </ol>
+            </li>
+        </ol>
+    </li>
+
+    <li>
+        Sign the server certificate:
+        <ol type="i">
+
+            <br>
+
+            <li>
+                Create new server keys:
+                <pre>
+                    <p style="font: monospace; color: black; background-color: lightgrey; font-size: 10pt; font-size: 10pt">
+# openssl req -newkey rsa:2048 -days 1825 -nodes -keyout server-key.pem -out server-req.pem
+Generating a 2048 bit RSA private key
+................................................................................................................................................+++
+........................+++
+writing new private key to 'server-key.pem'
+-----
+You are about to be asked to enter information that will be incorporated
+into your certificate request.
+What you are about to enter is what is called a Distinguished Name or a DN.
+There are quite a few fields but you can leave some blank
+For some fields there will be a default value,
+If you enter '.', the field will be left blank.
+                    </p>
+                </pre>
+            </li>
+
+            <li>
+                Step through the prompts:
+                <pre>
+                    <p style="font: monospace; color: black; background-color: lightgrey; font-size: 8pt; font-size: 8pt">
+Country Name (2 letter code) [AU]:US
+State or Province Name (full name) [Some-State]:California
+Locality Name (eg, city) []:Joshua Tree
+Organization Name (eg, company) [Internet Widgits Pty Ltd]:mycompanyname
+Organizational Unit Name (eg, section) []:mygroupname
+Common Name (e.g. server FQDN or YOUR name) []:fortressdemo2.com    <- name you specify here must match the value entered in <a href="./hosts.html">Set Hostname Entry</a>
+Email Address []:
+Please enter the following 'extra' attributes
+to be sent with your certificate request
+A challenge password []:changeit
+An optional company name []:
+                    </p>
+                </pre>
+            </li>
+
+            <li>
+                Remove the pass phrase on an RSA private key:
+                <pre>
+                    <p style="font: monospace; color: black; background-color: lightgrey; font-size: 10pt">
+# openssl rsa -in server-key.pem -out server-key.pem
+writing RSA key
+                    </p>
+                </pre>
+            </li>
+
+            <li>
+                Sign the public certificate:
+                <pre>
+                    <p style="font: monospace; color: black; background-color: lightgrey; font-size: 10pt">
+# openssl x509 -req -in server-req.pem -days 1825 -CA ca-cert.pem -CAkey ca-key.pem -set_serial 01 -out server-cert.pem
+Signature ok
+subject=/C=US/ST=California/L=Joshua Tree/O=mycompanyname/OU=mygroupname/CN=Shawn McKinney
+                    </p>
+                </pre>
+            </li>
+
+            <li>
+                The following files will be used later:
+                <pre>
+                    <p style="font: monospace; color: black; background-color: lightgrey; font-size: 10pt">
+# ls
+ca-cert.pem  server-cert.pem  server-key.pem
+                    </p>
+                </pre>
+            </li>
+        </ol>
+    </li>
+
+
+    <li>
+        Create PKCS12 Keystore.  This will be converted into a Java Keystore on next step.
+        <pre>
+            <p style="font: monospace; color: black; background-color: lightgrey; font-size: 10pt; font-size: 10pt">
+# openssl pkcs12 -export -name fortressDemo2ServerCACert -in server-cert.pem -inkey server-key.pem -out mykeystore.p12
+Enter Export Password:
+Verifying - Enter Export Password:
+            </p>
+        </pre>
+	The export password must be entered as 'source keystore password' on next step.
+    </li>
+
+    <br>
+
+    <li>
+        Import PKCS12 into Java Keystore (JKS).  This will be used for Tomcat HTTPS connectivity.
+        <pre>
+            <p style="font: monospace; color: black; background-color: lightgrey; font-size: 10pt; font-size: 10pt">
+# keytool -importkeystore -destkeystore mykeystore -srckeystore mykeystore.p12 -srcstoretype pkcs12 -alias fortressDemo2ServerCACert
+Enter destination keystore password:  
+Enter source keystore password:  
+            </p>
+        </pre>
+	The value for the keystore's destination password must be placed inside tomcat server.xml later in this tutorial.
+    </li>
+
+    <br>
+
+    <li>
+        Create Java truststore for JSSE.  This will be used for client-side SSL connectivity securing LDAPv3 and JDBC protocols.
+        <br>
+        <ol type="a">
+            <br>
+
+            <li>
+                Import public key into the Java truststore.
+                      <pre>
+                        <p style="font: monospace; color: black; background-color: lightgrey; font-size: 10pt">
+# keytool -import -alias fortressDemo2ServerCACert -file ca-cert.pem -keystore mytruststore
+                        </p>
+                      </pre>
+                Step through the prompts...
+                    <pre>
+                        <p style="font: monospace; color: black; background-color: lightgrey; font-size: 8pt">
+Enter keystore password:
+Re-enter new password:
+Owner: CN=fortressdemo2.com, OU=mygroupname, O=mycompanyname, L=Joshua Tree, ST=California, C=US
+Issuer: CN=fortressdemo2.com, OU=mygroupname, O=mycompanyname, L=Joshua Tree, ST=California, C=US
+Serial number: fae6c81e389bbeef
+Valid from: Tue Aug 05 08:47:43 PDT 2014 until: Thu Jun 13 08:47:43 PDT 2024
+Certificate fingerprints:
+MD5:  8E:DF:5F:4E:CB:ED:33:E7:72:1E:76:D8:15:60:48:A5
+SHA1: 18:35:4E:32:10:4D:D2:D4:52:A0:70:31:CE:1D:99:AB:14:23:EC:8C
+SHA256: C6:37:4F:E5:59:C7:4B:DF:E2:FE:BA:7D:93:7C:03:FA:29:12:8F:F1:53:EF:E6:B5:5F:09:A4:53:6A:5F:C4:04
+Signature algorithm name: SHA1withRSA
+Version: 3
+
+Extensions:
+
+#1: ObjectId: 2.5.29.35 Criticality=false
+AuthorityKeyIdentifier [
+KeyIdentifier [
+0000: AE C6 DD DE 82 84 4D 0E   48 FB CF 79 40 16 D1 3A  ......M.H..y@..:
+0010: 00 D3 16 4B                                        ...K
+]
+]
+
+#2: ObjectId: 2.5.29.19 Criticality=false
+BasicConstraints:[
+CA:true
+PathLen:2147483647
+]
+
+#3: ObjectId: 2.5.29.14 Criticality=false
+SubjectKeyIdentifier [
+KeyIdentifier [
+0000: AE C6 DD DE 82 84 4D 0E   48 FB CF 79 40 16 D1 3A  ......M.H..y@..:
+0010: 00 D3 16 4B                                        ...K
+]
+]
+
+Trust this certificate? [no]:  yes
+Certificate was added to keystore
+                        </p>
+                      </pre>
+
+Remember the value for the truststore's password.  It maps to the fortress property named, 'trust.store.password', later in this tutorial.
+
+            </li>
+
+                </ol>
+            </li>
+    <br>
+
+    <li>
+        View listing of crypto artifacts:
+                      <pre>
+                        <p style="font: monospace; color: black; background-color: lightgrey; font-size: 10pt">
+# ls
+ca-cert.pem  ca-key.pem  mykeystore  mykeystore.p12  mytruststore  server-cert.pem  server-key.pem  server-req.pem
+                        </p>
+                      </pre>
+    </li>
+
+    <li>
+        Crypto artifacts used as follows:
+        <ol type="a">
+            <br>
+            <li>
+                <b>ca-cert.pem</b>, <b>server-cert.pem</b>, <b>server-key.pem</b>
+                <br>-Server-side: used by OpenLDAP and MySQL to encrypt data over LDAPv3 and JDBC protocols with the Fortress demo web app.
+            </li>
+            <br>
+            <li>
+                <b>mykeystore</b>
+                <br>-Server-side: used by Tomcat to encrypt data for HTTPS traffic between Fortress demo and its end users.
+            </li>
+            <br>
+            <li>
+                <b>mytruststore</b>
+                <br>-Client-side: used to generate encrypted JDBC and LDAP connections between the Fortress demo web app and its servers.
+            </li>
+        </ol>
+    </li>
+</ol>
+</body>
+<p style="font: monospace; color: black; font-size: 6pt">This is free and unencumbered software released into the public domain.</p>
+</html>
