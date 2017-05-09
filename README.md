@@ -16,7 +16,7 @@
     * *SECTION 3. Apache Fortress Core Integration Test* in [OPENLDAP QUICKSTART](https://github.com/apache/directory-fortress-core/blob/master/README-QUICKSTART-SLAPD.md)
     * *SECTION 4. Apache Fortress Core Integration Test* in [APACHEDS QUICKSTART](https://github.com/apache/directory-fortress-core/blob/master/README-QUICKSTART-APACHEDS.md)
 
- These instructions have been recently modified to use either openldap and apacheds LDAP servers.  Be sure to choose the correct instructions, either [Apache Directory SSL](target/site/apidocs/doc-files/apache-directory-ssl.html) or [OpenLDAP SSL](target/site/apidocs/doc-files/openldap-ssl.html).
+ These instructions have been recently modified to use either openldap and apacheds LDAP servers.  Be sure to choose the correct instructions, either [Apache Directory SSL](http://shawnmckinney.github.io/apache-fortress-demo/apidocs/doc-files/apache-directory-ssl.html) or [OpenLDAP SSL](http://shawnmckinney.github.io/apache-fortress-demo/apidocs/doc-files/openldap-ssl.html).
 
 ## Instructions for downloading and generating the install doc
 
