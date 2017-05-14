@@ -48,7 +48,7 @@ public class Page1DaoMgr implements Serializable
                 Integer id = page1DaoMapper.getMaxId();
                 id = id == null ? 1 : id + 1;
                 page1EO.setId( id );
-                int rc = page1DaoMapper.addPage1( page1EO );
+                page1DaoMapper.addPage1( page1EO );
                 sqlSession.commit();
                 page1EO = page1DaoMapper.getPage1ById( id );
             }
@@ -81,7 +81,7 @@ public class Page1DaoMgr implements Serializable
                 .getCustomer() ))
             {
                 Page1Dao page1DaoMapper = sqlSession.getMapper( Page1Dao.class );
-                int rc = page1DaoMapper.updatePage1( page1EO );
+                page1DaoMapper.updatePage1( page1EO );
                 sqlSession.commit();
                 page1EO = page1DaoMapper.getPage1ById( page1EO.getId() );
             }
