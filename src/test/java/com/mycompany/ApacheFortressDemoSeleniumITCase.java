@@ -45,8 +45,9 @@ public class ApacheFortressDemoSeleniumITCase
     public void setUp() throws Exception
     {
         // Use test local default:
-        baseUrl = "http://localhost:8080";
-        //baseUrl = "https://fortressdemo2.com:8443";
+        //baseUrl = "http://10.71.6.36:8080";
+        //baseUrl = "http://localhost:8080";
+        baseUrl = "https://NY1SCOLFTDEMO01:8443";
         baseUrl += "/apache-fortress-demo";
         driver.manage().timeouts().implicitlyWait( 2500, TimeUnit.MILLISECONDS );
     }
