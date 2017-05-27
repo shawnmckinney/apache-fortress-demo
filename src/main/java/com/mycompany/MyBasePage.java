@@ -428,6 +428,8 @@ public abstract class MyBasePage extends WebPage
         WicketSession session = ( WicketSession ) component.getSession();
         session.getSession().setWarnings( null );
         accessMgr.addActiveRole( session.getSession(), new UserRole( roleName ) );
+
+        // TODO: process warning messages:
         List<Warning> warnings = session.getSession().getWarnings();
 
         // User's active role set changed so refresh their permissions:
