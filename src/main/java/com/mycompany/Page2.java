@@ -92,14 +92,14 @@ public class Page2 extends MyBasePage
                     }
                     else
                     {
-                        setAuthZError( "Authorization Failed", GlobalIds.PAGE2_OBJNAME, GlobalIds.ADD, page2EO.getCustomer() );
+                        setAuthZError( GlobalIds.AUTHZ_ERROR_MSG, GlobalIds.PAGE2_OBJNAME, GlobalIds.ADD, page2EO.getCustomer() );
                     }
                 }
 
                 @Override
                 public void onError( AjaxRequestTarget target, Form form )
                 {
-                    LOG.error( "submit failed: " + GlobalIds.BTN_PAGE_2_ADD );
+                    LOG.error( GlobalIds.SUBMIT_ERROR_MSG + GlobalIds.BTN_PAGE_2_ADD );
                 }
 
                 @Override
@@ -133,14 +133,14 @@ public class Page2 extends MyBasePage
                     }
                     else
                     {
-                        setAuthZError( "Authorization Failed", GlobalIds.PAGE2_OBJNAME, GlobalIds.UPDATE, page2EO.getCustomer() );
+                        setAuthZError( GlobalIds.AUTHZ_ERROR_MSG, GlobalIds.PAGE2_OBJNAME, GlobalIds.UPDATE, page2EO.getCustomer() );
                     }
                 }
 
                 @Override
                 public void onError( AjaxRequestTarget target, Form form )
                 {
-                    LOG.error( "submit failed: " + GlobalIds.BTN_PAGE_2_UPDATE );
+                    LOG.error( GlobalIds.SUBMIT_ERROR_MSG + GlobalIds.BTN_PAGE_2_UPDATE );
                 }
 
                 @Override
@@ -174,14 +174,14 @@ public class Page2 extends MyBasePage
                     }
                     else
                     {
-                        setAuthZError( "Authorization Failed", GlobalIds.PAGE2_OBJNAME, GlobalIds.DELETE, page2EO.getCustomer() );
+                        setAuthZError( GlobalIds.AUTHZ_ERROR_MSG, GlobalIds.PAGE2_OBJNAME, GlobalIds.DELETE, page2EO.getCustomer() );
                     }
                 }
 
                 @Override
                 public void onError( AjaxRequestTarget target, Form form )
                 {
-                    LOG.error( "submit failed: " + GlobalIds.BTN_PAGE_2_DELETE );
+                    LOG.error( GlobalIds.SUBMIT_ERROR_MSG + GlobalIds.BTN_PAGE_2_DELETE );
                 }
 
                 @Override
@@ -225,14 +225,14 @@ public class Page2 extends MyBasePage
                     }
                     else
                     {
-                        setAuthZError( "Authorization Failed", GlobalIds.PAGE2_OBJNAME, GlobalIds.SEARCH, page2EO.getCustomer() );
+                        setAuthZError( GlobalIds.AUTHZ_ERROR_MSG, GlobalIds.PAGE2_OBJNAME, GlobalIds.SEARCH, page2EO.getCustomer() );
                     }
                 }
 
                 @Override
                 public void onError( AjaxRequestTarget target, Form form )
                 {
-                    LOG.error( "submit failed: " + GlobalIds.BTN_PAGE_2_SEARCH );
+                    LOG.error( GlobalIds.SUBMIT_ERROR_MSG + GlobalIds.BTN_PAGE_2_SEARCH );
                 }
 
                 @Override

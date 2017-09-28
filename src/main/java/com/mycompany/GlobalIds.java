@@ -98,6 +98,8 @@ public class GlobalIds
     public static final String INFO_FIELD = "infoField";
     public static final String DSD_ERROR_MSG = "Role Activation Failed due to Dynamic SoD rule";
     public static final String AUTHZ_ERROR_MSG = "Authorization Failed";
+    public static final String SUBMIT_ERROR_MSG = "submit failed: ";
+    public static final String USR_AUTH_ERROR_MSG = "User not Authorized: ";
 
     public static String getLocationReplacement(HttpServletRequest servletRequest)
     {
