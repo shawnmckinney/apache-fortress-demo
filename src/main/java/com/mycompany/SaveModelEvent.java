@@ -26,27 +26,7 @@ public class SaveModelEvent extends AjaxUpdateEvent
 {
     private int index = 0;
     private Object entity;
-
-    public Operations getOperation()
-    {
-        return operation;
-    }
-
-    public void setOperation(Operations operation)
-    {
-        this.operation = operation;
-    }
-
-    private Operations operation;
-
-    public enum Operations
-    {
-        ADD,
-        UPDATE,
-        SEARCH,
-        DELETE
-    }
-
+    
     public SaveModelEvent(AjaxRequestTarget target)
     {
         super(target);
@@ -69,6 +49,26 @@ public class SaveModelEvent extends AjaxUpdateEvent
         super(target);
         this.entity = entity;
         this.operation = operation;
+    }
+
+    public Operations getOperation()
+    {
+        return operation;
+    }
+
+    public void setOperation(Operations operation)
+    {
+        this.operation = operation;
+    }
+
+    private Operations operation;
+
+    public enum Operations
+    {
+        ADD,
+        UPDATE,
+        SEARCH,
+        DELETE
     }
 
     public int getIndex()

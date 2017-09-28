@@ -442,9 +442,9 @@ public class Page2 extends MyBasePage
         Collection<IModel<DefaultMutableTreeNode>> selected = grid.getSelectedItems();
         for (IModel<DefaultMutableTreeNode> model : selected)
         {
-            DefaultMutableTreeNode node = model.getObject();
-            treeModel.removeNodeFromParent(node);
-            Page2EO page2EO = (Page2EO) node.getUserObject();
+            DefaultMutableTreeNode nodeLocal = model.getObject();
+            treeModel.removeNodeFromParent(nodeLocal);
+            Page2EO page2EO = (Page2EO) nodeLocal.getUserObject();
             LOG.debug(".removeSelectedItems page2 node: " + page2EO.getCustomer());
         }
     }
