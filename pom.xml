@@ -12,13 +12,6 @@
     <packaging>war</packaging>
     <name>Apache Fortress Demo</name>
     <description>Sample Web App using Apache Fortress, Wicket, Mybatis Data Persistence Frameworks.</description>
-    <properties>
-        <fortress.version>2.0.2</fortress.version>
-        <version.junit>4.12</version.junit>
-        <javadoc.version>2.9.1</javadoc.version>
-        <title>${project.name} ${project.version}</title>
-    </properties>
-
     <licenses>
         <license>
             <name>Unlicense</name>
@@ -43,6 +36,14 @@
             <timezone>-5</timezone>
         </developer>
     </developers>
+
+    <properties>
+        <fortress.version>2.0.2</fortress.version>
+        <spring.version>5.0.9.RELEASE</spring.version>
+        <version.junit>4.12</version.junit>
+        <javadoc.version>2.9.1</javadoc.version>
+        <title>${project.name} ${project.version}</title>
+    </properties>
 
     <dependencies>
 
@@ -73,6 +74,11 @@
             <version>5.1.9</version>
         </dependency>
         <!-- MyBatis-spring integration -->
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-jdbc</artifactId>
+            <version>${spring.version}</version>
+        </dependency>
         <dependency>
             <groupId>org.mybatis</groupId>
             <artifactId>mybatis-spring</artifactId>
