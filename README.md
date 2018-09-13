@@ -35,7 +35,6 @@
  ````
 
 6. Perform these steps:
- * [Heartbleed Bug](http://shawnmckinney.github.io/apache-fortress-demo/apidocs/doc-files/opensslheartbleed.html)
  * [Managing PKI Keys](http://shawnmckinney.github.io/apache-fortress-demo/apidocs/doc-files/keys.html)
  * [Set Hostname Entry](http://shawnmckinney.github.io/apache-fortress-demo/apidocs/doc-files/hosts.html)
  * [Apache Directory SSL](http://shawnmckinney.github.io/apache-fortress-demo/apidocs/doc-files/apache-directory-ssl.html) or [OpenLDAP SSL](http://shawnmckinney.github.io/apache-fortress-demo/apidocs/doc-files/openldap-ssl.html)
