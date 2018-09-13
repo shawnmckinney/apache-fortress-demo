@@ -13,14 +13,7 @@
     <name>Apache Fortress Demo</name>
     <description>Sample Web App using Apache Fortress, Wicket, Mybatis Data Persistence Frameworks.</description>
     <properties>
-        <wicket.version>7.8.0</wicket.version>
-        <wicket.jquery.version>7.7.0</wicket.jquery.version>
-        <spring.version>4.3.1.RELEASE</spring.version>
-        <spring.security.version>4.1.3.RELEASE</spring.security.version>
-        <ant.version>1.9.7</ant.version>
-        <slf4j.version>1.7.7</slf4j.version>
-        <version.slf4j.log4j12>1.7.7</version.slf4j.log4j12>
-        <version.log4j>1.2.17</version.log4j>
+        <fortress.version>2.0.2</fortress.version>
         <version.junit>4.12</version.junit>
         <javadoc.version>2.9.1</javadoc.version>
         <title>${project.name} ${project.version}</title>
@@ -53,79 +46,19 @@
 
     <dependencies>
 
-        <!--  FORTRESS DEPENDENCIES -->
+        <!--  FORTRESS Web pulls in its Core and Realm plus Wicket, Spring, log4j and some others -->
         <dependency>
             <groupId>org.apache.directory.fortress</groupId>
             <artifactId>fortress-web</artifactId>
-            <version>${project.version}</version>
+            <version>${fortress.version}</version>
             <classifier>classes</classifier>
         </dependency>
 
-        <!--  Logging DEPENDENCIES -->
-        <dependency>
-           <groupId>log4j</groupId>
-           <artifactId>log4j</artifactId>
-           <version>${version.log4j}</version>
-         </dependency>
-
-        <dependency>
-            <groupId>org.slf4j</groupId>
-            <artifactId>slf4j-log4j12</artifactId>
-            <version>${version.slf4j.log4j12}</version>
-        </dependency>
-
-        <!--  WICKET DEPENDENCIES -->
-        <dependency>
-            <groupId>org.apache.wicket</groupId>
-            <artifactId>wicket-spring</artifactId>
-            <version>${wicket.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>com.googlecode.wicket-jquery-ui</groupId>
-            <artifactId>wicket-jquery-ui</artifactId>
-            <version>${wicket.jquery.version}</version>
-        </dependency>
-
-        <!-- Spring DEPENDENCIES -->
-        <dependency>
-            <groupId>org.springframework</groupId>
-            <artifactId>spring-web</artifactId>
-            <version>${spring.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework</groupId>
-            <artifactId>spring-expression</artifactId>
-            <version>${spring.version}</version>
-        </dependency>
+        <!--  If using Fortress REST...  -->
         <dependency>
             <groupId>xml-apis</groupId>
             <artifactId>xml-apis</artifactId>
             <version>1.4.01</version>
-        </dependency>
-
-        <!-- Spring Security DEPENDENCIES -->
-        <dependency>
-            <groupId>org.springframework.security</groupId>
-            <artifactId>spring-security-core</artifactId>
-            <version>${spring.security.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework.security</groupId>
-            <artifactId>spring-security-config</artifactId>
-            <version>${spring.security.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework.security</groupId>
-            <artifactId>spring-security-web</artifactId>
-            <version>${spring.security.version}</version>
-        </dependency>
-
-        <!-- Servlet API DEPENDENCIES -->
-        <dependency>
-            <groupId>javax.servlet</groupId>
-            <artifactId>javax.servlet-api</artifactId>
-            <version>3.1.0</version>
-            <scope>provided</scope>
         </dependency>
 
         <!--  Database DEPENDENCIES  -->
@@ -145,32 +78,8 @@
             <artifactId>mybatis-spring</artifactId>
             <version>1.2.2</version>
         </dependency>
-        
-    	<!-- Not sure why this was not needed before, but it is necessary for upgrade to Spring 4 -->
-        <dependency>
-	        <groupId>org.springframework</groupId>
-	        <artifactId>spring-jdbc</artifactId>
-	        <version>${spring.version}</version>
-	    </dependency>
 
-        <!--  ANT DEPENDENCIES FOR maven-ant-run PLUG-IN used in FORTRESS data loads  -->
-        <dependency>
-            <groupId>org.apache.ant</groupId>
-            <artifactId>ant</artifactId>
-            <version>${ant.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>org.apache.ant</groupId>
-            <artifactId>ant-launcher</artifactId>
-            <version>${ant.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>antlr</groupId>
-            <artifactId>antlr</artifactId>
-            <version>2.7.7</version>
-        </dependency>
-
-        <!--  Selenium DEPENDENCY FOR TESTING -->
+        <!--  JUnit and Selenium for automated testing -->
         <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
@@ -189,12 +98,6 @@
             <artifactId>webdrivermanager</artifactId>
             <version>2.2.4</version>
             <scope>test</scope>
-        </dependency>
-
-        <dependency>
-            <groupId>com.googlecode.wicket-jquery-ui</groupId>
-            <artifactId>wicket-kendo-ui</artifactId>
-            <version>${wicket.jquery.version}</version>
         </dependency>
 
     </dependencies>
