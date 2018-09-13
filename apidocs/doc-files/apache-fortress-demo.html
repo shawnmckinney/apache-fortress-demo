@@ -9,7 +9,6 @@
        <fieldset>
            <legend><b>Navigation Links</b></legend>
            <ul>
-               <li><a href="./opensslheartbleed.html">Heartbleed Bug</a></li>
                <li><a href="./hosts.html">Set Hostname Entry</a></li>
                <li><a href="./keys.html">Managing PKI Keys</a></li>
                <li><a href="./apache-directory-ssl.html">Apache Directory SSL</a>  -OR-  <a href="./openldap-ssl.html">OpenLDAP SSL</a></li>
@@ -99,6 +98,9 @@ enable.ldap.ssl.debug=false
 trust.store=/home/smckinn/fortress/apache-fortress-demo-master/src/test/resources/mytruststore
 trust.store.password=changeit
 
+# Truststore must be specified a fully qualified filename:
+trust.store.onclasspath=false
+
 # The host value from [<a href="hosts.html">Set Hostname Entry</a>] step:
 database.url=jdbc:mysql://fortressdemo2.com:3306/demoDB?useSSL=true&amp;requireSSL=true
 
@@ -108,6 +110,7 @@ database.password=secret
 
 # This param informs fortress runtime the type of ldap server in use:
 ldap.server.type=apacheds
+#ldap.server.type=openldap
 
 # Setting this to 'true' broadcasts the jdbc params (as system.property) required by MySQL JDBC driver:
 trust.store.set.prop=true
