@@ -9,7 +9,6 @@
     <fieldset>
         <legend><b>Navigation Links</b></legend>
         <ul>
-            <li><a href="./opensslheartbleed.html">Heartbleed Bug</a></li>
             <li><a href="./hosts.html">Set Hostname Entry</a></li>
             <li><a href="./keys.html">Managing PKI Keys</a></li>
             <li><a href="./apache-directory-ssl.html">Apache Directory SSL</a>  -OR-  <a href="./openldap-ssl.html">OpenLDAP SSL</a></li>
@@ -73,7 +72,7 @@ in participating processes.  The server's public key common name must match its 
                 Generate new RSA private key:
                 <pre>
                     <p style="font: monospace; color: black; background-color: lightgrey; font-size: 10pt; font-size: 10pt; font-size: 10pt">
-# openssl genrsa 2048 > ca-key.pem
+# openssl genrsa 4096 > ca-key.pem
 Generating RSA private key, 2048 bit long modulus
 .....+++
 ...............................................................................................................................................................+++
@@ -179,8 +178,8 @@ Email Address []:
                 Create new server keys:
                 <pre>
                     <p style="font: monospace; color: black; background-color: lightgrey; font-size: 10pt; font-size: 10pt">
-# openssl req -newkey rsa:2048 -days 1825 -nodes -keyout server-key.pem -out server-req.pem
-Generating a 2048 bit RSA private key
+# openssl req -newkey rsa:4096 -days 1825 -nodes -keyout server-key.pem -out server-req.pem
+Generating a 4096 bit RSA private key
 ................................................................................................................................................+++
 ........................+++
 writing new private key to 'server-key.pem'

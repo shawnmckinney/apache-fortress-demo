@@ -3,7 +3,7 @@
     <Realm className="org.apache.directory.fortress.realm.tomcat.Tc7AccessMgrProxy"
            defaultRoles="ROLE_DEMO2_SUPER_USER, DEMO2_ALL_PAGES, ROLE_PAGE1, ROLE_PAGE2, ROLE_PAGE3"
            containerType="TomcatContext"
+           contextId="HOME"
            realmClasspath=""
             />
-
 </Context>

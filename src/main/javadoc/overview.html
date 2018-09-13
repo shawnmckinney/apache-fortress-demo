@@ -10,7 +10,7 @@
 <BODY>
 <p>
     <h3>Demo Overview</h3>
-    The tutorial provides a how-to guide for applying end-to-end security enforcement across a  sample Java Web environment.
+    The tutorial provides a how-to guide for applying end-to-end security enforcement across a sample Java Web environment.
     Security concerns covered are authentication, authorization, confidentiality and audit trail.
     Both declarative and programmatic enforcement controls will be used.
     <br><br>
@@ -19,13 +19,12 @@
 <h4>Prerequisites</h4>
 <ol type="1">
     <li>Debian or Redhat Linux machine with <a href="http://www.openssl.org">OpenSSL</a> installed</li>
-    <li>Java 7 (or greater) sdk installed.</li>
+    <li>Java 8 SDK installed.</li>
     <li><a href="http://git-scm.com/download/linux">Git installed.</a></li>
     <li><a href="http://maven.apache.org/">Apache Maven 3 installed.</a></li>
     <li><a href="https://www.mozilla.org/en-GB/firefox/new/">Firefox Web Browser</a></li>
     <li>
-        <a href="https://github.com/apache/directory-fortress-core/blob/master/README-QUICKSTART-SLAPD.md"></a>
-        Setup of LDAP server by completing the the Apache Fortress Core Integration Tests in either of these two quickstarts.
+        Setup of LDAP server by completing the the Apache Fortress Core Integration Tests in either of these two quickstarts:
         Pick One:
         <ol type="a">
             <li>ApacheDS: <a href="https://github.com/apache/directory-fortress-core/blob/master/README-QUICKSTART-APACHEDS.md">README-QUICKSTART-APACHEDS sections 2,3 & 4</a></li>
@@ -37,7 +36,6 @@
 <h4>Demo Installation Instructions</h4>
 Tutorial installation requires completion of these sections:
 <ul>
-    <li><a href="./doc-files/opensslheartbleed.html">Heartbleed Bug</a></li>
     <li><a href="./doc-files/hosts.html">Set Hostname Entry</a></li>
     <li><a href="./doc-files/keys.html">Managing PKI Keys</a></li>
     <li><a href="./doc-files/apache-directory-ssl.html">Apache Directory SSL</a>  -OR-  <a href="./doc-files/openldap-ssl.html">OpenLDAP SSL</a></li>
@@ -53,18 +51,26 @@ Tutorial installation requires completion of these sections:
 The following block diagram illustrates the layered approach used to enforce security in this tutorial:
 <br><br>
 <img src="./doc-files/Demo2-Block-Diagram.png">
-<!--<img src="./doc-files/Demo2-Block-Diagram.png" height="400" width="600">-->
 <p>
 <hr>
 <h4>Getting Started - Generating the tutorial's how-to guide</h4>
 This tutorial uses javadoc that is contained within the apache-fortress-demo web application.  To generate, follow these instructions:
 <ol type="1">
-    <li>Download the <a href="https://github.com/shawnmckinney/apache-fortress-demo/archive/master.zip">apache-fortress-demo source bundle</a>  from GitHub</li>
-    <li>Extract bundle</li>
-    <li>Change directory:
+    <li>
+        Download and extract bundle:<a href="https://github.com/shawnmckinney/apache-fortress-demo/archive/master.zip">apache-fortress-demo source bundle</a>  from GitHub
+        <br><br>
+        Or clone:
+        <pre>
+            <p style="font: monospace; color: black; background-color: lightgrey; font-size: 10pt">
+git clone https://github.com/shawnmckinney/apache-fortress-demo.git
+            </p>
+        </pre>
+    </li>
+
+    <li>Change directory into the project:
                 <pre>
                     <p style="font: monospace; color: black; background-color: lightgrey; font-size: 10pt">
-cd apache-fortress-demo-master
+cd apache-fortress-demo
                     </p>
                 </pre>
     </li>
@@ -76,17 +82,6 @@ cd apache-fortress-demo-master
                 <pre>
                     <p style="font: monospace; color: black; background-color: lightgrey; font-size: 10pt">
 mvn javadoc:javadoc
-                    </p>
-                </pre>
-        javadoc note: If using JDK 8, you must turn off doclint to get past errors.  Add the following to project's pom:
-                <pre>
-                    <p style="font: monospace; color: black; background-color: lightgrey; font-size: 10pt">
-&lt;plugin&gt;
-    &lt;artifactId&gt;maven-javadoc-plugin&lt;/artifactId&gt;
-    &lt;configuration&gt;
-        &lt;additionalparam&gt;-Xdoclint:none&lt;/additionalparam&gt;
-    &lt;/configuration&gt;
-&lt;/plugin&gt;
                     </p>
                 </pre>
     </li>
@@ -121,7 +116,6 @@ This sample Web application shows how-to do the following:
     <li>HTTPS Confidentiality</li>
     <li>LDAP v3 Confidentiality</li>
     <li>JDBC Confidentiality</li>
-    <li>Audit Trail of Security Events</li>
 </ol>
 <hr>
 These concepts apply to other Web application infrastructure configurations.

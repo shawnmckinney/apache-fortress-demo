@@ -7,8 +7,7 @@ import java.lang.String;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 
-import io.github.bonigarcia.wdm.ChromeDriverManager;
-import io.github.bonigarcia.wdm.MarionetteDriverManager;
+import io.github.bonigarcia.wdm.WebDriverManager;
 import org.apache.commons.lang.StringUtils;
 import org.apache.log4j.Logger;
 import org.junit.*;
@@ -44,10 +43,10 @@ public class ApacheFortressDemoSeleniumITCase
     @Before
     public void setUp() throws Exception
     {
-        // Use test local default:
-        //baseUrl = "http://10.71.6.36:8080";
+        // Use Set the hostname:port:
+        baseUrl = "https://fortressdemo2.com:8443";
         //baseUrl = "http://localhost:8080";
-        baseUrl = "https://NY1SCOLFTDEMO01:8443";
+        //baseUrl = "https://NY1SCOLFTDEMO01:8443";
         baseUrl += "/apache-fortress-demo";
         driver.manage().timeouts().implicitlyWait( 2500, TimeUnit.MILLISECONDS );
     }
@@ -64,12 +63,11 @@ public class ApacheFortressDemoSeleniumITCase
         if( StringUtils.isNotEmpty( szDriverType ) && szDriverType.equalsIgnoreCase( DriverType.CHROME.toString() ))
         {
             driverType = DriverType.CHROME;
-            ChromeDriverManager.getInstance().setup();
+            WebDriverManager.chromedriver().setup();
         }
         else
         {
-            driverType = DriverType.FIREFOX;
-            MarionetteDriverManager.getInstance().setup();
+            WebDriverManager.firefoxdriver().setup();
         }
     }
 
@@ -78,7 +76,7 @@ public class ApacheFortressDemoSeleniumITCase
     {
         if ( driverType.equals( DriverType.CHROME ) )
         {
-            driver = new ChromeDriver( );
+            driver = new ChromeDriver();
         }
         else
         {
