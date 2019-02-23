@@ -265,8 +265,9 @@ Verifying - Enter Export Password:
         Import PKCS12 into Java Keystore (JKS).  This will be used for Tomcat HTTPS connectivity.
         <pre>
             <p style="font: monospace; color: black; background-color: lightgrey; font-size: 10pt; font-size: 10pt">
-# keytool -importkeystore -destkeystore mykeystore -srckeystore mykeystore.p12 -srcstoretype pkcs12 -alias fortressDemo2ServerCACert
-Enter destination keystore password:  
+# keytool -importkeystore -destkeystore mykeystore -srckeystore mykeystore.p12 -srcstoretype pkcs12 -alias fortressDemo2ServerCACert -deststoretype pkcs12
+
+Enter destination keystore password:
 Enter source keystore password:  
             </p>
         </pre>
@@ -285,7 +286,8 @@ Enter source keystore password:
                 Import public key into the Java truststore.
                       <pre>
                         <p style="font: monospace; color: black; background-color: lightgrey; font-size: 10pt">
-# keytool -import -alias fortressDemo2ServerCACert -file ca-cert.pem -keystore mytruststore
+# keytool -import -alias fortressDemo2ServerCACert -file ca-cert.pem -keystore mytruststore -deststoretype pkcs12
+
                         </p>
                       </pre>
                 Step through the prompts...
