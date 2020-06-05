@@ -8,7 +8,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>net.iamfortress</groupId>
     <artifactId>apache-fortress-demo</artifactId>
-    <version>2.0.3</version>
+    <version>2.0.5</version>
     <packaging>war</packaging>
     <name>Apache Fortress Demo</name>
     <description>Sample Web App demonstrating end-to-end security using Apache Fortress, Wicket, Mybatis Data Persistence Frameworks.</description>
@@ -37,8 +37,8 @@
     </developers>
 
     <properties>
-        <fortress.version>2.0.3</fortress.version>
-        <spring.version>5.1.4.RELEASE</spring.version>
+        <fortress.version>2.0.5</fortress.version>
+        <spring.version>5.2.6.RELEASE</spring.version>
         <version.junit>4.12</version.junit>
         <javadoc.version>2.9.1</javadoc.version>
         <title>${project.name} ${project.version}</title>
@@ -52,13 +52,6 @@
             <artifactId>fortress-web</artifactId>
             <version>${fortress.version}</version>
             <classifier>classes</classifier>
-        </dependency>
-
-        <!--  If using Fortress REST...  -->
-        <dependency>
-            <groupId>xml-apis</groupId>
-            <artifactId>xml-apis</artifactId>
-            <version>1.4.01</version>
         </dependency>
 
         <!--  Database DEPENDENCIES  -->
@@ -91,17 +84,18 @@
             <version>${version.junit}</version>
             <scope>test</scope>
         </dependency>
+
         <dependency>
             <groupId>org.seleniumhq.selenium</groupId>
             <artifactId>selenium-java</artifactId>
-            <version>3.13.0</version>
+            <version>3.141.59</version>
             <scope>test</scope>
         </dependency>
-
+        <!-- Use [WebDriverManager](https://github.com/bonigarcia/webdrivermanager#webdrivermanager-as-java-dependency) for running tests -->
         <dependency>
             <groupId>io.github.bonigarcia</groupId>
             <artifactId>webdrivermanager</artifactId>
-            <version>2.2.4</version>
+            <version>4.0.0</version>
             <scope>test</scope>
         </dependency>
 
@@ -256,6 +250,7 @@
                 <artifactId>maven-javadoc-plugin</artifactId>
                 <version>${javadoc.version}</version>
                 <configuration>
+                    <source>8</source>
                     <stylesheet>java</stylesheet>
                     <bottom>&lt;small&gt;This is free and unencumbered software released into the public domain.
                         Generated ${maven.build.timestamp}.&lt;/small&gt;</bottom>
@@ -284,9 +279,10 @@
                                 <java
                                         classname="org.apache.tools.ant.launch.Launcher"
                                         fork="true"
+                                        clonevm="true"
                                         failonerror="true"
                                         dir="${basedir}"
-                                        timeout="4000000"
+                                        timeout="120000"
                                         taskname="startAnt">
                                     <classpath>
                                         <pathelement location="./src/main/resources"/>

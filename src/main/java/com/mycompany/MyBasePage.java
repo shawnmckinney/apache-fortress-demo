@@ -147,7 +147,7 @@ public abstract class MyBasePage extends WebPage
                 private static final long serialVersionUID = 1L;
 
                 @Override
-                protected void onSubmit( AjaxRequestTarget target, Form<?> form )
+                protected void onSubmit( AjaxRequestTarget target )
                 {
                     getApplication().getExceptionSettings().setAjaxErrorHandlingStrategy(
                         ExceptionSettings.AjaxErrorStrategy.REDIRECT_TO_ERROR_PAGE);
@@ -161,7 +161,7 @@ public abstract class MyBasePage extends WebPage
                             {
                                 addActiveRole( this, accessMgr, roleSelection );
                                 setMyResponsePage();
-                                target.add( form );
+                                target.add( getForm() );
                             }
                             catch (SecurityException se)
                             {
@@ -221,7 +221,7 @@ public abstract class MyBasePage extends WebPage
                 private static final long serialVersionUID = 1L;
 
                 @Override
-                protected void onSubmit( AjaxRequestTarget target, Form<?> form )
+                protected void onSubmit( AjaxRequestTarget target )
                 {
                     if ( StringUtils.isNotEmpty( activeRoleSelection ) )
                     {
@@ -230,7 +230,7 @@ public abstract class MyBasePage extends WebPage
                             if ( SecUtils.dropActiveRole( this, target, accessMgr, activeRoleSelection ) )
                             {
                                 setMyResponsePage();
-                                target.add( form );
+                                target.add( getForm() );
                             }
                             else
                             {
