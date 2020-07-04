@@ -44,9 +44,8 @@ public class ApacheFortressDemoSeleniumITCase
     public void setUp() throws Exception
     {
         // Use Set the hostname:port:
-        //baseUrl = "https://fortressdemo2.com:8443";
+        //baseUrl = "https://fortress-test-1.foo.com:8443";
         baseUrl = "http://localhost:8080";
-        //baseUrl = "https://NY1SCOLFTDEMO01:8443";
         baseUrl += "/apache-fortress-demo";
         driver.manage().timeouts().implicitlyWait( 2500, TimeUnit.MILLISECONDS );
     }
