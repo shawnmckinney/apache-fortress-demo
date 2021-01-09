@@ -6,9 +6,13 @@
 ## Document Overview
  This document is the starting point for the apache fortress demo web app.  It provides directions to download the source package from github, and generate a java document that contains the actual installation instructions.
 
+## (NEW) Instructions for installing automatically with Ansible:
+   * Ansible playbooks to perform steps to install and setup Apache Fortress Demo, including OpenLDAP, Apache Tomcat, MariaDB, generating certs, keys, etc.
+   * [README.md](https://gitlab.symas.net/symas-public/ansible-apache-fortress/-/blob/master/README.md)
+
 ## Prerequisites for target environment
 1. Debian or Redhat Liunx variant machine with OpenSSL installed.
-2. Java 8
+2. Java 8++
 3. Apache Maven 3++
 4. Apache Tomcat 8++
 5. Firefox Web Browser
@@ -19,11 +23,6 @@
     * Run the slapd playbook: [README.md](https://gitlab.symas.net/symas-public/ansible-apache-fortress/-/blob/master/README.md)
 
  These instructions have been recently modified to use either openldap and apacheds LDAP servers.  Be sure to choose the correct instructions, either [Apache Directory SSL](http://shawnmckinney.github.io/apache-fortress-demo/apidocs/doc-files/apache-directory-ssl.html) or [OpenLDAP SSL](http://shawnmckinney.github.io/apache-fortress-demo/apidocs/doc-files/openldap-ssl.html).
-
-## (NEW) Instructions for installing automatically with Ansible:
-
- * Contains Ansible playbooks to perform all of the steps to install and setup Apache Fortress Demo, including OpenLDAP, Apache Tomcat, MariaDB, generating certs, etc.
- * [README.md](https://gitlab.symas.net/symas-public/ansible-apache-fortress/-/blob/master/README.md)
 
 ## Instructions for installing manually:
 
