@@ -25,6 +25,7 @@ max.admin.conn=10
 # Due to limitations with this example's JDBC SSL impl, the java truststore must be specified as a fully qualified filename present on the machine:
 trust.store=/path/to/mytruststore
 trust.store.password=changeit
+trust.store.onclasspath=false
 
  Used for SSL Connection to LDAP Server:
 enable.ldap.ssl=true
@@ -48,12 +49,3 @@ ehcache.config.file=ehcache.xml
 
 # Default for pool reconnect flag is false:
 enable.pool.reconnect=true
-
-# Used to connect APIS with Fortress-Rest instead of LDAPv3:
-#enable.mgr.impl.rest=true
-# This user account is added automatically during deployment of fortress-rest via -Dload.file=./src/main/resources/FortressRestServerPolicy.xml:
-#http.user=demouser4
-#http.pw=password
-# For TLs connections:
-#http.port=8443
-#http.protocol=https

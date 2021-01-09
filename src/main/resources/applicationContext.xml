@@ -36,7 +36,6 @@
     </bean>
 
     <!-- JDBC Connection properties follow for SSL.  Their associated values contained inside fortress.properties file -->
-    <!-- Note, iff Fortress is using SSL, AND, its 'trust.store.set.prop' is set to TRUE, it will set these as System.properties during connection pool initialization -->
     <context:property-placeholder location="classpath:fortress.properties" />
     <bean class="org.springframework.beans.factory.config.MethodInvokingFactoryBean">
         <property name="targetObject">
