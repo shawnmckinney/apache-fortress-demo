@@ -15,10 +15,17 @@
 6. Successful installation (of an LDAP server) and passing integration tests in either of these two Apache Fortress Core Quickstart guides:
     * *SECTION 3. Apache Fortress Core Integration Test* in [OPENLDAP QUICKSTART](https://github.com/apache/directory-fortress-core/blob/master/README-QUICKSTART-SLAPD.md)
     * *SECTION 4. Apache Fortress Core Integration Test* in [APACHEDS QUICKSTART](https://github.com/apache/directory-fortress-core/blob/master/README-QUICKSTART-APACHEDS.md)
+   - OR -
+    * Run the slapd playbook: [README.md](https://gitlab.symas.net/symas-public/ansible-apache-fortress/-/blob/master/README.md)
 
  These instructions have been recently modified to use either openldap and apacheds LDAP servers.  Be sure to choose the correct instructions, either [Apache Directory SSL](http://shawnmckinney.github.io/apache-fortress-demo/apidocs/doc-files/apache-directory-ssl.html) or [OpenLDAP SSL](http://shawnmckinney.github.io/apache-fortress-demo/apidocs/doc-files/openldap-ssl.html).
 
-## Instructions for downloading and generating the install doc
+## (NEW) Instructions for installing automatically with Ansible:
+
+ * Contains Ansible playbooks to perform all of the steps to install and setup Apache Fortress Demo, including OpenLDAP, Apache Tomcat, MariaDB, generating certs, etc.
+ * [README.md](https://gitlab.symas.net/symas-public/ansible-apache-fortress/-/blob/master/README.md)
+
+## Instructions for installing manually:
 
 1. [Download ZIP](https://github.com/shawnmckinney/apache-fortress-demo/archive/master.zip)
 
