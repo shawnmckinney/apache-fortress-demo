@@ -27,7 +27,7 @@ trust.store=/path/to/mytruststore
 trust.store.password=changeit
 trust.store.onclasspath=false
 
- Used for SSL Connection to LDAP Server:
+# Used for SSL Connection to LDAP Server:
 enable.ldap.ssl=true
 enable.ldap.ssl.debug=false
 
