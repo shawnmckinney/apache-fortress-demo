@@ -1,0 +1,9 @@
+# This is free and unencumbered software released into the public domain.
+dn: ads-serverId=ldapServer,ou=servers,ads-directoryServiceId=default,ou=con
+ fig
+changetype: modify
+replace: ads-keystoreFile
+ads-keystorefile: /var/lib/apacheds-2.0.0.AM26/default/conf/keystore.jks
+-
+replace: ads-certificatepassword
+ads-certificatepassword: secret

@@ -48,12 +48,17 @@ sudo chown apacheds /var/lib/apacheds-2.0.0-M20/default/conf/mykeystore
                     </p>
                 </pre>
           </li>
-
           <li>
-              Start the Apache directory studio process.
+              Update ldif file with correct fully qualified keystore name, password and run the following:
+              <pre>
+                    <p style="font: monospace; color: black; background-color: lightgrey; font-size: 10pt">
+ldapmodify -h localhost -p 10389 -D uid=admin,ou=system -w secret -a -f src/test/resources/apacheds-ldaps.ldif
+                    </p>
+                </pre>
           </li>
+          <b>Or Use Apache Directory Studio...</b>
 
-          <br>
+          <br><br>
 
           <li>
               From the LDAP Browser perspective, under the Connections tab, right-click on your connection, and select 'Open Configuration'.
