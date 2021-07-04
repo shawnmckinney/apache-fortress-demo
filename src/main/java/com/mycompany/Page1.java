@@ -10,9 +10,9 @@ import com.inmethod.grid.column.PropertyColumn;
 import com.inmethod.grid.treegrid.TreeGrid;
 import com.mycompany.dao.Page1DaoMgr;
 import com.mycompany.dao.Page1EO;
-import org.apache.commons.collections.CollectionUtils;
+import org.apache.commons.collections4.CollectionUtils;
 import org.apache.directory.fortress.web.control.SecureIndicatingAjaxButton;
-import org.apache.log4j.Logger;
+import org.slf4j.Logger;
 import org.apache.wicket.Component;
 import org.apache.wicket.ajax.AjaxRequestTarget;
 import org.apache.wicket.ajax.attributes.AjaxCallListener;
@@ -24,6 +24,7 @@ import org.apache.wicket.markup.html.form.TextField;
 import org.apache.wicket.model.CompoundPropertyModel;
 import org.apache.wicket.model.IModel;
 import org.apache.wicket.model.Model;
+import org.slf4j.LoggerFactory;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.swing.tree.DefaultMutableTreeNode;
@@ -41,7 +42,7 @@ import java.util.List;
  */
 public class Page1 extends MyBasePage
 {
-    private static final Logger LOG = Logger.getLogger( Page1.class.getName() );
+    private static final Logger LOG = LoggerFactory.getLogger( Page1.class.getName() );
     private DefaultTreeModel treeModel;
     private DefaultMutableTreeNode node;
     private TreeGrid<DefaultTreeModel, DefaultMutableTreeNode, String> grid;

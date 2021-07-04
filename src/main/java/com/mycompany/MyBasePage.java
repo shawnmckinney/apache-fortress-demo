@@ -5,7 +5,7 @@ package com.mycompany;
 
 import com.googlecode.wicket.kendo.ui.form.combobox.ComboBox;
 import com.googlecode.wicket.kendo.ui.renderer.ChoiceRenderer;
-import org.apache.commons.collections.CollectionUtils;
+import org.apache.commons.collections4.CollectionUtils;
 import org.apache.commons.lang.StringUtils;
 import org.apache.directory.fortress.core.*;
 import org.apache.directory.fortress.core.SecurityException;
@@ -15,7 +15,8 @@ import org.apache.directory.fortress.web.control.SecUtils;
 import org.apache.directory.fortress.web.control.SecureBookmarkablePageLink;
 import org.apache.directory.fortress.web.control.SecureIndicatingAjaxButton;
 import org.apache.directory.fortress.web.control.WicketSession;
-import org.apache.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.apache.wicket.Component;
 import org.apache.wicket.ajax.AjaxRequestTarget;
 import org.apache.wicket.ajax.attributes.AjaxCallListener;
@@ -50,7 +51,7 @@ public abstract class MyBasePage extends WebPage
     private ReviewMgr reviewMgr;
     @SpringBean
     private J2eePolicyMgr j2eePolicyMgr;
-    private static final Logger LOG = Logger.getLogger( MyBasePage.class.getName() );
+    private static final Logger LOG = LoggerFactory.getLogger( MyBasePage.class.getName() );
     private Form myForm;
     private static final String LINKS_LABEL = "linksLabel";
     private String linksLabel = "Authorized Links";

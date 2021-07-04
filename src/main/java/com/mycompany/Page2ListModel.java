@@ -7,7 +7,8 @@ package com.mycompany;
 import com.mycompany.dao.Page2DaoMgr;
 import com.mycompany.dao.Page2EO;
 import org.apache.commons.lang.StringUtils;
-import org.apache.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.apache.wicket.Component;
 import org.apache.wicket.model.Model;
 
@@ -21,7 +22,8 @@ import java.util.List;
  */
 public class Page2ListModel<T extends Serializable> extends Model
 {
-    private static final Logger log = Logger.getLogger(Page2ListModel.class.getName());
+    private static final Logger log = LoggerFactory.getLogger(Page2ListModel.class.getName());
+
     private transient Page2EO page2EO;
     private transient List<Page2EO> page2EOs = null;
     private Page2DaoMgr p2manager = new Page2DaoMgr();
@@ -60,7 +62,7 @@ public class Page2ListModel<T extends Serializable> extends Model
     @Override
     public void setObject(Object object)
     {
-        log.debug(".setObject count: " + object != null ? ((List<Page2EO>)object).size() : "null");
+        //log.debug(".setObject count: " + object != null ? ((List<Page2EO>)object).size() : "null");
         this.page2EOs = (List<Page2EO>) object;
     }
 

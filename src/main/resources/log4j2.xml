@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  ~ This is free and unencumbered software released into the public domain.
+  -->
+<Configuration>
+    <Appenders>
+        <Console name="console" target="SYSTEM_OUT">
+            <PatternLayout pattern="%-5p - %d{dd MMM yyyy HH:mm:ss,SSS} - %-26.26c{1} - %m%n"/>
+        </Console>
+    </Appenders>
+    <Loggers>
+        <Logger name="org.apache.directory.fortress.realm" level="info"/>
+        <Logger name="org.apache.directory.fortress.core" level="info"/>
+        <Logger name="org.apache.directory.fortress.web" level="info"/>
+        <Logger name="org.apache.wicket" level="info"/>
+        <Logger name="org.springframework.security" level="info"/>
+        <Logger name="org.apache.wicket.protocol.http.HttpSessionStore" level="info"/>
+        <Logger name="org.apache.wicket.version" level="info"/>
+        <Logger name="org.apache.wicket.RequestCycle" level="info"/>
+        <Logger name="com.mycompany" level="debug"/>
+        <Logger name="log4j.logger.com.mycompany.dao" level="debug"/>
+        <Root level="info">
+            <AppenderRef ref="console"/>
+        </Root>
+    </Loggers>
+</Configuration>

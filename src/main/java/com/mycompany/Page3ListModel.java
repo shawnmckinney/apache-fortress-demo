@@ -7,7 +7,8 @@ package com.mycompany;
 import com.mycompany.dao.Page3DaoMgr;
 import com.mycompany.dao.Page3EO;
 import org.apache.commons.lang.StringUtils;
-import org.apache.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.apache.wicket.Component;
 import org.apache.wicket.model.Model;
 
@@ -21,7 +22,7 @@ import java.util.List;
  */
 public class Page3ListModel<T extends Serializable> extends Model
 {
-    private static final Logger log = Logger.getLogger(Page3ListModel.class.getName());
+    private static final Logger log = LoggerFactory.getLogger(Page3ListModel.class.getName());
     private transient Page3EO page3EO;
     private transient List<Page3EO> page3EOs = null;
     private Page3DaoMgr p3manager = new Page3DaoMgr();
@@ -60,7 +61,7 @@ public class Page3ListModel<T extends Serializable> extends Model
     @Override
     public void setObject(Object object)
     {
-        log.debug(".setObject count: " + object != null ? ((List<Page3EO>)object).size() : "null");
+        //log.debug(".setObject count: " + object != null ? ((List<Page3EO>)object).size() : "null");
         this.page3EOs = (List<Page3EO>) object;
     }
 
