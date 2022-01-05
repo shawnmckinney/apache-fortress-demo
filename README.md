@@ -12,9 +12,9 @@
 
 ## Prerequisites for target environment
 1. Debian or Redhat Liunx variant machine with OpenSSL installed.
-2. Java 8++
-3. Apache Maven 3++
-4. Apache Tomcat 8++
+2. Java >= 8
+3. Apache Maven >= 3
+4. Apache Tomcat >= 8
 5. Firefox Web Browser
 6. Successful installation (of an LDAP server) and passing integration tests in either of these two Apache Fortress Core Quickstart guides:
     * *SECTION 3. Apache Fortress Core Integration Test* in [OPENLDAP QUICKSTART](https://github.com/apache/directory-fortress-core/blob/master/README-QUICKSTART-SLAPD.md)
