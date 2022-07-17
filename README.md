@@ -12,7 +12,7 @@
 
 ## Prerequisites for target environment
 1. Debian or Redhat Liunx variant machine with OpenSSL installed.
-2. Java >= 8
+2. Java >= 11
 3. Apache Maven >= 3
 4. Apache Tomcat >= 8
 5. Firefox Web Browser
