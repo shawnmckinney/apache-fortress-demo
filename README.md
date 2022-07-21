@@ -36,9 +36,9 @@
 
 5. Generate the java document that contains the demo installation instructions:
 
- ````maven
- mvn javadoc:javadoc
- ````
+````maven
+mvn javadoc:javadoc
+````
 
 6. Perform these steps:
  * [Managing PKI Keys](http://shawnmckinney.github.io/apache-fortress-demo/apidocs/doc-files/keys.html)
