@@ -1,3 +1,4 @@
+-- © 2023 iamfortress.net
 -- Setup a new MySQL user for fortress demo app:
 CREATE USER 'admin'@'localhost' IDENTIFIED BY 'secret';
 GRANT ALL PRIVILEGES ON *.* TO 'admin'@'localhost' WITH GRANT OPTION;

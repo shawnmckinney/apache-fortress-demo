@@ -1,6 +1,4 @@
-/*
- * This is free and unencumbered software released into the public domain.
- */
+/*  © 2023 iamfortress.net   */
 package com.mycompany;
 
 import org.apache.directory.fortress.web.control.WicketSession;

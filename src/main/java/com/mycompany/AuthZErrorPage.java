@@ -1,7 +1,4 @@
-/*
- * This is free and unencumbered software released into the public domain.
- */
-package com.mycompany;
+/*  © 2023 iamfortress.net   */package com.mycompany;
 
 import org.apache.wicket.markup.html.basic.Label;
 import org.apache.wicket.markup.html.link.Link;

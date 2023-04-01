@@ -1,6 +1,4 @@
-/*
- * This is free and unencumbered software released into the public domain.
- */
+/*  © 2023 iamfortress.net   */
 package com.mycompany;
 
 import java.lang.String;
@@ -46,7 +44,8 @@ public class ApacheFortressDemoSeleniumITCase
     {
         // Use Set the hostname:port:
         //baseUrl = "https://fortress-test-1.foo.com:8443";
-        baseUrl = "http://localhost:8080";
+        //baseUrl = "http://localhost:8080";
+        baseUrl = "https://fortress-a:8443";
         baseUrl += "/apache-fortress-demo";
         driver.manage().timeouts().implicitlyWait( 2500, TimeUnit.MILLISECONDS );
     }

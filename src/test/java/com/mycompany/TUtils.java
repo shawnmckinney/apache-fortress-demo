@@ -1,9 +1,5 @@
-/*
- * Copyright (c) 2009-2013, JoshuaTree. All Rights Reserved.
- */
-
+/*  © 2023 iamfortress.net   */
 package com.mycompany;
-
 
 import java.io.File;
 import java.io.IOException;
