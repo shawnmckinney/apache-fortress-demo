@@ -23,7 +23,7 @@ import org.apache.wicket.model.IModel;
 import org.apache.wicket.model.Model;
 import org.slf4j.LoggerFactory;
 
-import javax.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletRequest;
 import javax.swing.tree.DefaultMutableTreeNode;
 import javax.swing.tree.DefaultTreeModel;
 import java.util.ArrayList;
