@@ -27,9 +27,9 @@
 
 ## Instructions for installing manually:
 
-1. [wget](https://github.com/shawnmckinney/apache-fortress-demo/archive/master.zip)
+1. [wget](https://github.com/shawnmckinney/apache-fortress-demo/archive/master.zip) archive
    (or)
-2. [git clone](https://github.com/shawnmckinney/apache-fortress-demo.git)
+2. [git clone](https://github.com/shawnmckinney/apache-fortress-demo.git) repo
 
 3. Set java and maven home env variables.
 
