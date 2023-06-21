@@ -13,9 +13,9 @@
 
 ## Prerequisites for target environment
 1. Debian or Redhat Liunx variant machine with OpenSSL installed.
-2. Java >= 11
+2. Java >= 17
 3. Apache Maven >= 3
-4. Apache Tomcat >= 8
+4. Apache Tomcat >= 10
 5. Firefox Web Browser
 6. Successful installation (of an LDAP server) and passing integration tests in either of these two Apache Fortress Core Quickstart guides:
     * *SECTION 3. Apache Fortress Core Integration Test* in [OPENLDAP QUICKSTART](https://github.com/apache/directory-fortress-core/blob/master/README-QUICKSTART-SLAPD.md)
@@ -27,15 +27,13 @@
 
 ## Instructions for installing manually:
 
-1. [Download ZIP](https://github.com/shawnmckinney/apache-fortress-demo/archive/master.zip)
+1. [wget](https://github.com/shawnmckinney/apache-fortress-demo/archive/master.zip)
+   (or)
+2. [git clone](https://github.com/shawnmckinney/apache-fortress-demo.git)
 
-2. Extract the contents to your local machine.
+3. Set java and maven home env variables.
 
-3. cd apache-fortress-demo-master
-
-4. Set java and maven home env variables.
-
-5. Generate the java document that contains the demo installation instructions:
+4. Generate the java document that contains the demo installation instructions:
 
 ````maven
 mvn javadoc:javadoc
