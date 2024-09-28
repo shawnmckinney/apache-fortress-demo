@@ -102,7 +102,7 @@ trust.store.password=changeit
 trust.store.onclasspath=false
 
 # The host value from [<a href="hosts.html">Set Hostname Entry</a>] step:
-database.url=jdbc:mysql://fortressdemo2.com:3306/demoDB?useSSL=true&amp;requireSSL=true
+database.url=jdbc:mariadb://fortressdemo2.com:3306/demoDB?useSSL=true&amp;requireSSL=true
 
 # The JDBC creds required to match from [<a href="./mysql.html">Install MySQL</a>] step:
 database.username=admin
@@ -113,7 +113,7 @@ ldap.server.type=apacheds
 #ldap.server.type=openldap
 
 # Required:
-database.driver=com.mysql.jdbc.Driver
+database.driver=org.mariadb.jdbc.Driver
 
 # Required by the web app framework security components:
 perms.cached=true
