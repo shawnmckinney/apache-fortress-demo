@@ -32,7 +32,6 @@ enable.ldap.ssl=true
 enable.ldap.ssl.debug=false
 
 # These are the JDBC configuration params for MyBatis DAO connect to MySQL database example:
-#database.driver=com.mysql.jdbc.Driver
 database.driver=org.mariadb.jdbc.Driver
 database.url=jdbc:mariadb://fortressdemo2.com:3306/demoDB?useSSL=true&requireSSL=true
 
