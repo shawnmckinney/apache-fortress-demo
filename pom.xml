@@ -39,7 +39,7 @@
     <properties>
         <java.version>17</java.version>
         <fortress.version>3.0.0</fortress.version>
-        <spring.version>6.1.13</spring.version>
+        <spring.version>6.1.14</spring.version>
         <version.junit>4.13.2</version.junit>
         <version.ant>1.10.13</version.ant>
         <javadoc.version>2.9.1</javadoc.version>
