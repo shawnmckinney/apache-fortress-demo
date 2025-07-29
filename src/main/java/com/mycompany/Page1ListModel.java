@@ -3,7 +3,7 @@ package com.mycompany;
 
 import com.mycompany.dao.Page1DaoMgr;
 import com.mycompany.dao.Page1EO;
-import org.apache.commons.lang.StringUtils;
+import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.apache.wicket.Component;
