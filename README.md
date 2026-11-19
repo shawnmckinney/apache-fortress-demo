@@ -9,7 +9,7 @@
 
 ## (NEW) Instructions for installing automatically with Ansible:
    * Ansible playbooks to perform steps to install and setup Apache Fortress Demo, including OpenLDAP, Apache Tomcat, MariaDB, generating certs, keys, etc.
-   * [README.md](https://gitlab.symas.net/symas-public/ansible-apache-fortress/-/blob/master/README.md)
+   * [README.md](https://git.symas.net/symas-public/ansible-apache-fortress/-/blob/master/README.md)
 
 ## Prerequisites for target environment
 1. Debian or Redhat Liunx variant machine with OpenSSL installed.
